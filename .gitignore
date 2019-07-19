@@ -1,0 +1,11 @@
+*.config
+bin
+obj
+*.suo
+*.swp
+*.swn
+*.swo
+*.pdb
+*.dll
+*.exe
+*.vs
