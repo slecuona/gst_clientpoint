@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientPoint", "ClientPoint\ClientPoint.csproj", "{EE8C9B52-E0DB-4983-BBE5-9F9BF61E22B8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{06086A6F-C83D-451F-A7DD-4746BA19A60A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,21 +17,15 @@ Global
 		{EE8C9B52-E0DB-4983-BBE5-9F9BF61E22B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE8C9B52-E0DB-4983-BBE5-9F9BF61E22B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE8C9B52-E0DB-4983-BBE5-9F9BF61E22B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06086A6F-C83D-451F-A7DD-4746BA19A60A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06086A6F-C83D-451F-A7DD-4746BA19A60A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06086A6F-C83D-451F-A7DD-4746BA19A60A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06086A6F-C83D-451F-A7DD-4746BA19A60A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6730AE58-F08E-4EE9-B0EB-DEC71AE3870D}
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 1
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://gsttfs.gstint.com.ar:8080/tfs/gst
-		SccProjectUniqueName0 = ClientPoint\\ClientPoint.csproj
-		SccProjectName0 = ClientPoint
-		SccAuxPath0 = http://gsttfs.gstint.com.ar:8080/tfs/gst
-		SccLocalPath0 = ClientPoint
-		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 	EndGlobalSection
 EndGlobal
