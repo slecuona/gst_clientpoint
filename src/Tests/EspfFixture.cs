@@ -24,5 +24,12 @@ namespace Tests {
             Assert.AreEqual("2.0", req2.jsonrpc);
         }
 
+        [ExpectedException(typeof(Exception), "Error de comunicación con ESPF.")]
+        [TestMethod]
+        public void Send() {
+            var req = new Request();
+            var res = ServiceClient.Send(req);
+        }
+
     }
 }

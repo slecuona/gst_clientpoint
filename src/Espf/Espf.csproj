@@ -44,8 +44,15 @@
   <ItemGroup>
     <Compile Include="JsonUtils.cs" />
     <Compile Include="Request.cs" />
-    <Compile Include="Service.cs" />
+    <Compile Include="Response.cs" />
+    <Compile Include="ServiceClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{acc3b25a-9837-4d77-94b8-a9cec9df3aed}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
