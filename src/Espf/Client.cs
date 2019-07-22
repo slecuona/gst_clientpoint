@@ -8,7 +8,7 @@ namespace Espf {
     /// <summary>
     /// Esta clase se encarga de comunicarse con el ESPF por TCP
     /// </summary>
-    public static class ServiceClient {
+    public static class Client {
 
         private static TcpClient NewClient() {
             TcpClient client = null;

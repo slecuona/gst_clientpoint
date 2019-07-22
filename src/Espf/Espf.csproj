@@ -45,7 +45,7 @@
     <Compile Include="JsonUtils.cs" />
     <Compile Include="Request.cs" />
     <Compile Include="Response.cs" />
-    <Compile Include="ServiceClient.cs" />
+    <Compile Include="Client.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -31,7 +31,7 @@ namespace Tests {
             var org = Config.EspfPort;
             Config.EspfPort = "999";
             var req = new Request();
-            var res = ServiceClient.Send(req);
+            var res = Client.Send(req);
             Config.EspfPort = org;
         }
 
