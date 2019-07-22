@@ -27,8 +27,12 @@ namespace Tests {
         [ExpectedException(typeof(Exception), "Error de comunicación con ESPF.")]
         [TestMethod]
         public void Send() {
+            // Asigno una puerto invalido
+            var org = Config.EspfPort;
+            Config.EspfPort = "999";
             var req = new Request();
             var res = ServiceClient.Send(req);
+            Config.EspfPort = org;
         }
 
     }
