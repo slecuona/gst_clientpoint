@@ -13,7 +13,7 @@
         public string id;
 
         public static Response FromJson(string json) => 
-            JsonUtils.Deserialize<Response>(json);
+            (Response)JsonUtils.Deserialize(typeof(Response), json);
     }
     public class Error {
         public int code;

@@ -24,12 +24,13 @@ namespace Espf {
         }
 
         // Este metodo se replicó del DemoProgram (EspfClientProcessor)
-        private static string GetStream(TcpClient client, Request req) {
+        private static string GetStream(TcpClient client, Request.BaseRequest req) {
             var res = string.Empty;
+            var reqJson = req.ToJson();
+            var datain = Encoding.UTF8.GetBytes(reqJson);
             try {
                 NetworkStream ns = client.GetStream();
                 var received = 0;
-                var datain = Encoding.UTF8.GetBytes(req.ToJson());
                 ns.Write(datain, 0, datain.Length);
                 ns.Flush();
                 var data = new byte[1024];
@@ -51,11 +52,17 @@ namespace Espf {
             }
             return res;
         }
-        
-        public static Response Send(Request req) {
-            var client = NewClient();
-            var json = GetStream(client, req);
-            return Response.FromJson(json);
+
+        private static object _locker = new object();
+
+        public static Response Send(Request.BaseRequest req) {
+            lock (_locker) {
+                var client = NewClient();
+                var json = GetStream(client, req);
+                if (string.IsNullOrEmpty(json))
+                    throw new Exception("Se esperaba un json.");
+                return Response.FromJson(json);
+            }
         }
     }
 }

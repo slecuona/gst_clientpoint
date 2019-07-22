@@ -10,22 +10,31 @@ namespace Espf {
     /// </summary>
     public static class JsonUtils {
 
-        public static string Serialize<T>(object obj) {
-            var stream = new MemoryStream();
-            var serializer = new DataContractJsonSerializer(typeof(T));
-            serializer.WriteObject(stream, obj);
-            stream.Position = 0;
-            var reader = new StreamReader(stream);
-            return reader.ReadToEnd();
+        public static string Serialize(Type type, object obj) {
+            try {
+                var stream = new MemoryStream();
+                var serializer = new DataContractJsonSerializer(type);
+                serializer.WriteObject(stream, obj);
+                stream.Position = 0;
+                var reader = new StreamReader(stream);
+                return reader.ReadToEnd();
+            }
+            catch (Exception ex) {
+                throw new Exception($"Error al serializar objeto {type}.", ex);
+            }
         }
 
-        public static T Deserialize<T>(string json) {
-            var serializer = new DataContractJsonSerializer(typeof(T));
-            object result;
-            using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(json))) {
-                result = serializer.ReadObject(ms);
+        public static object Deserialize(Type type, string json) {
+            try {
+                var serializer = new DataContractJsonSerializer(type);
+                object result;
+                using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(json))) {
+                    result = serializer.ReadObject(ms);
+                }
+                return result;
+            } catch (Exception ex) {
+                throw new Exception($"Error al deserializar objeto {type}.", ex);
             }
-            return (T)result;
         }
 
     }
