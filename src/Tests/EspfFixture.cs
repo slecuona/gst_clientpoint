@@ -41,6 +41,13 @@ namespace Tests {
             Assert.AreEqual("OK", res);
         }
 
+        // Para los test, no deberia detectar una impresora
+        [ExpectedException(typeof(Exception), "Device not found")]
+        [TestMethod]
+        public void SendGetStateRequest() {
+            Services.SupGetState("STATE1");
+        }
+
         [Ignore]
         [ExpectedException(typeof(Exception), "Error de comunicación con ESPF.")]
         [TestMethod]

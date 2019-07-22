@@ -63,5 +63,12 @@ namespace Espf {
             // devuelve "OK"
             return Client.Send(req);
         }
+
+        // Estado de la impresora
+        public static string SupGetState(string id) {
+            var req = new SupRequest(id, "GetState");
+            // devuelve string [majorstate, minorstate]
+            return Client.Send(req);
+        }
     }
 }
