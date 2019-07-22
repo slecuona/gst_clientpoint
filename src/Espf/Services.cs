@@ -1,19 +1,67 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Common;
 using Espf.Request;
 
 namespace Espf {
+    // La documentacion de estos Servicios/metodos estan en ReferenceGuide_PremiumSDK.pdf
     public static class Services {
+        // Nos permite verificar que ESPF este funcionando
         public static string Echo(string id, string data) {
             var req = new EchoRequest(id, data);
-            var res = Client.Send(req);
-            if(res.error != null)
-                throw new Exception(
-                    $"Response error: {res.error.code} - {res.error.message}");
-            return res.result;
+            return Client.Send(req);
+        }
+
+        // Inicializa la session de impresion
+        public static string PrintBegin(string id) {
+            var req = new PrintRequest(id, PrintMethods.Begin, 
+                new PrintParams() {
+                    device = Config.EspfPrinter
+                });
+            // devuelve session/job id
+            return Client.Send(req);
+        }
+
+        // Setea los parametros de impresion
+        // data ej: "FColorBrightness=VAL12;GRibbonType=RC_YMCKO"
+        public static string PrintSet(string id, string session, string data) {
+            var req = new PrintRequest(id, PrintMethods.Set,
+                new PrintParams() {
+                    session = session,
+                    data = data
+                });
+            // devuelve "OK"
+            return Client.Send(req);
+        }
+
+        // Arranca la impresion
+        // El metodo se llama "PRINT.Print"
+        public static string PrintStart(string id, string session) {
+            var req = new PrintRequest(id, PrintMethods.Print,
+                new PrintParams() {
+                    session = session
+                });
+            // devuelve "OK"
+            return Client.Send(req);
+        }
+
+        // Devuelve la session actual.
+        // (No creo que lo usemos)
+        public static string PrintGetJobID(string id, string session) {
+            var req = new PrintRequest(id, PrintMethods.GetJobID,
+                new PrintParams() {
+                    device = Config.EspfPrinter
+                });
+            // devuelve session/job id
+            return Client.Send(req);
+        }
+
+        // Finaliza la session de impresion
+        public static string PrintEnd(string id, string session) {
+            var req = new PrintRequest(id, PrintMethods.End,
+                new PrintParams() {
+                    session = session
+                });
+            // devuelve "OK"
+            return Client.Send(req);
         }
     }
 }

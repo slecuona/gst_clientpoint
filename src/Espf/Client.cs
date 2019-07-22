@@ -55,13 +55,17 @@ namespace Espf {
 
         private static object _locker = new object();
 
-        public static Response Send(Request.BaseRequest req) {
+        public static string Send(Request.BaseRequest req) {
             lock (_locker) {
                 var client = NewClient();
                 var json = GetStream(client, req);
                 if (string.IsNullOrEmpty(json))
                     throw new Exception("Se esperaba un json.");
-                return Response.FromJson(json);
+                var res = Response.FromJson(json);
+                if (res.error != null)
+                    throw new Exception(
+                        $"Response error: {res.error.code} - {res.error.message}");
+                return res.result;
             }
         }
     }

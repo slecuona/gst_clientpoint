@@ -25,14 +25,22 @@ namespace Tests {
         }
 
         // Los siguientes tests utilizan el ESPF
-        // (Si no existe o no está configurado correctamente, fallan)
+        // (Fallan si no existe o no está configurado correctamente)
 
         [TestMethod]
         public void SendEchoRequest() {
             var result = Services.Echo("ECHO1", "test");
             Assert.AreEqual("test", result);
         }
-        
+
+        [TestMethod]
+        public void SendPrintRequest() {
+            var session = Services.PrintBegin("PRINT1");
+            Assert.IsFalse(string.IsNullOrEmpty(session));
+            var res = Services.PrintEnd("PRINT2", session);
+            Assert.AreEqual("OK", res);
+        }
+
         [Ignore]
         [ExpectedException(typeof(Exception), "Error de comunicación con ESPF.")]
         [TestMethod]
