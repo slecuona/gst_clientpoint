@@ -48,6 +48,12 @@ namespace Tests {
             Services.SupGetState("STATE1");
         }
 
+        [ExpectedException(typeof(Exception), "Get status error")]
+        [TestMethod]
+        public void SendCmdRequest() {
+            Services.CmdGetStatus("CMD1");
+        }
+
         [Ignore]
         [ExpectedException(typeof(Exception), "Error de comunicación con ESPF.")]
         [TestMethod]

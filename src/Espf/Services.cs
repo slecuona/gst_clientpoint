@@ -70,5 +70,27 @@ namespace Espf {
             // devuelve string [majorstate, minorstate]
             return Client.Send(req);
         }
+
+        // CMD.SendCommand
+        public static string CmdSend(string id, string cmd) {
+            var req = new CmdRequest(id, CmdMethods.SendCommand, cmd);
+            // devuelve respuesta del cmd
+            return Client.Send(req);
+        }
+
+        // CMD.GetStatus
+        public static string CmdGetStatus(string id) {
+            var req = new CmdRequest(id, CmdMethods.GetStatus);
+            // devuelve un string binario (Ver 5.1. Binary status of a printer)
+            return Client.Send(req);
+        }
+
+        // CMD.ResetCom: reinicia la comunicacion con la impresora
+        public static string CmdResetCom(string id) {
+            var req = new CmdRequest(id, CmdMethods.ResetCom);
+            // devuelve "OK"
+            return Client.Send(req);
+        }
+
     }
 }
