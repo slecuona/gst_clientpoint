@@ -3,9 +3,8 @@ using System.Diagnostics;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
-using Common;
 
-namespace Espf {
+namespace ClientPoint.Espf {
     /// <summary>
     /// Esta clase se encarga de comunicarse con el ESPF por TCP
     /// </summary>

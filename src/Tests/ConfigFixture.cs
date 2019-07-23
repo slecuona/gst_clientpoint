@@ -1,5 +1,5 @@
 ﻿using System;
-using Common;
+using ClientPoint;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests {

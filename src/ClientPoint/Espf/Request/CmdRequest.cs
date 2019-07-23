@@ -1,6 +1,4 @@
-﻿using Common;
-
-namespace Espf.Request {
+﻿namespace ClientPoint.Espf.Request {
     public class CmdRequest : BaseRequest {
         public CmdParams parameters;
 

@@ -57,13 +57,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common\Common.csproj">
-      <Project>{ACC3B25A-9837-4D77-94B8-A9CEC9DF3AED}</Project>
-      <Name>Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Espf\Espf.csproj">
-      <Project>{d45b5670-e80b-4664-adf2-105aa30dc4c3}</Project>
-      <Name>Espf</Name>
+    <ProjectReference Include="..\ClientPoint\ClientPoint.csproj">
+      <Project>{EE8C9B52-E0DB-4983-BBE5-9F9BF61E22B8}</Project>
+      <Name>ClientPoint</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

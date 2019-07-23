@@ -1,9 +1,9 @@
 ﻿using System;
 using System.IO;
-using System.Text;
 using System.Runtime.Serialization.Json;
+using System.Text;
 
-namespace Espf {
+namespace ClientPoint.Espf {
     /// <summary>
     /// Esta clase contiene el metodo de serializacion tal cual
     /// se utilizaba en el DemoProgram del SDK de Evolis

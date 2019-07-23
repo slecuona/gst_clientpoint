@@ -38,7 +38,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,6 +52,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config.cs" />
+    <Compile Include="Espf\Client.cs" />
+    <Compile Include="Espf\JsonUtils.cs" />
+    <Compile Include="Espf\PrintJob.cs" />
+    <Compile Include="Espf\Request\BaseRequest.cs" />
+    <Compile Include="Espf\Request\CmdRequest.cs" />
+    <Compile Include="Espf\Request\EchoRequest.cs" />
+    <Compile Include="Espf\Request\PrintRequest.cs" />
+    <Compile Include="Espf\Request\SupRequest.cs" />
+    <Compile Include="Espf\Response.cs" />
+    <Compile Include="Espf\Services.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,12 +96,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Espf\Espf.csproj">
-      <Project>{d45b5670-e80b-4664-adf2-105aa30dc4c3}</Project>
-      <Name>Espf</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

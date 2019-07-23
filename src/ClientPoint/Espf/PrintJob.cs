@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Espf {
+namespace ClientPoint.Espf {
     public class PrintJob {
         private const string SETTINGS = "GRibbonType=RM_KBLACK;Duplex=NONE";
 

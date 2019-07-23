@@ -1,4 +1,4 @@
-﻿namespace Espf.Request {
+﻿namespace ClientPoint.Espf.Request {
     /// <summary>
     /// Estructura base de un request de ESPF.
     /// Este obj se serializa a json.

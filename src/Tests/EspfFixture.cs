@@ -1,7 +1,7 @@
 ﻿using System;
-using Common;
-using Espf;
-using Espf.Request;
+using ClientPoint;
+using ClientPoint.Espf;
+using ClientPoint.Espf.Request;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests {

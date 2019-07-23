@@ -1,4 +1,4 @@
-﻿namespace Espf.Request {
+﻿namespace ClientPoint.Espf.Request {
     public class PrintRequest : BaseRequest {
         public PrintParams parameters;
 

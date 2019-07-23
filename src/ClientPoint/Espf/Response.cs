@@ -1,4 +1,4 @@
-﻿namespace Espf {
+﻿namespace ClientPoint.Espf {
     /// <summary>
     /// Respuesta de ESPF.
     /// Este obj se deserializa desde un json.

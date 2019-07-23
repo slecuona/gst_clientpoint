@@ -1,7 +1,6 @@
-﻿using Common;
-using Espf.Request;
+﻿using ClientPoint.Espf.Request;
 
-namespace Espf {
+namespace ClientPoint.Espf {
     // La documentacion de estos Servicios/metodos estan en ReferenceGuide_PremiumSDK.pdf
     public static class Services {
         // Nos permite verificar que ESPF este funcionando

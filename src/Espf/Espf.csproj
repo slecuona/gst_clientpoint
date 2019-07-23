@@ -42,23 +42,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="JsonUtils.cs" />
-    <Compile Include="PrintJob.cs" />
-    <Compile Include="Request\CmdRequest.cs" />
-    <Compile Include="Request\SupRequest.cs" />
-    <Compile Include="Request\PrintRequest.cs" />
-    <Compile Include="Request\EchoRequest.cs" />
-    <Compile Include="Request\BaseRequest.cs" />
-    <Compile Include="Response.cs" />
-    <Compile Include="Client.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{acc3b25a-9837-4d77-94b8-a9cec9df3aed}</Project>
       <Name>Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Request\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
