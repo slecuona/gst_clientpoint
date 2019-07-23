@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
@@ -27,6 +28,7 @@ namespace Espf {
         private static string GetStream(TcpClient client, Request.BaseRequest req) {
             var res = string.Empty;
             var reqJson = req.ToJson();
+            Debug.WriteLine($"[JSON SEND] => {reqJson}");
             var datain = Encoding.UTF8.GetBytes(reqJson);
             try {
                 NetworkStream ns = client.GetStream();
@@ -46,7 +48,7 @@ namespace Espf {
                 }
                 ns.Close();
             } catch (Exception ex) {
-
+                Debug.WriteLine($"ERR. GetStream. => {ex.Message}");
             } finally {
                 client.Close();
             }
@@ -61,6 +63,7 @@ namespace Espf {
                 var json = GetStream(client, req);
                 if (string.IsNullOrEmpty(json))
                     throw new Exception("Se esperaba un json.");
+                Debug.WriteLine($"[JSON RESPONSE] => {json}");
                 var res = Response.FromJson(json);
                 if (res.error != null)
                     throw new Exception(

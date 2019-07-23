@@ -32,6 +32,20 @@ namespace Espf {
             return Client.Send(req);
         }
 
+        public static string PrintSetBitmap(string id, string session, string data) {
+            var req = new PrintRequest(id, PrintMethods.SetBitmap,
+                new PrintParams() {
+                    session = session,
+                    data = data,
+                    // Estos datos por ahora van hardcodeados.
+                    // (no creo que haya otro caso de uso)
+                    face = "front",
+                    panel = "resin"
+                });
+            // devuelve "OK"
+            return Client.Send(req);
+        }
+
         // Arranca la impresion
         // El metodo se llama "PRINT.Print"
         public static string PrintStart(string id, string session) {

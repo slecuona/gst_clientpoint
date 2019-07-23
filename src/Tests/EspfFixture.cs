@@ -65,5 +65,13 @@ namespace Tests {
             var res = Client.Send(req);
             Config.EspfPort = org;
         }
+
+        // Obviamente, falla al momento de imprimir.
+        [ExpectedException(typeof(Exception), "Print error")]
+        [TestMethod]
+        public void PrintJob() {
+            var job = new PrintJob();
+            job.Start();
+        }
     }
 }

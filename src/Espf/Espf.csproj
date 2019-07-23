@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="JsonUtils.cs" />
+    <Compile Include="PrintJob.cs" />
     <Compile Include="Request\CmdRequest.cs" />
     <Compile Include="Request\SupRequest.cs" />
     <Compile Include="Request\PrintRequest.cs" />
