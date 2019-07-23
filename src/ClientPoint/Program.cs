@@ -13,6 +13,9 @@ namespace ClientPoint {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            Status.Espf();
+
             Application.Run(new Form1());
         }
     }
