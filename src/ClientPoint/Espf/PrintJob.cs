@@ -3,12 +3,28 @@
 namespace ClientPoint.Espf {
     public class PrintJob {
         private const string SETTINGS = "GRibbonType=RM_KBLACK;Duplex=NONE";
+        private const string COERCIVITY = "l"; // (high or low)
+        private const int TRACK = 2;
+        
+        //1 ISO1 
+        //2 ISO2 
+        //3 ISO3 
+        //4 Sipass 
+        //5 Custom2 
+        //6 JIS 
+        //7 Custom4
+        //c1 Sipass
+        //c2 Custom2
+        //c3 JIS
+        //c4 Custom4
+        //d Default value
+        private const string FORMAT = "2";
 
         private string _sessionId;
         private string _data;
 
         public PrintJob() {
-            _data = "123456789";
+            _data = "60001105854000";
         }
 
         private static void ExecStepOrFail(Func<string> action, string msg) {
@@ -59,14 +75,13 @@ namespace ClientPoint.Espf {
             try {
                 // 1 - magnetic coercivity to high
                 // (calidad de la banda magnetica, negra o marron?)
-                //TODO: o low?
                 ExecStepOrFail(
-                    () => Services.CmdSend("WRITE1", "Pmc;h"),
+                    () => Services.CmdSend("WRITE1", $"Pmc;{COERCIVITY}"),
                     "Coercivity");
 
-                // 2 - magnetic track 1 to ISO1
+                // 2 - magnetic track format
                 ExecStepOrFail(
-                    () => Services.CmdSend("WRITE2", "Pmt;1;1"),
+                    () => Services.CmdSend("WRITE2", $"Pmt;{TRACK};{FORMAT}"),
                     "ISO1");
 
                 // 3 - sequence start
@@ -74,19 +89,26 @@ namespace ClientPoint.Espf {
                     () => Services.CmdSend("WRITE3", "Ss"),
                     "SequenceStart");
 
-                // 4 - download data inside magnetic buffer track 1
+                // 4 - download data inside magnetic buffer track
                 ExecStepOrFail(
-                    () => Services.CmdSend("WRITE4", $"Dm;1;{_data}"),
+                    () => Services.CmdSend("WRITE4", $"Dm;{TRACK};{_data}"),
                     "DownloadData");
 
                 // 5 - write magnetic track
+                // Este proceso suele demorar más. 30 segs de timeout
                 ExecStepOrFail(
-                    () => Services.CmdSend("WRITE5", "Smw"),
+                    () => Services.CmdSend("WRITE5", "Smw", 30000),
                     "WriteTrack");
+
+                // 6 - read and check
+                var res = Services.CmdSend("WRITE6", $"Rmb;{TRACK}");
+                if(res != _data)
+                    throw new Exception("Los datos no se grabaron correctamente. " +
+                                        $"({res} != {_data})");
 
                 // 6 - eject?
                 ExecStepOrFail(
-                    () => Services.CmdSend("WRITE6", "Se"),
+                    () => Services.CmdSend("WRITE7", "Se", 30000),
                     "Eject");
                 
 

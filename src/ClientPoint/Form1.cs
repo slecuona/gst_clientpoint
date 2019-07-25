@@ -26,7 +26,7 @@ namespace ClientPoint {
         private void button1_Click(object sender, EventArgs e) {
             try {
                 var job = new PrintJob();
-                job.Start();
+                job.WriteData();
             }
             catch (Exception ex) {
                 MessageBox.Show($"ERR: {ex.Message}");

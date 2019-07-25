@@ -85,8 +85,8 @@ namespace ClientPoint.Espf {
         }
 
         // CMD.SendCommand
-        public static string CmdSend(string id, string cmd) {
-            var req = new CmdRequest(id, CmdMethods.SendCommand, cmd);
+        public static string CmdSend(string id, string cmd, int timeout = 0) {
+            var req = new CmdRequest(id, CmdMethods.SendCommand, cmd, timeout);
             // devuelve respuesta del cmd
             return Client.Send(req);
         }

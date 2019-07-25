@@ -1,11 +1,16 @@
 ﻿namespace ClientPoint.Espf.Request {
     public class CmdRequest : BaseRequest {
+        private const int DEF_TIMEOUT = 5000;
         public CmdParams parameters;
 
         public CmdRequest() {}
-        public CmdRequest(string id, CmdMethods method, string cmd = null) : base(id) {
+        public CmdRequest(string id, CmdMethods method, string cmd = null, int timeout = 0) : base(id) {
+            if (timeout == 0)
+                timeout = DEF_TIMEOUT;
+
             this.parameters = new CmdParams() {
-                command = cmd
+                command = cmd,
+                timeout = timeout.ToString()
             };
             this.method = $"CMD.{method}";
         }
@@ -20,6 +25,6 @@
     public class CmdParams {
         public string device = Config.EspfPrinter;
         public string command;
-        public string timeout = "5000"; //TODO: config?
+        public string timeout;
     }
 }
