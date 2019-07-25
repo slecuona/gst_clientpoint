@@ -20,6 +20,6 @@
     public class CmdParams {
         public string device = Config.EspfPrinter;
         public string command;
-        public string timeout = "3000"; //TODO: config?
+        public string timeout = "5000"; //TODO: config?
     }
 }

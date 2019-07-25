@@ -73,5 +73,12 @@ namespace Tests {
             var job = new PrintJob();
             job.Start();
         }
+
+        [ExpectedException(typeof(Exception), "Send command error")]
+        [TestMethod]
+        public void PrintJobWrite() {
+            var job = new PrintJob();
+            job.WriteData();
+        }
     }
 }

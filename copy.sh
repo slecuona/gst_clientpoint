@@ -1,0 +1,1 @@
+cp src/ClientPoint/* C:/GST/VS2015-WindowsApplications/ClientPoint/ -r
