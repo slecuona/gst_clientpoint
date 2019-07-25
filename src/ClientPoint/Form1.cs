@@ -1,19 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClientPoint.Espf;
 
 namespace ClientPoint {
     public partial class Form1 : Form {
+        private SwipeReader _swipeReader;
+
         public Form1() {
             InitializeComponent();
+            
+            _swipeReader = new SwipeReader(this, OnSwipe);
+            
         }
+
+        private void OnSwipe(string data) {
+            label1.Text = data;
+        }
+
+        //protected override void WndProc(ref Message m) {
+        //    // Listen for operating system messages.
+        //    //Console.WriteLine($"Msg: {m.Msg}");
+        //    base.WndProc(ref m);
+        //}
 
         private void button1_Click(object sender, EventArgs e) {
             try {
