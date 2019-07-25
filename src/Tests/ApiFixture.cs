@@ -1,6 +1,4 @@
-﻿using System;
-using ClientPoint;
-using ClientPoint.Api;
+﻿using ClientPoint.Api;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests {
