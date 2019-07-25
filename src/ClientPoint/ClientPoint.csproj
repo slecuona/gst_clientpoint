@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\ApiQuery.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Espf\Client.cs" />
     <Compile Include="Espf\JsonUtils.cs" />

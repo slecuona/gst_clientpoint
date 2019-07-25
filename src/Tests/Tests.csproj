@@ -49,6 +49,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiFixture.cs" />
     <Compile Include="EspfFixture.cs" />
     <Compile Include="ConfigFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
