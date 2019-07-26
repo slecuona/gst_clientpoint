@@ -15,6 +15,8 @@ namespace ClientPoint {
             EspfIp = GetSetting("EspfIp", "127.0.0.1");
             EspfPort = GetSetting("EspfPort", "18000");
             EspfPrinter = GetSetting("EspfPrinter", "Evolis KC200");
+
+            ApiUrl = GetSetting("ApiUrl", API_URL_DEF);
         }
 
         /// <summary>
@@ -31,6 +33,13 @@ namespace ClientPoint {
         /// Nombre de la impresora configurada en el ESPF
         /// </summary>
         public static string EspfPrinter;
+
+        /// <summary>
+        /// URL Base de la API.
+        /// </summary>
+        private const string API_URL_DEF = 
+            "http://192.168.10.100/mobile/api/ClientPoint/";
+        public static string ApiUrl;
 
     }
 }

@@ -4,19 +4,16 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
 using ClientPoint.Espf;
 
 namespace ClientPoint.Api {
     public static class ApiQuery {
-        private static string BaseUrl = "http://192.168.10.100/mobile/api/ClientPoint/";
-
 
         private static string Request(string op, string json) {
             try {
                 Debug.WriteLine($"[JSON REQUEST] => {json}");
                 using (var client = new HttpClient()) {
-                    client.BaseAddress = new Uri(BaseUrl);
+                    client.BaseAddress = new Uri(Config.ApiUrl);
                     var content = new StringContent(json, Encoding.UTF8, "application/json");
                     var result = client.PostAsync(op, content).Result;
                     var res = result.Content.ReadAsStringAsync().Result;

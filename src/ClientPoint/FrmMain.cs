@@ -1,16 +1,29 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
+using ClientPoint.Ads;
 using ClientPoint.Espf;
 
 namespace ClientPoint {
-    public partial class Form1 : Form {
+    public partial class FrmMain : Form {
         private SwipeReader _swipeReader;
+        private AdsPlayer _adsPlayer;
 
-        public Form1() {
+        public FrmMain() {
             InitializeComponent();
-            
+            _adsPlayer = new AdsPlayer() {
+                Size = new Size(500, 500),
+                Location = new Point(100, 50)
+            };
+            this.Controls.Add(_adsPlayer);
             _swipeReader = new SwipeReader(this, OnSwipe);
+            this.Shown += OnShown;
             
+        }
+
+        private void OnShown(object sender, EventArgs e) {
+            _adsPlayer.Init();
+            _adsPlayer.PlayRandom();
         }
 
         private void OnSwipe(string data) {

@@ -1,5 +1,5 @@
 ﻿namespace ClientPoint {
-    partial class Form1 {
+    partial class FrmMain {
         /// <summary>
         /// Required designer variable.
         /// </summary>

@@ -8,7 +8,7 @@ namespace ClientPoint {
         private bool _reading = false;
         private Action<string> _onSwipe;
 
-        public SwipeReader(Form1 frm, Action<string> onSwipe) {
+        public SwipeReader(FrmMain frm, Action<string> onSwipe) {
             _onSwipe = onSwipe;
             frm.KeyPreview = true;
             frm.KeyPress += FrmOnKeyPress;

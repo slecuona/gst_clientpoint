@@ -16,7 +16,7 @@ namespace ClientPoint {
 
             Status.Espf();
 
-            Application.Run(new Form1());
+            Application.Run(new FrmMain());
         }
     }
 }
