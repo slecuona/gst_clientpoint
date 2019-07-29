@@ -46,16 +46,14 @@ namespace ClientPoint.UI
             // radPanel1
             // 
             this.radPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.radPanel1.BackColor = System.Drawing.Color.Transparent;
             this.radPanel1.Controls.Add(this.btnNewClient);
             this.radPanel1.Controls.Add(this.btnBack);
             this.radPanel1.Controls.Add(this.btnConfirm);
-            this.radPanel1.ForeColor = System.Drawing.Color.Transparent;
             this.radPanel1.Location = new System.Drawing.Point(19, 33);
             this.radPanel1.Name = "radPanel1";
             this.radPanel1.Size = new System.Drawing.Size(400, 325);
             this.radPanel1.TabIndex = 3;
-            this.radPanel1.PanelElement.PanelBorder.Width = 0;
+            ((Telerik.WinControls.Primitives.BorderPrimitive)(this.radPanel1.GetChildAt(0).GetChildAt(1))).Width = 0F;
             // 
             // btnNewClient
             // 
@@ -66,7 +64,9 @@ namespace ClientPoint.UI
             this.btnNewClient.Padding = new System.Windows.Forms.Padding(20, 5, 0, 5);
             this.btnNewClient.Size = new System.Drawing.Size(400, 75);
             this.btnNewClient.TabIndex = 3;
+            this.btnNewClient.TabStop = false;
             this.btnNewClient.Text = "Nuevo Cliente";
+            this.btnNewClient.Click += new System.EventHandler(this.btnNewClient_Click);
             // 
             // btnBack
             // 
@@ -77,6 +77,7 @@ namespace ClientPoint.UI
             this.btnBack.Padding = new System.Windows.Forms.Padding(20, 5, 0, 5);
             this.btnBack.Size = new System.Drawing.Size(400, 75);
             this.btnBack.TabIndex = 5;
+            this.btnBack.TabStop = false;
             this.btnBack.Text = "Salir";
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click_1);
             // 
@@ -89,6 +90,7 @@ namespace ClientPoint.UI
             this.btnConfirm.Padding = new System.Windows.Forms.Padding(20, 5, 0, 5);
             this.btnConfirm.Size = new System.Drawing.Size(400, 75);
             this.btnConfirm.TabIndex = 4;
+            this.btnConfirm.TabStop = false;
             this.btnConfirm.Text = "Confirmar";
             // 
             // FrmNewUsr

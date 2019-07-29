@@ -7,6 +7,12 @@ namespace ClientPoint.UI {
             InitializeComponent();
 
             this.Load += OnLoad;
+
+            // Esto busca reducir el flickering entre ventanas
+            this.SetStyle(System.Windows.Forms.ControlStyles.UserPaint |
+                          System.Windows.Forms.ControlStyles.AllPaintingInWmPaint |
+                          System.Windows.Forms.ControlStyles.OptimizedDoubleBuffer,
+                true);
         }
 
         private void OnLoad(object sender, EventArgs e) {

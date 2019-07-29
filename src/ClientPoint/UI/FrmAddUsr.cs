@@ -9,23 +9,23 @@ using Telerik.WinControls;
 
 namespace ClientPoint.UI
 {
-    public partial class FrmNewUsr : FrmBase
+    public partial class FrmAddUsr : FrmBase
     {
-        public FrmNewUsr()
+        public FrmAddUsr()
         {
             InitializeComponent();
         }
-        
+
         private void btnBack_Click(object sender, EventArgs e) {
-            
+            UIManager.Show(Window.NewUsr);
         }
 
         private void btnBack_Click_1(object sender, EventArgs e) {
-            UIManager.Show(Window.Ads);
+            UIManager.Show(Window.NewUsr);
         }
 
-        private void btnNewClient_Click(object sender, EventArgs e) {
-            UIManager.Show(Window.AddUsr);
+        private void radScrollablePanel1_Click(object sender, EventArgs e) {
+
         }
     }
 }

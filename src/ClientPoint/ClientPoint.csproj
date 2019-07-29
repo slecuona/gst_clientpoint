@@ -87,6 +87,12 @@
     <Compile Include="UI\CustomButton.Designer.cs">
       <DependentUpon>CustomButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\CustomField.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\CustomField.Designer.cs">
+      <DependentUpon>CustomField.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\FrmAds.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,12 @@
     </Compile>
     <Compile Include="Status.cs" />
     <Compile Include="SwipeReader.cs" />
+    <Compile Include="UI\FrmAddUsr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmAddUsr.Designer.cs">
+      <DependentUpon>FrmAddUsr.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\FrmNewUsr.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +123,9 @@
     </Compile>
     <Compile Include="UI\UIManager.cs" />
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="UI\CustomField.resx">
+      <DependentUpon>CustomField.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\FrmAds.resx">
       <DependentUpon>FrmAds.cs</DependentUpon>
     </EmbeddedResource>
@@ -126,6 +141,9 @@
     </Compile>
     <EmbeddedResource Include="UI\FrmBase.resx">
       <DependentUpon>FrmBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmAddUsr.resx">
+      <DependentUpon>FrmAddUsr.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FrmNewUsr.resx">
       <DependentUpon>FrmNewUsr.cs</DependentUpon>
