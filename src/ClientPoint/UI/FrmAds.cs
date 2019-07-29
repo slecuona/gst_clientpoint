@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 using ClientPoint.Ads;
@@ -8,6 +9,7 @@ namespace ClientPoint.UI {
     public partial class FrmAds : FrmBase {
         private SwipeReader _swipeReader;
         private AdsPlayer _adsPlayer;
+        private bool _started = false;
 
         public FrmAds() {
             InitializeComponent();
@@ -44,17 +46,28 @@ namespace ClientPoint.UI {
         private void OnShown(object sender, EventArgs e) {
             _adsPlayer.Init();
             _adsPlayer.PlayRandom();
+            _started = true;
         }
 
         private void OnSwipe(string data) {
             label1.Text = data;
         }
+        
+        protected override void WndProc(ref Message m) {
+            // Listen for operating system messages.
+            Debug.WriteLine($"Msg: {m.Msg}");
 
-        //protected override void WndProc(ref Message m) {
-        //    // Listen for operating system messages.
-        //    //Console.WriteLine($"Msg: {m.Msg}");
-        //    base.WndProc(ref m);
-        //}
+            // El reproductor no tiene un handle para el click.
+            // Por ahora es la forma que se encontró para que la ventana
+            // reaccione correctamente al 'tap'
+            // TODO: Hacer pruebas con W10 tablet mode
+            if (_started && m.Msg == 528) {
+                //UIManager.Show(Window.NewUsr);
+                return;
+            }
+
+            base.WndProc(ref m);
+        }
 
         private void button1_Click(object sender, EventArgs e) {
             try {
