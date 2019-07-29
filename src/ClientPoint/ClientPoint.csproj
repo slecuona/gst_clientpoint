@@ -81,6 +81,12 @@
     <Compile Include="Espf\Request\SupRequest.cs" />
     <Compile Include="Espf\Response.cs" />
     <Compile Include="Espf\Services.cs" />
+    <Compile Include="UI\CustomButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\CustomButton.Designer.cs">
+      <DependentUpon>CustomButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\FrmAds.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,7 @@
       <DependentUpon>FrmNewUsr.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\UIManager.cs" />
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="UI\FrmAds.resx">
       <DependentUpon>FrmAds.cs</DependentUpon>
     </EmbeddedResource>
@@ -115,6 +122,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UI\FrmBase.resx">
       <DependentUpon>FrmBase.cs</DependentUpon>
@@ -153,6 +161,15 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\confirm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

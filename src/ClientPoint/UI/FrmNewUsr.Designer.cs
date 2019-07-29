@@ -1,4 +1,7 @@
-﻿namespace ClientPoint.UI
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace ClientPoint.UI
 {
     partial class FrmNewUsr
     {
@@ -28,26 +31,72 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
+            this.btnNewClient = new ClientPoint.UI.CustomButton();
+            this.btnBack = new ClientPoint.UI.CustomButton();
+            this.btnConfirm = new ClientPoint.UI.CustomButton();
+            ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).BeginInit();
+            this.radPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnNewClient)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnConfirm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // radPanel1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.radPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.radPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.radPanel1.Controls.Add(this.btnNewClient);
+            this.radPanel1.Controls.Add(this.btnBack);
+            this.radPanel1.Controls.Add(this.btnConfirm);
+            this.radPanel1.ForeColor = System.Drawing.Color.Transparent;
+            this.radPanel1.Location = new System.Drawing.Point(19, 33);
+            this.radPanel1.Name = "radPanel1";
+            this.radPanel1.Size = new System.Drawing.Size(400, 325);
+            this.radPanel1.TabIndex = 3;
+            this.radPanel1.PanelElement.PanelBorder.Width = 0;
+            // 
+            // btnNewClient
+            // 
+            this.btnNewClient.Font = new System.Drawing.Font("Helvetica-Normal", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewClient.Image = global::ClientPoint.Properties.Resources.plus;
+            this.btnNewClient.Location = new System.Drawing.Point(0, 0);
+            this.btnNewClient.Name = "btnNewClient";
+            this.btnNewClient.Padding = new System.Windows.Forms.Padding(20, 5, 0, 5);
+            this.btnNewClient.Size = new System.Drawing.Size(400, 75);
+            this.btnNewClient.TabIndex = 3;
+            this.btnNewClient.Text = "Nuevo Cliente";
+            // 
+            // btnBack
+            // 
+            this.btnBack.Font = new System.Drawing.Font("Helvetica-Normal", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Image = global::ClientPoint.Properties.Resources.back;
+            this.btnBack.Location = new System.Drawing.Point(0, 250);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Padding = new System.Windows.Forms.Padding(20, 5, 0, 5);
+            this.btnBack.Size = new System.Drawing.Size(400, 75);
+            this.btnBack.TabIndex = 5;
+            this.btnBack.Text = "Salir";
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click_1);
+            // 
+            // btnConfirm
+            // 
+            this.btnConfirm.Font = new System.Drawing.Font("Helvetica-Normal", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirm.Image = global::ClientPoint.Properties.Resources.confirm;
+            this.btnConfirm.Location = new System.Drawing.Point(0, 125);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Padding = new System.Windows.Forms.Padding(20, 5, 0, 5);
+            this.btnConfirm.Size = new System.Drawing.Size(400, 75);
+            this.btnConfirm.TabIndex = 4;
+            this.btnConfirm.Text = "Confirmar";
             // 
             // FrmNewUsr
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(300, 300);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(443, 379);
+            this.Controls.Add(this.radPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmNewUsr";
             // 
@@ -56,6 +105,11 @@
             this.RootElement.ApplyShapeToControl = true;
             this.Text = "FrmNewUsr";
             this.TopMost = true;
+            ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).EndInit();
+            this.radPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnNewClient)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnBack)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnConfirm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -63,6 +117,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private Telerik.WinControls.UI.RadPanel radPanel1;
+        private CustomButton btnNewClient;
+        private CustomButton btnBack;
+        private CustomButton btnConfirm;
     }
 }

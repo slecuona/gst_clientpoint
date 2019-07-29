@@ -37,7 +37,6 @@ namespace ClientPoint.Ads {
             }
         }
 
-
         //private static void Download(string ad) {
         //    var uri = new Uri(ad);
         //    var filename = Path.GetFileName(uri.LocalPath);

@@ -15,8 +15,12 @@ namespace ClientPoint.UI
         {
             InitializeComponent();
         }
+        
+        private void btnBack_Click(object sender, EventArgs e) {
+            
+        }
 
-        private void button1_Click(object sender, EventArgs e) {
+        private void btnBack_Click_1(object sender, EventArgs e) {
             UIManager.Show(Window.Ads);
         }
     }
