@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using ClientPoint.UI;
 
 namespace ClientPoint {
     public class SwipeReader {
@@ -8,7 +9,7 @@ namespace ClientPoint {
         private bool _reading = false;
         private Action<string> _onSwipe;
 
-        public SwipeReader(FrmMain frm, Action<string> onSwipe) {
+        public SwipeReader(FrmAds frm, Action<string> onSwipe) {
             _onSwipe = onSwipe;
             frm.KeyPreview = true;
             frm.KeyPress += FrmOnKeyPress;

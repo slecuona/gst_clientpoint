@@ -4,12 +4,12 @@ using System.Windows.Forms;
 using ClientPoint.Ads;
 using ClientPoint.Espf;
 
-namespace ClientPoint {
-    public partial class FrmMain : Form {
+namespace ClientPoint.UI {
+    public partial class FrmAds : FrmBase {
         private SwipeReader _swipeReader;
         private AdsPlayer _adsPlayer;
 
-        public FrmMain() {
+        public FrmAds() {
             InitializeComponent();
             _adsPlayer = new AdsPlayer() {
                 Size = new Size(500, 500),
@@ -18,6 +18,26 @@ namespace ClientPoint {
             this.Controls.Add(_adsPlayer);
             _swipeReader = new SwipeReader(this, OnSwipe);
             this.Shown += OnShown;
+            this.Click += OnClick;
+            this.MouseClick += OnMouseClick;
+            this.MouseUp += OnMouseUp;
+        }
+
+        private void OnMouseUp(object sender, MouseEventArgs e) {
+            Console.WriteLine("Mouse Up");
+        }
+
+        private void OnMouseClick(object sender, MouseEventArgs e) {
+            Console.WriteLine("Mouse Click");
+        }
+
+        private void OnClick(object sender, EventArgs e) {
+            Console.WriteLine("Click");
+        }
+        
+
+        private void AdsPlayerOnClick(object sender, EventArgs e) {
+            //this.Visible = false;
             
         }
 
@@ -44,6 +64,14 @@ namespace ClientPoint {
             catch (Exception ex) {
                 MessageBox.Show($"ERR: {ex.Message}");
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e) {
+            Application.Exit();
+        }
+
+        private void button3_Click(object sender, EventArgs e) {
+            UIManager.Show(Window.NewUsr);
         }
     }
 }

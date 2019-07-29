@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClientPoint.UI;
 
 namespace ClientPoint {
     static class Program {
@@ -16,7 +17,10 @@ namespace ClientPoint {
 
             Status.Espf();
 
-            Application.Run(new FrmMain());
+            UIManager.Init();
+
+            // Pantalla principal / inicial (publicidades)
+            Application.Run(UIManager.Get(Window.Ads));
         }
     }
 }
