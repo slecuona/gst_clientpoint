@@ -31,6 +31,7 @@ namespace ClientPoint.UI
             this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
             this.btnBack = new ClientPoint.UI.CustomButton();
             this.radScrollablePanel1 = new Telerik.WinControls.UI.RadScrollablePanel();
+            this.sexField1 = new ClientPoint.UI.SexField();
             this.fldName = new ClientPoint.UI.CustomField();
             this.fldLastname = new ClientPoint.UI.CustomField();
             this.fldDocument = new ClientPoint.UI.CustomMaskedField();
@@ -38,6 +39,7 @@ namespace ClientPoint.UI
             this.fldCellphone = new ClientPoint.UI.CustomField();
             this.fldPasword = new ClientPoint.UI.CustomField();
             this.fldPassword2 = new ClientPoint.UI.CustomField();
+            this.dateField1 = new ClientPoint.UI.DateField();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).BeginInit();
             this.radPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
@@ -71,7 +73,7 @@ namespace ClientPoint.UI
             this.btnBack.TabIndex = 6;
             this.btnBack.TabStop = false;
             this.btnBack.Text = "Salir";
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click_1);
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // radScrollablePanel1
             // 
@@ -86,6 +88,8 @@ namespace ClientPoint.UI
             // 
             this.radScrollablePanel1.PanelContainer.AutoScrollMargin = new System.Drawing.Size(0, 50);
             this.radScrollablePanel1.PanelContainer.AutoScrollMinSize = new System.Drawing.Size(0, 50);
+            this.radScrollablePanel1.PanelContainer.Controls.Add(this.dateField1);
+            this.radScrollablePanel1.PanelContainer.Controls.Add(this.sexField1);
             this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldName);
             this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldLastname);
             this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldDocument);
@@ -94,11 +98,17 @@ namespace ClientPoint.UI
             this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldPasword);
             this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldPassword2);
             this.radScrollablePanel1.PanelContainer.Location = new System.Drawing.Point(0, 0);
-            this.radScrollablePanel1.PanelContainer.Size = new System.Drawing.Size(1342, 379);
-            this.radScrollablePanel1.Size = new System.Drawing.Size(1342, 379);
+            this.radScrollablePanel1.PanelContainer.Size = new System.Drawing.Size(1335, 443);
+            this.radScrollablePanel1.Size = new System.Drawing.Size(1335, 443);
             this.radScrollablePanel1.TabIndex = 4;
-            this.radScrollablePanel1.Click += new System.EventHandler(this.radScrollablePanel1_Click);
             ((Telerik.WinControls.Primitives.BorderPrimitive)(this.radScrollablePanel1.GetChildAt(0).GetChildAt(1))).Width = 0F;
+            // 
+            // sexField1
+            // 
+            this.sexField1.Location = new System.Drawing.Point(0, 270);
+            this.sexField1.Name = "sexField1";
+            this.sexField1.Size = new System.Drawing.Size(600, 50);
+            this.sexField1.TabIndex = 7;
             // 
             // fldName
             // 
@@ -158,6 +168,14 @@ namespace ClientPoint.UI
             this.fldPassword2.Size = new System.Drawing.Size(615, 53);
             this.fldPassword2.TabIndex = 6;
             // 
+            // dateField1
+            // 
+            this.dateField1.Location = new System.Drawing.Point(0, 334);
+            this.dateField1.Name = "dateField1";
+            this.dateField1.Size = new System.Drawing.Size(600, 50);
+            this.dateField1.TabIndex = 8;
+            this.dateField1.Label = "Fecha Nacimiento";
+            // 
             // FrmAddUsr
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -173,7 +191,6 @@ namespace ClientPoint.UI
             this.RootElement.ApplyShapeToControl = true;
             this.Text = "";
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.FrmAddUsr_Load);
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).EndInit();
             this.radPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).EndInit();
@@ -199,5 +216,7 @@ namespace ClientPoint.UI
         private CustomField fldCellphone;
         private CustomField fldPasword;
         private CustomField fldPassword2;
+        private SexField sexField1;
+        private DateField dateField1;
     }
 }

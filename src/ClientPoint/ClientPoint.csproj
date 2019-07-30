@@ -87,6 +87,18 @@
     <Compile Include="UI\CustomButton.Designer.cs">
       <DependentUpon>CustomButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\DateField.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\DateField.Designer.cs">
+      <DependentUpon>DateField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SexField.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\SexField.Designer.cs">
+      <DependentUpon>SexField.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\CustomMaskedFied.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -129,6 +141,12 @@
     </Compile>
     <Compile Include="UI\UIManager.cs" />
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="UI\DateField.resx">
+      <DependentUpon>DateField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SexField.resx">
+      <DependentUpon>SexField.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\CustomMaskedFied.resx">
       <DependentUpon>CustomMaskedFied.cs</DependentUpon>
     </EmbeddedResource>
