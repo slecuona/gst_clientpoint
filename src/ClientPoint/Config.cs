@@ -38,7 +38,7 @@ namespace ClientPoint {
         /// URL Base de la API.
         /// </summary>
         private const string API_URL_DEF = 
-            "http://192.168.10.100/mobile/api/ClientPoint/";
+            "http://192.168.10.12/mobile/api/ClientPoint/";
         public static string ApiUrl;
 
     }

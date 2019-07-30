@@ -27,5 +27,9 @@ namespace ClientPoint.UI
         private void radScrollablePanel1_Click(object sender, EventArgs e) {
 
         }
+
+        private void FrmAddUsr_Load(object sender, EventArgs e) {
+
+        }
     }
 }

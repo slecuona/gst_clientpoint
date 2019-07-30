@@ -33,8 +33,13 @@ namespace ClientPoint.UI
             this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
             this.btnBack = new ClientPoint.UI.CustomButton();
             this.radScrollablePanel1 = new Telerik.WinControls.UI.RadScrollablePanel();
-            this.customField1 = new ClientPoint.UI.CustomField();
-            this.customField2 = new ClientPoint.UI.CustomField();
+            this.fldPassword2 = new ClientPoint.UI.CustomField();
+            this.fldPasword = new ClientPoint.UI.CustomField();
+            this.fldDocument = new ClientPoint.UI.CustomField();
+            this.fldEmail = new ClientPoint.UI.CustomField();
+            this.fldCellphone = new ClientPoint.UI.CustomField();
+            this.fldLastname = new ClientPoint.UI.CustomField();
+            this.fldName = new ClientPoint.UI.CustomField();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).BeginInit();
             this.radPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
@@ -72,39 +77,82 @@ namespace ClientPoint.UI
             // 
             // radScrollablePanel1
             // 
-            this.radScrollablePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.radScrollablePanel1.AutoScrollMargin = new System.Drawing.Size(0, 50);
+            this.radScrollablePanel1.AutoScrollMinSize = new System.Drawing.Size(0, 50);
             this.radScrollablePanel1.Location = new System.Drawing.Point(0, 0);
             this.radScrollablePanel1.Name = "radScrollablePanel1";
             this.radScrollablePanel1.Padding = new System.Windows.Forms.Padding(0);
+            this.radScrollablePanel1.Dock = DockStyle.Fill;
             // 
             // radScrollablePanel1.PanelContainer
             // 
-            this.radScrollablePanel1.PanelContainer.Controls.Add(this.customField2);
-            this.radScrollablePanel1.PanelContainer.Controls.Add(this.customField1);
+            this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldPassword2);
+            this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldPasword);
+            this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldDocument);
+            this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldEmail);
+            this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldCellphone);
+            this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldLastname);
+            this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldName);
             this.radScrollablePanel1.PanelContainer.Location = new System.Drawing.Point(0, 0);
-            this.radScrollablePanel1.PanelContainer.Size = new System.Drawing.Size(1044, 405);
-            this.radScrollablePanel1.Size = new System.Drawing.Size(1044, 405);
             this.radScrollablePanel1.TabIndex = 4;
             this.radScrollablePanel1.Click += new System.EventHandler(this.radScrollablePanel1_Click);
             ((Telerik.WinControls.Primitives.BorderPrimitive)(this.radScrollablePanel1.GetChildAt(0).GetChildAt(1))).Width = 0F;
             // 
-            // customField1
+            // fldPassword2
             // 
-            this.customField1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.customField1.Label = "Nombre/s";
-            this.customField1.Location = new System.Drawing.Point(196, 37);
-            this.customField1.Name = "customField1";
-            this.customField1.Size = new System.Drawing.Size(676, 53);
-            this.customField1.TabIndex = 0;
+            this.fldPassword2.Label = "Repita Contraseña";
+            this.fldPassword2.Location = new System.Drawing.Point(100, 640);
+            this.fldPassword2.Name = "fldPassword2";
+            this.fldPassword2.Size = new System.Drawing.Size(676, 53);
+            this.fldPassword2.TabIndex = 6;
             // 
-            // customField2
+            // fldPasword
             // 
-            this.customField2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.customField2.Label = "Apellido/s";
-            this.customField2.Location = new System.Drawing.Point(196, 117);
-            this.customField2.Name = "customField2";
-            this.customField2.Size = new System.Drawing.Size(676, 53);
-            this.customField2.TabIndex = 1;
+            this.fldPasword.Label = "Contraseña";
+            this.fldPasword.Location = new System.Drawing.Point(100, 550);
+            this.fldPasword.Name = "fldPasword";
+            this.fldPasword.Size = new System.Drawing.Size(676, 53);
+            this.fldPasword.TabIndex = 5;
+            // 
+            // fldDocument
+            // 
+            this.fldDocument.Label = "Nr. Documento";
+            this.fldDocument.Location = new System.Drawing.Point(100, 280);
+            this.fldDocument.Name = "fldDocument";
+            this.fldDocument.Size = new System.Drawing.Size(676, 53);
+            this.fldDocument.TabIndex = 4;
+            // 
+            // fldEmail
+            // 
+            this.fldEmail.Label = "Correo Electrónico";
+            this.fldEmail.Location = new System.Drawing.Point(100, 370);
+            this.fldEmail.Name = "fldEmail";
+            this.fldEmail.Size = new System.Drawing.Size(676, 53);
+            this.fldEmail.TabIndex = 3;
+            // 
+            // fldCellphone
+            // 
+            this.fldCellphone.Label = "Nr. Celular";
+            this.fldCellphone.Location = new System.Drawing.Point(100, 460);
+            this.fldCellphone.Name = "fldCellphone";
+            this.fldCellphone.Size = new System.Drawing.Size(676, 53);
+            this.fldCellphone.TabIndex = 2;
+            // 
+            // fldLastname
+            // 
+            this.fldLastname.Label = "Apellido/s";
+            this.fldLastname.Location = new System.Drawing.Point(100, 190);
+            this.fldLastname.Name = "fldLastname";
+            this.fldLastname.Size = new System.Drawing.Size(676, 53);
+            this.fldLastname.TabIndex = 1;
+            // 
+            // fldName
+            // 
+            this.fldName.Label = "Nombre/s";
+            this.fldName.Location = new System.Drawing.Point(100, 100);
+            this.fldName.Name = "fldName";
+            this.fldName.Size = new System.Drawing.Size(676, 53);
+            this.fldName.TabIndex = 0;
             // 
             // FrmAddUsr
             // 
@@ -121,6 +169,7 @@ namespace ClientPoint.UI
             this.RootElement.ApplyShapeToControl = true;
             this.Text = "";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.FrmAddUsr_Load);
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).EndInit();
             this.radPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).EndInit();
@@ -137,7 +186,12 @@ namespace ClientPoint.UI
         private Telerik.WinControls.UI.RadPanel radPanel1;
         private CustomButton btnBack;
         private Telerik.WinControls.UI.RadScrollablePanel radScrollablePanel1;
-        private CustomField customField1;
-        private CustomField customField2;
+        private CustomField fldName;
+        private CustomField fldLastname;
+        private CustomField fldDocument;
+        private CustomField fldEmail;
+        private CustomField fldCellphone;
+        private CustomField fldPasword;
+        private CustomField fldPassword2;
     }
 }

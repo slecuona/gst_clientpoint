@@ -57,7 +57,7 @@
             this.Controls.Add(this.radTextBox1);
             this.Controls.Add(this.radLabel1);
             this.Name = "CustomField";
-            this.Size = new System.Drawing.Size(672, 49);
+            this.Size = new System.Drawing.Size(672, 50);
             this.Load += new System.EventHandler(this.CustomField_Load);
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radTextBox1)).EndInit();

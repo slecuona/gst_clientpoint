@@ -20,5 +20,10 @@ namespace ClientPoint.UI {
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
         }
+        
+        // Estos callbacks nos permiten configurar los formularios 
+        // al momento de mostrarlos y ocultarlos
+        public virtual void AfterHide() {}
+        public virtual void BeforeShow() {}
     }
 }

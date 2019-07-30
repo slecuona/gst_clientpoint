@@ -15,11 +15,13 @@ namespace ClientPoint.UI {
         }
 
         public static void Show(Window toShow) {
+            _windows[toShow].BeforeShow();
             _windows[toShow].Show();
             foreach (var w in _windows) {
                 if(w.Key == toShow)
                     continue;
                 w.Value.Hide();
+                w.Value.AfterHide();
             }
         }
     }

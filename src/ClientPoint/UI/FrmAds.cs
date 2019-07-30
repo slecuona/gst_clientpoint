@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Drawing;
 using System.Windows.Forms;
+using AxWMPLib;
 using ClientPoint.Ads;
-using ClientPoint.Espf;
 
 namespace ClientPoint.UI {
     public partial class FrmAds : FrmBase {
@@ -13,44 +12,41 @@ namespace ClientPoint.UI {
 
         public FrmAds() {
             InitializeComponent();
-            _adsPlayer = new AdsPlayer() {
-                Size = new Size(500, 500),
-                Location = new Point(100, 50)
-            };
+            _adsPlayer = new AdsPlayer();
+            _adsPlayer.ClickEvent += AdsPlayerOnClickEvent;
+            _adsPlayer.OnPause += AdsPlayerPause;
             this.Controls.Add(_adsPlayer);
             _swipeReader = new SwipeReader(this, OnSwipe);
             this.Shown += OnShown;
-            this.Click += OnClick;
-            this.MouseClick += OnMouseClick;
-            this.MouseUp += OnMouseUp;
         }
 
-        private void OnMouseUp(object sender, MouseEventArgs e) {
-            Console.WriteLine("Mouse Up");
+        // En fullscreen no hay manera de capturar el click.
+        // Cuando se hace click, pausa el video.
+        private void AdsPlayerPause(object sender, EventArgs e) {
+            UIManager.Show(Window.NewUsr);
         }
 
-        private void OnMouseClick(object sender, MouseEventArgs e) {
-            Console.WriteLine("Mouse Click");
-        }
-
-        private void OnClick(object sender, EventArgs e) {
-            Console.WriteLine("Click");
-        }
-        
-
-        private void AdsPlayerOnClick(object sender, EventArgs e) {
-            //this.Visible = false;
-            
+        private void AdsPlayerOnClickEvent(object sender, _WMPOCXEvents_ClickEvent e) {
+            UIManager.Show(Window.NewUsr);
         }
 
         private void OnShown(object sender, EventArgs e) {
             _adsPlayer.Init();
+            // Es el main form, hay que ejecutar el before show manualmente
+            BeforeShow();
+        }
+
+        public override void BeforeShow() {
             _adsPlayer.PlayRandom();
             _started = true;
         }
 
+        public override void AfterHide() {
+            _adsPlayer.Stop();
+        }
+
         private void OnSwipe(string data) {
-            label1.Text = data;
+            Debug.WriteLine($"Card Swiped: {data}");
         }
         
         protected override void WndProc(ref Message m) {
@@ -67,24 +63,6 @@ namespace ClientPoint.UI {
             }
 
             base.WndProc(ref m);
-        }
-
-        private void button1_Click(object sender, EventArgs e) {
-            try {
-                var job = new PrintJob();
-                job.WriteData();
-            }
-            catch (Exception ex) {
-                MessageBox.Show($"ERR: {ex.Message}");
-            }
-        }
-
-        private void button2_Click(object sender, EventArgs e) {
-            Application.Exit();
-        }
-
-        private void button3_Click(object sender, EventArgs e) {
-            UIManager.Show(Window.NewUsr);
         }
     }
 }
