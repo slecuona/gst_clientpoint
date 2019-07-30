@@ -24,6 +24,10 @@ namespace ClientPoint.UI {
         // Estos callbacks nos permiten configurar los formularios 
         // al momento de mostrarlos y ocultarlos
         public virtual void AfterHide() {}
-        public virtual void BeforeShow() {}
+
+        public virtual void BeforeShow() {
+            // No debe haber foco en ningun control
+            this.ActiveControl = null;
+        }
     }
 }

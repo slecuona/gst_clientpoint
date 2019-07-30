@@ -39,6 +39,7 @@ namespace ClientPoint.UI {
         public override void BeforeShow() {
             _adsPlayer.PlayRandom();
             _started = true;
+            base.BeforeShow();
         }
 
         public override void AfterHide() {
