@@ -44,7 +44,7 @@
             this.radTextBox1.Location = new System.Drawing.Point(212, 0);
             this.radTextBox1.Name = "radTextBox1";
             this.radTextBox1.Padding = new System.Windows.Forms.Padding(10);
-            this.radTextBox1.Size = new System.Drawing.Size(459, 51);
+            this.radTextBox1.Size = new System.Drawing.Size(400, 51);
             this.radTextBox1.TabIndex = 1;
             ((Telerik.WinControls.UI.RadTextBoxElement)(this.radTextBox1.GetChildAt(0))).Padding = new System.Windows.Forms.Padding(10);
             ((Telerik.WinControls.UI.RadTextBoxItem)(this.radTextBox1.GetChildAt(0).GetChildAt(0))).Font = new System.Drawing.Font("Helvetica-Normal", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -57,7 +57,7 @@
             this.Controls.Add(this.radTextBox1);
             this.Controls.Add(this.radLabel1);
             this.Name = "CustomField";
-            this.Size = new System.Drawing.Size(672, 50);
+            this.Size = new System.Drawing.Size(600, 50);
             this.Load += new System.EventHandler(this.CustomField_Load);
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radTextBox1)).EndInit();
