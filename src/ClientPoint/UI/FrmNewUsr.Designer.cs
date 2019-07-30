@@ -35,6 +35,7 @@ namespace ClientPoint.UI
             this.btnNewClient = new ClientPoint.UI.CustomButton();
             this.btnBack = new ClientPoint.UI.CustomButton();
             this.btnConfirm = new ClientPoint.UI.CustomButton();
+            this.btnExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).BeginInit();
             this.radPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnNewClient)).BeginInit();
@@ -49,7 +50,7 @@ namespace ClientPoint.UI
             this.radPanel1.Controls.Add(this.btnNewClient);
             this.radPanel1.Controls.Add(this.btnBack);
             this.radPanel1.Controls.Add(this.btnConfirm);
-            this.radPanel1.Location = new System.Drawing.Point(19, 33);
+            this.radPanel1.Location = new System.Drawing.Point(19, 69);
             this.radPanel1.Name = "radPanel1";
             this.radPanel1.Size = new System.Drawing.Size(400, 325);
             this.radPanel1.TabIndex = 3;
@@ -93,11 +94,22 @@ namespace ClientPoint.UI
             this.btnConfirm.TabStop = false;
             this.btnConfirm.Text = "Confirmar";
             // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(3, 12);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.TabIndex = 4;
+            this.btnExit.Text = "Cerrar";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // FrmNewUsr
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(443, 379);
+            this.ClientSize = new System.Drawing.Size(443, 451);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.radPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmNewUsr";
@@ -123,5 +135,6 @@ namespace ClientPoint.UI
         private CustomButton btnNewClient;
         private CustomButton btnBack;
         private CustomButton btnConfirm;
+        private Button btnExit;
     }
 }
