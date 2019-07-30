@@ -33,8 +33,7 @@ namespace ClientPoint.Ads {
             if (e.newState == 2) {
                 this.OnPause?.Invoke(null, null);
             }
-
-
+            
             //// El reproductor se detuvo
             //if (e.newState == 1 && !_playing) {
             //    // No se puede dar play directamente del Event Handler

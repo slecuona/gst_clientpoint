@@ -33,8 +33,8 @@ namespace ClientPoint.UI
             this.radScrollablePanel1 = new Telerik.WinControls.UI.RadScrollablePanel();
             this.fldName = new ClientPoint.UI.CustomField();
             this.fldLastname = new ClientPoint.UI.CustomField();
-            this.fldDocument = new ClientPoint.UI.CustomField();
-            this.fldEmail = new ClientPoint.UI.CustomField();
+            this.fldDocument = new ClientPoint.UI.CustomMaskedField();
+            this.fldEmail = new ClientPoint.UI.CustomMaskedField();
             this.fldCellphone = new ClientPoint.UI.CustomField();
             this.fldPasword = new ClientPoint.UI.CustomField();
             this.fldPassword2 = new ClientPoint.UI.CustomField();
@@ -94,8 +94,8 @@ namespace ClientPoint.UI
             this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldPasword);
             this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldPassword2);
             this.radScrollablePanel1.PanelContainer.Location = new System.Drawing.Point(0, 0);
-            this.radScrollablePanel1.PanelContainer.Size = new System.Drawing.Size(1299, 379);
-            this.radScrollablePanel1.Size = new System.Drawing.Size(1299, 379);
+            this.radScrollablePanel1.PanelContainer.Size = new System.Drawing.Size(1342, 379);
+            this.radScrollablePanel1.Size = new System.Drawing.Size(1342, 379);
             this.radScrollablePanel1.TabIndex = 4;
             this.radScrollablePanel1.Click += new System.EventHandler(this.radScrollablePanel1_Click);
             ((Telerik.WinControls.Primitives.BorderPrimitive)(this.radScrollablePanel1.GetChildAt(0).GetChildAt(1))).Width = 0F;
@@ -118,6 +118,7 @@ namespace ClientPoint.UI
             // 
             // fldDocument
             // 
+            this.fldDocument.CustomMaskType = ClientPoint.UI.CustomMaskType.Email;
             this.fldDocument.Label = "Nr. Documento";
             this.fldDocument.Location = new System.Drawing.Point(0, 180);
             this.fldDocument.Name = "fldDocument";
@@ -126,10 +127,11 @@ namespace ClientPoint.UI
             // 
             // fldEmail
             // 
+            this.fldEmail.CustomMaskType = ClientPoint.UI.CustomMaskType.Email;
             this.fldEmail.Label = "Correo Electrónico";
             this.fldEmail.Location = new System.Drawing.Point(680, 0);
             this.fldEmail.Name = "fldEmail";
-            this.fldEmail.Size = new System.Drawing.Size(615, 53);
+            this.fldEmail.Size = new System.Drawing.Size(650, 53);
             this.fldEmail.TabIndex = 3;
             // 
             // fldCellphone
@@ -192,8 +194,8 @@ namespace ClientPoint.UI
         private Telerik.WinControls.UI.RadScrollablePanel radScrollablePanel1;
         private CustomField fldName;
         private CustomField fldLastname;
-        private CustomField fldDocument;
-        private CustomField fldEmail;
+        private CustomMaskedField fldDocument;
+        private CustomMaskedField fldEmail;
         private CustomField fldCellphone;
         private CustomField fldPasword;
         private CustomField fldPassword2;

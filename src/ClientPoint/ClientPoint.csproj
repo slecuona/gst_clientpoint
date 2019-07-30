@@ -87,6 +87,12 @@
     <Compile Include="UI\CustomButton.Designer.cs">
       <DependentUpon>CustomButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\CustomMaskedFied.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\CustomMaskedFied.Designer.cs">
+      <DependentUpon>CustomMaskedFied.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\CustomField.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     </Compile>
     <Compile Include="UI\UIManager.cs" />
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="UI\CustomMaskedFied.resx">
+      <DependentUpon>CustomMaskedFied.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\CustomField.resx">
       <DependentUpon>CustomField.cs</DependentUpon>
     </EmbeddedResource>
