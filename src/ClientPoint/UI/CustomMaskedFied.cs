@@ -20,6 +20,8 @@ namespace ClientPoint.UI {
             set => radLabel1.Text = value;
         }
 
+        public string GetValue() => radTextBox1.Text;
+
         public CustomMaskType CustomMaskType {
             set {
                 if (value == CustomMaskType.Document) {

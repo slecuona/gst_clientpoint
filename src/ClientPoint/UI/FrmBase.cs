@@ -16,7 +16,7 @@ namespace ClientPoint.UI {
         }
 
         private void OnLoad(object sender, EventArgs e) {
-            this.TopMost = true;
+            this.TopMost = !Config.DebugMode;
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
         }

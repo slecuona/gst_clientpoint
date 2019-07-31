@@ -38,7 +38,7 @@ namespace ClientPoint.UI
             this.fldCellphone = new ClientPoint.UI.CustomField();
             this.fldPassword = new ClientPoint.UI.CustomField();
             this.fldPassword2 = new ClientPoint.UI.CustomField();
-            this.fldBornDate = new ClientPoint.UI.DateField();
+            this.fldBirthDate = new ClientPoint.UI.DateField();
             ((System.ComponentModel.ISupportInitialize)(this.footerPanel)).BeginInit();
             this.footerPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radScrollablePanel1)).BeginInit();
@@ -60,7 +60,7 @@ namespace ClientPoint.UI
             // 
             this.radScrollablePanel1.PanelContainer.AutoScrollMargin = new System.Drawing.Size(0, 50);
             this.radScrollablePanel1.PanelContainer.AutoScrollMinSize = new System.Drawing.Size(0, 50);
-            this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldBornDate);
+            this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldBirthDate);
             this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldSex);
             this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldName);
             this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldLastname);
@@ -142,11 +142,11 @@ namespace ClientPoint.UI
             // 
             // dateField1
             // 
-            this.fldBornDate.Location = new System.Drawing.Point(0, 334);
-            this.fldBornDate.Name = "fldBornDate";
-            this.fldBornDate.Size = new System.Drawing.Size(600, 50);
-            this.fldBornDate.TabIndex = 8;
-            this.fldBornDate.Label = "Fecha Nacimiento";
+            this.fldBirthDate.Location = new System.Drawing.Point(0, 334);
+            this.fldBirthDate.Name = "fldBirthDate";
+            this.fldBirthDate.Size = new System.Drawing.Size(600, 50);
+            this.fldBirthDate.TabIndex = 8;
+            this.fldBirthDate.Label = "Fecha Nacimiento";
             // 
             // FrmAddUsr
             // 
@@ -187,6 +187,6 @@ namespace ClientPoint.UI
         private CustomField fldPassword;
         private CustomField fldPassword2;
         private SexField fldSex;
-        private DateField fldBornDate;
+        private DateField fldBirthDate;
     }
 }

@@ -69,7 +69,9 @@
     <Compile Include="Ads\AdsPlayer.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Api\ApiQuery.cs" />
+    <Compile Include="Api\ApiService.cs" />
+    <Compile Include="Api\ClientCreateRequest.cs" />
+    <Compile Include="Api\GenResponse.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Espf\Client.cs" />
     <Compile Include="Espf\JsonUtils.cs" />

@@ -7,9 +7,9 @@ using System.Text;
 using ClientPoint.Espf;
 
 namespace ClientPoint.Api {
-    public static class ApiQuery {
+    public static class ApiService {
 
-        private static string Request(string op, string json) {
+        private static string SendRequest(string op, string json) {
             try {
                 Debug.WriteLine($"[JSON REQUEST] => {json}");
                 using (var client = new HttpClient()) {
@@ -28,9 +28,13 @@ namespace ClientPoint.Api {
             }
         }
 
+        private static string ToJson(object obj) {
+            return JsonUtils.Serialize(obj.GetType(), obj);
+        }
+
         public static List<string> LoadAdvertising() {
             try {
-                var json = Request("LoadAdvertising", "");
+                var json = SendRequest("LoadAdvertising", "");
                 var res = (string[]) JsonUtils.Deserialize(typeof(string[]), json);
                 return res.ToList();
             }
@@ -38,5 +42,22 @@ namespace ClientPoint.Api {
                 throw new Exception("Error al obtener publicidades.", ex);
             }
         }
+
+        // Crea cliente y envia codigo de validacion.
+        public static bool ClientCreate(ClientCreateRequest req, out string errMsg) {
+            try {
+                errMsg = "";
+                var json = SendRequest("ClientCreate", ToJson(req));
+                var res = (GenResponse)JsonUtils.Deserialize(typeof(GenResponse), json);
+                if (res.ResponseCode != 0) {
+                    errMsg = res.ResponseDesc;
+                    return false;
+                }
+                return true;
+            } catch (Exception ex) {
+                throw new Exception("Error al crear cliente.", ex);
+            }
+        }
+
     }
 }

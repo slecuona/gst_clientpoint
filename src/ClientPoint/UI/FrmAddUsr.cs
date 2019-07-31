@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using ClientPoint.Api;
 using Telerik.WinControls;
 
 namespace ClientPoint.UI {
@@ -14,20 +15,20 @@ namespace ClientPoint.UI {
             footerPanel.BackText = "Cancelar";
         }
 
-        private string NameValue => fldName.Text;
-        private string LastNameValue => fldLastname.Text;
-        private string DocumentValue => fldDocument.Text;
-        private string EmailValue => fldEmail.Text;
-        private string CellphoneValue => fldCellphone.Text;
-        private string PasswordValue => fldPassword.Text;
-        private string Password2Value => fldPassword2.Text;
+        private string NameValue => fldName.GetValue();
+        private string LastNameValue => fldLastname.GetValue();
+        private string DocumentValue => fldDocument.GetValue();
+        private string EmailValue => fldEmail.GetValue();
+        private string CellphoneValue => fldCellphone.GetValue();
+        private string PasswordValue => fldPassword.GetValue();
+        private string Password2Value => fldPassword2.GetValue();
         private string SexValue => fldSex.GetValue();
-        private DateTime BornDateValue => fldBornDate.GetValue();
+        private DateTime BirthDateValue => fldBirthDate.GetValue();
 
         // Mayor de 18 años?
-        private static DateTime MaxBornDate => DateTime.Today.AddYears(-18);
+        private static DateTime MaxBirthDate => DateTime.Today.AddYears(-18);
 
-        private List<string> Validate() {
+        private bool ValidateFields() {
             var errors = new List<string>();
 
             if (string.IsNullOrEmpty(NameValue)) 
@@ -51,23 +52,53 @@ namespace ClientPoint.UI {
             if(SexValue == null)
                 errors.Add("Debe especificar su sexo.");
 
-            if(BornDateValue.Date > MaxBornDate.Date)
+            if(BirthDateValue.Date > MaxBirthDate.Date)
                 errors.Add("Debe tener mas de 18 años para registrarse.");
 
-            return errors;
-        }
+            //TODO: Que otras validaciones?
 
-        private void OnNext(object sender, EventArgs e) {
-            var errors = Validate();
             if (errors.Count > 0) {
                 RadMessageBox.Show(
-                    this, 
-                    string.Join("\n", errors), 
-                    "Errores", 
-                    MessageBoxButtons.OK, 
+                    this,
+                    string.Join("\n", errors),
+                    "Errores",
+                    MessageBoxButtons.OK,
                     RadMessageIcon.Error);
-                return;
+                return false;
             }
+            return true;
+        }
+
+        private ClientCreateRequest CreateRequest => 
+            new ClientCreateRequest() {
+                DocumentNumber = DocumentValue,
+                Password = PasswordValue,
+                CelPhone = CellphoneValue,
+                Email = EmailValue,
+                Name = NameValue,
+                LastName = LastNameValue,
+                BirthDate = BirthDateValue.ToString("yyyy-MM-dd"),
+                Sex = SexValue
+            };
+
+        private void OnNext(object sender, EventArgs e) {
+            if (!ValidateFields())
+                return;
+            string errMsg;
+            try {
+                var sucess = ApiService.ClientCreate(CreateRequest, out errMsg);
+                if (sucess) {
+                    RadMessageBox.Show("Cliente creado correctamente.");
+                    UIManager.Show(Window.NewUsr);
+                    return;
+                }
+            }
+            catch (Exception ex) {
+                //TODO: Log
+                errMsg = ex.Message;
+            }
+            RadMessageBox.Show(this, errMsg, "Error", 
+                MessageBoxButtons.OK, RadMessageIcon.Error);
         }
 
         private void OnBack(object sender, EventArgs e) {

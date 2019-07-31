@@ -10,6 +10,13 @@ namespace ClientPoint {
         static string GetSetting(string key, string def) =>
             AppSettings[key] ?? def;
 
+        static bool GetBool(string key, bool def) {
+            var val = AppSettings[key];
+            if (val == null)
+                return def;
+            return bool.Parse(val);
+        }
+
         static Config() {
             // ESPF
             EspfIp = GetSetting("EspfIp", "127.0.0.1");
@@ -17,6 +24,8 @@ namespace ClientPoint {
             EspfPrinter = GetSetting("EspfPrinter", "Evolis KC200");
 
             ApiUrl = GetSetting("ApiUrl", API_URL_DEF);
+
+            DebugMode = GetBool("Debug", false);
         }
 
         /// <summary>
@@ -33,6 +42,8 @@ namespace ClientPoint {
         /// Nombre de la impresora configurada en el ESPF
         /// </summary>
         public static string EspfPrinter;
+
+        public static bool DebugMode;
 
         /// <summary>
         /// URL Base de la API.

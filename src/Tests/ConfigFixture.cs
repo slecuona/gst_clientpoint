@@ -7,7 +7,7 @@ namespace Tests {
     public class ConfigFixture {
         [TestMethod]
         public void Settings() {
-            Assert.AreEqual("127.0.0.1", Config.EspfIp);
+            Assert.IsFalse(string.IsNullOrEmpty(Config.EspfIp));
             Assert.AreEqual("18000", Config.EspfPort);
             Assert.AreEqual("Evolis KC200", Config.EspfPrinter);
         }
