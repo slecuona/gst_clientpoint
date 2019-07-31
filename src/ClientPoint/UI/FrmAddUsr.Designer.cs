@@ -28,8 +28,7 @@ namespace ClientPoint.UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
-            this.btnBack = new ClientPoint.UI.CustomButton();
+            this.footerPanel = new FooterPanel();
             this.radScrollablePanel1 = new Telerik.WinControls.UI.RadScrollablePanel();
             this.sexField1 = new ClientPoint.UI.SexField();
             this.fldName = new ClientPoint.UI.CustomField();
@@ -40,40 +39,13 @@ namespace ClientPoint.UI
             this.fldPasword = new ClientPoint.UI.CustomField();
             this.fldPassword2 = new ClientPoint.UI.CustomField();
             this.dateField1 = new ClientPoint.UI.DateField();
-            ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).BeginInit();
-            this.radPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.footerPanel)).BeginInit();
+            this.footerPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radScrollablePanel1)).BeginInit();
             this.radScrollablePanel1.PanelContainer.SuspendLayout();
             this.radScrollablePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
-            // 
-            // radPanel1
-            // 
-            this.radPanel1.Controls.Add(this.btnBack);
-            this.radPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.radPanel1.Location = new System.Drawing.Point(0, 565);
-            this.radPanel1.Name = "radPanel1";
-            this.radPanel1.Padding = new System.Windows.Forms.Padding(0, 0, 20, 20);
-            this.radPanel1.Size = new System.Drawing.Size(1484, 95);
-            this.radPanel1.TabIndex = 3;
-            ((Telerik.WinControls.UI.RadPanelElement)(this.radPanel1.GetChildAt(0))).Padding = new System.Windows.Forms.Padding(0, 0, 20, 20);
-            ((Telerik.WinControls.Primitives.BorderPrimitive)(this.radPanel1.GetChildAt(0).GetChildAt(1))).Width = 0F;
-            // 
-            // btnBack
-            // 
-            this.btnBack.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnBack.Font = new System.Drawing.Font("Helvetica-Normal", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Image = global::ClientPoint.Properties.Resources.back;
-            this.btnBack.Location = new System.Drawing.Point(1064, 0);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Padding = new System.Windows.Forms.Padding(20, 5, 0, 5);
-            this.btnBack.Size = new System.Drawing.Size(400, 75);
-            this.btnBack.TabIndex = 6;
-            this.btnBack.TabStop = false;
-            this.btnBack.Text = "Salir";
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // radScrollablePanel1
             // 
@@ -182,7 +154,7 @@ namespace ClientPoint.UI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1484, 660);
             this.Controls.Add(this.radScrollablePanel1);
-            this.Controls.Add(this.radPanel1);
+            this.Controls.Add(this.footerPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmAddUsr";
             // 
@@ -191,9 +163,8 @@ namespace ClientPoint.UI
             this.RootElement.ApplyShapeToControl = true;
             this.Text = "";
             this.TopMost = true;
-            ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).EndInit();
-            this.radPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnBack)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.footerPanel)).EndInit();
+            this.footerPanel.ResumeLayout(false);
             this.radScrollablePanel1.PanelContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.radScrollablePanel1)).EndInit();
             this.radScrollablePanel1.ResumeLayout(false);
@@ -206,8 +177,7 @@ namespace ClientPoint.UI
 
         #endregion
 
-        private Telerik.WinControls.UI.RadPanel radPanel1;
-        private CustomButton btnBack;
+        private FooterPanel footerPanel;
         private Telerik.WinControls.UI.RadScrollablePanel radScrollablePanel1;
         private CustomField fldName;
         private CustomField fldLastname;

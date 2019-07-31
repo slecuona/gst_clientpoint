@@ -93,6 +93,12 @@
     <Compile Include="UI\DateField.Designer.cs">
       <DependentUpon>DateField.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\FooterPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\FooterPanel.Designer.cs">
+      <DependentUpon>FooterPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\SexField.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -143,6 +149,9 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="UI\DateField.resx">
       <DependentUpon>DateField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FooterPanel.resx">
+      <DependentUpon>FooterPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\SexField.resx">
       <DependentUpon>SexField.cs</DependentUpon>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ClientPoint.UI {
@@ -28,6 +29,7 @@ namespace ClientPoint.UI {
         private void InitializeComponent() {
             this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
             this.radDateTimePicker1 = new Telerik.WinControls.UI.RadDateTimePicker();
+            this.object_5358a662_49a9_42bb_8ad6_af1fc98ba3e0 = new Telerik.WinControls.RootRadElement();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radDateTimePicker1)).BeginInit();
             this.SuspendLayout();
@@ -43,6 +45,7 @@ namespace ClientPoint.UI {
             // 
             // radDateTimePicker1
             // 
+            this.radDateTimePicker1.CalendarSize = new System.Drawing.Size(350, 300);
             this.radDateTimePicker1.CustomFormat = "dd/MM/yyyy";
             this.radDateTimePicker1.Font = new System.Drawing.Font("Helvetica-Normal", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radDateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
@@ -56,10 +59,18 @@ namespace ClientPoint.UI {
             this.radDateTimePicker1.TabIndex = 1;
             this.radDateTimePicker1.TabStop = false;
             this.radDateTimePicker1.Text = "30/07/2019";
-            this.radDateTimePicker1.Value = new System.DateTime(2019, 7, 30, 12, 54, 1, 856);
+            this.radDateTimePicker1.Value = new System.DateTime(2019, 7, 30, 0, 0, 0, 0);
+            ((Telerik.WinControls.UI.RadDateTimePickerElement)(this.radDateTimePicker1.GetChildAt(0))).CalendarSize = new System.Drawing.Size(350, 300);
             ((Telerik.WinControls.UI.RadDateTimePickerElement)(this.radDateTimePicker1.GetChildAt(0))).AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.FitToAvailableSize;
             ((Telerik.WinControls.UI.RadMaskedEditBoxElement)(this.radDateTimePicker1.GetChildAt(0).GetChildAt(2).GetChildAt(1))).Text = "30/07/2019";
             ((Telerik.WinControls.UI.RadMaskedEditBoxElement)(this.radDateTimePicker1.GetChildAt(0).GetChildAt(2).GetChildAt(1))).Padding = new System.Windows.Forms.Padding(20, 5, 2, 5);
+            // 
+            // object_5358a662_49a9_42bb_8ad6_af1fc98ba3e0
+            // 
+            this.object_5358a662_49a9_42bb_8ad6_af1fc98ba3e0.AutoSize = false;
+            this.object_5358a662_49a9_42bb_8ad6_af1fc98ba3e0.Name = "object_5358a662_49a9_42bb_8ad6_af1fc98ba3e0";
+            this.object_5358a662_49a9_42bb_8ad6_af1fc98ba3e0.StretchHorizontally = true;
+            this.object_5358a662_49a9_42bb_8ad6_af1fc98ba3e0.StretchVertically = true;
             // 
             // DateField
             // 
@@ -80,5 +91,6 @@ namespace ClientPoint.UI {
 
         private Telerik.WinControls.UI.RadLabel radLabel1;
         private Telerik.WinControls.UI.RadDateTimePicker radDateTimePicker1;
+        private Telerik.WinControls.RootRadElement object_5358a662_49a9_42bb_8ad6_af1fc98ba3e0;
     }
 }

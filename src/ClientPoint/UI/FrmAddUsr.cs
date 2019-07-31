@@ -1,15 +1,16 @@
 ﻿using System;
 
-namespace ClientPoint.UI
-{
-    public partial class FrmAddUsr : FrmBase
-    {
-        public FrmAddUsr()
-        {
+namespace ClientPoint.UI {
+    public partial class FrmAddUsr : FrmBase {
+        public FrmAddUsr() {
             InitializeComponent();
+
+            footerPanel.OnBackClick(OnBack);
+            footerPanel.NextText = "Siguiente";
+            footerPanel.BackText = "Cancelar";
         }
-        
-        private void btnBack_Click(object sender, EventArgs e) {
+
+        private void OnBack(object sender, EventArgs e) {
             UIManager.Show(Window.NewUsr);
         }
     }
