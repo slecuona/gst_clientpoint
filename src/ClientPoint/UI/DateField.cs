@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace ClientPoint.UI {
     public partial class DateField : UserControl {
@@ -10,5 +11,7 @@ namespace ClientPoint.UI {
             get => radLabel1.Text;
             set => radLabel1.Text = value;
         }
+
+        public DateTime GetValue() => dateTimePicker.Value;
     }
 }

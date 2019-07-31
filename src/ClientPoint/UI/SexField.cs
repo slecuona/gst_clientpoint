@@ -6,5 +6,13 @@ namespace ClientPoint.UI {
         public SexField() {
             InitializeComponent();
         }
+
+        public string GetValue() {
+            if (this.radioF.IsChecked)
+                return "F";
+            if (this.radioM.IsChecked)
+                return "M";
+            return null;
+        }
     }
 }

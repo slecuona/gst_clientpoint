@@ -30,15 +30,15 @@ namespace ClientPoint.UI
         {
             this.footerPanel = new FooterPanel();
             this.radScrollablePanel1 = new Telerik.WinControls.UI.RadScrollablePanel();
-            this.sexField1 = new ClientPoint.UI.SexField();
+            this.fldSex = new ClientPoint.UI.SexField();
             this.fldName = new ClientPoint.UI.CustomField();
             this.fldLastname = new ClientPoint.UI.CustomField();
             this.fldDocument = new ClientPoint.UI.CustomMaskedField();
             this.fldEmail = new ClientPoint.UI.CustomMaskedField();
             this.fldCellphone = new ClientPoint.UI.CustomField();
-            this.fldPasword = new ClientPoint.UI.CustomField();
+            this.fldPassword = new ClientPoint.UI.CustomField();
             this.fldPassword2 = new ClientPoint.UI.CustomField();
-            this.dateField1 = new ClientPoint.UI.DateField();
+            this.fldBornDate = new ClientPoint.UI.DateField();
             ((System.ComponentModel.ISupportInitialize)(this.footerPanel)).BeginInit();
             this.footerPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radScrollablePanel1)).BeginInit();
@@ -60,14 +60,14 @@ namespace ClientPoint.UI
             // 
             this.radScrollablePanel1.PanelContainer.AutoScrollMargin = new System.Drawing.Size(0, 50);
             this.radScrollablePanel1.PanelContainer.AutoScrollMinSize = new System.Drawing.Size(0, 50);
-            this.radScrollablePanel1.PanelContainer.Controls.Add(this.dateField1);
-            this.radScrollablePanel1.PanelContainer.Controls.Add(this.sexField1);
+            this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldBornDate);
+            this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldSex);
             this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldName);
             this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldLastname);
             this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldDocument);
             this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldEmail);
             this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldCellphone);
-            this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldPasword);
+            this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldPassword);
             this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldPassword2);
             this.radScrollablePanel1.PanelContainer.Location = new System.Drawing.Point(0, 0);
             this.radScrollablePanel1.PanelContainer.Size = new System.Drawing.Size(1335, 443);
@@ -77,10 +77,10 @@ namespace ClientPoint.UI
             // 
             // sexField1
             // 
-            this.sexField1.Location = new System.Drawing.Point(0, 270);
-            this.sexField1.Name = "sexField1";
-            this.sexField1.Size = new System.Drawing.Size(600, 50);
-            this.sexField1.TabIndex = 7;
+            this.fldSex.Location = new System.Drawing.Point(0, 270);
+            this.fldSex.Name = "fldSex";
+            this.fldSex.Size = new System.Drawing.Size(600, 50);
+            this.fldSex.TabIndex = 7;
             // 
             // fldName
             // 
@@ -126,11 +126,11 @@ namespace ClientPoint.UI
             // 
             // fldPasword
             // 
-            this.fldPasword.Label = "Contraseña";
-            this.fldPasword.Location = new System.Drawing.Point(680, 180);
-            this.fldPasword.Name = "fldPasword";
-            this.fldPasword.Size = new System.Drawing.Size(615, 53);
-            this.fldPasword.TabIndex = 5;
+            this.fldPassword.Label = "Contraseña";
+            this.fldPassword.Location = new System.Drawing.Point(680, 180);
+            this.fldPassword.Name = "fldPassword";
+            this.fldPassword.Size = new System.Drawing.Size(615, 53);
+            this.fldPassword.TabIndex = 5;
             // 
             // fldPassword2
             // 
@@ -142,11 +142,11 @@ namespace ClientPoint.UI
             // 
             // dateField1
             // 
-            this.dateField1.Location = new System.Drawing.Point(0, 334);
-            this.dateField1.Name = "dateField1";
-            this.dateField1.Size = new System.Drawing.Size(600, 50);
-            this.dateField1.TabIndex = 8;
-            this.dateField1.Label = "Fecha Nacimiento";
+            this.fldBornDate.Location = new System.Drawing.Point(0, 334);
+            this.fldBornDate.Name = "fldBornDate";
+            this.fldBornDate.Size = new System.Drawing.Size(600, 50);
+            this.fldBornDate.TabIndex = 8;
+            this.fldBornDate.Label = "Fecha Nacimiento";
             // 
             // FrmAddUsr
             // 
@@ -184,9 +184,9 @@ namespace ClientPoint.UI
         private CustomMaskedField fldDocument;
         private CustomMaskedField fldEmail;
         private CustomField fldCellphone;
-        private CustomField fldPasword;
+        private CustomField fldPassword;
         private CustomField fldPassword2;
-        private SexField sexField1;
-        private DateField dateField1;
+        private SexField fldSex;
+        private DateField fldBornDate;
     }
 }
