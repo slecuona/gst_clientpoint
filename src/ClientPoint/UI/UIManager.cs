@@ -9,8 +9,8 @@ namespace ClientPoint.UI {
         public static void Init() {
             _windows = new Dictionary<Window, FrmBase>() {
                 { Window.Ads, new FrmAds()},
-                { Window.NewUsr, new FrmNewUsr()},
-                { Window.AddUsr, new FrmAddUsr()},
+                { Window.NewUsrMenu, new FrmNewUsrMenu()},
+                { Window.ClientCreate, new FrmClientCreate()},
             };
         }
 
@@ -28,7 +28,7 @@ namespace ClientPoint.UI {
 
     public enum Window {
         Ads = 0,
-        NewUsr = 1,
-        AddUsr = 2
+        NewUsrMenu = 1,
+        ClientCreate = 2
     }
 }

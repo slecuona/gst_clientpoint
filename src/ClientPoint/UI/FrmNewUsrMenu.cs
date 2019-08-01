@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace ClientPoint.UI
 {
-    public partial class FrmNewUsr : FrmBase
+    public partial class FrmNewUsrMenu : FrmBase
     {
-        public FrmNewUsr()
+        public FrmNewUsrMenu()
         {
             InitializeComponent();
         }
@@ -15,7 +15,7 @@ namespace ClientPoint.UI
         }
 
         private void btnNewClient_Click(object sender, EventArgs e) {
-            UIManager.Show(Window.AddUsr);
+            UIManager.Show(Window.ClientCreate);
         }
 
         private void btnExit_Click(object sender, EventArgs e) {

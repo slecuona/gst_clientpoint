@@ -135,17 +135,17 @@
     </Compile>
     <Compile Include="Status.cs" />
     <Compile Include="SwipeReader.cs" />
-    <Compile Include="UI\FrmAddUsr.cs">
+    <Compile Include="UI\FrmClientCreate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\FrmAddUsr.Designer.cs">
-      <DependentUpon>FrmAddUsr.cs</DependentUpon>
+    <Compile Include="UI\FrmClientCreate.Designer.cs">
+      <DependentUpon>FrmClientCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\FrmNewUsr.cs">
+    <Compile Include="UI\FrmNewUsrMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\FrmNewUsr.Designer.cs">
-      <DependentUpon>FrmNewUsr.cs</DependentUpon>
+    <Compile Include="UI\FrmNewUsrMenu.Designer.cs">
+      <DependentUpon>FrmNewUsrMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\UIManager.cs" />
     <EmbeddedResource Include="Properties\licenses.licx" />
@@ -180,11 +180,11 @@
     <EmbeddedResource Include="UI\FrmBase.resx">
       <DependentUpon>FrmBase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\FrmAddUsr.resx">
-      <DependentUpon>FrmAddUsr.cs</DependentUpon>
+    <EmbeddedResource Include="UI\FrmClientCreate.resx">
+      <DependentUpon>FrmClientCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\FrmNewUsr.resx">
-      <DependentUpon>FrmNewUsr.cs</DependentUpon>
+    <EmbeddedResource Include="UI\FrmNewUsrMenu.resx">
+      <DependentUpon>FrmNewUsrMenu.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

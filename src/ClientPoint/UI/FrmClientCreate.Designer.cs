@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace ClientPoint.UI
 {
-    partial class FrmAddUsr {
+    partial class FrmClientCreate {
         /// <summary>
         /// Required designer variable.
         /// </summary>

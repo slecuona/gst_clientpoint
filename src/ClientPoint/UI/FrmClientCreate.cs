@@ -5,8 +5,8 @@ using ClientPoint.Api;
 using Telerik.WinControls;
 
 namespace ClientPoint.UI {
-    public partial class FrmAddUsr : FrmBase {
-        public FrmAddUsr() {
+    public partial class FrmClientCreate : FrmBase {
+        public FrmClientCreate() {
             InitializeComponent();
 
             footerPanel.OnNextClick(OnNext);
@@ -89,7 +89,7 @@ namespace ClientPoint.UI {
                 var sucess = ApiService.ClientCreate(CreateRequest, out errMsg);
                 if (sucess) {
                     RadMessageBox.Show("Cliente creado correctamente.");
-                    UIManager.Show(Window.NewUsr);
+                    UIManager.Show(Window.NewUsrMenu);
                     return;
                 }
             }
@@ -102,7 +102,7 @@ namespace ClientPoint.UI {
         }
 
         private void OnBack(object sender, EventArgs e) {
-            UIManager.Show(Window.NewUsr);
+            UIManager.Show(Window.NewUsrMenu);
         }
     }
 }
