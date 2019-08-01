@@ -11,7 +11,7 @@ namespace ClientPoint.UI {
                 { Window.Ads, new FrmAds()},
                 { Window.DocumentInput, new FrmDocumentInput()},
                 { Window.PasswordInput, new FrmPasswordInput()},
-                { Window.NewUsrMenu, new FrmNewUsrMenu()},
+                { Window.NotConfirmedMenu, new FrmNotConfirmedMenu()},
                 { Window.ClientCreate, new FrmClientCreate()},
                 { Window.Confirm, new FrmConfirm()},
             };
@@ -33,7 +33,7 @@ namespace ClientPoint.UI {
         Ads = 0,
         DocumentInput = 1,
         PasswordInput = 2,
-        NewUsrMenu = 3,
+        NotConfirmedMenu = 3,
         ClientCreate = 4,
         Confirm = 5
     }

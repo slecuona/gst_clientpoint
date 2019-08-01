@@ -3,8 +3,7 @@ using System.Windows.Forms;
 
 namespace ClientPoint.UI
 {
-    partial class FrmNewUsrMenu
-    {
+    partial class FrmNotConfirmedMenu {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -32,13 +31,13 @@ namespace ClientPoint.UI
         private void InitializeComponent()
         {
             this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
-            this.btnNewClient = new ClientPoint.UI.CustomButton();
+            this.btnUpdate = new ClientPoint.UI.CustomButton();
             this.btnBack = new ClientPoint.UI.CustomButton();
             this.btnConfirm = new ClientPoint.UI.CustomButton();
             this.btnExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).BeginInit();
             this.radPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnNewClient)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnUpdate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnConfirm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -47,7 +46,7 @@ namespace ClientPoint.UI
             // radPanel1
             // 
             this.radPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.radPanel1.Controls.Add(this.btnNewClient);
+            this.radPanel1.Controls.Add(this.btnUpdate);
             this.radPanel1.Controls.Add(this.btnBack);
             this.radPanel1.Controls.Add(this.btnConfirm);
             this.radPanel1.Location = new System.Drawing.Point(19, 69);
@@ -56,18 +55,30 @@ namespace ClientPoint.UI
             this.radPanel1.TabIndex = 3;
             ((Telerik.WinControls.Primitives.BorderPrimitive)(this.radPanel1.GetChildAt(0).GetChildAt(1))).Width = 0F;
             // 
-            // btnNewClient
+            // btnConfirm
             // 
-            this.btnNewClient.Font = new System.Drawing.Font("Helvetica-Normal", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewClient.Image = global::ClientPoint.Properties.Resources.plus;
-            this.btnNewClient.Location = new System.Drawing.Point(0, 0);
-            this.btnNewClient.Name = "btnNewClient";
-            this.btnNewClient.Padding = new System.Windows.Forms.Padding(20, 5, 0, 5);
-            this.btnNewClient.Size = new System.Drawing.Size(400, 75);
-            this.btnNewClient.TabIndex = 3;
-            this.btnNewClient.TabStop = false;
-            this.btnNewClient.Text = "Nuevo Cliente";
-            this.btnNewClient.Click += new System.EventHandler(this.btnNewClient_Click);
+            this.btnConfirm.Font = new System.Drawing.Font("Helvetica-Normal", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirm.Image = global::ClientPoint.Properties.Resources.confirm;
+            this.btnConfirm.Location = new System.Drawing.Point(0, 0);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Padding = new System.Windows.Forms.Padding(20, 5, 0, 5);
+            this.btnConfirm.Size = new System.Drawing.Size(400, 75);
+            this.btnConfirm.TabIndex = 4;
+            this.btnConfirm.TabStop = false;
+            this.btnConfirm.Text = "Confirmar";
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Font = new System.Drawing.Font("Helvetica-Normal", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Image = global::ClientPoint.Properties.Resources.edit;
+            this.btnUpdate.Location = new System.Drawing.Point(0, 125);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Padding = new System.Windows.Forms.Padding(20, 5, 0, 5);
+            this.btnUpdate.Size = new System.Drawing.Size(400, 75);
+            this.btnUpdate.TabIndex = 3;
+            this.btnUpdate.TabStop = false;
+            this.btnUpdate.Text = "Actualizar datos";
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnBack
             // 
@@ -81,18 +92,6 @@ namespace ClientPoint.UI
             this.btnBack.TabStop = false;
             this.btnBack.Text = "Salir";
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click_1);
-            // 
-            // btnConfirm
-            // 
-            this.btnConfirm.Font = new System.Drawing.Font("Helvetica-Normal", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfirm.Image = global::ClientPoint.Properties.Resources.confirm;
-            this.btnConfirm.Location = new System.Drawing.Point(0, 125);
-            this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Padding = new System.Windows.Forms.Padding(20, 5, 0, 5);
-            this.btnConfirm.Size = new System.Drawing.Size(400, 75);
-            this.btnConfirm.TabIndex = 4;
-            this.btnConfirm.TabStop = false;
-            this.btnConfirm.Text = "Confirmar";
             // 
             // btnExit
             // 
@@ -121,7 +120,7 @@ namespace ClientPoint.UI
             this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).EndInit();
             this.radPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnNewClient)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnUpdate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnConfirm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
@@ -132,9 +131,9 @@ namespace ClientPoint.UI
         #endregion
 
         private Telerik.WinControls.UI.RadPanel radPanel1;
-        private CustomButton btnNewClient;
-        private CustomButton btnBack;
         private CustomButton btnConfirm;
+        private CustomButton btnUpdate;
+        private CustomButton btnBack;
         private Button btnExit;
     }
 }

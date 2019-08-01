@@ -17,7 +17,7 @@
 
         // Es la manera que encontre de diferenciar un error
         // de servidor o que el cliente no exista
-        public bool NotExists => ResponseDesc.Contains("Inexistente");
+        public bool NotExists => ResponseDesc?.Contains("Inexistente") ?? false;
     }
 
 }

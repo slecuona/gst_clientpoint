@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace ClientPoint.UI
 {
-    public partial class FrmNewUsrMenu : FrmBase
+    public partial class FrmNotConfirmedMenu : FrmBase
     {
-        public FrmNewUsrMenu()
+        public FrmNotConfirmedMenu()
         {
             InitializeComponent();
 
@@ -20,7 +20,7 @@ namespace ClientPoint.UI
             UIManager.Show(Window.Ads);
         }
 
-        private void btnNewClient_Click(object sender, EventArgs e) {
+        private void btnUpdate_Click(object sender, EventArgs e) {
             UIManager.Show(Window.ClientCreate);
         }
 

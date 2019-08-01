@@ -160,11 +160,11 @@
     <Compile Include="UI\FrmClientCreate.Designer.cs">
       <DependentUpon>FrmClientCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\FrmNewUsrMenu.cs">
+    <Compile Include="UI\FrmNotConfirmedMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\FrmNewUsrMenu.Designer.cs">
-      <DependentUpon>FrmNewUsrMenu.cs</DependentUpon>
+    <Compile Include="UI\FrmNotConfirmedMenu.Designer.cs">
+      <DependentUpon>FrmNotConfirmedMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\UIManager.cs" />
     <Compile Include="Utils\MsgBox.cs" />
@@ -212,8 +212,8 @@
     <EmbeddedResource Include="UI\FrmClientCreate.resx">
       <DependentUpon>FrmClientCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\FrmNewUsrMenu.resx">
-      <DependentUpon>FrmNewUsrMenu.cs</DependentUpon>
+    <EmbeddedResource Include="UI\FrmNotConfirmedMenu.resx">
+      <DependentUpon>FrmNotConfirmedMenu.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -255,6 +255,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

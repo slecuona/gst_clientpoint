@@ -1,18 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using ClientPoint.Api;
+using ClientPoint.Session;
 using ClientPoint.Utils;
 
 namespace ClientPoint.UI {
     public partial class FrmConfirm : FrmBase {
-        // Este form tiene un modo "post create" que se muestra
-        // despues del alta, donde no hace falta volver a ingresar
-        // el documento y el password.
-        private bool _postCreate = false;
-        private string _postCreateDoc = null;
-        private string _postCreatePass = null;
-
         public FrmConfirm() {
             InitializeComponent();
 
@@ -21,20 +14,7 @@ namespace ClientPoint.UI {
             footerPanel.NextText = "Confirmar";
             footerPanel.BackText = "Cancelar";
         }
-
-        public void PostCreateMode(string doc, string pass) {
-            _postCreate = true;
-            _postCreateDoc = doc;
-            _postCreatePass = pass;
-            fldDocument.Visible = false;
-            fldPassword.Visible = false;
-            fldCode.Location = new Point(0, 0);
-        }
-
-        private string DocumentValue => _postCreate ? 
-            _postCreateDoc : fldDocument.Value;
-        private string PasswordValue => _postCreate ? 
-            _postCreatePass : fldPassword.Value;
+        
         private string CodeValue => fldCode.Value.ToUpper();
 
         private bool ValidateFields() {
@@ -42,12 +22,6 @@ namespace ClientPoint.UI {
 
             if (string.IsNullOrEmpty(CodeValue)) 
                 errors.Add("Debe ingresar el código de confirmación.");
-            
-            if (string.IsNullOrEmpty(DocumentValue))
-                errors.Add("Debe ingresar su número de documento.");
-
-            if (string.IsNullOrEmpty(PasswordValue))
-                errors.Add("Debe ingresar su contraseña.");
 
             if (errors.Count > 0) {
                 MsgBox.Error(this, string.Join("\n", errors));
@@ -58,8 +32,8 @@ namespace ClientPoint.UI {
 
         private ConfirmCodeRequest CreateRequest => 
             new ConfirmCodeRequest() {
-                DocumentNumber = DocumentValue,
-                Password = PasswordValue,
+                DocumentNumber = ClientSession.DocumentNumber,
+                Password = ClientSession.Password,
                 Code = CodeValue,
             };
 
@@ -71,6 +45,7 @@ namespace ClientPoint.UI {
                 var sucess = ApiService.ConfirmCode(CreateRequest, out errMsg);
                 if (sucess) {
                     MsgBox.Show(this, "Cliente confirmado correctamente.");
+                    // TODO: Ir a confirmed menu
                     UIManager.Show(Window.Ads);
                     return;
                 }
@@ -83,13 +58,11 @@ namespace ClientPoint.UI {
         }
 
         private void OnBack(object sender, EventArgs e) {
-            UIManager.Show(Window.NewUsrMenu);
+            UIManager.Show(Window.NotConfirmedMenu);
         }
 
         public override void BeforeShow() {
             // Reset del form
-            fldDocument.Value = "";
-            fldPassword.Value = "";
             fldCode.Value = null;
             base.BeforeShow();
         }

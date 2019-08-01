@@ -86,8 +86,6 @@ namespace ClientPoint.UI {
                     MsgBox.Show(this, 
                         "Cliente creado correctamente. " +
                         "Se ha enviado el código de confirmación.");
-                    var frmConfirm = UIManager.Get(Window.Confirm) as FrmConfirm;
-                    frmConfirm?.PostCreateMode(DocumentValue, PasswordValue);
                     UIManager.Show(Window.Confirm);
                     return;
                 }

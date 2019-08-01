@@ -44,7 +44,8 @@ namespace ClientPoint.UI {
                 var res = ApiService.ClientStatus(CreateRequest, out errMsg);
                 if (res != null) {
                     // Password OK.
-                    UIManager.Show(Window.NewUsrMenu);
+                    ClientSession.EnterPassword(PasswordValue);
+                    UIManager.Show(Window.NotConfirmedMenu);
                     return;
                 }
                 else {
@@ -61,7 +62,7 @@ namespace ClientPoint.UI {
         }
 
         private void OnBack(object sender, EventArgs e) {
-            UIManager.Show(Window.NewUsrMenu);
+            UIManager.Show(Window.DocumentInput);
         }
 
         public override void BeforeShow() {

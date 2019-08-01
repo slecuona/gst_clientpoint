@@ -74,7 +74,7 @@ namespace ClientPoint.UI {
         }
 
         private void OnBack(object sender, EventArgs e) {
-            UIManager.Show(Window.NewUsrMenu);
+            UIManager.Show(Window.Ads);
         }
 
         public override void BeforeShow() {

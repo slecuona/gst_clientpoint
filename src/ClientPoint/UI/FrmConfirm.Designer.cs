@@ -1,7 +1,4 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
-
-namespace ClientPoint.UI
+﻿namespace ClientPoint.UI
 {
     partial class FrmConfirm {
         /// <summary>
@@ -30,8 +27,6 @@ namespace ClientPoint.UI
         {
             this.footerPanel = new FooterPanel();
             this.radScrollablePanel1 = new Telerik.WinControls.UI.RadScrollablePanel();
-            this.fldDocument = new ClientPoint.UI.CustomMaskedField();
-            this.fldPassword = new ClientPoint.UI.CustomField();
             this.fldCode = new ClientPoint.UI.CustomMaskedField();
             ((System.ComponentModel.ISupportInitialize)(this.footerPanel)).BeginInit();
             this.footerPanel.SuspendLayout();
@@ -54,31 +49,12 @@ namespace ClientPoint.UI
             // 
             this.radScrollablePanel1.PanelContainer.AutoScrollMargin = new System.Drawing.Size(0, 50);
             this.radScrollablePanel1.PanelContainer.AutoScrollMinSize = new System.Drawing.Size(0, 50);
-            this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldDocument);
-            this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldPassword);
             this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldCode);
             this.radScrollablePanel1.PanelContainer.Location = new System.Drawing.Point(0, 0);
             this.radScrollablePanel1.PanelContainer.Size = new System.Drawing.Size(650, 443);
             this.radScrollablePanel1.Size = new System.Drawing.Size(650, 443);
             this.radScrollablePanel1.TabIndex = 4;
             ((Telerik.WinControls.Primitives.BorderPrimitive)(this.radScrollablePanel1.GetChildAt(0).GetChildAt(1))).Width = 0F;
-            // 
-            // fldDocument
-            // 
-            this.fldDocument.Label = "Nr. Documento";
-            this.fldDocument.Location = new System.Drawing.Point(0, 0);
-            this.fldDocument.Name = "fldDocument";
-            this.fldDocument.Size = new System.Drawing.Size(615, 53);
-            this.fldDocument.TabIndex = 0;
-            // 
-            // fldPassword
-            // 
-            this.fldPassword.Label = "Contraseña";
-            this.fldPassword.Location = new System.Drawing.Point(0, 90);
-            this.fldPassword.Name = "fldPassword";
-            this.fldPassword.Size = new System.Drawing.Size(615, 53);
-            this.fldPassword.TabIndex = 1;
-            this.fldPassword.Password = true;
             // 
             // fldCode
             // 
@@ -120,8 +96,6 @@ namespace ClientPoint.UI
 
         private FooterPanel footerPanel;
         private Telerik.WinControls.UI.RadScrollablePanel radScrollablePanel1;
-        private CustomMaskedField fldDocument;
-        private CustomField fldPassword;
         private CustomMaskedField fldCode;
     }
 }
