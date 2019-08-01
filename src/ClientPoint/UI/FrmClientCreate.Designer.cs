@@ -131,6 +131,7 @@ namespace ClientPoint.UI
             this.fldPassword.Name = "fldPassword";
             this.fldPassword.Size = new System.Drawing.Size(615, 53);
             this.fldPassword.TabIndex = 5;
+            this.fldPassword.Password = true;
             // 
             // fldPassword2
             // 
@@ -139,6 +140,7 @@ namespace ClientPoint.UI
             this.fldPassword2.Name = "fldPassword2";
             this.fldPassword2.Size = new System.Drawing.Size(615, 53);
             this.fldPassword2.TabIndex = 6;
+            this.fldPassword2.Password = true;
             // 
             // dateField1
             // 

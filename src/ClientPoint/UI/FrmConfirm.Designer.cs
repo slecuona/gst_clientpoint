@@ -32,7 +32,7 @@ namespace ClientPoint.UI
             this.radScrollablePanel1 = new Telerik.WinControls.UI.RadScrollablePanel();
             this.fldDocument = new ClientPoint.UI.CustomMaskedField();
             this.fldPassword = new ClientPoint.UI.CustomField();
-            this.fldCode = new ClientPoint.UI.CustomField();
+            this.fldCode = new ClientPoint.UI.CustomMaskedField();
             ((System.ComponentModel.ISupportInitialize)(this.footerPanel)).BeginInit();
             this.footerPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radScrollablePanel1)).BeginInit();
@@ -78,6 +78,7 @@ namespace ClientPoint.UI
             this.fldPassword.Name = "fldPassword";
             this.fldPassword.Size = new System.Drawing.Size(615, 53);
             this.fldPassword.TabIndex = 1;
+            this.fldPassword.Password = true;
             // 
             // fldCode
             // 
@@ -86,6 +87,7 @@ namespace ClientPoint.UI
             this.fldCode.Name = "fldCode";
             this.fldCode.Size = new System.Drawing.Size(615, 53);
             this.fldCode.TabIndex = 2;
+            this.fldCode.CustomMaskType = CustomMaskType.ConfirmCode;
             // 
             // FrmConfirm
             // 
@@ -120,6 +122,6 @@ namespace ClientPoint.UI
         private Telerik.WinControls.UI.RadScrollablePanel radScrollablePanel1;
         private CustomMaskedField fldDocument;
         private CustomField fldPassword;
-        private CustomField fldCode;
+        private CustomMaskedField fldCode;
     }
 }

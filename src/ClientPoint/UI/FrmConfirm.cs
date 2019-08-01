@@ -36,7 +36,7 @@ namespace ClientPoint.UI {
             _postCreateDoc : fldDocument.Value;
         private string PasswordValue => _postCreate ? 
             _postCreatePass : fldPassword.Value;
-        private string CodeValue => fldCode.Value;
+        private string CodeValue => fldCode.Value.ToUpper();
 
         private bool ValidateFields() {
             var errors = new List<string>();
@@ -97,7 +97,7 @@ namespace ClientPoint.UI {
             // Reset del form
             fldDocument.Value = "";
             fldPassword.Value = "";
-            fldCode.Value = "";
+            fldCode.Value = null;
             base.BeforeShow();
         }
     }

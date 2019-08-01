@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Telerik.WinControls.UI;
 
@@ -21,8 +14,17 @@ namespace ClientPoint.UI {
         }
 
         public string Value {
-            get => radTextBox1.Text;
-            set => radTextBox1.Text = value;
+            get => radTextBox1.Value.ToString();
+            set => radTextBox1.Value = value;
+        }
+
+        public bool Uppercase {
+            set {
+                if (value)
+                    radTextBox1.CharacterCasing = CharacterCasing.Upper;
+                else
+                    radTextBox1.CharacterCasing = CharacterCasing.Normal;
+            }
         }
 
         public CustomMaskType CustomMaskType {
@@ -35,13 +37,27 @@ namespace ClientPoint.UI {
                     radTextBox1.MaskType = MaskType.EMail;
                     return;
                 }
+                if (value == CustomMaskType.ConfirmCode) {
+                    Uppercase = true;
+                    radTextBox1.MaskType = MaskType.Standard;
+                    radTextBox1.Mask = "AAA";
+                    radTextBox1.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+                    radTextBox1.Click += SelectText;
+                    return;
+                }
             }
             get => CustomMaskType.Email;
+        }
+
+        private void SelectText(object sender, EventArgs e) {
+            radTextBox1.SelectionStart = 0;
+            radTextBox1.SelectionLength = radTextBox1.Text.Length;
         }
     }
 
     public enum CustomMaskType {
         Document = 0,
-        Email = 1
+        Email = 1,
+        ConfirmCode = 2
     }
 }

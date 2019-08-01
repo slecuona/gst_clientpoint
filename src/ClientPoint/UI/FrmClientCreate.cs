@@ -108,5 +108,19 @@ namespace ClientPoint.UI {
         private void OnBack(object sender, EventArgs e) {
             UIManager.Show(Window.NewUsrMenu);
         }
+
+        public override void BeforeShow() {
+            // Reset del form
+            fldName.Value = "";
+            fldLastname.Value = "";
+            fldDocument.Value = "";
+            fldEmail.Value = "";
+            fldCellphone.Value = "";
+            fldPassword.Value = "";
+            fldPassword2.Value = "";
+            fldSex.Value = null;
+            fldBirthDate.Value = MaxBirthDate;
+            base.BeforeShow();
+        }
     }
 }

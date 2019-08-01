@@ -50,20 +50,20 @@ namespace ClientPoint.UI {
             Debug.WriteLine($"Card Swiped: {data}");
         }
         
-        protected override void WndProc(ref Message m) {
-            // Listen for operating system messages.
-            Debug.WriteLine($"Msg: {m.Msg}");
+        //protected override void WndProc(ref Message m) {
+        //    // Listen for operating system messages.
+        //    Debug.WriteLine($"Msg: {m.Msg}");
 
-            // El reproductor no tiene un handle para el click.
-            // Por ahora es la forma que se encontró para que la ventana
-            // reaccione correctamente al 'tap'
-            // TODO: Hacer pruebas con W10 tablet mode
-            if (_started && m.Msg == 528) {
-                //UIManager.Show(Window.NewUsr);
-                return;
-            }
+        //    // El reproductor no tiene un handle para el click.
+        //    // Por ahora es la forma que se encontró para que la ventana
+        //    // reaccione correctamente al 'tap'
+        //    // TODO: Hacer pruebas con W10 tablet mode
+        //    if (_started && m.Msg == 528) {
+        //        //UIManager.Show(Window.NewUsr);
+        //        return;
+        //    }
 
-            base.WndProc(ref m);
-        }
+        //    base.WndProc(ref m);
+        //}
     }
 }

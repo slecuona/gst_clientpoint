@@ -15,5 +15,13 @@ namespace ClientPoint.UI {
             get => radTextBox1.Text;
             set => radTextBox1.Text = value;
         }
+
+        public bool Password {
+            set {
+                if (value) {
+                    radTextBox1.PasswordChar =  '*';
+                }
+            }
+        }
     }
 }
