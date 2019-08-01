@@ -10,6 +10,7 @@ namespace ClientPoint.UI {
             _windows = new Dictionary<Window, FrmBase>() {
                 { Window.Ads, new FrmAds()},
                 { Window.DocumentInput, new FrmDocumentInput()},
+                { Window.PasswordInput, new FrmPasswordInput()},
                 { Window.NewUsrMenu, new FrmNewUsrMenu()},
                 { Window.ClientCreate, new FrmClientCreate()},
                 { Window.Confirm, new FrmConfirm()},
@@ -31,8 +32,9 @@ namespace ClientPoint.UI {
     public enum Window {
         Ads = 0,
         DocumentInput = 1,
-        NewUsrMenu = 2,
-        ClientCreate = 3,
-        Confirm = 4
+        PasswordInput = 2,
+        NewUsrMenu = 3,
+        ClientCreate = 4,
+        Confirm = 5
     }
 }

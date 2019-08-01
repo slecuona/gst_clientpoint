@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
 using ClientPoint.Api;
 using ClientPoint.Utils;
 using ClientPoint.Session;
-using Telerik.WinControls;
 
 namespace ClientPoint.UI {
-    public partial class FrmDocumentInput : FrmBase {
-        public FrmDocumentInput() {
+    public partial class FrmPasswordInput : FrmBase {
+        public FrmPasswordInput() {
             InitializeComponent();
 
             footerPanel.OnNextClick(OnNext);
@@ -17,13 +15,13 @@ namespace ClientPoint.UI {
             footerPanel.BackText = "Cancelar";
         }
         
-        private string DocumentValue => fldDocument.Value;
+        private string PasswordValue => fldPassword.Value;
 
         private bool ValidateFields() {
             var errors = new List<string>();
 
-            if (string.IsNullOrEmpty(DocumentValue))
-                errors.Add("Debe ingresar su número de documento.");
+            if (string.IsNullOrEmpty(PasswordValue))
+                errors.Add("Debe ingresar su contraseña.");
             
             if (errors.Count > 0) {
                 MsgBox.Error(this, string.Join("\n", errors));
@@ -32,9 +30,10 @@ namespace ClientPoint.UI {
             return true;
         }
 
+        //TODO: Falta un endpoint se autenticacion
         private ClientStatusRequest CreateRequest => 
             new ClientStatusRequest() {
-                DocumentNumber = DocumentValue
+                DocumentNumber = ClientSession.DocumentNumber
             };
 
         private void OnNext(object sender, EventArgs e) {
@@ -44,26 +43,14 @@ namespace ClientPoint.UI {
             try {
                 var res = ApiService.ClientStatus(CreateRequest, out errMsg);
                 if (res != null) {
-                    if (res.NotExists) {
-                        var createNew = MsgBox.Confirm(this, 
-                            "No hay ningun cliente registrado con este número de documento." +
-                            "¿Desea crear una cuenta?");
-                        if (createNew) {
-                            ClientSession.EnterDocument(DocumentValue);
-                            UIManager.Show(Window.ClientCreate);
-                            return;
-                        }
-                        else {
-                            // Salir / cancela
-                            UIManager.Show(Window.Ads);
-                            return;
-                        }
-                    }
-                    else {
-                        // El usuario ya existe, debe ingresar password para continuar.
-                        UIManager.Show(Window.PasswordInput);
-                        return;
-                    }
+                    // Password OK.
+                    UIManager.Show(Window.NewUsrMenu);
+                    return;
+                }
+                else {
+                    // El cliente no existe
+                    UIManager.Show(Window.Ads);
+                    return;
                 }
             }
             catch (Exception ex) {
@@ -79,7 +66,7 @@ namespace ClientPoint.UI {
 
         public override void BeforeShow() {
             // Reset del form
-            fldDocument.Value = "";
+            fldPassword.Value = "";
             base.BeforeShow();
         }
     }
