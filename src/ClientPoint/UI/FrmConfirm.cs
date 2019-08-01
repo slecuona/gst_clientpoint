@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Windows.Forms;
 using ClientPoint.Api;
-using Telerik.WinControls;
+using ClientPoint.Utils;
 
 namespace ClientPoint.UI {
     public partial class FrmConfirm : FrmBase {
@@ -51,12 +50,7 @@ namespace ClientPoint.UI {
                 errors.Add("Debe ingresar su contraseña.");
 
             if (errors.Count > 0) {
-                RadMessageBox.Show(
-                    this,
-                    string.Join("\n", errors),
-                    "Errores",
-                    MessageBoxButtons.OK,
-                    RadMessageIcon.Error);
+                MsgBox.Error(this, string.Join("\n", errors));
                 return false;
             }
             return true;
@@ -76,7 +70,7 @@ namespace ClientPoint.UI {
             try {
                 var sucess = ApiService.ConfirmCode(CreateRequest, out errMsg);
                 if (sucess) {
-                    RadMessageBox.Show("Cliente confirmado correctamente.");
+                    MsgBox.Show(this, "Cliente confirmado correctamente.");
                     UIManager.Show(Window.Ads);
                     return;
                 }
@@ -85,8 +79,7 @@ namespace ClientPoint.UI {
                 //TODO: Log
                 errMsg = ex.Message;
             }
-            RadMessageBox.Show(this, errMsg, "Error", 
-                MessageBoxButtons.OK, RadMessageIcon.Error);
+            MsgBox.Error(this, errMsg);
         }
 
         private void OnBack(object sender, EventArgs e) {

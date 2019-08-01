@@ -1,0 +1,24 @@
+﻿// Este archivo contiene la estructura de todos los request
+// que realiza la API
+namespace ClientPoint.Api {
+    public struct ClientCreateRequest {
+        public string DocumentNumber;
+        public string Password;
+        public string CelPhone; //TODO: o CellPhone?
+        public string Email;
+        public string Name;
+        public string LastName;
+        public string BirthDate;
+        public string Sex;
+    }
+
+    public struct ConfirmCodeRequest {
+        public string DocumentNumber;
+        public string Password;
+        public string Code;
+    }
+
+    public struct ClientStatusRequest {
+        public string DocumentNumber;
+    }
+}

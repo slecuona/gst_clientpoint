@@ -70,9 +70,8 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Api\ApiService.cs" />
-    <Compile Include="Api\ConfirmCodeRequest.cs" />
-    <Compile Include="Api\ClientCreateRequest.cs" />
-    <Compile Include="Api\GenResponse.cs" />
+    <Compile Include="Api\Response.cs" />
+    <Compile Include="Api\Request.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Espf\Client.cs" />
     <Compile Include="Espf\JsonUtils.cs" />
@@ -84,6 +83,7 @@
     <Compile Include="Espf\Request\SupRequest.cs" />
     <Compile Include="Espf\Response.cs" />
     <Compile Include="Espf\Services.cs" />
+    <Compile Include="Session\ClientSession.cs" />
     <Compile Include="UI\CustomButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -101,6 +101,12 @@
     </Compile>
     <Compile Include="UI\FooterPanel.Designer.cs">
       <DependentUpon>FooterPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmDocumentInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmDocumentInput.Designer.cs">
+      <DependentUpon>FrmDocumentInput.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\FrmConfirm.cs">
       <SubType>Form</SubType>
@@ -155,12 +161,16 @@
       <DependentUpon>FrmNewUsrMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\UIManager.cs" />
+    <Compile Include="Utils\MsgBox.cs" />
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="UI\DateField.resx">
       <DependentUpon>DateField.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FooterPanel.resx">
       <DependentUpon>FooterPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmDocumentInput.resx">
+      <DependentUpon>FrmDocumentInput.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FrmConfirm.resx">
       <DependentUpon>FrmConfirm.cs</DependentUpon>

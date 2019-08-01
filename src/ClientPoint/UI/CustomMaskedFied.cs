@@ -18,6 +18,8 @@ namespace ClientPoint.UI {
             set => radTextBox1.Value = value;
         }
 
+        public RadMaskedEditBox TextBox => radTextBox1;
+
         public bool Uppercase {
             set {
                 if (value)

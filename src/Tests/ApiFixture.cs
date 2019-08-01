@@ -25,5 +25,22 @@ namespace Tests {
             Assert.IsFalse(success);
             Assert.IsTrue(errMsg.Contains("El Cliente ya se encuentra Activo."));
         }
+
+        [TestMethod]
+        public void ClientStatus() {
+            var res = ApiService.ClientStatus(new ClientStatusRequest(), out string errMsg);
+            // Cuando enviamos vacio, nos devuelve el cliente 1
+            Assert.IsTrue(string.IsNullOrEmpty(errMsg));
+            Assert.AreEqual(1, res.IdClient);
+        }
+
+        [TestMethod]
+        public void ClientStatusNotExists() {
+            var res = ApiService.ClientStatus(new ClientStatusRequest() {
+                DocumentNumber = "NOTEXISTS"
+            }, out string errMsg);
+            Assert.IsTrue(res != null);
+            Assert.IsTrue(res.NotExists);
+        }
     }
 }

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
 using ClientPoint.Api;
-using Telerik.WinControls;
+using ClientPoint.Session;
+using ClientPoint.Utils;
 
 namespace ClientPoint.UI {
     public partial class FrmClientCreate : FrmBase {
@@ -58,12 +58,7 @@ namespace ClientPoint.UI {
             //TODO: Que otras validaciones?
 
             if (errors.Count > 0) {
-                RadMessageBox.Show(
-                    this,
-                    string.Join("\n", errors),
-                    "Errores",
-                    MessageBoxButtons.OK,
-                    RadMessageIcon.Error);
+                MsgBox.Error(this, string.Join("\n", errors));
                 return false;
             }
             return true;
@@ -88,7 +83,7 @@ namespace ClientPoint.UI {
             try {
                 var sucess = ApiService.ClientCreate(CreateRequest, out errMsg);
                 if (sucess) {
-                    RadMessageBox.Show(this,
+                    MsgBox.Show(this, 
                         "Cliente creado correctamente. " +
                         "Se ha enviado el código de confirmación.");
                     var frmConfirm = UIManager.Get(Window.Confirm) as FrmConfirm;
@@ -101,19 +96,19 @@ namespace ClientPoint.UI {
                 //TODO: Log
                 errMsg = ex.Message;
             }
-            RadMessageBox.Show(this, errMsg, "Error", 
-                MessageBoxButtons.OK, RadMessageIcon.Error);
+            MsgBox.Error(this, errMsg);
         }
 
         private void OnBack(object sender, EventArgs e) {
-            UIManager.Show(Window.NewUsrMenu);
+            UIManager.Show(Window.Ads);
         }
 
         public override void BeforeShow() {
             // Reset del form
             fldName.Value = "";
             fldLastname.Value = "";
-            fldDocument.Value = "";
+            fldDocument.Value = ClientSession.DocumentNumber;
+            fldDocument.TextBox.Enabled = false;
             fldEmail.Value = "";
             fldCellphone.Value = "";
             fldPassword.Value = "";

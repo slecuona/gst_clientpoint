@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using AxWMPLib;
 using ClientPoint.Ads;
+using ClientPoint.Session;
 
 namespace ClientPoint.UI {
     public partial class FrmAds : FrmBase {
@@ -23,11 +24,11 @@ namespace ClientPoint.UI {
         // En fullscreen no hay manera de capturar el click.
         // Cuando se hace click, pausa el video.
         private void AdsPlayerPause(object sender, EventArgs e) {
-            UIManager.Show(Window.NewUsrMenu);
+            UIManager.Show(Window.DocumentInput);
         }
 
         private void AdsPlayerOnClickEvent(object sender, _WMPOCXEvents_ClickEvent e) {
-            UIManager.Show(Window.NewUsrMenu);
+            UIManager.Show(Window.DocumentInput);
         }
 
         private void OnShown(object sender, EventArgs e) {
@@ -39,6 +40,8 @@ namespace ClientPoint.UI {
         public override void BeforeShow() {
             _adsPlayer.PlayRandom();
             _started = true;
+            // Si muestro este form es porque ya termino la sesion
+            ClientSession.Clear();
             base.BeforeShow();
         }
 

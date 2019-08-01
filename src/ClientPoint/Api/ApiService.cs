@@ -48,7 +48,7 @@ namespace ClientPoint.Api {
             try {
                 errMsg = "";
                 var json = SendRequest("ClientCreate", ToJson(req));
-                var res = (GenResponse)JsonUtils.Deserialize(typeof(GenResponse), json);
+                var res = (BaseResponse)JsonUtils.Deserialize(typeof(BaseResponse), json);
                 if (res.ResponseCode != 0) {
                     errMsg = res.ResponseDesc;
                     return false;
@@ -64,7 +64,7 @@ namespace ClientPoint.Api {
             try {
                 errMsg = "";
                 var json = SendRequest("ConfirmCode", ToJson(req));
-                var res = (GenResponse)JsonUtils.Deserialize(typeof(GenResponse), json);
+                var res = (BaseResponse)JsonUtils.Deserialize(typeof(BaseResponse), json);
                 if (res.ResponseCode != 0) {
                     errMsg = res.ResponseDesc;
                     return false;
@@ -72,6 +72,25 @@ namespace ClientPoint.Api {
                 return true;
             } catch (Exception ex) {
                 throw new Exception("Error al confirmar alta de cliente.", ex);
+            }
+        }
+
+        public static ClientStatusResponse ClientStatus(ClientStatusRequest req, out string errMsg) {
+            try {
+                errMsg = "";
+                var json = SendRequest("ClientStatus", ToJson(req));
+                var res = (ClientStatusResponse)JsonUtils.Deserialize(typeof(ClientStatusResponse), json);
+                if (res.ResponseCode != 0) {
+                    if (res.NotExists) {
+                        // No es un error, el cliente no existe
+                        return res;
+                    }
+                    errMsg = res.ResponseDesc;
+                    return null;
+                }
+                return res;
+            } catch (Exception ex) {
+                throw new Exception("Error al consultar estado de cliente.", ex);
             }
         }
 
