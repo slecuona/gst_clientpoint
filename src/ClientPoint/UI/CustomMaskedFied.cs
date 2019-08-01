@@ -20,7 +20,10 @@ namespace ClientPoint.UI {
             set => radLabel1.Text = value;
         }
 
-        public string GetValue() => radTextBox1.Text;
+        public string Value {
+            get => radTextBox1.Text;
+            set => radTextBox1.Text = value;
+        }
 
         public CustomMaskType CustomMaskType {
             set {

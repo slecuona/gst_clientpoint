@@ -1,6 +1,4 @@
-﻿using ClientPoint.Espf;
-
-namespace ClientPoint.Api {
+﻿namespace ClientPoint.Api {
     public struct ClientCreateRequest {
         public string DocumentNumber;
         public string Password;
@@ -10,8 +8,5 @@ namespace ClientPoint.Api {
         public string LastName;
         public string BirthDate;
         public string Sex;
-
-        public string ToJson() =>
-            JsonUtils.Serialize(this.GetType(), this);
     }
 }

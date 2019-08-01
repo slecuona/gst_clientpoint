@@ -12,6 +12,9 @@ namespace ClientPoint.UI {
             set => radLabel1.Text = value;
         }
 
-        public DateTime GetValue() => dateTimePicker.Value;
+        public DateTime Value {
+            get => dateTimePicker.Value;
+            set => dateTimePicker.Value = value;
+        }
     }
 }

@@ -8,8 +8,14 @@ namespace ClientPoint.UI
         public FrmNewUsrMenu()
         {
             InitializeComponent();
+
+            btnConfirm.Click += BtnConfirmOnClick;
         }
-        
+
+        private void BtnConfirmOnClick(object sender, EventArgs e) {
+            UIManager.Show(Window.Confirm);
+        }
+
         private void btnBack_Click_1(object sender, EventArgs e) {
             UIManager.Show(Window.Ads);
         }

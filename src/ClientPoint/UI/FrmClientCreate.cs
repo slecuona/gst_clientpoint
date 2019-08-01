@@ -15,15 +15,15 @@ namespace ClientPoint.UI {
             footerPanel.BackText = "Cancelar";
         }
 
-        private string NameValue => fldName.GetValue();
-        private string LastNameValue => fldLastname.GetValue();
-        private string DocumentValue => fldDocument.GetValue();
-        private string EmailValue => fldEmail.GetValue();
-        private string CellphoneValue => fldCellphone.GetValue();
-        private string PasswordValue => fldPassword.GetValue();
-        private string Password2Value => fldPassword2.GetValue();
-        private string SexValue => fldSex.GetValue();
-        private DateTime BirthDateValue => fldBirthDate.GetValue();
+        private string NameValue => fldName.Value;
+        private string LastNameValue => fldLastname.Value;
+        private string DocumentValue => fldDocument.Value;
+        private string EmailValue => fldEmail.Value;
+        private string CellphoneValue => fldCellphone.Value;
+        private string PasswordValue => fldPassword.Value;
+        private string Password2Value => fldPassword2.Value;
+        private string SexValue => fldSex.Value;
+        private DateTime BirthDateValue => fldBirthDate.Value;
 
         // Mayor de 18 años?
         private static DateTime MaxBirthDate => DateTime.Today.AddYears(-18);
@@ -88,8 +88,12 @@ namespace ClientPoint.UI {
             try {
                 var sucess = ApiService.ClientCreate(CreateRequest, out errMsg);
                 if (sucess) {
-                    RadMessageBox.Show("Cliente creado correctamente.");
-                    UIManager.Show(Window.NewUsrMenu);
+                    RadMessageBox.Show(this,
+                        "Cliente creado correctamente. " +
+                        "Se ha enviado el código de confirmación.");
+                    var frmConfirm = UIManager.Get(Window.Confirm) as FrmConfirm;
+                    frmConfirm?.PostCreateMode(DocumentValue, PasswordValue);
+                    UIManager.Show(Window.Confirm);
                     return;
                 }
             }

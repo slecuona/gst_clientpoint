@@ -70,6 +70,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Api\ApiService.cs" />
+    <Compile Include="Api\ConfirmCodeRequest.cs" />
     <Compile Include="Api\ClientCreateRequest.cs" />
     <Compile Include="Api\GenResponse.cs" />
     <Compile Include="Config.cs" />
@@ -100,6 +101,12 @@
     </Compile>
     <Compile Include="UI\FooterPanel.Designer.cs">
       <DependentUpon>FooterPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmConfirm.Designer.cs">
+      <DependentUpon>FrmConfirm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\SexField.cs">
       <SubType>UserControl</SubType>
@@ -154,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FooterPanel.resx">
       <DependentUpon>FooterPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmConfirm.resx">
+      <DependentUpon>FrmConfirm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\SexField.resx">
       <DependentUpon>SexField.cs</DependentUpon>

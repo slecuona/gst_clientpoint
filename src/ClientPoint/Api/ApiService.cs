@@ -59,5 +59,21 @@ namespace ClientPoint.Api {
             }
         }
 
+        // Confirma alta de cliente mediante codigo de validacion
+        public static bool ConfirmCode(ConfirmCodeRequest req, out string errMsg) {
+            try {
+                errMsg = "";
+                var json = SendRequest("ConfirmCode", ToJson(req));
+                var res = (GenResponse)JsonUtils.Deserialize(typeof(GenResponse), json);
+                if (res.ResponseCode != 0) {
+                    errMsg = res.ResponseDesc;
+                    return false;
+                }
+                return true;
+            } catch (Exception ex) {
+                throw new Exception("Error al confirmar alta de cliente.", ex);
+            }
+        }
+
     }
 }

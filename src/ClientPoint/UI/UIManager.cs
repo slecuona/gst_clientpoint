@@ -11,6 +11,7 @@ namespace ClientPoint.UI {
                 { Window.Ads, new FrmAds()},
                 { Window.NewUsrMenu, new FrmNewUsrMenu()},
                 { Window.ClientCreate, new FrmClientCreate()},
+                { Window.Confirm, new FrmConfirm()},
             };
         }
 
@@ -29,6 +30,7 @@ namespace ClientPoint.UI {
     public enum Window {
         Ads = 0,
         NewUsrMenu = 1,
-        ClientCreate = 2
+        ClientCreate = 2,
+        Confirm = 3
     }
 }
