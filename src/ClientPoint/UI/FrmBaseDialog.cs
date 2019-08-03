@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
+using System.Windows.Forms;
 using ClientPoint.Utils;
 
 namespace ClientPoint.UI {
@@ -57,22 +59,31 @@ namespace ClientPoint.UI {
         private void OnNext(object sender, EventArgs e) {
             if (!Validation())
                 return;
+            footerPanel.Waiting = true;
+            var t = new Thread(ConfirmAsync);
+            t.Start();
+        }
+
+        private void ConfirmAsync() {
             string errMsg;
             try {
-                footerPanel.Waiting = true;
                 var sucess = PerformConfirm(out errMsg);
                 if (sucess)
                     return;
-            }
-            catch (Exception ex) {
+            } catch (Exception ex) {
                 Logger.Exception(ex);
                 errMsg = ex.Message;
-            }
-            finally {
-                footerPanel.Waiting = false;
+            } finally {
+                SafeInvoke(() => {
+                    footerPanel.Waiting = false;
+                });
             }
             MsgBox.Error(this, errMsg);
+            SafeInvoke(AfterError);
         }
+
+        // Handle safe thread
+        protected virtual void AfterError() {}
 
         /// <summary>
         /// Accion a realizar al retroceder el formulario.

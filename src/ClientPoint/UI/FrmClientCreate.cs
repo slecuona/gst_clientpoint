@@ -74,6 +74,10 @@ namespace ClientPoint.UI {
             return true;
         }
 
+        protected override void AfterError() {
+            fldName.Control.Select();
+        }
+
         protected override void OnBack(object sender, EventArgs e) {
             UIManager.Show(Window.Ads);
         }
@@ -83,14 +87,15 @@ namespace ClientPoint.UI {
             fldName.Value = "";
             fldLastname.Value = "";
             fldDocument.Value = ClientSession.DocumentNumber;
-            fldDocument.TextBox.Enabled = false;
+            fldDocument.Control.Enabled = false;
             fldEmail.Value = "";
             fldCellphone.Value = "";
             fldPassword.Value = "";
             fldPassword2.Value = "";
             fldSex.Value = null;
             fldBirthDate.Value = MaxBirthDate;
-            base.BeforeShow();
+            
+            fldName.Control.Select();
         }
     }
 }

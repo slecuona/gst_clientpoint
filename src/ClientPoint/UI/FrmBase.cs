@@ -27,7 +27,14 @@ namespace ClientPoint.UI {
 
         public virtual void BeforeShow() {
             // No debe haber foco en ningun control
-            this.ActiveControl = null;
+            //this.ActiveControl = null;
+        }
+
+        protected void SafeInvoke(Action action) {
+            if (this.InvokeRequired)
+                this.Invoke((MethodInvoker) action.Invoke);
+            else
+                action.Invoke();
         }
     }
 }

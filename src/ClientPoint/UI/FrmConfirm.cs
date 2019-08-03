@@ -33,7 +33,11 @@ namespace ClientPoint.UI {
             UIManager.Show(Window.Ads);
             return true;
         }
-        
+
+        protected override void AfterError() {
+            fldCode.Control.Select();
+        }
+
         protected override void OnBack(object sender, EventArgs e) {
             UIManager.Show(Window.NotConfirmedMenu);
         }
@@ -41,7 +45,7 @@ namespace ClientPoint.UI {
         public override void BeforeShow() {
             // Reset del form
             fldCode.Value = null;
-            base.BeforeShow();
+            fldCode.Control.Select();
         }
     }
 }

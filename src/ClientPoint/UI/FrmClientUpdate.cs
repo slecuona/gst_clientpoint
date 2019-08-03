@@ -34,6 +34,10 @@ namespace ClientPoint.UI {
             return true;
         }
 
+        protected override void AfterError() {
+            fldEmail.Control.Select();
+        }
+
         protected override void OnBack(object sender, EventArgs e) {
             UIManager.Show(Window.Ads);
         }
@@ -41,7 +45,7 @@ namespace ClientPoint.UI {
         public override void BeforeShow() {
             fldEmail.Value = "";
             fldCellphone.Value = "";
-            base.BeforeShow();
+            fldEmail.Control.Select();
         }
     }
 }

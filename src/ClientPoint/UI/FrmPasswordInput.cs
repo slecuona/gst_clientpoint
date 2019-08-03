@@ -35,7 +35,11 @@ namespace ClientPoint.UI {
                 return true;
             }
         }
-        
+
+        protected override void AfterError() {
+            fldPassword.Control.Select();
+        }
+
         protected override void OnBack(object sender, EventArgs e) {
             UIManager.Show(Window.DocumentInput);
         }
@@ -43,7 +47,7 @@ namespace ClientPoint.UI {
         public override void BeforeShow() {
             // Reset del form
             fldPassword.Value = "";
-            base.BeforeShow();
+            fldPassword.Control.Select();
         }
     }
 }

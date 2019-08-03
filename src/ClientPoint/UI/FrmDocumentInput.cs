@@ -24,7 +24,9 @@ namespace ClientPoint.UI {
 
         protected override bool PerformConfirm(out string errMsg) {
             var res = ApiService.ClientStatus(CreateRequest, out errMsg);
-            if (res == null) return false;
+            if (res == null) {
+                return false;
+            }
 
             if (res.NotExists) {
                 var createNew = MsgBox.Confirm(this,
@@ -46,6 +48,10 @@ namespace ClientPoint.UI {
             }
         }
 
+        protected override void AfterError() {
+            fldDocument.Control.Select();
+        }
+
         protected override void OnBack(object sender, EventArgs e) {
             UIManager.Show(Window.Ads);
         }
@@ -53,7 +59,7 @@ namespace ClientPoint.UI {
         public override void BeforeShow() {
             // Reset del form
             fldDocument.Value = "";
-            base.BeforeShow();
+            fldDocument.Control.Select();
         }
     }
 }

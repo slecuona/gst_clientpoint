@@ -8,6 +8,8 @@ namespace ClientPoint.UI {
             InitializeComponent();
         }
 
+        public Control Control => radTextBox1;
+
         public string Label {
             get => radLabel1.Text;
             set => radLabel1.Text = value;
@@ -17,8 +19,6 @@ namespace ClientPoint.UI {
             get => radTextBox1.Value.ToString();
             set => radTextBox1.Value = value;
         }
-
-        public RadMaskedEditBox TextBox => radTextBox1;
 
         public bool Uppercase {
             set {

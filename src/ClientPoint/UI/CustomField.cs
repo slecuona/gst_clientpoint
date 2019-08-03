@@ -6,6 +6,8 @@ namespace ClientPoint.UI {
             InitializeComponent();
         }
 
+        public Control Control => radTextBox1;
+
         public string Label {
             get => radLabel1.Text;
             set => radLabel1.Text = value;
