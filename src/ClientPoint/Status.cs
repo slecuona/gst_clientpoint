@@ -1,4 +1,5 @@
 ﻿using System;
+using ClientPoint.Api;
 using ClientPoint.Espf;
 using ClientPoint.Utils;
 
@@ -60,6 +61,17 @@ namespace ClientPoint {
             } catch (Exception e) {
                 state = e.Message;
                 return false;
+            }
+        }
+
+        public static void Api() {
+            string msg = "API Connection: ";
+            try {
+                ApiService.Ping();
+                Print($"{msg} OK");
+            } catch (Exception e) {
+                Print($"{msg} {e.Message}");
+                Logger.Exception(e);
             }
         }
     }

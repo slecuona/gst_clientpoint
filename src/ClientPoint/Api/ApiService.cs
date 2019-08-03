@@ -32,6 +32,15 @@ namespace ClientPoint.Api {
             return JsonUtils.Serialize(obj.GetType(), obj);
         }
 
+        // Para testear conexion con la API
+        public static void Ping() {
+            using (var client = new HttpClient()) {
+                client.BaseAddress = new Uri(Config.ApiUrl);
+                client.PostAsync("", 
+                    new StringContent("")).Wait();
+            }
+        }
+
         public static List<string> LoadAdvertising() {
             try {
                 var json = SendRequest("LoadAdvertising", "");

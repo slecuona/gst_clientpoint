@@ -14,10 +14,16 @@ namespace ClientPoint {
             Application.SetCompatibleTextRenderingDefault(false);
 
             try {
+                // Inicializa logs
                 Logger.Init();
 
+                // Estado de servicio Evolis
                 Status.Espf();
 
+                // Estado de la conexion con la API
+                Status.Api();
+
+                // Inicializa las ventanas que utiliza la app
                 UIManager.Init();
 
                 // Pantalla principal / inicial (publicidades)
