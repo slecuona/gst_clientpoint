@@ -5,14 +5,9 @@ using ClientPoint.Session;
 using ClientPoint.Utils;
 
 namespace ClientPoint.UI {
-    public partial class FrmClientCreate : FrmBase {
+    public partial class FrmClientCreate : FrmBaseDialog {
         public FrmClientCreate() {
             InitializeComponent();
-
-            footerPanel.OnNextClick(OnNext);
-            footerPanel.OnBackClick(OnBack);
-            footerPanel.NextText = "Siguiente";
-            footerPanel.BackText = "Cancelar";
         }
 
         private string NameValue => fldName.Value;
@@ -28,10 +23,8 @@ namespace ClientPoint.UI {
         // Mayor de 18 años?
         private static DateTime MaxBirthDate => DateTime.Today.AddYears(-18);
 
-        private bool ValidateFields() {
-            var errors = new List<string>();
-
-            if (string.IsNullOrEmpty(NameValue)) 
+        protected override void PerformValidation(ref List<string> errors) {
+            if (string.IsNullOrEmpty(NameValue))
                 errors.Add("Debe ingresar su nombre.");
 
             if (string.IsNullOrEmpty(LastNameValue))
@@ -49,19 +42,13 @@ namespace ClientPoint.UI {
             if (PasswordValue != Password2Value)
                 errors.Add("Las contraseñas ingresadas no son iguales.");
 
-            if(SexValue == null)
+            if (SexValue == null)
                 errors.Add("Debe especificar su sexo.");
 
-            if(BirthDateValue.Date > MaxBirthDate.Date)
+            if (BirthDateValue.Date > MaxBirthDate.Date)
                 errors.Add("Debe tener mas de 18 años para registrarse.");
 
             //TODO: Que otras validaciones?
-
-            if (errors.Count > 0) {
-                MsgBox.Error(this, string.Join("\n", errors));
-                return false;
-            }
-            return true;
         }
 
         private ClientCreateRequest CreateRequest => 
@@ -76,28 +63,18 @@ namespace ClientPoint.UI {
                 Sex = SexValue
             };
 
-        private void OnNext(object sender, EventArgs e) {
-            if (!ValidateFields())
-                return;
-            string errMsg;
-            try {
-                var sucess = ApiService.ClientCreate(CreateRequest, out errMsg);
-                if (sucess) {
-                    MsgBox.Show(this, 
-                        "Cliente creado correctamente. " +
-                        "Se ha enviado el código de confirmación.");
-                    UIManager.Show(Window.Confirm);
-                    return;
-                }
-            }
-            catch (Exception ex) {
-                //TODO: Log
-                errMsg = ex.Message;
-            }
-            MsgBox.Error(this, errMsg);
+        protected override bool PerformConfirm(out string errMsg) {
+            var sucess = ApiService.ClientCreate(CreateRequest, out errMsg);
+            if (!sucess) return false;
+
+            MsgBox.Show(this,
+                "Cliente creado correctamente. " +
+                "Se ha enviado el código de confirmación.");
+            UIManager.Show(Window.Confirm);
+            return true;
         }
 
-        private void OnBack(object sender, EventArgs e) {
+        protected override void OnBack(object sender, EventArgs e) {
             UIManager.Show(Window.Ads);
         }
 
