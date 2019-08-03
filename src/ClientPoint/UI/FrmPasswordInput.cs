@@ -41,6 +41,7 @@ namespace ClientPoint.UI {
                 return;
             string errMsg;
             try {
+                footerPanel.Waiting = true;
                 var res = ApiService.ClientStatus(CreateRequest, out errMsg);
                 if (res != null) {
                     // Password OK.
@@ -57,6 +58,9 @@ namespace ClientPoint.UI {
             catch (Exception ex) {
                 //TODO: Log
                 errMsg = ex.Message;
+            }
+            finally {
+                footerPanel.Waiting = false;
             }
             MsgBox.Error(this, errMsg);
         }

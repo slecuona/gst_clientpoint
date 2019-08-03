@@ -42,10 +42,11 @@ namespace ClientPoint.UI {
                 return;
             string errMsg;
             try {
+                footerPanel.Waiting = true;
                 var res = ApiService.ClientStatus(CreateRequest, out errMsg);
                 if (res != null) {
                     if (res.NotExists) {
-                        var createNew = MsgBox.Confirm(this, 
+                        var createNew = MsgBox.Confirm(this,
                             "No hay ningun cliente registrado con este número de documento." +
                             "¿Desea crear una cuenta?");
                         if (createNew) {
@@ -69,6 +70,9 @@ namespace ClientPoint.UI {
             catch (Exception ex) {
                 //TODO: Log
                 errMsg = ex.Message;
+            }
+            finally {
+                footerPanel.Waiting = false;
             }
             MsgBox.Error(this, errMsg);
         }
