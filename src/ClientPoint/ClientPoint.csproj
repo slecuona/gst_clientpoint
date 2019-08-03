@@ -102,6 +102,12 @@
     <Compile Include="UI\FooterPanel.Designer.cs">
       <DependentUpon>FooterPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\FrmClientUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmClientUpdate.Designer.cs">
+      <DependentUpon>FrmClientUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\FrmPasswordInput.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FooterPanel.resx">
       <DependentUpon>FooterPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmClientUpdate.resx">
+      <DependentUpon>FrmClientUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FrmPasswordInput.resx">
       <DependentUpon>FrmPasswordInput.cs</DependentUpon>
