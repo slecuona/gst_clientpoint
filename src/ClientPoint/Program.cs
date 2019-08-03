@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClientPoint.UI;
+using ClientPoint.Utils;
 
 namespace ClientPoint {
     static class Program {
@@ -15,12 +13,20 @@ namespace ClientPoint {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Status.Espf();
+            try {
+                Logger.Init();
 
-            UIManager.Init();
+                Status.Espf();
 
-            // Pantalla principal / inicial (publicidades)
-            Application.Run(UIManager.Get(Window.Ads));
+                UIManager.Init();
+
+                // Pantalla principal / inicial (publicidades)
+                Application.Run(UIManager.Get(Window.Ads));
+            }
+            catch (Exception ex) {
+                Logger.Exception(ex);
+                MsgBox.Error(null, $"Error: {ex.Message}");
+            }
         }
     }
 }

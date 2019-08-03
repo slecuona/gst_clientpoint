@@ -65,7 +65,7 @@ namespace ClientPoint.UI {
                     return;
             }
             catch (Exception ex) {
-                //TODO: Log
+                Logger.Exception(ex);
                 errMsg = ex.Message;
             }
             finally {

@@ -179,6 +179,7 @@
       <DependentUpon>FrmNotConfirmedMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\UIManager.cs" />
+    <Compile Include="Utils\Logger.cs" />
     <Compile Include="Utils\MsgBox.cs" />
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="UI\DateField.resx">
