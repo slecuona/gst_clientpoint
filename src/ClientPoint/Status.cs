@@ -1,5 +1,6 @@
 ﻿using System;
 using ClientPoint.Espf;
+using ClientPoint.Utils;
 
 namespace ClientPoint {
     // Esta clase chequea el estado los distintos servicios / dispositivos
@@ -7,17 +8,22 @@ namespace ClientPoint {
 
         public static void Espf() {
             var espfOk = EspfService(out string espfService);
-            Console.WriteLine($"ESPF Service => {espfService}");
+            Print($"ESPF Service => {espfService}");
 
             if (espfOk) {
                 EspfSupDeviceState(out string state);
-                Console.WriteLine($"ESPF Sup. Device State => {state}");
+                Print($"ESPF Sup. Device State => {state}");
 
                 EspfCmdDeviceStatus(out string status);
-                Console.WriteLine($"ESPF Device Binary Status => {status}");
+                Print($"ESPF Device Binary Status => {status}");
             }
         }
-        
+
+        private static void Print(string msg) {
+            Console.WriteLine(msg);
+            Logger.WriteAsync(msg);
+        }
+
         // Este metodo chequea el estado del servicio ESPF
         private static bool EspfService(out string state) {
             const string PING = "ping";
