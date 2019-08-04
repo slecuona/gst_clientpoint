@@ -26,21 +26,50 @@
         private void InitializeComponent()
         {
             this.fldCode = new ClientPoint.UI.CustomMaskedField();
+            ((System.ComponentModel.ISupportInitialize)(this.footerPanel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radScrollablePanel1)).BeginInit();
+            this.radScrollablePanel1.PanelContainer.SuspendLayout();
+            this.radScrollablePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
-
+            // 
+            // footerPanel
+            // 
+            this.footerPanel.Location = new System.Drawing.Point(0, 612);
+            // 
+            // radScrollablePanel1
+            // 
+            this.radScrollablePanel1.Location = new System.Drawing.Point(0, 7);
+            // 
+            // radScrollablePanel1.PanelContainer
+            // 
             this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldCode);
+            this.radScrollablePanel1.PanelContainer.Location = new System.Drawing.Point(0, 0);
+            this.radScrollablePanel1.PanelContainer.Size = new System.Drawing.Size(1366, 600);
             // 
             // fldCode
             // 
+            this.fldCode.CustomMaskType = ClientPoint.UI.CustomMaskType.Email;
             this.fldCode.Label = "Código";
-            this.fldCode.Location = new System.Drawing.Point(0, 180);
+            this.fldCode.Location = new System.Drawing.Point(350, 120);
             this.fldCode.Name = "fldCode";
             this.fldCode.Size = new System.Drawing.Size(615, 53);
             this.fldCode.TabIndex = 2;
-            this.fldCode.CustomMaskType = CustomMaskType.ConfirmCode;
-
+            this.fldCode.Value = "";
+            // 
+            // FrmConfirm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.ClientSize = new System.Drawing.Size(1386, 712);
             this.Name = "FrmConfirm";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
+            ((System.ComponentModel.ISupportInitialize)(this.footerPanel)).EndInit();
+            this.radScrollablePanel1.PanelContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.radScrollablePanel1)).EndInit();
+            this.radScrollablePanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 

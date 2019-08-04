@@ -34,8 +34,21 @@
             this.fldPassword = new ClientPoint.UI.CustomField();
             this.fldPassword2 = new ClientPoint.UI.CustomField();
             this.fldBirthDate = new ClientPoint.UI.DateField();
+            ((System.ComponentModel.ISupportInitialize)(this.footerPanel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radScrollablePanel1)).BeginInit();
+            this.radScrollablePanel1.PanelContainer.SuspendLayout();
+            this.radScrollablePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
+            // 
+            // footerPanel
+            // 
+            this.footerPanel.Location = new System.Drawing.Point(0, 612);
+            // 
+            // radScrollablePanel1
+            // 
+            this.radScrollablePanel1.Location = new System.Drawing.Point(0, 7);
+            this.radScrollablePanel1.Padding = new System.Windows.Forms.Padding(20);
             // 
             // radScrollablePanel1.PanelContainer
             // 
@@ -48,85 +61,108 @@
             this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldCellphone);
             this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldPassword);
             this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldPassword2);
+            this.radScrollablePanel1.PanelContainer.Size = new System.Drawing.Size(1326, 543);
             // 
-            // sexField1
+            // fldSex
             // 
-            this.fldSex.Location = new System.Drawing.Point(0, 270);
+            this.fldSex.Location = new System.Drawing.Point(34, 319);
             this.fldSex.Name = "fldSex";
             this.fldSex.Size = new System.Drawing.Size(600, 50);
             this.fldSex.TabIndex = 7;
+            this.fldSex.Value = null;
             // 
             // fldName
             // 
             this.fldName.Label = "Nombre/s";
-            this.fldName.Location = new System.Drawing.Point(0, 0);
+            this.fldName.Location = new System.Drawing.Point(34, 49);
             this.fldName.Name = "fldName";
+            this.fldName.Password = false;
             this.fldName.Size = new System.Drawing.Size(615, 53);
             this.fldName.TabIndex = 0;
+            this.fldName.Value = "";
             // 
             // fldLastname
             // 
             this.fldLastname.Label = "Apellido/s";
-            this.fldLastname.Location = new System.Drawing.Point(0, 90);
+            this.fldLastname.Location = new System.Drawing.Point(34, 139);
             this.fldLastname.Name = "fldLastname";
+            this.fldLastname.Password = false;
             this.fldLastname.Size = new System.Drawing.Size(615, 53);
             this.fldLastname.TabIndex = 1;
+            this.fldLastname.Value = "";
             // 
             // fldDocument
             // 
             this.fldDocument.CustomMaskType = ClientPoint.UI.CustomMaskType.Email;
             this.fldDocument.Label = "Nr. Documento";
-            this.fldDocument.Location = new System.Drawing.Point(0, 180);
+            this.fldDocument.Location = new System.Drawing.Point(34, 229);
             this.fldDocument.Name = "fldDocument";
             this.fldDocument.Size = new System.Drawing.Size(615, 53);
             this.fldDocument.TabIndex = 4;
+            this.fldDocument.Value = "";
             // 
             // fldEmail
             // 
             this.fldEmail.CustomMaskType = ClientPoint.UI.CustomMaskType.Email;
             this.fldEmail.Label = "Correo Electrónico";
-            this.fldEmail.Location = new System.Drawing.Point(680, 0);
+            this.fldEmail.Location = new System.Drawing.Point(714, 49);
             this.fldEmail.Name = "fldEmail";
             this.fldEmail.Size = new System.Drawing.Size(650, 53);
             this.fldEmail.TabIndex = 3;
+            this.fldEmail.Value = "";
             // 
             // fldCellphone
             // 
             this.fldCellphone.Label = "Nr. Celular";
-            this.fldCellphone.Location = new System.Drawing.Point(680, 90);
+            this.fldCellphone.Location = new System.Drawing.Point(714, 139);
             this.fldCellphone.Name = "fldCellphone";
+            this.fldCellphone.Password = false;
             this.fldCellphone.Size = new System.Drawing.Size(615, 53);
             this.fldCellphone.TabIndex = 2;
+            this.fldCellphone.Value = "";
             // 
-            // fldPasword
+            // fldPassword
             // 
             this.fldPassword.Label = "Contraseña";
-            this.fldPassword.Location = new System.Drawing.Point(680, 180);
+            this.fldPassword.Location = new System.Drawing.Point(714, 229);
             this.fldPassword.Name = "fldPassword";
+            this.fldPassword.Password = true;
             this.fldPassword.Size = new System.Drawing.Size(615, 53);
             this.fldPassword.TabIndex = 5;
-            this.fldPassword.Password = true;
+            this.fldPassword.Value = "";
             // 
             // fldPassword2
             // 
             this.fldPassword2.Label = "Repita Contraseña";
-            this.fldPassword2.Location = new System.Drawing.Point(680, 270);
+            this.fldPassword2.Location = new System.Drawing.Point(714, 319);
             this.fldPassword2.Name = "fldPassword2";
+            this.fldPassword2.Password = true;
             this.fldPassword2.Size = new System.Drawing.Size(615, 53);
             this.fldPassword2.TabIndex = 6;
-            this.fldPassword2.Password = true;
+            this.fldPassword2.Value = "";
             // 
-            // dateField1
+            // fldBirthDate
             // 
-            this.fldBirthDate.Location = new System.Drawing.Point(0, 334);
+            this.fldBirthDate.Label = "Fecha Nacimiento";
+            this.fldBirthDate.Location = new System.Drawing.Point(34, 383);
             this.fldBirthDate.Name = "fldBirthDate";
             this.fldBirthDate.Size = new System.Drawing.Size(600, 50);
             this.fldBirthDate.TabIndex = 8;
-            this.fldBirthDate.Label = "Fecha Nacimiento";
+            this.fldBirthDate.Value = new System.DateTime(2019, 7, 30, 0, 0, 0, 0);
             // 
             // FrmClientCreate
             // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.ClientSize = new System.Drawing.Size(1386, 712);
             this.Name = "FrmClientCreate";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
+            ((System.ComponentModel.ISupportInitialize)(this.footerPanel)).EndInit();
+            this.radScrollablePanel1.PanelContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.radScrollablePanel1)).EndInit();
+            this.radScrollablePanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 

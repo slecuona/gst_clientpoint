@@ -24,6 +24,7 @@ namespace ClientPoint.UI {
                     radTextBox1.PasswordChar =  '*';
                 }
             }
+            get => radTextBox1.PasswordChar == '*';
         }
     }
 }
