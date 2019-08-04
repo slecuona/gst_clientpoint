@@ -1,12 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace ClientPoint.UI {
     public static class UIManager {
         private static Dictionary<Window, FrmBase> _windows;
+        private static SynchronizationContext _syncCtx;
 
         public static FrmBase Get(Window w) => _windows[w];
 
+        // Debe ser ejecutado en UI Thread
         public static void Init() {
+            _syncCtx = new WindowsFormsSynchronizationContext();
             _windows = new Dictionary<Window, FrmBase>() {
                 { Window.Ads, new FrmAds()},
                 { Window.DocumentInput, new FrmDocumentInput()},
@@ -17,15 +23,24 @@ namespace ClientPoint.UI {
             };
         }
 
+        public static void SafeExec(Action action) {
+            if (_syncCtx != null)
+                _syncCtx.Send(ui => { action.Invoke(); }, null);
+            else
+                action.Invoke();
+        }
+
         public static void Show(Window toShow) {
-            _windows[toShow].BeforeShow();
-            _windows[toShow].Show();
-            foreach (var w in _windows) {
-                if(w.Key == toShow)
-                    continue;
-                w.Value.Hide();
-                w.Value.AfterHide();
-            }
+            SafeExec(() => {
+                _windows[toShow].BeforeShow();
+                _windows[toShow].Show();
+                foreach (var w in _windows) {
+                    if (w.Key == toShow)
+                        continue;
+                    w.Value.Hide();
+                    w.Value.AfterHide();
+                }
+            });
         }
     }
 
