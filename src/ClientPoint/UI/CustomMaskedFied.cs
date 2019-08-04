@@ -16,7 +16,7 @@ namespace ClientPoint.UI {
         }
 
         public string Value {
-            get => radTextBox1.Value.ToString();
+            get => radTextBox1.Value?.ToString();
             set => radTextBox1.Value = value;
         }
 
@@ -42,7 +42,7 @@ namespace ClientPoint.UI {
                 if (value == CustomMaskType.ConfirmCode) {
                     Uppercase = true;
                     radTextBox1.MaskType = MaskType.Standard;
-                    radTextBox1.Mask = "AAA";
+                    radTextBox1.Mask = "AAAA";
                     radTextBox1.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
                     radTextBox1.Click += SelectText;
                     return;

@@ -7,6 +7,7 @@ namespace ClientPoint.UI {
     public partial class FrmPasswordInput : FrmBaseDialog {
         public FrmPasswordInput() {
             InitializeComponent();
+            fldPassword.Password = true;
         }
         
         private string PasswordValue => fldPassword.Value;

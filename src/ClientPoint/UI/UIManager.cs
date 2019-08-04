@@ -19,6 +19,7 @@ namespace ClientPoint.UI {
                 { Window.PasswordInput, new FrmPasswordInput()},
                 { Window.NotConfirmedMenu, new FrmNotConfirmedMenu()},
                 { Window.ClientCreate, new FrmClientCreate()},
+                { Window.ClientUpdate, new FrmClientUpdate()},
                 { Window.Confirm, new FrmConfirm()},
             };
         }
@@ -50,6 +51,7 @@ namespace ClientPoint.UI {
         PasswordInput = 2,
         NotConfirmedMenu = 3,
         ClientCreate = 4,
-        Confirm = 5
+        ClientUpdate = 5,
+        Confirm = 6
     }
 }

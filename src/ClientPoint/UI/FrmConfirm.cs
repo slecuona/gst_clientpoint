@@ -8,6 +8,8 @@ namespace ClientPoint.UI {
     public partial class FrmConfirm : FrmBaseDialog {
         public FrmConfirm() {
             InitializeComponent();
+            this.fldCode.CustomMaskType = CustomMaskType.ConfirmCode;
+            this.fldCode.Uppercase = true;
         }
         
         private string CodeValue => fldCode.Value.ToUpper();

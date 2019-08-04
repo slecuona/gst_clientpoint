@@ -27,13 +27,12 @@ namespace ClientPoint.UI {
             if (res == null) {
                 return false;
             }
-
+            ClientSession.EnterDocument(DocumentValue);
             if (res.NotExists) {
                 var createNew = MsgBox.Confirm(this,
                     "No hay ningun cliente registrado con este número de documento." +
                     "¿Desea crear una cuenta?");
                 if (createNew) {
-                    ClientSession.EnterDocument(DocumentValue);
                     UIManager.Show(Window.ClientCreate);
                     return true;
                 } else {
