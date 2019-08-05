@@ -8,6 +8,7 @@ namespace ClientPoint.UI {
     public partial class FrmDocumentInput : FrmBaseDialog {
         public FrmDocumentInput() {
             InitializeComponent();
+            fldDocument.CustomMaskType = CustomMaskType.Document;
         }
         
         private string DocumentValue => fldDocument.Value;
