@@ -39,7 +39,7 @@ namespace ClientPoint.UI {
         }
 
         protected override void OnBack(object sender, EventArgs e) {
-            UIManager.Show(Window.Ads);
+            UIManager.Show(Window.NotConfirmedMenu);
         }
 
         public override void BeforeShow() {

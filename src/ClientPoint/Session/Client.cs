@@ -29,14 +29,15 @@ namespace ClientPoint.Session {
                 return ClientStatus.NoExiste;
             if (s == "T")
                 return ClientStatus.SinTarjeta;
-            throw new Exception($"ClientStatus no valido: {s}");
+            return ClientStatus.Desconocido;
         }
     }
 
     public enum ClientStatus {
-        Pendiente = 0, // P
-        Activo = 1, // A
-        NoExiste = 2, // X
-        SinTarjeta = 3 // T
+        Desconocido = 0,
+        Pendiente = 1, // P
+        Activo = 2, // A
+        NoExiste = 3, // X
+        SinTarjeta = 4 // T
     }
 }
