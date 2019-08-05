@@ -21,8 +21,8 @@ namespace ClientPoint.UI {
 
         private ConfirmCodeRequest CreateRequest => 
             new ConfirmCodeRequest() {
-                DocumentNumber = ClientSession.DocumentNumber,
-                Password = ClientSession.Password,
+                DocumentNumber = ClientSession.CurrClient.DocumentNumber,
+                Password = ClientSession.CurrClient.Password,
                 Code = CodeValue,
             };
 

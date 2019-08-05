@@ -83,6 +83,7 @@
     <Compile Include="Espf\Request\SupRequest.cs" />
     <Compile Include="Espf\Response.cs" />
     <Compile Include="Espf\Services.cs" />
+    <Compile Include="Session\Client.cs" />
     <Compile Include="Session\ClientSession.cs" />
     <Compile Include="UI\CustomButton.cs">
       <SubType>Component</SubType>
@@ -196,6 +197,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FrmPasswordInput.resx">
       <DependentUpon>FrmPasswordInput.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FrmDocumentInput.resx">
       <DependentUpon>FrmDocumentInput.cs</DependentUpon>

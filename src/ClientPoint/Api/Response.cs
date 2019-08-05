@@ -17,6 +17,7 @@
 
         // Es la manera que encontre de diferenciar un error
         // de servidor o que el cliente no exista
+        // (La API devuelve ResponseCode = 1)
         public bool NotExists => ResponseDesc?.Contains("Inexistente") ?? false;
     }
 

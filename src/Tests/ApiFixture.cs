@@ -42,5 +42,19 @@ namespace Tests {
             Assert.IsTrue(res != null);
             Assert.IsTrue(res.NotExists);
         }
+
+        [TestMethod]
+        public void ClientSession() {
+            const string doc = "123456789";
+            var res = ApiService.ClientStatus(new ClientStatusRequest() {
+                DocumentNumber = doc // Es valido
+            }, out string errMsg);
+            Assert.IsTrue(res != null);
+            Assert.IsFalse(res.NotExists);
+
+            ClientPoint.Session.ClientSession.Load(res, doc);
+            var client = ClientPoint.Session.ClientSession.CurrClient;
+            Assert.AreEqual("PEPE", client.Name);
+        }
     }
 }

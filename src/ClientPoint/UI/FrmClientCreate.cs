@@ -86,7 +86,7 @@ namespace ClientPoint.UI {
             // Reset del form
             fldName.Value = "";
             fldLastname.Value = "";
-            fldDocument.Value = ClientSession.DocumentNumber;
+            fldDocument.Value = ClientSession.CurrClient.DocumentNumber;
             fldDocument.Control.Enabled = false;
             fldEmail.Value = "";
             fldCellphone.Value = "";

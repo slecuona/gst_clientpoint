@@ -27,7 +27,7 @@ namespace ClientPoint.UI {
             if (res == null) {
                 return false;
             }
-            ClientSession.EnterDocument(DocumentValue);
+            ClientSession.Load(res, DocumentValue);
             if (res.NotExists) {
                 var createNew = MsgBox.Confirm(this,
                     "No hay ningun cliente registrado con este número de documento." +

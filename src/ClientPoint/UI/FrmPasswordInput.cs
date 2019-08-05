@@ -20,14 +20,14 @@ namespace ClientPoint.UI {
         //TODO: Falta un endpoint de autenticacion
         private ClientStatusRequest CreateRequest => 
             new ClientStatusRequest() {
-                DocumentNumber = ClientSession.DocumentNumber
+                DocumentNumber = ClientSession.CurrClient.DocumentNumber
             };
 
         protected override bool PerformConfirm(out string errMsg) {
             var res = ApiService.ClientStatus(CreateRequest, out errMsg);
             if (res != null) {
                 // Password OK.
-                ClientSession.EnterPassword(PasswordValue);
+                ClientSession.CurrClient.Password = PasswordValue;
                 UIManager.Show(Window.NotConfirmedMenu);
                 return true;
             } else {
