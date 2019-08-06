@@ -12,7 +12,7 @@ namespace ClientPoint.UI {
             this.fldCode.Uppercase = true;
         }
         
-        private string CodeValue => fldCode.Value.ToUpper();
+        private string CodeValue => fldCode?.Value?.ToUpper();
 
         protected override void PerformValidation(ref List<string> errors) {
             if (string.IsNullOrEmpty(CodeValue))

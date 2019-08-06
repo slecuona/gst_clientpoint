@@ -49,7 +49,7 @@ namespace ClientPoint.UI {
                     return;
                 }
             }
-            get => CustomMaskType.Email;
+            get => CustomMaskType.None;
         }
 
         private void SelectText(object sender, EventArgs e) {
@@ -59,8 +59,9 @@ namespace ClientPoint.UI {
     }
 
     public enum CustomMaskType {
-        Document = 0,
-        Email = 1,
-        ConfirmCode = 2
+        None = 0,
+        Document = 1,
+        Email = 2,
+        ConfirmCode = 3
     }
 }
