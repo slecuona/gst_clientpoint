@@ -34,7 +34,6 @@ namespace ClientPoint.UI
             this.btnUpdate = new ClientPoint.UI.CustomButton();
             this.btnBack = new ClientPoint.UI.CustomButton();
             this.btnConfirm = new ClientPoint.UI.CustomButton();
-            this.btnExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).BeginInit();
             this.radPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnUpdate)).BeginInit();
@@ -54,18 +53,6 @@ namespace ClientPoint.UI
             this.radPanel1.Size = new System.Drawing.Size(400, 325);
             this.radPanel1.TabIndex = 3;
             ((Telerik.WinControls.Primitives.BorderPrimitive)(this.radPanel1.GetChildAt(0).GetChildAt(1))).Width = 0F;
-            // 
-            // btnConfirm
-            // 
-            this.btnConfirm.Font = new System.Drawing.Font("Helvetica-Normal", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfirm.Image = global::ClientPoint.Properties.Resources.confirm;
-            this.btnConfirm.Location = new System.Drawing.Point(0, 0);
-            this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Padding = new System.Windows.Forms.Padding(20, 5, 0, 5);
-            this.btnConfirm.Size = new System.Drawing.Size(400, 75);
-            this.btnConfirm.TabIndex = 4;
-            this.btnConfirm.TabStop = false;
-            this.btnConfirm.Text = "Confirmar";
             // 
             // btnUpdate
             // 
@@ -93,31 +80,30 @@ namespace ClientPoint.UI
             this.btnBack.Text = "Salir";
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click_1);
             // 
-            // btnExit
+            // btnConfirm
             // 
-            this.btnExit.Location = new System.Drawing.Point(3, 12);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 23);
-            this.btnExit.TabIndex = 4;
-            this.btnExit.Text = "Cerrar";
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.btnConfirm.Font = new System.Drawing.Font("Helvetica-Normal", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirm.Image = global::ClientPoint.Properties.Resources.confirm;
+            this.btnConfirm.Location = new System.Drawing.Point(0, 0);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Padding = new System.Windows.Forms.Padding(20, 5, 0, 5);
+            this.btnConfirm.Size = new System.Drawing.Size(400, 75);
+            this.btnConfirm.TabIndex = 4;
+            this.btnConfirm.TabStop = false;
+            this.btnConfirm.Text = "Confirmar";
             // 
-            // FrmNewUsr
+            // FrmNotConfirmedMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(443, 451);
-            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.radPanel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmNewUsr";
+            this.Name = "FrmNotConfirmedMenu";
             // 
             // 
             // 
             this.RootElement.ApplyShapeToControl = true;
             this.Text = "FrmNewUsr";
-            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).EndInit();
             this.radPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnUpdate)).EndInit();
@@ -134,6 +120,5 @@ namespace ClientPoint.UI
         private CustomButton btnConfirm;
         private CustomButton btnUpdate;
         private CustomButton btnBack;
-        private Button btnExit;
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Windows.Forms;
 
 namespace ClientPoint.UI
 {
@@ -22,10 +21,6 @@ namespace ClientPoint.UI
 
         private void btnUpdate_Click(object sender, EventArgs e) {
             UIManager.Show(Window.ClientUpdate);
-        }
-
-        private void btnExit_Click(object sender, EventArgs e) {
-            Application.Exit();
         }
     }
 }

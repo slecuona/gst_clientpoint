@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 using ClientPoint.Api;
 using ClientPoint.Session;
 
@@ -49,6 +50,10 @@ namespace ClientPoint.UI {
             // Reset del form
             fldPassword.Value = "";
             fldPassword.Control.Select();
+        }
+
+        private void button1_Click(object sender, EventArgs e) {
+            Application.Exit();
         }
     }
 }
