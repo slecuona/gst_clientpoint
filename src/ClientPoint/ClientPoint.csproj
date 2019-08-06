@@ -97,6 +97,12 @@
     <Compile Include="UI\DateField.Designer.cs">
       <DependentUpon>DateField.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\UserPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\UserPanel.Designer.cs">
+      <DependentUpon>UserPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\FooterPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -114,6 +120,12 @@
     </Compile>
     <Compile Include="UI\FrmBaseDialog.Designer.cs">
       <DependentUpon>FrmBaseDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrmMainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmMainMenu.Designer.cs">
+      <DependentUpon>FrmMainMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\FrmPasswordInput.cs">
       <SubType>Form</SubType>
@@ -186,6 +198,9 @@
     <EmbeddedResource Include="UI\DateField.resx">
       <DependentUpon>DateField.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\UserPanel.resx">
+      <DependentUpon>UserPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\FooterPanel.resx">
       <DependentUpon>FooterPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FrmBaseDialog.resx">
       <DependentUpon>FrmBaseDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmMainMenu.resx">
+      <DependentUpon>FrmMainMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FrmPasswordInput.resx">
       <DependentUpon>FrmPasswordInput.cs</DependentUpon>

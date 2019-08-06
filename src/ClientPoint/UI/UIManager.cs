@@ -21,6 +21,7 @@ namespace ClientPoint.UI {
                 { Window.ClientCreate, new FrmClientCreate()},
                 { Window.ClientUpdate, new FrmClientUpdate()},
                 { Window.Confirm, new FrmConfirm()},
+                { Window.MainMenu, new FrmMainMenu()},
             };
         }
 
@@ -52,6 +53,7 @@ namespace ClientPoint.UI {
         NotConfirmedMenu = 3,
         ClientCreate = 4,
         ClientUpdate = 5,
-        Confirm = 6
+        Confirm = 6,
+        MainMenu = 7
     }
 }

@@ -33,7 +33,7 @@ namespace ClientPoint.UI {
             set {
                 if (value == CustomMaskType.Document) {
                     radTextBox1.MaskType = MaskType.Standard;
-                    radTextBox1.Mask = "00000000";
+                    radTextBox1.Mask = "99999999";
                     return;
                 }
                 if (value == CustomMaskType.Email) {

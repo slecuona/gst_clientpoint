@@ -8,7 +8,7 @@ namespace ClientPoint.UI {
     public partial class FrmDocumentInput : FrmBaseDialog {
         public FrmDocumentInput() {
             InitializeComponent();
-            fldDocument.CustomMaskType = CustomMaskType.Document;
+            //fldDocument.CustomMaskType = CustomMaskType.Document;
         }
         
         private string DocumentValue => fldDocument.Value;
@@ -28,6 +28,7 @@ namespace ClientPoint.UI {
             if (res == null) {
                 return false;
             }
+            // Cargo todos los datos del usuario
             ClientSession.Load(res, DocumentValue);
             if (res.NotExists) {
                 var createNew = MsgBox.Confirm(this,

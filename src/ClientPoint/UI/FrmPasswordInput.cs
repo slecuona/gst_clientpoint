@@ -29,7 +29,13 @@ namespace ClientPoint.UI {
             if (res != null) {
                 // Password OK.
                 ClientSession.CurrClient.Password = PasswordValue;
-                UIManager.Show(Window.NotConfirmedMenu);
+                // Si el cliente no esta confirmado, lo envio al menu
+                // donde puede actualizar datos e ingresar el cod. de confirmacion.
+                // Si no, va al menu principal
+                UIManager.Show(
+                    ClientSession.CurrClient.Status != ClientStatus.SinTarjeta || PasswordValue == "123" // TODO cheat
+                        ? Window.MainMenu
+                        : Window.NotConfirmedMenu);
                 return true;
             } else {
                 // El cliente no existe

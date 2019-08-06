@@ -1,5 +1,6 @@
 ﻿using System.Collections.Specialized;
 using System.Configuration;
+using System.Drawing;
 
 namespace ClientPoint {
     public static class Config {
@@ -52,5 +53,13 @@ namespace ClientPoint {
             "http://192.168.10.12/mobile/api/ClientPoint/";
         public static string ApiUrl;
 
+
+        public static Font DefaultFont = 
+            new Font(
+                "Helvetica-Normal", 
+                15.75F, 
+                FontStyle.Regular, 
+                GraphicsUnit.Point, 
+                0);
     }
 }

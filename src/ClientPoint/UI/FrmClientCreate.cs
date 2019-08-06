@@ -70,6 +70,10 @@ namespace ClientPoint.UI {
             MsgBox.Show(this,
                 "Cliente creado correctamente. " +
                 "Se ha enviado el código de confirmación.");
+
+            // Cargo la password ingresada para enviar en el request
+            // de confirmacion
+            ClientSession.CurrClient.Password = PasswordValue;
             UIManager.Show(Window.Confirm);
             return true;
         }
