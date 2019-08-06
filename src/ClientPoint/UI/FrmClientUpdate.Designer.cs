@@ -57,7 +57,6 @@
             this.fldEmail.Name = "fldEmail";
             this.fldEmail.Size = new System.Drawing.Size(650, 53);
             this.fldEmail.TabIndex = 3;
-            this.fldEmail.Value = "";
             // 
             // fldCellphone
             // 

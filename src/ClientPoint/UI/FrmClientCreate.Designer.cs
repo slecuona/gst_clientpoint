@@ -93,23 +93,19 @@
             // 
             // fldDocument
             // 
-            this.fldDocument.CustomMaskType = ClientPoint.UI.CustomMaskType.Email;
             this.fldDocument.Label = "Nr. Documento";
             this.fldDocument.Location = new System.Drawing.Point(34, 229);
             this.fldDocument.Name = "fldDocument";
             this.fldDocument.Size = new System.Drawing.Size(615, 53);
             this.fldDocument.TabIndex = 4;
-            this.fldDocument.Value = "";
             // 
             // fldEmail
             // 
-            this.fldEmail.CustomMaskType = ClientPoint.UI.CustomMaskType.Email;
             this.fldEmail.Label = "Correo Electrónico";
             this.fldEmail.Location = new System.Drawing.Point(714, 49);
             this.fldEmail.Name = "fldEmail";
             this.fldEmail.Size = new System.Drawing.Size(650, 53);
             this.fldEmail.TabIndex = 3;
-            this.fldEmail.Value = "";
             // 
             // fldCellphone
             // 

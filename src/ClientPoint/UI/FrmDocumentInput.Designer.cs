@@ -45,13 +45,11 @@
             // fldDocument
             // 
             this.fldDocument.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.fldDocument.CustomMaskType = ClientPoint.UI.CustomMaskType.Email;
             this.fldDocument.Label = "Nr. Documento";
             this.fldDocument.Location = new System.Drawing.Point(350, 120);
             this.fldDocument.Name = "fldDocument";
             this.fldDocument.Size = new System.Drawing.Size(535, 53);
             this.fldDocument.TabIndex = 0;
-            this.fldDocument.Value = "";
             // 
             // FrmDocumentInput
             // 

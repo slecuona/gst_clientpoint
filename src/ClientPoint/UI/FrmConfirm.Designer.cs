@@ -49,13 +49,11 @@
             // 
             // fldCode
             // 
-            this.fldCode.CustomMaskType = ClientPoint.UI.CustomMaskType.Email;
             this.fldCode.Label = "Código";
             this.fldCode.Location = new System.Drawing.Point(350, 120);
             this.fldCode.Name = "fldCode";
             this.fldCode.Size = new System.Drawing.Size(615, 53);
             this.fldCode.TabIndex = 2;
-            this.fldCode.Value = "";
             // 
             // FrmConfirm
             // 
