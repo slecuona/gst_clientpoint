@@ -26,10 +26,12 @@
         private void InitializeComponent()
         {
             this.fldDocument = new ClientPoint.UI.CustomMaskedField();
+            this.radButton1 = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.footerPanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radScrollablePanel1)).BeginInit();
             this.radScrollablePanel1.PanelContainer.SuspendLayout();
             this.radScrollablePanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radButton1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -40,16 +42,28 @@
             // 
             // radScrollablePanel1.PanelContainer
             // 
+            this.radScrollablePanel1.PanelContainer.Controls.Add(this.radButton1);
             this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldDocument);
             // 
             // fldDocument
             // 
             this.fldDocument.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.fldDocument.CustomMaskType = ClientPoint.UI.CustomMaskType.Email;
             this.fldDocument.Label = "Nr. Documento";
-            this.fldDocument.Location = new System.Drawing.Point(350, 120);
+            this.fldDocument.Location = new System.Drawing.Point(350, 100);
             this.fldDocument.Name = "fldDocument";
-            this.fldDocument.Size = new System.Drawing.Size(535, 53);
+            this.fldDocument.Size = new System.Drawing.Size(495, 53);
             this.fldDocument.TabIndex = 0;
+            this.fldDocument.Value = "";
+            // 
+            // radButton1
+            // 
+            this.radButton1.Location = new System.Drawing.Point(3, 0);
+            this.radButton1.Name = "radButton1";
+            this.radButton1.Size = new System.Drawing.Size(60, 20);
+            this.radButton1.TabIndex = 1;
+            this.radButton1.Text = "EXIT";
+            this.radButton1.Click += new System.EventHandler(this.radButton1_Click);
             // 
             // FrmDocumentInput
             // 
@@ -64,6 +78,7 @@
             this.radScrollablePanel1.PanelContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.radScrollablePanel1)).EndInit();
             this.radScrollablePanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.radButton1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -74,5 +89,6 @@
         #endregion
         
         private CustomMaskedField fldDocument;
+        private Telerik.WinControls.UI.RadButton radButton1;
     }
 }

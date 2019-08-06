@@ -57,9 +57,5 @@ namespace ClientPoint.UI {
             fldPassword.Value = "";
             fldPassword.Control.Select();
         }
-
-        private void button1_Click(object sender, EventArgs e) {
-            Application.Exit();
-        }
     }
 }

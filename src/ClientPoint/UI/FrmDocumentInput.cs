@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 using ClientPoint.Api;
 using ClientPoint.Utils;
 using ClientPoint.Session;
@@ -61,6 +62,10 @@ namespace ClientPoint.UI {
             // Reset del form
             fldDocument.Value = "";
             fldDocument.Control.Select();
+        }
+
+        private void radButton1_Click(object sender, EventArgs e) {
+            Application.Exit();
         }
     }
 }

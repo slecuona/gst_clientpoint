@@ -26,7 +26,6 @@
         private void InitializeComponent()
         {
             this.fldPassword = new ClientPoint.UI.CustomField();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.footerPanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radScrollablePanel1)).BeginInit();
             this.radScrollablePanel1.PanelContainer.SuspendLayout();
@@ -44,7 +43,6 @@
             // 
             // radScrollablePanel1.PanelContainer
             // 
-            this.radScrollablePanel1.PanelContainer.Controls.Add(this.button1);
             this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldPassword);
             this.radScrollablePanel1.PanelContainer.Location = new System.Drawing.Point(0, 0);
             this.radScrollablePanel1.PanelContainer.Size = new System.Drawing.Size(1366, 600);
@@ -58,16 +56,6 @@
             this.fldPassword.Size = new System.Drawing.Size(615, 53);
             this.fldPassword.TabIndex = 0;
             this.fldPassword.Value = "";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(14, 15);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "EXIT";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FrmPasswordInput
             // 
@@ -92,6 +80,5 @@
         #endregion
         
         private CustomField fldPassword;
-        private System.Windows.Forms.Button button1;
     }
 }
