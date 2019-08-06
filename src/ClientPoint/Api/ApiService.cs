@@ -84,6 +84,7 @@ namespace ClientPoint.Api {
             }
         }
 
+        // Nos permite consultar el estado del cliente mediante DocNumber
         public static ClientStatusResponse ClientStatus(ClientStatusRequest req, out string errMsg) {
             try {
                 errMsg = "";
@@ -99,9 +100,28 @@ namespace ClientPoint.Api {
                 }
                 return res;
             } catch (Exception ex) {
-                throw new Exception("Error al consultar estado de cliente.", ex);
+                throw new Exception("Error al consultar estado de cliente por DocumentNumber", ex);
             }
         }
 
+        // Nos permite consultar el estado del cliente mediante IdCard
+        public static ClientStatusResponse ClientLoad(ClientLoadRequest req, out string errMsg) {
+            try {
+                errMsg = "";
+                var json = SendRequest("ClientLoad", ToJson(req));
+                var res = (ClientStatusResponse)JsonUtils.Deserialize(typeof(ClientStatusResponse), json);
+                if (res.ResponseCode != 0) {
+                    if (res.NotExists) {
+                        // No es un error, el cliente no existe
+                        return res;
+                    }
+                    errMsg = res.ResponseDesc;
+                    return null;
+                }
+                return res;
+            } catch (Exception ex) {
+                throw new Exception("Error al consultar estado de cliente por IdCard.", ex);
+            }
+        }
     }
 }

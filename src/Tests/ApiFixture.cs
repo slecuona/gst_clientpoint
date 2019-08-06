@@ -56,5 +56,17 @@ namespace Tests {
             var client = ClientPoint.Session.ClientSession.CurrClient;
             Assert.AreEqual("PEPE", client.Name);
         }
+
+        [TestMethod]
+        public void ClientLoadInvalid() {
+            var res = ApiService.ClientLoad(new ClientLoadRequest() {
+                IdCard = ""
+            }, out string errMsg);
+            // Si enviamos null, nos da error, devuelve este json:
+            // {"Message":"An error has occurred."}
+            // Si enviamos vacio, nos devuelve Tarjeta invalida
+            Assert.IsTrue(errMsg.Contains("Tarjeta Invalida"));
+            Assert.IsTrue(res == null);
+        }
     }
 }

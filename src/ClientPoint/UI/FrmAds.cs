@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Threading;
 using System.Windows.Forms;
 using AxWMPLib;
 using ClientPoint.Ads;
+using ClientPoint.Api;
 using ClientPoint.Session;
+using ClientPoint.Utils;
 
 namespace ClientPoint.UI {
     public partial class FrmAds : FrmBase, IMessageFilter {
@@ -53,6 +56,21 @@ namespace ClientPoint.UI {
 
         private void OnSwipe(string data) {
             Debug.WriteLine($"Card Swiped: {data}");
+            var t = new Thread(() => ClientLoadAsync(data));
+            t.Start();
+        }
+
+        private void ClientLoadAsync(string idCard) {
+            var res = ApiService.ClientLoad(new ClientLoadRequest() {
+                IdCard = idCard
+            }, out string errMsg);
+            if (res == null) {
+                MsgBox.Error(this, errMsg);
+                return;
+            }
+            // Cargo todos los datos del usuario
+            ClientSession.Load(res, null);
+            UIManager.Show(Window.PasswordInput);
         }
 
         //protected override void WndProc(ref Message m) {

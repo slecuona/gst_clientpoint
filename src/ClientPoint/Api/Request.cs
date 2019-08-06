@@ -21,4 +21,8 @@ namespace ClientPoint.Api {
     public struct ClientStatusRequest {
         public string DocumentNumber;
     }
+
+    public struct ClientLoadRequest {
+        public string IdCard;
+    }
 }
