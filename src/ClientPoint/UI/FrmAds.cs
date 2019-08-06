@@ -6,7 +6,7 @@ using ClientPoint.Ads;
 using ClientPoint.Session;
 
 namespace ClientPoint.UI {
-    public partial class FrmAds : FrmBase {
+    public partial class FrmAds : FrmBase, IMessageFilter {
         private SwipeReader _swipeReader;
         private AdsPlayer _adsPlayer;
         private bool _started = false;
@@ -17,7 +17,7 @@ namespace ClientPoint.UI {
             _adsPlayer.ClickEvent += AdsPlayerOnClickEvent;
             _adsPlayer.OnPause += AdsPlayerPause;
             this.Controls.Add(_adsPlayer);
-            _swipeReader = new SwipeReader(this, OnSwipe);
+            _swipeReader = new SwipeReader(OnSwipe);
             this.Shown += OnShown;
         }
 
@@ -42,17 +42,19 @@ namespace ClientPoint.UI {
             _started = true;
             // Si muestro este form es porque ya termino la sesion
             ClientSession.Clear();
+            Application.AddMessageFilter(this);
             base.BeforeShow();
         }
 
         public override void AfterHide() {
             _adsPlayer.Stop();
+            Application.RemoveMessageFilter(this);
         }
 
         private void OnSwipe(string data) {
             Debug.WriteLine($"Card Swiped: {data}");
         }
-        
+
         //protected override void WndProc(ref Message m) {
         //    // Listen for operating system messages.
         //    Debug.WriteLine($"Msg: {m.Msg}");
@@ -68,5 +70,18 @@ namespace ClientPoint.UI {
 
         //    base.WndProc(ref m);
         //}
+
+        // Esto nos permite capturar el input del teclado
+        // cuando el video esta en fullscreen
+        private const UInt32 WM_KEYDOWN = 0x0100;
+        public bool PreFilterMessage(ref Message m) {
+            if (m.Msg == WM_KEYDOWN) {
+                Keys keyCode = (Keys)(int)m.WParam & Keys.KeyCode;
+                //Debug.WriteLine(keyCode);
+                _swipeReader.OnKeyPress(keyCode);
+                return true;
+            }
+            return false;
+        }
     }
 }

@@ -1,34 +1,34 @@
 ﻿using System;
 using System.Windows.Forms;
-using ClientPoint.UI;
 
 namespace ClientPoint {
     public class SwipeReader {
         private string _data;
         private string _buff;
         private bool _reading = false;
+        private KeysConverter _converter;
         private Action<string> _onSwipe;
 
-        public SwipeReader(FrmAds frm, Action<string> onSwipe) {
+        public SwipeReader(Action<string> onSwipe) {
             _onSwipe = onSwipe;
-            frm.KeyPreview = true;
-            frm.KeyPress += FrmOnKeyPress;
+            _converter = new KeysConverter();
         }
         
-        private void FrmOnKeyPress(object sender, KeyPressEventArgs e) {
-
+        public void OnKeyPress(Keys k) {
             if (!_reading) {
-                if (e.KeyChar == 'ñ')
+                if (k == Keys.Oemtilde) // "ñ"
                     _reading = true;
                 return;
             }
 
-            if (_reading && e.KeyChar == '_') {
+            // "_" (ShiftKey + Oemminus)
+            if (_reading && k == Keys.ShiftKey) {
                 End();
                 return;
             }
 
-            _buff += e.KeyChar;
+            // Convierto la tecla "presionada" a string
+            _buff += _converter.ConvertToString(k);
         }
 
         private void End() {
