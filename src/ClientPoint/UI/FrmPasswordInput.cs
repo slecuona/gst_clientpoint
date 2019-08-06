@@ -33,9 +33,9 @@ namespace ClientPoint.UI {
                 // donde puede actualizar datos e ingresar el cod. de confirmacion.
                 // Si no, va al menu principal
                 UIManager.Show(
-                    ClientSession.CurrClient.Status != ClientStatus.SinTarjeta || PasswordValue == "123" // TODO cheat
-                        ? Window.MainMenu
-                        : Window.NotConfirmedMenu);
+                    ClientSession.CurrClient.Status == ClientStatus.Pendiente
+                        ? Window.NotConfirmedMenu
+                        : Window.MainMenu);
                 return true;
             } else {
                 // El cliente no existe
