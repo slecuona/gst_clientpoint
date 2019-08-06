@@ -23,6 +23,12 @@ namespace ClientPoint.UI {
                 { Window.Confirm, new FrmConfirm()},
                 { Window.MainMenu, new FrmMainMenu()},
             };
+            // Hago el render al inicio
+            // (evito el flickering)
+            foreach (var w in _windows) {
+                w.Value.Show();
+                w.Value.Hide();
+            }
         }
 
         public static void SafeExec(Action action) {
