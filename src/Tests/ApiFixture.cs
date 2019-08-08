@@ -64,8 +64,8 @@ namespace Tests {
             }, out string errMsg);
             // Si enviamos null, nos da error, devuelve este json:
             // {"Message":"An error has occurred."}
-            // Si enviamos vacio, nos devuelve Tarjeta invalida
-            Assert.IsTrue(errMsg.Contains("Tarjeta Invalida"));
+            // Si enviamos vacio, nos devuelve Tarjeta Inexistente
+            Assert.IsTrue(errMsg.Contains("Tarjeta Inexistente"));
             Assert.IsTrue(res == null);
         }
     }
