@@ -20,5 +20,4 @@
         // (La API devuelve ResponseCode = 1)
         public bool NotExists => ResponseDesc?.Contains("Documento Inexistente") ?? false;
     }
-
 }

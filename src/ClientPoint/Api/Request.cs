@@ -4,12 +4,19 @@ namespace ClientPoint.Api {
     public struct ClientCreateRequest {
         public string DocumentNumber;
         public string Password;
-        public string CelPhone; //TODO: o CellPhone?
+        public string CelPhone;
         public string Email;
         public string Name;
         public string LastName;
         public string BirthDate;
         public string Sex;
+    }
+
+    public struct ClientUpdateRequest {
+        public string DocumentNumber;
+        public string Password;
+        public string CelPhone;
+        public string Email;
     }
 
     public struct ConfirmCodeRequest {

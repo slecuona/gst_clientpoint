@@ -19,6 +19,14 @@ namespace Tests {
         }
 
         [TestMethod]
+        public void ClientUpdate() {
+            var success = ApiService.ClientUpdate(new ClientUpdateRequest(), out string errMsg);
+            // Cuando enviamos vacio, si la api esta ok, nos devuelve lo siguiente:
+            Assert.IsFalse(success);
+            Assert.IsTrue(errMsg.Contains("El Cliente ya se encuentra Activo."));
+        }
+
+        [TestMethod]
         public void ConfirmCode() {
             var success = ApiService.ConfirmCode(new ConfirmCodeRequest(), out string errMsg);
             // Cuando enviamos vacio, si la api esta ok, nos devuelve lo siguiente:

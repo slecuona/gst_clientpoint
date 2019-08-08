@@ -73,6 +73,11 @@ namespace ClientPoint.Api {
             return res.ResponseCode == 0;
         }
 
+        public static bool ClientUpdate(ClientUpdateRequest req, out string errMsg) {
+            var res = PrepareAndSendRequest<BaseResponse>("ClientUpdate", req, out errMsg);
+            return res.ResponseCode == 0;
+        }
+
         // Confirma alta de cliente mediante codigo de validacion
         public static bool ConfirmCode(ConfirmCodeRequest req, out string errMsg) {
             var res = PrepareAndSendRequest<BaseResponse>("ConfirmCode", req, out errMsg);
