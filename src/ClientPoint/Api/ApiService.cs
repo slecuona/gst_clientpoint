@@ -32,6 +32,21 @@ namespace ClientPoint.Api {
             return JsonUtils.Serialize(obj.GetType(), obj);
         }
 
+        private static BaseResponse PrepareAndSendRequest<TResType>(
+            string op, object req, out string errMsg) {
+            try {
+                errMsg = "";
+                var json = SendRequest(op, ToJson(req));
+                var res = (BaseResponse)JsonUtils.Deserialize(typeof(TResType), json);
+                if (res.ResponseCode != 0) {
+                    errMsg = res.ResponseDesc;
+                }
+                return res;
+            } catch (Exception ex) {
+                throw new Exception($"Error al preparar request de {op}.", ex);
+            }
+        }
+
         // Para testear conexion con la API
         public static void Ping() {
             using (var client = new HttpClient()) {
@@ -54,74 +69,44 @@ namespace ClientPoint.Api {
 
         // Crea cliente y envia codigo de validacion.
         public static bool ClientCreate(ClientCreateRequest req, out string errMsg) {
-            try {
-                errMsg = "";
-                var json = SendRequest("ClientCreate", ToJson(req));
-                var res = (BaseResponse)JsonUtils.Deserialize(typeof(BaseResponse), json);
-                if (res.ResponseCode != 0) {
-                    errMsg = res.ResponseDesc;
-                    return false;
-                }
-                return true;
-            } catch (Exception ex) {
-                throw new Exception("Error al crear cliente.", ex);
-            }
+            var res = PrepareAndSendRequest<BaseResponse>("ClientCreate", req, out errMsg);
+            return res.ResponseCode == 0;
         }
 
         // Confirma alta de cliente mediante codigo de validacion
         public static bool ConfirmCode(ConfirmCodeRequest req, out string errMsg) {
-            try {
-                errMsg = "";
-                var json = SendRequest("ConfirmCode", ToJson(req));
-                var res = (BaseResponse)JsonUtils.Deserialize(typeof(BaseResponse), json);
-                if (res.ResponseCode != 0) {
-                    errMsg = res.ResponseDesc;
-                    return false;
-                }
-                return true;
-            } catch (Exception ex) {
-                throw new Exception("Error al confirmar alta de cliente.", ex);
-            }
+            var res = PrepareAndSendRequest<BaseResponse>("ConfirmCode", req, out errMsg);
+            return res.ResponseCode == 0;
         }
 
         // Nos permite consultar el estado del cliente mediante DocNumber
         public static ClientStatusResponse ClientStatus(ClientStatusRequest req, out string errMsg) {
-            try {
-                errMsg = "";
-                var json = SendRequest("ClientStatus", ToJson(req));
-                var res = (ClientStatusResponse)JsonUtils.Deserialize(typeof(ClientStatusResponse), json);
-                if (res.ResponseCode != 0) {
-                    if (res.NotExists) {
-                        // No es un error, el cliente no existe
-                        return res;
-                    }
-                    errMsg = res.ResponseDesc;
-                    return null;
+            var res = (ClientStatusResponse)PrepareAndSendRequest<ClientStatusResponse>(
+                "ClientStatus", req, out errMsg);
+            if (res.ResponseCode != 0) {
+                if (res.NotExists) {
+                    // No es un error, el cliente no existe
+                    return res;
                 }
-                return res;
-            } catch (Exception ex) {
-                throw new Exception("Error al consultar estado de cliente por DocumentNumber", ex);
+                errMsg = res.ResponseDesc;
+                return null;
             }
+            return res;
         }
 
         // Nos permite consultar el estado del cliente mediante IdCard
         public static ClientStatusResponse ClientLoad(ClientLoadRequest req, out string errMsg) {
-            try {
-                errMsg = "";
-                var json = SendRequest("ClientLoad", ToJson(req));
-                var res = (ClientStatusResponse)JsonUtils.Deserialize(typeof(ClientStatusResponse), json);
-                if (res.ResponseCode != 0) {
-                    if (res.NotExists) {
-                        // No es un error, el cliente no existe
-                        return res;
-                    }
-                    errMsg = res.ResponseDesc;
-                    return null;
+            var res = (ClientStatusResponse)PrepareAndSendRequest<ClientStatusResponse>(
+                "ClientLoad", req, out errMsg);
+            if (res.ResponseCode != 0) {
+                if (res.NotExists) {
+                    // No es un error, el cliente no existe
+                    return res;
                 }
-                return res;
-            } catch (Exception ex) {
-                throw new Exception("Error al consultar estado de cliente por IdCard.", ex);
+                errMsg = res.ResponseDesc;
+                return null;
             }
+            return res;
         }
     }
 }
