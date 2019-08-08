@@ -24,10 +24,7 @@ namespace ClientPoint.UI {
             };
 
         protected override bool PerformConfirm(out string errMsg) {
-            var res = ApiService.ClientStatus(CreateRequest, out errMsg);
-            if (res != null) {
-                // Password OK.
-                ClientSession.CurrClient.Password = PasswordValue;
+            if (PasswordValue == ClientSession.CurrClient.Password) {
                 // Si el cliente no esta confirmado, lo envio al menu
                 // donde puede actualizar datos e ingresar el cod. de confirmacion.
                 // Si no, va al menu principal
@@ -35,12 +32,11 @@ namespace ClientPoint.UI {
                     ClientSession.CurrClient.Status == ClientStatus.Pendiente
                         ? Window.NotConfirmedMenu
                         : Window.MainMenu);
-                return true;
-            } else {
-                // El cliente no existe
-                UIManager.Show(Window.Ads);
+                errMsg = "";
                 return true;
             }
+            errMsg = "Contraseña incorrecta.";
+            return false;
         }
 
         protected override void AfterError() {

@@ -11,6 +11,8 @@ namespace ClientPoint.Session {
         public string StatusCard;
         public string IdCard;
         public int Points;
+        public string CellPhone;
+        public string Email;
 
         // Se utiliza para la etapa de Alta/Confirmacion
         // del usuario.

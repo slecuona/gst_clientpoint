@@ -14,6 +14,9 @@
         public string StatusCard;
         public string IdCard;
         public int Points;
+        public string Password;
+        public string CellPhone;
+        public string Email;
 
         // Es la manera que encontre de diferenciar un error
         // de servidor o que el cliente no exista

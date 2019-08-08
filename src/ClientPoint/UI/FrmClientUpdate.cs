@@ -46,8 +46,8 @@ namespace ClientPoint.UI {
         }
 
         public override void BeforeShow() {
-            fldEmail.Value = "";
-            fldCellphone.Value = "";
+            fldEmail.Value = ClientSession.CurrClient.Email;
+            fldCellphone.Value = ClientSession.CurrClient.CellPhone;
             fldEmail.Control.Select();
         }
     }

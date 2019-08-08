@@ -63,6 +63,9 @@ namespace Tests {
             ClientPoint.Session.ClientSession.Load(res, doc);
             var client = ClientPoint.Session.ClientSession.CurrClient;
             Assert.AreEqual("PEPE", client.Name);
+            Assert.AreEqual("123456", client.Password);
+            Assert.AreEqual("", client.Email);
+            Assert.AreEqual("2215474330", client.CellPhone);
         }
 
         [TestMethod]

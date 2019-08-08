@@ -25,6 +25,9 @@ namespace ClientPoint.Session {
                 IdCard = res.IdCard,
                 Points = res.Points,
                 DocumentNumber = doc,
+                CellPhone = res.CellPhone,
+                Email = res.Email,
+                Password = res.Password
             };
         }
     }
