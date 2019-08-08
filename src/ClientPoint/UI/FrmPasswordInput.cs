@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
 using ClientPoint.Api;
 using ClientPoint.Session;
 
@@ -49,7 +48,8 @@ namespace ClientPoint.UI {
         }
 
         protected override void OnBack(object sender, EventArgs e) {
-            UIManager.Show(Window.DocumentInput);
+            UIManager.Show(
+                ClientSession.AccessByCard ? Window.Ads : Window.DocumentInput);
         }
 
         public override void BeforeShow() {
