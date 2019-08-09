@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Forms;
+using ClientPoint.Keyboard;
 
 namespace ClientPoint.UI {
     public static class UIManager {
@@ -9,6 +10,8 @@ namespace ClientPoint.UI {
         private static SynchronizationContext _syncCtx;
 
         public static FrmBase Get(Window w) => _windows[w];
+
+        public static KeyBoardForm KeyBoard;
 
         // Debe ser ejecutado en UI Thread
         public static void Init() {
@@ -23,6 +26,7 @@ namespace ClientPoint.UI {
                 { Window.Confirm, new FrmConfirm()},
                 { Window.MainMenu, new FrmMainMenu()},
             };
+            KeyBoard = new KeyBoardForm();
             // Hago el render al inicio
             // (evito el flickering)
             foreach (var w in _windows) {

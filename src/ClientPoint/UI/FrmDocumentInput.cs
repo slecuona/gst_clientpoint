@@ -62,6 +62,7 @@ namespace ClientPoint.UI {
             // Reset del form
             fldDocument.Value = "";
             fldDocument.Control.Select();
+            UIManager.KeyBoard.Show();
         }
 
         private void radButton1_Click(object sender, EventArgs e) {

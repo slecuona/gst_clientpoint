@@ -91,6 +91,39 @@ namespace ClientPoint.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+        ///&lt;Keys&gt;
+        ///  &lt;Key&gt;
+        ///    &lt;KeyCode&gt;8&lt;/KeyCode&gt;
+        ///    &lt;NormalText&gt;Bksp&lt;/NormalText&gt;
+        ///  &lt;/Key&gt;
+        ///  &lt;Key&gt;
+        ///    &lt;KeyCode&gt;9&lt;/KeyCode&gt;
+        ///    &lt;NormalText&gt;Tab&lt;/NormalText&gt;
+        ///  &lt;/Key&gt;
+        ///  &lt;Key&gt;
+        ///    &lt;KeyCode&gt;13&lt;/KeyCode&gt;
+        ///    &lt;NormalText&gt;Enter&lt;/NormalText&gt;
+        ///  &lt;/Key&gt;
+        ///  &lt;Key&gt;
+        ///    &lt;KeyCode&gt;16&lt;/KeyCode&gt;
+        ///    &lt;NormalText&gt;Shift&lt;/NormalText&gt;
+        ///  &lt;/Key&gt;
+        ///  &lt;Key&gt;
+        ///    &lt;KeyCode&gt;17&lt;/KeyCode&gt;
+        ///    &lt;NormalText&gt;Ctrl&lt;/NormalText&gt;
+        ///  &lt;/Key&gt;
+        ///  &lt;Key&gt;
+        ///    &lt;KeyCode&gt;18&lt;/KeyCode&gt;
+        ///    &lt;NormalText&gt;Alt&lt;/No [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string KeysMapping {
+            get {
+                return ResourceManager.GetString("KeysMapping", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap plus {
