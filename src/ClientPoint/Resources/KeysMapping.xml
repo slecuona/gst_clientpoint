@@ -412,7 +412,7 @@
   </Key>
   <Key>
     <KeyCode>186</KeyCode>
-    <NormalText>;</NormalText>
+    <NormalText>´</NormalText>
     <ShiftText>:</ShiftText>
   </Key>
   <Key>
@@ -442,8 +442,8 @@
   </Key>
   <Key>
     <KeyCode>192</KeyCode>
-    <NormalText>`</NormalText>
-    <ShiftText>~</ShiftText>
+    <NormalText>ñ</NormalText>
+    <ShiftText>Ñ</ShiftText>
   </Key>
   <Key>
     <KeyCode>219</KeyCode>

@@ -37,20 +37,20 @@ namespace ClientPoint.Keyboard {
             this.keyButtonRControl = new KeyButton();
             this.keyButtonProcess = new KeyButton();
             this.keyButtonOpenBrackets = new KeyButton();
-            this.keyButtonF10 = new KeyButton();
+            //this.keyButtonF10 = new KeyButton();
             this.keyButtonD0 = new KeyButton();
             this.keyButtonRight = new KeyButton();
             this.keyButtonRShift = new KeyButton();
             this.keyButtonReturn = new KeyButton();
             this.keyButtonDelete = new KeyButton();
-            this.keyButtonScrollLock = new KeyButton();
-            this.keyButtonPause = new KeyButton();
-            this.keyButtonPageDown = new KeyButton();
-            this.keyButtonPageUp = new KeyButton();
-            this.keyButtonPrintScreen = new KeyButton();
-            this.keyButtonInsert = new KeyButton();
-            this.keyButtonEnd = new KeyButton();
-            this.keyButtonHome = new KeyButton();
+            //this.keyButtonScrollLock = new KeyButton();
+            //this.keyButtonPause = new KeyButton();
+            //this.keyButtonPageDown = new KeyButton();
+            //this.keyButtonPageUp = new KeyButton();
+            //this.keyButtonPrintScreen = new KeyButton();
+            //this.keyButtonInsert = new KeyButton();
+            //this.keyButtonEnd = new KeyButton();
+            //this.keyButtonHome = new KeyButton();
             this.keyButtonBack = new KeyButton();
             this.keyButtonDown = new KeyButton();
             this.keyButtonOemPipe = new KeyButton();
@@ -60,9 +60,9 @@ namespace ClientPoint.Keyboard {
             this.keyButtonMinus = new KeyButton();
             this.keyButtonApps = new KeyButton();
             this.keyButtonQuestion = new KeyButton();
-            this.keyButtonSemicolon = new KeyButton();
+            this.keyButtonTilde = new KeyButton();
             this.keyButtonP = new KeyButton();
-            this.keyButtonF9 = new KeyButton();
+            //this.keyButtonF9 = new KeyButton();
             this.keyButtonD9 = new KeyButton();
             this.keyButtonRAlt = new KeyButton();
             this.keyButtonPeriod = new KeyButton();
@@ -71,7 +71,7 @@ namespace ClientPoint.Keyboard {
             this.keyButtonSubtract = new KeyButton();
             this.keyButtonMultiply = new KeyButton();
             this.keyButtonDivide = new KeyButton();
-            this.keyButtonF8 = new KeyButton();
+            //this.keyButtonF8 = new KeyButton();
             this.keyButtonD8 = new KeyButton();
             this.keyButtonComma = new KeyButton();
             this.keyButtonK = new KeyButton();
@@ -80,7 +80,7 @@ namespace ClientPoint.Keyboard {
             this.keyButtonNumberPad3 = new KeyButton();
             this.keyButtonNumberPad6 = new KeyButton();
             this.keyButtonNumberPad9 = new KeyButton();
-            this.keyButtonF7 = new KeyButton();
+            //this.keyButtonF7 = new KeyButton();
             this.keyButtonD7 = new KeyButton();
             this.keyButtonM = new KeyButton();
             this.keyButtonJ = new KeyButton();
@@ -90,7 +90,7 @@ namespace ClientPoint.Keyboard {
             this.keyButtonNumberPad2 = new KeyButton();
             this.keyButtonNumberPad5 = new KeyButton();
             this.keyButtonNumberPad8 = new KeyButton();
-            this.keyButtonF6 = new KeyButton();
+            //this.keyButtonF6 = new KeyButton();
             this.keyButtonD6 = new KeyButton();
             this.keyButtonN = new KeyButton();
             this.keyButtonH = new KeyButton();
@@ -100,37 +100,37 @@ namespace ClientPoint.Keyboard {
             this.keyButtonNumberPad1 = new KeyButton();
             this.keyButtonNumberPad4 = new KeyButton();
             this.keyButtonNumberPad7 = new KeyButton();
-            this.keyButtonF5 = new KeyButton();
+            //this.keyButtonF5 = new KeyButton();
             this.keyButtonD5 = new KeyButton();
             this.keyButtonB = new KeyButton();
             this.keyButtonG = new KeyButton();
             this.keyButtonT = new KeyButton();
-            this.keyButtonF4 = new KeyButton();
+            //this.keyButtonF4 = new KeyButton();
             this.keyButtonD4 = new KeyButton();
             this.keyButtonV = new KeyButton();
             this.keyButtonF = new KeyButton();
             this.keyButtonR = new KeyButton();
-            this.keyButtonF3 = new KeyButton();
+            //this.keyButtonF3 = new KeyButton();
             this.keyButtonD3 = new KeyButton();
             this.keyButtonSpace = new KeyButton();
             this.keyButtonC = new KeyButton();
             this.keyButtonD = new KeyButton();
             this.keyButtonE = new KeyButton();
-            this.keyButtonF12 = new KeyButton();
-            this.keyButtonF2 = new KeyButton();
+            //this.keyButtonF12 = new KeyButton();
+            //this.keyButtonF2 = new KeyButton();
             this.keyButtonD2 = new KeyButton();
             this.keyButtonLAlt = new KeyButton();
             this.keyButtonX = new KeyButton();
             this.keyButtonS = new KeyButton();
             this.keyButtonW = new KeyButton();
-            this.keyButtonF11 = new KeyButton();
-            this.keyButtonF1 = new KeyButton();
+            //this.keyButtonF11 = new KeyButton();
+            //this.keyButtonF1 = new KeyButton();
             this.keyButtonD1 = new KeyButton();
             this.keyButtonWin = new KeyButton();
             this.keyButtonZ = new KeyButton();
             this.keyButtonA = new KeyButton();
             this.keyButtonQ = new KeyButton();
-            this.keyButtonTilde = new KeyButton();
+            this.keyButtonEnie = new KeyButton();
             this.keyButtonLControl = new KeyButton();
             this.keyButtonLShift = new KeyButton();
             this.keyButtonCapsLock = new KeyButton();
@@ -142,20 +142,20 @@ namespace ClientPoint.Keyboard {
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonRControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonProcess)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonOpenBrackets)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonF10)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonF10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonD0)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonRight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonRShift)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonReturn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonDelete)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonScrollLock)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonPause)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonPageDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonPageUp)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonPrintScreen)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonInsert)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonEnd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonHome)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonScrollLock)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonPause)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonPageDown)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonPageUp)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonPrintScreen)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonInsert)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonEnd)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonOemPipe)).BeginInit();
@@ -165,9 +165,9 @@ namespace ClientPoint.Keyboard {
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonMinus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonApps)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonQuestion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonSemicolon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.keyButtonTilde)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonP)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonF9)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonF9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonD9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonRAlt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonPeriod)).BeginInit();
@@ -176,7 +176,7 @@ namespace ClientPoint.Keyboard {
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonSubtract)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonMultiply)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonDivide)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonF8)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonF8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonD8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonComma)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonK)).BeginInit();
@@ -185,7 +185,7 @@ namespace ClientPoint.Keyboard {
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonNumberPad3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonNumberPad6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonNumberPad9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonF7)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonF7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonD7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonJ)).BeginInit();
@@ -195,7 +195,7 @@ namespace ClientPoint.Keyboard {
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonNumberPad2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonNumberPad5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonNumberPad8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonF6)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonF6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonD6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonH)).BeginInit();
@@ -205,37 +205,37 @@ namespace ClientPoint.Keyboard {
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonNumberPad1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonNumberPad4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonNumberPad7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonF5)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonF5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonD5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonT)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonF4)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonF4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonD4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonF)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonR)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonF3)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonF3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonD3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonSpace)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonE)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonF12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonF2)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonF12)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonF2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonD2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonLAlt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonW)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonF11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonF1)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonF11)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonF1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonD1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonWin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonZ)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonQ)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonTilde)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.keyButtonEnie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonLControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonLShift)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonCapsLock)).BeginInit();
@@ -312,23 +312,23 @@ namespace ClientPoint.Keyboard {
             this.keyButtonOpenBrackets.UnNumLockKeyCode = 0;
             this.keyButtonOpenBrackets.UnNumLockText = null;
             this.keyButtonOpenBrackets.UseMnemonic = false;
-            // 
-            // keyButtonF10
-            // 
-            this.keyButtonF10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyButtonF10.IsPressed = false;
-            this.keyButtonF10.KeyCode = 121;
-            this.keyButtonF10.Location = new System.Drawing.Point(453, 3);
-            this.keyButtonF10.Name = "keyButtonF10";
-            this.keyButtonF10.NormalText = null;
-            this.keyButtonF10.Padding = new System.Windows.Forms.Padding(2);
-            this.keyButtonF10.ShiftText = null;
-            this.keyButtonF10.Size = new System.Drawing.Size(31, 43);
-            this.keyButtonF10.TabIndex = 0;
-            this.keyButtonF10.Text = "F10";
-            this.keyButtonF10.UnNumLockKeyCode = 0;
-            this.keyButtonF10.UnNumLockText = null;
-            this.keyButtonF10.UseMnemonic = false;
+            //// 
+            //// keyButtonF10
+            //// 
+            //this.keyButtonF10.Dock = System.Windows.Forms.DockStyle.Fill;
+            //this.keyButtonF10.IsPressed = false;
+            //this.keyButtonF10.KeyCode = 121;
+            //this.keyButtonF10.Location = new System.Drawing.Point(453, 3);
+            //this.keyButtonF10.Name = "keyButtonF10";
+            //this.keyButtonF10.NormalText = null;
+            //this.keyButtonF10.Padding = new System.Windows.Forms.Padding(2);
+            //this.keyButtonF10.ShiftText = null;
+            //this.keyButtonF10.Size = new System.Drawing.Size(31, 43);
+            //this.keyButtonF10.TabIndex = 0;
+            //this.keyButtonF10.Text = "F10";
+            //this.keyButtonF10.UnNumLockKeyCode = 0;
+            //this.keyButtonF10.UnNumLockText = null;
+            //this.keyButtonF10.UseMnemonic = false;
             // 
             // keyButtonD0
             // 
@@ -418,150 +418,150 @@ namespace ClientPoint.Keyboard {
             this.keyButtonDelete.UnNumLockKeyCode = 0;
             this.keyButtonDelete.UnNumLockText = null;
             this.keyButtonDelete.UseMnemonic = false;
-            // 
-            // keyButtonScrollLock
-            // 
-            this.tableLayoutPanelKeyButtons.SetColumnSpan(this.keyButtonScrollLock, 2);
-            this.keyButtonScrollLock.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyButtonScrollLock.IsPressed = false;
-            this.keyButtonScrollLock.KeyCode = 145;
-            this.keyButtonScrollLock.Location = new System.Drawing.Point(643, 3);
-            this.keyButtonScrollLock.Name = "keyButtonScrollLock";
-            this.keyButtonScrollLock.NormalText = null;
-            this.keyButtonScrollLock.Padding = new System.Windows.Forms.Padding(2);
-            this.keyButtonScrollLock.ShiftText = null;
-            this.keyButtonScrollLock.Size = new System.Drawing.Size(68, 43);
-            this.keyButtonScrollLock.TabIndex = 0;
-            this.keyButtonScrollLock.Text = "ScrLk";
-            this.keyButtonScrollLock.UnNumLockKeyCode = 0;
-            this.keyButtonScrollLock.UnNumLockText = null;
-            this.keyButtonScrollLock.UseMnemonic = false;
-            // 
-            // keyButtonPause
-            // 
-            this.tableLayoutPanelKeyButtons.SetColumnSpan(this.keyButtonPause, 2);
-            this.keyButtonPause.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyButtonPause.IsPressed = false;
-            this.keyButtonPause.KeyCode = 19;
-            this.keyButtonPause.Location = new System.Drawing.Point(722, 3);
-            this.keyButtonPause.Name = "keyButtonPause";
-            this.keyButtonPause.NormalText = null;
-            this.keyButtonPause.Padding = new System.Windows.Forms.Padding(2);
-            this.keyButtonPause.ShiftText = null;
-            this.keyButtonPause.Size = new System.Drawing.Size(68, 43);
-            this.keyButtonPause.TabIndex = 0;
-            this.keyButtonPause.Text = "Pause";
-            this.keyButtonPause.UnNumLockKeyCode = 0;
-            this.keyButtonPause.UnNumLockText = null;
-            this.keyButtonPause.UseMnemonic = false;
-            // 
-            // keyButtonPageDown
-            // 
-            this.tableLayoutPanelKeyButtons.SetColumnSpan(this.keyButtonPageDown, 2);
-            this.keyButtonPageDown.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyButtonPageDown.IsPressed = false;
-            this.keyButtonPageDown.KeyCode = 34;
-            this.keyButtonPageDown.Location = new System.Drawing.Point(643, 88);
-            this.keyButtonPageDown.Name = "keyButtonPageDown";
-            this.keyButtonPageDown.NormalText = null;
-            this.keyButtonPageDown.Padding = new System.Windows.Forms.Padding(2);
-            this.keyButtonPageDown.ShiftText = null;
-            this.keyButtonPageDown.Size = new System.Drawing.Size(68, 30);
-            this.keyButtonPageDown.TabIndex = 0;
-            this.keyButtonPageDown.Text = "PgDn";
-            this.keyButtonPageDown.UnNumLockKeyCode = 0;
-            this.keyButtonPageDown.UnNumLockText = null;
-            this.keyButtonPageDown.UseMnemonic = false;
-            // 
-            // keyButtonPageUp
-            // 
-            this.tableLayoutPanelKeyButtons.SetColumnSpan(this.keyButtonPageUp, 2);
-            this.keyButtonPageUp.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyButtonPageUp.IsPressed = false;
-            this.keyButtonPageUp.KeyCode = 33;
-            this.keyButtonPageUp.Location = new System.Drawing.Point(569, 88);
-            this.keyButtonPageUp.Name = "keyButtonPageUp";
-            this.keyButtonPageUp.NormalText = null;
-            this.keyButtonPageUp.Padding = new System.Windows.Forms.Padding(2);
-            this.keyButtonPageUp.ShiftText = null;
-            this.keyButtonPageUp.Size = new System.Drawing.Size(68, 30);
-            this.keyButtonPageUp.TabIndex = 0;
-            this.keyButtonPageUp.Text = "PgUp";
-            this.keyButtonPageUp.UnNumLockKeyCode = 0;
-            this.keyButtonPageUp.UnNumLockText = null;
-            this.keyButtonPageUp.UseMnemonic = false;
-            // 
-            // keyButtonPrintScreen
-            // 
-            this.tableLayoutPanelKeyButtons.SetColumnSpan(this.keyButtonPrintScreen, 2);
-            this.keyButtonPrintScreen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyButtonPrintScreen.IsPressed = false;
-            this.keyButtonPrintScreen.KeyCode = 44;
-            this.keyButtonPrintScreen.Location = new System.Drawing.Point(569, 3);
-            this.keyButtonPrintScreen.Name = "keyButtonPrintScreen";
-            this.keyButtonPrintScreen.NormalText = null;
-            this.keyButtonPrintScreen.Padding = new System.Windows.Forms.Padding(2);
-            this.keyButtonPrintScreen.ShiftText = null;
-            this.keyButtonPrintScreen.Size = new System.Drawing.Size(68, 43);
-            this.keyButtonPrintScreen.TabIndex = 0;
-            this.keyButtonPrintScreen.Text = "PrtScn";
-            this.keyButtonPrintScreen.UnNumLockKeyCode = 0;
-            this.keyButtonPrintScreen.UnNumLockText = null;
-            this.keyButtonPrintScreen.UseMnemonic = false;
-            // 
-            // keyButtonInsert
-            // 
-            this.tableLayoutPanelKeyButtons.SetColumnSpan(this.keyButtonInsert, 2);
-            this.keyButtonInsert.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyButtonInsert.IsPressed = false;
-            this.keyButtonInsert.KeyCode = 45;
-            this.keyButtonInsert.Location = new System.Drawing.Point(569, 52);
-            this.keyButtonInsert.Name = "keyButtonInsert";
-            this.keyButtonInsert.NormalText = null;
-            this.keyButtonInsert.Padding = new System.Windows.Forms.Padding(2);
-            this.keyButtonInsert.ShiftText = null;
-            this.keyButtonInsert.Size = new System.Drawing.Size(68, 30);
-            this.keyButtonInsert.TabIndex = 0;
-            this.keyButtonInsert.Text = "Insert";
-            this.keyButtonInsert.UnNumLockKeyCode = 0;
-            this.keyButtonInsert.UnNumLockText = null;
-            this.keyButtonInsert.UseMnemonic = false;
-            // 
-            // keyButtonEnd
-            // 
-            this.tableLayoutPanelKeyButtons.SetColumnSpan(this.keyButtonEnd, 2);
-            this.keyButtonEnd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyButtonEnd.IsPressed = false;
-            this.keyButtonEnd.KeyCode = 35;
-            this.keyButtonEnd.Location = new System.Drawing.Point(643, 124);
-            this.keyButtonEnd.Name = "keyButtonEnd";
-            this.keyButtonEnd.NormalText = null;
-            this.keyButtonEnd.Padding = new System.Windows.Forms.Padding(2);
-            this.keyButtonEnd.ShiftText = null;
-            this.keyButtonEnd.Size = new System.Drawing.Size(68, 30);
-            this.keyButtonEnd.TabIndex = 0;
-            this.keyButtonEnd.Text = "End";
-            this.keyButtonEnd.UnNumLockKeyCode = 0;
-            this.keyButtonEnd.UnNumLockText = null;
-            this.keyButtonEnd.UseMnemonic = false;
-            // 
-            // keyButtonHome
-            // 
-            this.tableLayoutPanelKeyButtons.SetColumnSpan(this.keyButtonHome, 2);
-            this.keyButtonHome.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyButtonHome.IsPressed = false;
-            this.keyButtonHome.KeyCode = 36;
-            this.keyButtonHome.Location = new System.Drawing.Point(569, 124);
-            this.keyButtonHome.Name = "keyButtonHome";
-            this.keyButtonHome.NormalText = null;
-            this.keyButtonHome.Padding = new System.Windows.Forms.Padding(2);
-            this.keyButtonHome.ShiftText = null;
-            this.keyButtonHome.Size = new System.Drawing.Size(68, 30);
-            this.keyButtonHome.TabIndex = 0;
-            this.keyButtonHome.Text = "Home";
-            this.keyButtonHome.UnNumLockKeyCode = 0;
-            this.keyButtonHome.UnNumLockText = null;
-            this.keyButtonHome.UseMnemonic = false;
+            //// 
+            //// keyButtonScrollLock
+            //// 
+            //this.tableLayoutPanelKeyButtons.SetColumnSpan(this.keyButtonScrollLock, 2);
+            //this.keyButtonScrollLock.Dock = System.Windows.Forms.DockStyle.Fill;
+            //this.keyButtonScrollLock.IsPressed = false;
+            //this.keyButtonScrollLock.KeyCode = 145;
+            //this.keyButtonScrollLock.Location = new System.Drawing.Point(643, 3);
+            //this.keyButtonScrollLock.Name = "keyButtonScrollLock";
+            //this.keyButtonScrollLock.NormalText = null;
+            //this.keyButtonScrollLock.Padding = new System.Windows.Forms.Padding(2);
+            //this.keyButtonScrollLock.ShiftText = null;
+            //this.keyButtonScrollLock.Size = new System.Drawing.Size(68, 43);
+            //this.keyButtonScrollLock.TabIndex = 0;
+            //this.keyButtonScrollLock.Text = "ScrLk";
+            //this.keyButtonScrollLock.UnNumLockKeyCode = 0;
+            //this.keyButtonScrollLock.UnNumLockText = null;
+            //this.keyButtonScrollLock.UseMnemonic = false;
+            //// 
+            //// keyButtonPause
+            //// 
+            //this.tableLayoutPanelKeyButtons.SetColumnSpan(this.keyButtonPause, 2);
+            //this.keyButtonPause.Dock = System.Windows.Forms.DockStyle.Fill;
+            //this.keyButtonPause.IsPressed = false;
+            //this.keyButtonPause.KeyCode = 19;
+            //this.keyButtonPause.Location = new System.Drawing.Point(722, 3);
+            //this.keyButtonPause.Name = "keyButtonPause";
+            //this.keyButtonPause.NormalText = null;
+            //this.keyButtonPause.Padding = new System.Windows.Forms.Padding(2);
+            //this.keyButtonPause.ShiftText = null;
+            //this.keyButtonPause.Size = new System.Drawing.Size(68, 43);
+            //this.keyButtonPause.TabIndex = 0;
+            //this.keyButtonPause.Text = "Pause";
+            //this.keyButtonPause.UnNumLockKeyCode = 0;
+            //this.keyButtonPause.UnNumLockText = null;
+            //this.keyButtonPause.UseMnemonic = false;
+            //// 
+            //// keyButtonPageDown
+            //// 
+            //this.tableLayoutPanelKeyButtons.SetColumnSpan(this.keyButtonPageDown, 2);
+            //this.keyButtonPageDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            //this.keyButtonPageDown.IsPressed = false;
+            //this.keyButtonPageDown.KeyCode = 34;
+            //this.keyButtonPageDown.Location = new System.Drawing.Point(643, 88);
+            //this.keyButtonPageDown.Name = "keyButtonPageDown";
+            //this.keyButtonPageDown.NormalText = null;
+            //this.keyButtonPageDown.Padding = new System.Windows.Forms.Padding(2);
+            //this.keyButtonPageDown.ShiftText = null;
+            //this.keyButtonPageDown.Size = new System.Drawing.Size(68, 30);
+            //this.keyButtonPageDown.TabIndex = 0;
+            //this.keyButtonPageDown.Text = "PgDn";
+            //this.keyButtonPageDown.UnNumLockKeyCode = 0;
+            //this.keyButtonPageDown.UnNumLockText = null;
+            //this.keyButtonPageDown.UseMnemonic = false;
+            //// 
+            //// keyButtonPageUp
+            //// 
+            //this.tableLayoutPanelKeyButtons.SetColumnSpan(this.keyButtonPageUp, 2);
+            //this.keyButtonPageUp.Dock = System.Windows.Forms.DockStyle.Fill;
+            //this.keyButtonPageUp.IsPressed = false;
+            //this.keyButtonPageUp.KeyCode = 33;
+            //this.keyButtonPageUp.Location = new System.Drawing.Point(569, 88);
+            //this.keyButtonPageUp.Name = "keyButtonPageUp";
+            //this.keyButtonPageUp.NormalText = null;
+            //this.keyButtonPageUp.Padding = new System.Windows.Forms.Padding(2);
+            //this.keyButtonPageUp.ShiftText = null;
+            //this.keyButtonPageUp.Size = new System.Drawing.Size(68, 30);
+            //this.keyButtonPageUp.TabIndex = 0;
+            //this.keyButtonPageUp.Text = "PgUp";
+            //this.keyButtonPageUp.UnNumLockKeyCode = 0;
+            //this.keyButtonPageUp.UnNumLockText = null;
+            //this.keyButtonPageUp.UseMnemonic = false;
+            //// 
+            //// keyButtonPrintScreen
+            //// 
+            //this.tableLayoutPanelKeyButtons.SetColumnSpan(this.keyButtonPrintScreen, 2);
+            //this.keyButtonPrintScreen.Dock = System.Windows.Forms.DockStyle.Fill;
+            //this.keyButtonPrintScreen.IsPressed = false;
+            //this.keyButtonPrintScreen.KeyCode = 44;
+            //this.keyButtonPrintScreen.Location = new System.Drawing.Point(569, 3);
+            //this.keyButtonPrintScreen.Name = "keyButtonPrintScreen";
+            //this.keyButtonPrintScreen.NormalText = null;
+            //this.keyButtonPrintScreen.Padding = new System.Windows.Forms.Padding(2);
+            //this.keyButtonPrintScreen.ShiftText = null;
+            //this.keyButtonPrintScreen.Size = new System.Drawing.Size(68, 43);
+            //this.keyButtonPrintScreen.TabIndex = 0;
+            //this.keyButtonPrintScreen.Text = "PrtScn";
+            //this.keyButtonPrintScreen.UnNumLockKeyCode = 0;
+            //this.keyButtonPrintScreen.UnNumLockText = null;
+            //this.keyButtonPrintScreen.UseMnemonic = false;
+            //// 
+            //// keyButtonInsert
+            //// 
+            //this.tableLayoutPanelKeyButtons.SetColumnSpan(this.keyButtonInsert, 2);
+            //this.keyButtonInsert.Dock = System.Windows.Forms.DockStyle.Fill;
+            //this.keyButtonInsert.IsPressed = false;
+            //this.keyButtonInsert.KeyCode = 45;
+            //this.keyButtonInsert.Location = new System.Drawing.Point(569, 52);
+            //this.keyButtonInsert.Name = "keyButtonInsert";
+            //this.keyButtonInsert.NormalText = null;
+            //this.keyButtonInsert.Padding = new System.Windows.Forms.Padding(2);
+            //this.keyButtonInsert.ShiftText = null;
+            //this.keyButtonInsert.Size = new System.Drawing.Size(68, 30);
+            //this.keyButtonInsert.TabIndex = 0;
+            //this.keyButtonInsert.Text = "Insert";
+            //this.keyButtonInsert.UnNumLockKeyCode = 0;
+            //this.keyButtonInsert.UnNumLockText = null;
+            //this.keyButtonInsert.UseMnemonic = false;
+            //// 
+            //// keyButtonEnd
+            //// 
+            //this.tableLayoutPanelKeyButtons.SetColumnSpan(this.keyButtonEnd, 2);
+            //this.keyButtonEnd.Dock = System.Windows.Forms.DockStyle.Fill;
+            //this.keyButtonEnd.IsPressed = false;
+            //this.keyButtonEnd.KeyCode = 35;
+            //this.keyButtonEnd.Location = new System.Drawing.Point(643, 124);
+            //this.keyButtonEnd.Name = "keyButtonEnd";
+            //this.keyButtonEnd.NormalText = null;
+            //this.keyButtonEnd.Padding = new System.Windows.Forms.Padding(2);
+            //this.keyButtonEnd.ShiftText = null;
+            //this.keyButtonEnd.Size = new System.Drawing.Size(68, 30);
+            //this.keyButtonEnd.TabIndex = 0;
+            //this.keyButtonEnd.Text = "End";
+            //this.keyButtonEnd.UnNumLockKeyCode = 0;
+            //this.keyButtonEnd.UnNumLockText = null;
+            //this.keyButtonEnd.UseMnemonic = false;
+            //// 
+            //// keyButtonHome
+            //// 
+            //this.tableLayoutPanelKeyButtons.SetColumnSpan(this.keyButtonHome, 2);
+            //this.keyButtonHome.Dock = System.Windows.Forms.DockStyle.Fill;
+            //this.keyButtonHome.IsPressed = false;
+            //this.keyButtonHome.KeyCode = 36;
+            //this.keyButtonHome.Location = new System.Drawing.Point(569, 124);
+            //this.keyButtonHome.Name = "keyButtonHome";
+            //this.keyButtonHome.NormalText = null;
+            //this.keyButtonHome.Padding = new System.Windows.Forms.Padding(2);
+            //this.keyButtonHome.ShiftText = null;
+            //this.keyButtonHome.Size = new System.Drawing.Size(68, 30);
+            //this.keyButtonHome.TabIndex = 0;
+            //this.keyButtonHome.Text = "Home";
+            //this.keyButtonHome.UnNumLockKeyCode = 0;
+            //this.keyButtonHome.UnNumLockText = null;
+            //this.keyButtonHome.UseMnemonic = false;
             // 
             // keyButtonBack
             // 
@@ -719,20 +719,20 @@ namespace ClientPoint.Keyboard {
             // 
             // keyButtonSemicolon
             // 
-            this.keyButtonSemicolon.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyButtonSemicolon.IsPressed = false;
-            this.keyButtonSemicolon.KeyCode = 186;
-            this.keyButtonSemicolon.Location = new System.Drawing.Point(379, 124);
-            this.keyButtonSemicolon.Name = "keyButtonSemicolon";
-            this.keyButtonSemicolon.NormalText = null;
-            this.keyButtonSemicolon.Padding = new System.Windows.Forms.Padding(2);
-            this.keyButtonSemicolon.ShiftText = null;
-            this.keyButtonSemicolon.Size = new System.Drawing.Size(31, 30);
-            this.keyButtonSemicolon.TabIndex = 0;
-            this.keyButtonSemicolon.Text = ";";
-            this.keyButtonSemicolon.UnNumLockKeyCode = 0;
-            this.keyButtonSemicolon.UnNumLockText = null;
-            this.keyButtonSemicolon.UseMnemonic = false;
+            this.keyButtonTilde.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonTilde.IsPressed = false;
+            this.keyButtonTilde.KeyCode = 186;
+            this.keyButtonTilde.Location = new System.Drawing.Point(379, 124);
+            this.keyButtonTilde.Name = "keyButtonTilde";
+            this.keyButtonTilde.NormalText = null;
+            this.keyButtonTilde.Padding = new System.Windows.Forms.Padding(2);
+            this.keyButtonTilde.ShiftText = null;
+            this.keyButtonTilde.Size = new System.Drawing.Size(31, 30);
+            this.keyButtonTilde.TabIndex = 0;
+            this.keyButtonTilde.Text = "´";
+            this.keyButtonTilde.UnNumLockKeyCode = 0;
+            this.keyButtonTilde.UnNumLockText = null;
+            this.keyButtonTilde.UseMnemonic = false;
             // 
             // keyButtonP
             // 
@@ -750,23 +750,23 @@ namespace ClientPoint.Keyboard {
             this.keyButtonP.UnNumLockKeyCode = 0;
             this.keyButtonP.UnNumLockText = null;
             this.keyButtonP.UseMnemonic = false;
-            // 
-            // keyButtonF9
-            // 
-            this.keyButtonF9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyButtonF9.IsPressed = false;
-            this.keyButtonF9.KeyCode = 120;
-            this.keyButtonF9.Location = new System.Drawing.Point(416, 3);
-            this.keyButtonF9.Name = "keyButtonF9";
-            this.keyButtonF9.NormalText = null;
-            this.keyButtonF9.Padding = new System.Windows.Forms.Padding(2);
-            this.keyButtonF9.ShiftText = null;
-            this.keyButtonF9.Size = new System.Drawing.Size(31, 43);
-            this.keyButtonF9.TabIndex = 0;
-            this.keyButtonF9.Text = "F9";
-            this.keyButtonF9.UnNumLockKeyCode = 0;
-            this.keyButtonF9.UnNumLockText = null;
-            this.keyButtonF9.UseMnemonic = false;
+            //// 
+            //// keyButtonF9
+            //// 
+            //this.keyButtonF9.Dock = System.Windows.Forms.DockStyle.Fill;
+            //this.keyButtonF9.IsPressed = false;
+            //this.keyButtonF9.KeyCode = 120;
+            //this.keyButtonF9.Location = new System.Drawing.Point(416, 3);
+            //this.keyButtonF9.Name = "keyButtonF9";
+            //this.keyButtonF9.NormalText = null;
+            //this.keyButtonF9.Padding = new System.Windows.Forms.Padding(2);
+            //this.keyButtonF9.ShiftText = null;
+            //this.keyButtonF9.Size = new System.Drawing.Size(31, 43);
+            //this.keyButtonF9.TabIndex = 0;
+            //this.keyButtonF9.Text = "F9";
+            //this.keyButtonF9.UnNumLockKeyCode = 0;
+            //this.keyButtonF9.UnNumLockText = null;
+            //this.keyButtonF9.UseMnemonic = false;
             // 
             // keyButtonD9
             // 
@@ -904,23 +904,23 @@ namespace ClientPoint.Keyboard {
             this.keyButtonDivide.UnNumLockKeyCode = 0;
             this.keyButtonDivide.UnNumLockText = null;
             this.keyButtonDivide.UseMnemonic = false;
-            // 
-            // keyButtonF8
-            // 
-            this.keyButtonF8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyButtonF8.IsPressed = false;
-            this.keyButtonF8.KeyCode = 119;
-            this.keyButtonF8.Location = new System.Drawing.Point(342, 3);
-            this.keyButtonF8.Name = "keyButtonF8";
-            this.keyButtonF8.NormalText = null;
-            this.keyButtonF8.Padding = new System.Windows.Forms.Padding(2);
-            this.keyButtonF8.ShiftText = null;
-            this.keyButtonF8.Size = new System.Drawing.Size(31, 43);
-            this.keyButtonF8.TabIndex = 0;
-            this.keyButtonF8.Text = "F8";
-            this.keyButtonF8.UnNumLockKeyCode = 0;
-            this.keyButtonF8.UnNumLockText = null;
-            this.keyButtonF8.UseMnemonic = false;
+            //// 
+            //// keyButtonF8
+            //// 
+            //this.keyButtonF8.Dock = System.Windows.Forms.DockStyle.Fill;
+            //this.keyButtonF8.IsPressed = false;
+            //this.keyButtonF8.KeyCode = 119;
+            //this.keyButtonF8.Location = new System.Drawing.Point(342, 3);
+            //this.keyButtonF8.Name = "keyButtonF8";
+            //this.keyButtonF8.NormalText = null;
+            //this.keyButtonF8.Padding = new System.Windows.Forms.Padding(2);
+            //this.keyButtonF8.ShiftText = null;
+            //this.keyButtonF8.Size = new System.Drawing.Size(31, 43);
+            //this.keyButtonF8.TabIndex = 0;
+            //this.keyButtonF8.Text = "F8";
+            //this.keyButtonF8.UnNumLockKeyCode = 0;
+            //this.keyButtonF8.UnNumLockText = null;
+            //this.keyButtonF8.UseMnemonic = false;
             // 
             // keyButtonD8
             // 
@@ -1058,23 +1058,23 @@ namespace ClientPoint.Keyboard {
             this.keyButtonNumberPad9.UnNumLockKeyCode = 0;
             this.keyButtonNumberPad9.UnNumLockText = null;
             this.keyButtonNumberPad9.UseMnemonic = false;
-            // 
-            // keyButtonF7
-            // 
-            this.keyButtonF7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyButtonF7.IsPressed = false;
-            this.keyButtonF7.KeyCode = 118;
-            this.keyButtonF7.Location = new System.Drawing.Point(305, 3);
-            this.keyButtonF7.Name = "keyButtonF7";
-            this.keyButtonF7.NormalText = null;
-            this.keyButtonF7.Padding = new System.Windows.Forms.Padding(2);
-            this.keyButtonF7.ShiftText = null;
-            this.keyButtonF7.Size = new System.Drawing.Size(31, 43);
-            this.keyButtonF7.TabIndex = 0;
-            this.keyButtonF7.Text = "F7";
-            this.keyButtonF7.UnNumLockKeyCode = 0;
-            this.keyButtonF7.UnNumLockText = null;
-            this.keyButtonF7.UseMnemonic = false;
+            //// 
+            //// keyButtonF7
+            //// 
+            //this.keyButtonF7.Dock = System.Windows.Forms.DockStyle.Fill;
+            //this.keyButtonF7.IsPressed = false;
+            //this.keyButtonF7.KeyCode = 118;
+            //this.keyButtonF7.Location = new System.Drawing.Point(305, 3);
+            //this.keyButtonF7.Name = "keyButtonF7";
+            //this.keyButtonF7.NormalText = null;
+            //this.keyButtonF7.Padding = new System.Windows.Forms.Padding(2);
+            //this.keyButtonF7.ShiftText = null;
+            //this.keyButtonF7.Size = new System.Drawing.Size(31, 43);
+            //this.keyButtonF7.TabIndex = 0;
+            //this.keyButtonF7.Text = "F7";
+            //this.keyButtonF7.UnNumLockKeyCode = 0;
+            //this.keyButtonF7.UnNumLockText = null;
+            //this.keyButtonF7.UseMnemonic = false;
             // 
             // keyButtonD7
             // 
@@ -1228,23 +1228,23 @@ namespace ClientPoint.Keyboard {
             this.keyButtonNumberPad8.UnNumLockKeyCode = 0;
             this.keyButtonNumberPad8.UnNumLockText = null;
             this.keyButtonNumberPad8.UseMnemonic = false;
-            // 
-            // keyButtonF6
-            // 
-            this.keyButtonF6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyButtonF6.IsPressed = false;
-            this.keyButtonF6.KeyCode = 117;
-            this.keyButtonF6.Location = new System.Drawing.Point(268, 3);
-            this.keyButtonF6.Name = "keyButtonF6";
-            this.keyButtonF6.NormalText = null;
-            this.keyButtonF6.Padding = new System.Windows.Forms.Padding(2);
-            this.keyButtonF6.ShiftText = null;
-            this.keyButtonF6.Size = new System.Drawing.Size(31, 43);
-            this.keyButtonF6.TabIndex = 0;
-            this.keyButtonF6.Text = "F6";
-            this.keyButtonF6.UnNumLockKeyCode = 0;
-            this.keyButtonF6.UnNumLockText = null;
-            this.keyButtonF6.UseMnemonic = false;
+            //// 
+            //// keyButtonF6
+            //// 
+            //this.keyButtonF6.Dock = System.Windows.Forms.DockStyle.Fill;
+            //this.keyButtonF6.IsPressed = false;
+            //this.keyButtonF6.KeyCode = 117;
+            //this.keyButtonF6.Location = new System.Drawing.Point(268, 3);
+            //this.keyButtonF6.Name = "keyButtonF6";
+            //this.keyButtonF6.NormalText = null;
+            //this.keyButtonF6.Padding = new System.Windows.Forms.Padding(2);
+            //this.keyButtonF6.ShiftText = null;
+            //this.keyButtonF6.Size = new System.Drawing.Size(31, 43);
+            //this.keyButtonF6.TabIndex = 0;
+            //this.keyButtonF6.Text = "F6";
+            //this.keyButtonF6.UnNumLockKeyCode = 0;
+            //this.keyButtonF6.UnNumLockText = null;
+            //this.keyButtonF6.UseMnemonic = false;
             // 
             // keyButtonD6
             // 
@@ -1400,23 +1400,23 @@ namespace ClientPoint.Keyboard {
             this.keyButtonNumberPad7.UnNumLockKeyCode = 0;
             this.keyButtonNumberPad7.UnNumLockText = null;
             this.keyButtonNumberPad7.UseMnemonic = false;
-            // 
-            // keyButtonF5
-            // 
-            this.keyButtonF5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyButtonF5.IsPressed = false;
-            this.keyButtonF5.KeyCode = 116;
-            this.keyButtonF5.Location = new System.Drawing.Point(231, 3);
-            this.keyButtonF5.Name = "keyButtonF5";
-            this.keyButtonF5.NormalText = null;
-            this.keyButtonF5.Padding = new System.Windows.Forms.Padding(2);
-            this.keyButtonF5.ShiftText = null;
-            this.keyButtonF5.Size = new System.Drawing.Size(31, 43);
-            this.keyButtonF5.TabIndex = 0;
-            this.keyButtonF5.Text = "F5";
-            this.keyButtonF5.UnNumLockKeyCode = 0;
-            this.keyButtonF5.UnNumLockText = null;
-            this.keyButtonF5.UseMnemonic = false;
+            //// 
+            //// keyButtonF5
+            //// 
+            //this.keyButtonF5.Dock = System.Windows.Forms.DockStyle.Fill;
+            //this.keyButtonF5.IsPressed = false;
+            //this.keyButtonF5.KeyCode = 116;
+            //this.keyButtonF5.Location = new System.Drawing.Point(231, 3);
+            //this.keyButtonF5.Name = "keyButtonF5";
+            //this.keyButtonF5.NormalText = null;
+            //this.keyButtonF5.Padding = new System.Windows.Forms.Padding(2);
+            //this.keyButtonF5.ShiftText = null;
+            //this.keyButtonF5.Size = new System.Drawing.Size(31, 43);
+            //this.keyButtonF5.TabIndex = 0;
+            //this.keyButtonF5.Text = "F5";
+            //this.keyButtonF5.UnNumLockKeyCode = 0;
+            //this.keyButtonF5.UnNumLockText = null;
+            //this.keyButtonF5.UseMnemonic = false;
             // 
             // keyButtonD5
             // 
@@ -1485,23 +1485,23 @@ namespace ClientPoint.Keyboard {
             this.keyButtonT.UnNumLockKeyCode = 0;
             this.keyButtonT.UnNumLockText = null;
             this.keyButtonT.UseMnemonic = false;
-            // 
-            // keyButtonF4
-            // 
-            this.keyButtonF4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyButtonF4.IsPressed = false;
-            this.keyButtonF4.KeyCode = 115;
-            this.keyButtonF4.Location = new System.Drawing.Point(157, 3);
-            this.keyButtonF4.Name = "keyButtonF4";
-            this.keyButtonF4.NormalText = null;
-            this.keyButtonF4.Padding = new System.Windows.Forms.Padding(2);
-            this.keyButtonF4.ShiftText = null;
-            this.keyButtonF4.Size = new System.Drawing.Size(31, 43);
-            this.keyButtonF4.TabIndex = 0;
-            this.keyButtonF4.Text = "F4";
-            this.keyButtonF4.UnNumLockKeyCode = 0;
-            this.keyButtonF4.UnNumLockText = null;
-            this.keyButtonF4.UseMnemonic = false;
+            //// 
+            //// keyButtonF4
+            //// 
+            //this.keyButtonF4.Dock = System.Windows.Forms.DockStyle.Fill;
+            //this.keyButtonF4.IsPressed = false;
+            //this.keyButtonF4.KeyCode = 115;
+            //this.keyButtonF4.Location = new System.Drawing.Point(157, 3);
+            //this.keyButtonF4.Name = "keyButtonF4";
+            //this.keyButtonF4.NormalText = null;
+            //this.keyButtonF4.Padding = new System.Windows.Forms.Padding(2);
+            //this.keyButtonF4.ShiftText = null;
+            //this.keyButtonF4.Size = new System.Drawing.Size(31, 43);
+            //this.keyButtonF4.TabIndex = 0;
+            //this.keyButtonF4.Text = "F4";
+            //this.keyButtonF4.UnNumLockKeyCode = 0;
+            //this.keyButtonF4.UnNumLockText = null;
+            //this.keyButtonF4.UseMnemonic = false;
             // 
             // keyButtonD4
             // 
@@ -1570,23 +1570,23 @@ namespace ClientPoint.Keyboard {
             this.keyButtonR.UnNumLockKeyCode = 0;
             this.keyButtonR.UnNumLockText = null;
             this.keyButtonR.UseMnemonic = false;
-            // 
-            // keyButtonF3
-            // 
-            this.keyButtonF3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyButtonF3.IsPressed = false;
-            this.keyButtonF3.KeyCode = 114;
-            this.keyButtonF3.Location = new System.Drawing.Point(120, 3);
-            this.keyButtonF3.Name = "keyButtonF3";
-            this.keyButtonF3.NormalText = null;
-            this.keyButtonF3.Padding = new System.Windows.Forms.Padding(2);
-            this.keyButtonF3.ShiftText = null;
-            this.keyButtonF3.Size = new System.Drawing.Size(31, 43);
-            this.keyButtonF3.TabIndex = 0;
-            this.keyButtonF3.Text = "F3";
-            this.keyButtonF3.UnNumLockKeyCode = 0;
-            this.keyButtonF3.UnNumLockText = null;
-            this.keyButtonF3.UseMnemonic = false;
+            //// 
+            //// keyButtonF3
+            //// 
+            //this.keyButtonF3.Dock = System.Windows.Forms.DockStyle.Fill;
+            //this.keyButtonF3.IsPressed = false;
+            //this.keyButtonF3.KeyCode = 114;
+            //this.keyButtonF3.Location = new System.Drawing.Point(120, 3);
+            //this.keyButtonF3.Name = "keyButtonF3";
+            //this.keyButtonF3.NormalText = null;
+            //this.keyButtonF3.Padding = new System.Windows.Forms.Padding(2);
+            //this.keyButtonF3.ShiftText = null;
+            //this.keyButtonF3.Size = new System.Drawing.Size(31, 43);
+            //this.keyButtonF3.TabIndex = 0;
+            //this.keyButtonF3.Text = "F3";
+            //this.keyButtonF3.UnNumLockKeyCode = 0;
+            //this.keyButtonF3.UnNumLockText = null;
+            //this.keyButtonF3.UseMnemonic = false;
             // 
             // keyButtonD3
             // 
@@ -1672,40 +1672,40 @@ namespace ClientPoint.Keyboard {
             this.keyButtonE.UnNumLockKeyCode = 0;
             this.keyButtonE.UnNumLockText = null;
             this.keyButtonE.UseMnemonic = false;
-            // 
-            // keyButtonF12
-            // 
-            this.keyButtonF12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyButtonF12.IsPressed = false;
-            this.keyButtonF12.KeyCode = 123;
-            this.keyButtonF12.Location = new System.Drawing.Point(527, 3);
-            this.keyButtonF12.Name = "keyButtonF12";
-            this.keyButtonF12.NormalText = null;
-            this.keyButtonF12.Padding = new System.Windows.Forms.Padding(2);
-            this.keyButtonF12.ShiftText = null;
-            this.keyButtonF12.Size = new System.Drawing.Size(31, 43);
-            this.keyButtonF12.TabIndex = 0;
-            this.keyButtonF12.Text = "F12";
-            this.keyButtonF12.UnNumLockKeyCode = 0;
-            this.keyButtonF12.UnNumLockText = null;
-            this.keyButtonF12.UseMnemonic = false;
-            // 
-            // keyButtonF2
-            // 
-            this.keyButtonF2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyButtonF2.IsPressed = false;
-            this.keyButtonF2.KeyCode = 113;
-            this.keyButtonF2.Location = new System.Drawing.Point(83, 3);
-            this.keyButtonF2.Name = "keyButtonF2";
-            this.keyButtonF2.NormalText = null;
-            this.keyButtonF2.Padding = new System.Windows.Forms.Padding(2);
-            this.keyButtonF2.ShiftText = null;
-            this.keyButtonF2.Size = new System.Drawing.Size(31, 43);
-            this.keyButtonF2.TabIndex = 0;
-            this.keyButtonF2.Text = "F2";
-            this.keyButtonF2.UnNumLockKeyCode = 0;
-            this.keyButtonF2.UnNumLockText = null;
-            this.keyButtonF2.UseMnemonic = false;
+            //// 
+            //// keyButtonF12
+            //// 
+            //this.keyButtonF12.Dock = System.Windows.Forms.DockStyle.Fill;
+            //this.keyButtonF12.IsPressed = false;
+            //this.keyButtonF12.KeyCode = 123;
+            //this.keyButtonF12.Location = new System.Drawing.Point(527, 3);
+            //this.keyButtonF12.Name = "keyButtonF12";
+            //this.keyButtonF12.NormalText = null;
+            //this.keyButtonF12.Padding = new System.Windows.Forms.Padding(2);
+            //this.keyButtonF12.ShiftText = null;
+            //this.keyButtonF12.Size = new System.Drawing.Size(31, 43);
+            //this.keyButtonF12.TabIndex = 0;
+            //this.keyButtonF12.Text = "F12";
+            //this.keyButtonF12.UnNumLockKeyCode = 0;
+            //this.keyButtonF12.UnNumLockText = null;
+            //this.keyButtonF12.UseMnemonic = false;
+            //// 
+            //// keyButtonF2
+            //// 
+            //this.keyButtonF2.Dock = System.Windows.Forms.DockStyle.Fill;
+            //this.keyButtonF2.IsPressed = false;
+            //this.keyButtonF2.KeyCode = 113;
+            //this.keyButtonF2.Location = new System.Drawing.Point(83, 3);
+            //this.keyButtonF2.Name = "keyButtonF2";
+            //this.keyButtonF2.NormalText = null;
+            //this.keyButtonF2.Padding = new System.Windows.Forms.Padding(2);
+            //this.keyButtonF2.ShiftText = null;
+            //this.keyButtonF2.Size = new System.Drawing.Size(31, 43);
+            //this.keyButtonF2.TabIndex = 0;
+            //this.keyButtonF2.Text = "F2";
+            //this.keyButtonF2.UnNumLockKeyCode = 0;
+            //this.keyButtonF2.UnNumLockText = null;
+            //this.keyButtonF2.UseMnemonic = false;
             // 
             // keyButtonD2
             // 
@@ -1791,40 +1791,40 @@ namespace ClientPoint.Keyboard {
             this.keyButtonW.UnNumLockKeyCode = 0;
             this.keyButtonW.UnNumLockText = null;
             this.keyButtonW.UseMnemonic = false;
-            // 
-            // keyButtonF11
-            // 
-            this.keyButtonF11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyButtonF11.IsPressed = false;
-            this.keyButtonF11.KeyCode = 122;
-            this.keyButtonF11.Location = new System.Drawing.Point(490, 3);
-            this.keyButtonF11.Name = "keyButtonF11";
-            this.keyButtonF11.NormalText = null;
-            this.keyButtonF11.Padding = new System.Windows.Forms.Padding(2);
-            this.keyButtonF11.ShiftText = null;
-            this.keyButtonF11.Size = new System.Drawing.Size(31, 43);
-            this.keyButtonF11.TabIndex = 0;
-            this.keyButtonF11.Text = "F11";
-            this.keyButtonF11.UnNumLockKeyCode = 0;
-            this.keyButtonF11.UnNumLockText = null;
-            this.keyButtonF11.UseMnemonic = false;
-            // 
-            // keyButtonF1
-            // 
-            this.keyButtonF1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyButtonF1.IsPressed = false;
-            this.keyButtonF1.KeyCode = 112;
-            this.keyButtonF1.Location = new System.Drawing.Point(46, 3);
-            this.keyButtonF1.Name = "keyButtonF1";
-            this.keyButtonF1.NormalText = null;
-            this.keyButtonF1.Padding = new System.Windows.Forms.Padding(2);
-            this.keyButtonF1.ShiftText = null;
-            this.keyButtonF1.Size = new System.Drawing.Size(31, 43);
-            this.keyButtonF1.TabIndex = 0;
-            this.keyButtonF1.Text = "F1";
-            this.keyButtonF1.UnNumLockKeyCode = 0;
-            this.keyButtonF1.UnNumLockText = null;
-            this.keyButtonF1.UseMnemonic = false;
+            //// 
+            //// keyButtonF11
+            //// 
+            //this.keyButtonF11.Dock = System.Windows.Forms.DockStyle.Fill;
+            //this.keyButtonF11.IsPressed = false;
+            //this.keyButtonF11.KeyCode = 122;
+            //this.keyButtonF11.Location = new System.Drawing.Point(490, 3);
+            //this.keyButtonF11.Name = "keyButtonF11";
+            //this.keyButtonF11.NormalText = null;
+            //this.keyButtonF11.Padding = new System.Windows.Forms.Padding(2);
+            //this.keyButtonF11.ShiftText = null;
+            //this.keyButtonF11.Size = new System.Drawing.Size(31, 43);
+            //this.keyButtonF11.TabIndex = 0;
+            //this.keyButtonF11.Text = "F11";
+            //this.keyButtonF11.UnNumLockKeyCode = 0;
+            //this.keyButtonF11.UnNumLockText = null;
+            //this.keyButtonF11.UseMnemonic = false;
+            //// 
+            //// keyButtonF1
+            //// 
+            //this.keyButtonF1.Dock = System.Windows.Forms.DockStyle.Fill;
+            //this.keyButtonF1.IsPressed = false;
+            //this.keyButtonF1.KeyCode = 112;
+            //this.keyButtonF1.Location = new System.Drawing.Point(46, 3);
+            //this.keyButtonF1.Name = "keyButtonF1";
+            //this.keyButtonF1.NormalText = null;
+            //this.keyButtonF1.Padding = new System.Windows.Forms.Padding(2);
+            //this.keyButtonF1.ShiftText = null;
+            //this.keyButtonF1.Size = new System.Drawing.Size(31, 43);
+            //this.keyButtonF1.TabIndex = 0;
+            //this.keyButtonF1.Text = "F1";
+            //this.keyButtonF1.UnNumLockKeyCode = 0;
+            //this.keyButtonF1.UnNumLockText = null;
+            //this.keyButtonF1.UseMnemonic = false;
             // 
             // keyButtonD1
             // 
@@ -1911,22 +1911,22 @@ namespace ClientPoint.Keyboard {
             this.keyButtonQ.UnNumLockText = null;
             this.keyButtonQ.UseMnemonic = false;
             // 
-            // keyButtonTilde
+            // keyButtonEnie
             // 
-            this.keyButtonTilde.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyButtonTilde.IsPressed = false;
-            this.keyButtonTilde.KeyCode = 192;
-            this.keyButtonTilde.Location = new System.Drawing.Point(3, 52);
-            this.keyButtonTilde.Name = "keyButtonTilde";
-            this.keyButtonTilde.NormalText = null;
-            this.keyButtonTilde.Padding = new System.Windows.Forms.Padding(2);
-            this.keyButtonTilde.ShiftText = null;
-            this.keyButtonTilde.Size = new System.Drawing.Size(37, 30);
-            this.keyButtonTilde.TabIndex = 0;
-            this.keyButtonTilde.Text = "`";
-            this.keyButtonTilde.UnNumLockKeyCode = 0;
-            this.keyButtonTilde.UnNumLockText = null;
-            this.keyButtonTilde.UseMnemonic = false;
+            this.keyButtonEnie.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonEnie.IsPressed = false;
+            this.keyButtonEnie.KeyCode = 192;
+            this.keyButtonEnie.Location = new System.Drawing.Point(3, 52);
+            this.keyButtonEnie.Name = "keyButtonEnie";
+            this.keyButtonEnie.NormalText = null;
+            this.keyButtonEnie.Padding = new System.Windows.Forms.Padding(2);
+            this.keyButtonEnie.ShiftText = "Ñ";
+            this.keyButtonEnie.Size = new System.Drawing.Size(37, 30);
+            this.keyButtonEnie.TabIndex = 0;
+            this.keyButtonEnie.Text = "ñ";
+            this.keyButtonEnie.UnNumLockKeyCode = 0;
+            this.keyButtonEnie.UnNumLockText = null;
+            this.keyButtonEnie.UseMnemonic = false;
             // 
             // keyButtonLControl
             // 
@@ -2048,22 +2048,22 @@ namespace ClientPoint.Keyboard {
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonRControl, 14, 5);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonUp, 17, 4);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonSpace, 3, 5);
-            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonF1, 1, 0);
+            //this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonF1, 1, 0);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonLAlt, 2, 5);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonWin, 1, 5);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonRight, 18, 5);
-            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonF2, 2, 0);
-            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonSemicolon, 10, 3);
-            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonF3, 3, 0);
-            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonF4, 4, 0);
+            //this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonF2, 2, 0);
+            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonTilde, 10, 3);
+            //this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonF3, 3, 0);
+            //this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonF4, 4, 0);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonLeft, 16, 5);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonL, 9, 3);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonDown, 17, 5);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonD0, 10, 1);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonK, 8, 3);
-            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonHome, 16, 3);
+            //this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonHome, 16, 3);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonJ, 7, 3);
-            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonPageUp, 16, 2);
+            //this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonPageUp, 16, 2);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonLShift, 0, 4);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonH, 6, 3);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonG, 5, 3);
@@ -2078,7 +2078,7 @@ namespace ClientPoint.Keyboard {
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonPlus, 12, 1);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonNumberPad9, 23, 2);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonA, 1, 3);
-            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonTilde, 0, 1);
+            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonEnie, 0, 1);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonNumberPad5, 22, 3);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonNumberPad1, 21, 4);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonCapsLock, 0, 3);
@@ -2095,7 +2095,7 @@ namespace ClientPoint.Keyboard {
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonD7, 7, 1);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonD8, 8, 1);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonD9, 9, 1);
-            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonInsert, 16, 1);
+            //this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonInsert, 16, 1);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonTab, 0, 2);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonQ, 1, 2);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonW, 2, 2);
@@ -2108,26 +2108,26 @@ namespace ClientPoint.Keyboard {
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonO, 9, 2);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonP, 10, 2);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonNumLock, 23, 0);
-            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonPause, 21, 0);
+            //this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonPause, 21, 0);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonSubtract, 24, 1);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonMultiply, 23, 1);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonDivide, 21, 1);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonAdd, 24, 2);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonNumReturn, 24, 4);
-            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonPrintScreen, 16, 0);
+            //this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonPrintScreen, 16, 0);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonDecimal, 23, 5);
-            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonScrollLock, 18, 0);
+            //this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonScrollLock, 18, 0);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonDelete, 18, 1);
-            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonPageDown, 18, 2);
-            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonEnd, 18, 3);
-            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonF12, 14, 0);
-            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonF11, 13, 0);
-            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonF10, 12, 0);
-            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonF9, 11, 0);
-            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonF8, 9, 0);
-            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonF7, 8, 0);
-            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonF6, 7, 0);
-            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonF5, 6, 0);
+            //this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonPageDown, 18, 2);
+            //this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonEnd, 18, 3);
+            //this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonF12, 14, 0);
+            //this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonF11, 13, 0);
+            //this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonF10, 12, 0);
+            //this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonF9, 11, 0);
+            //this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonF8, 9, 0);
+            //this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonF7, 8, 0);
+            //this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonF6, 7, 0);
+            //this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonF5, 6, 0);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonRShift, 13, 4);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonQuestion, 12, 4);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonPeriod, 10, 4);
@@ -2180,20 +2180,20 @@ namespace ClientPoint.Keyboard {
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonRControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonProcess)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonOpenBrackets)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonF10)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonF10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonD0)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonRight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonRShift)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonReturn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonDelete)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonScrollLock)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonPause)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonPageDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonPageUp)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonPrintScreen)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonInsert)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonEnd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonHome)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonScrollLock)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonPause)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonPageDown)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonPageUp)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonPrintScreen)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonInsert)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonEnd)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonHome)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonOemPipe)).EndInit();
@@ -2203,9 +2203,9 @@ namespace ClientPoint.Keyboard {
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonMinus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonApps)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonQuestion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonSemicolon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.keyButtonTilde)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonP)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonF9)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonF9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonD9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonRAlt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonPeriod)).EndInit();
@@ -2214,7 +2214,7 @@ namespace ClientPoint.Keyboard {
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonSubtract)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonMultiply)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonDivide)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonF8)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonF8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonD8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonComma)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonK)).EndInit();
@@ -2223,7 +2223,7 @@ namespace ClientPoint.Keyboard {
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonNumberPad3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonNumberPad6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonNumberPad9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonF7)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonF7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonD7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonJ)).EndInit();
@@ -2233,7 +2233,7 @@ namespace ClientPoint.Keyboard {
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonNumberPad2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonNumberPad5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonNumberPad8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonF6)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonF6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonD6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonH)).EndInit();
@@ -2243,37 +2243,37 @@ namespace ClientPoint.Keyboard {
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonNumberPad1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonNumberPad4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonNumberPad7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonF5)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonF5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonD5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonG)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonT)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonF4)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonF4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonD4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonF)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonR)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonF3)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonF3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonD3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonSpace)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonE)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonF12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonF2)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonF12)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonF2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonD2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonLAlt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonW)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonF11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonF1)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonF11)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.keyButtonF1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonD1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonWin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonZ)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonA)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonQ)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyButtonTilde)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.keyButtonEnie)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonLControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonLShift)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonCapsLock)).EndInit();
@@ -2288,7 +2288,7 @@ namespace ClientPoint.Keyboard {
         #endregion
 
         private KeyButton keyButtonEscape;
-        private KeyButton keyButtonTilde;
+        private KeyButton keyButtonEnie;
         private KeyButton keyButtonD1;
         private KeyButton keyButtonD2;
         private KeyButton keyButtonD3;
@@ -2327,7 +2327,7 @@ namespace ClientPoint.Keyboard {
         private KeyButton keyButtonJ;
         private KeyButton keyButtonK;
         private KeyButton keyButtonL;
-        private KeyButton keyButtonSemicolon;
+        private KeyButton keyButtonTilde;
         private KeyButton keyButtonReturn;
         private KeyButton keyButtonProcess;
         private KeyButton keyButtonLShift;
@@ -2353,14 +2353,14 @@ namespace ClientPoint.Keyboard {
         private KeyButton keyButtonRight;
         private KeyButton keyButtonRControl;
         private KeyButton keyButtonUp;
-        private KeyButton keyButtonHome;
-        private KeyButton keyButtonPageUp;
-        private KeyButton keyButtonEnd;
-        private KeyButton keyButtonPageDown;
-        private KeyButton keyButtonInsert;
-        private KeyButton keyButtonPause;
-        private KeyButton keyButtonPrintScreen;
-        private KeyButton keyButtonScrollLock;
+        //private KeyButton keyButtonHome;
+        //private KeyButton keyButtonPageUp;
+        //private KeyButton keyButtonEnd;
+        //private KeyButton keyButtonPageDown;
+        //private KeyButton keyButtonInsert;
+        //private KeyButton keyButtonPause;
+        //private KeyButton keyButtonPrintScreen;
+        //private KeyButton keyButtonScrollLock;
         private KeyButton keyButtonNumberPad7;
         private KeyButton keyButtonNumberPad8;
         private KeyButton keyButtonNumberPad9;
@@ -2378,18 +2378,18 @@ namespace ClientPoint.Keyboard {
         private KeyButton keyButtonAdd;
         private KeyButton keyButtonNumReturn;
         private KeyButton keyButtonNumLock;
-        private KeyButton keyButtonF1;
-        private KeyButton keyButtonF2;
-        private KeyButton keyButtonF3;
-        private KeyButton keyButtonF4;
-        private KeyButton keyButtonF5;
-        private KeyButton keyButtonF6;
-        private KeyButton keyButtonF7;
-        private KeyButton keyButtonF8;
-        private KeyButton keyButtonF9;
-        private KeyButton keyButtonF10;
-        private KeyButton keyButtonF11;
-        private KeyButton keyButtonF12;
+        //private KeyButton keyButtonF1;
+        //private KeyButton keyButtonF2;
+        //private KeyButton keyButtonF3;
+        //private KeyButton keyButtonF4;
+        //private KeyButton keyButtonF5;
+        //private KeyButton keyButtonF6;
+        //private KeyButton keyButtonF7;
+        //private KeyButton keyButtonF8;
+        //private KeyButton keyButtonF9;
+        //private KeyButton keyButtonF10;
+        //private KeyButton keyButtonF11;
+        //private KeyButton keyButtonF12;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelKeyButtons;
         private Telerik.WinControls.Themes.FluentTheme fluentTheme1;
     }

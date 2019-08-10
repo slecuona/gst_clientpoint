@@ -71,12 +71,50 @@ namespace ClientPoint.Keyboard
             //ThemeResolutionService.ApplicationThemeName = "Fluent";
         }
 
+        // Este es el 2do filtro del teclado original.
+        // (En el primero comentamos el codigo)
+        private void HideUnsedKeys() {
+            // En algun momento podrian llegar a ser necesarias.
+            this.keyButtonEscape.Visible = false;
+            this.keyButtonTab.Visible = false;
+            this.keyButtonCapsLock.Visible = false;
+            this.keyButtonNumLock.Visible = false;
+            this.keyButtonNumReturn.Visible = false;
+            this.keyButtonSubtract.Visible = false;
+            this.keyButtonAdd.Visible = false;
+            this.keyButtonLShift.Visible = false;
+            this.keyButtonRShift.Visible = false;
+            this.keyButtonLControl.Visible = false;
+            this.keyButtonRControl.Visible = false;
+            this.keyButtonWin.Visible = false;
+            this.keyButtonLAlt.Visible = false;
+            this.keyButtonRAlt.Visible = false;
+            this.keyButtonApps.Visible = false;
+            this.keyButtonDelete.Visible = false;
+            this.keyButtonDivide.Visible = false;
+            this.keyButtonMultiply.Visible = false;
+            //this.keyButtonMinus.Visible = false;
+            this.keyButtonPlus.Visible = false;
+            this.keyButtonDecimal.Visible = false;
+            this.keyButtonComma.Visible = false;
+            //this.keyButtonTilde.Visible = false;
+            this.keyButtonCloseBrackets.Visible = false;
+            this.keyButtonOpenBrackets.Visible = false;
+            this.keyButtonOemPipe.Visible = false;
+            this.keyButtonQuestion.Visible = false;
+            //this.keyButtonEnie.Visible = false;
+            this.keyButtonProcess.Visible = false;
+            //this.keyButtonPeriod.Visible = false;
+        }
+
+
         #region Handle key board event
 
         private void KeyBoardForm_Load(object sender, EventArgs e)
         {
             try
             {
+                HideUnsedKeys();
                 InitializeKeyButtons();
             }
             catch (Exception ex)
@@ -87,7 +125,8 @@ namespace ClientPoint.Keyboard
             // Register the key button click event.
             foreach (KeyButton btn in this.KeyButtonList)
             {
-                btn.Click += new EventHandler(KeyButton_Click);
+                if(btn.Visible)
+                    btn.Click += new EventHandler(KeyButton_Click);
             }
 
             //this.Activate();
@@ -246,8 +285,8 @@ namespace ClientPoint.Keyboard
             keyButtonNumLock.IsPressed = (numLockState & 0x0001) != 0;
 
 
-            short scrLockState = UserInteraction.UnsafeNativeMethods.GetKeyState((int)Keys.Scroll);
-            keyButtonScrollLock.IsPressed = (scrLockState & 0x0001) != 0;
+            //short scrLockState = UserInteraction.UnsafeNativeMethods.GetKeyState((int)Keys.Scroll);
+            //keyButtonScrollLock.IsPressed = (scrLockState & 0x0001) != 0;
 
             var keysMappingDoc = XDocument.Load("Resources\\KeysMapping.xml");
             foreach (var key in keysMappingDoc.Root.Elements())
