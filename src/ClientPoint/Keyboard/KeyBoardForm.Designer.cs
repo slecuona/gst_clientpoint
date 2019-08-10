@@ -1,4 +1,6 @@
 ﻿
+using System.Drawing;
+using System.Windows.Forms;
 using ClientPoint.Ke;
 
 namespace ClientPoint.Keyboard {
@@ -2160,16 +2162,18 @@ namespace ClientPoint.Keyboard {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(872, 230);
             this.Controls.Add(this.tableLayoutPanelKeyButtons);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "KeyBoardForm";
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new Point(250, 350);
             // 
             // 
             // 
             this.RootElement.ApplyShapeToControl = true;
-            this.Text = "Soft Keyboard";
+            this.Text = "Teclado";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.KeyBoardForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonUp)).EndInit();

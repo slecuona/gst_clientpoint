@@ -9,9 +9,12 @@ namespace ClientPoint.UI {
         private static Dictionary<Window, FrmBase> _windows;
         private static SynchronizationContext _syncCtx;
 
-        public static FrmBase Get(Window w) => _windows[w];
+        public static Window CurrWindow = Window.Ads;
 
-        public static KeyBoardForm KeyBoard;
+        public static FrmBase Get(Window w) => _windows[w];
+        public static FrmBase GeCurrent() => _windows[CurrWindow];
+
+        private static KeyBoardForm KeyBoard;
 
         // Debe ser ejecutado en UI Thread
         public static void Init() {
@@ -43,6 +46,7 @@ namespace ClientPoint.UI {
         }
 
         public static void Show(Window toShow) {
+            CurrWindow = toShow;
             SafeExec(() => {
                 _windows[toShow].BeforeShow();
                 _windows[toShow].Show();
@@ -54,6 +58,14 @@ namespace ClientPoint.UI {
                 }
             });
         }
+
+        public static void ShowKeyboard() {
+            KeyBoard.Show();
+            KeyBoard.ActiveControl = null;
+        }
+
+        public static void HideKeyboard() =>
+            KeyBoard.Hide();
     }
 
     public enum Window {
