@@ -131,26 +131,12 @@ namespace ClientPoint.Keyboard
 
             //this.Activate();
         }
-
-        // Esto nos permite activar la ventana actual de la app
-        // al clickear el teclado virtual.
-        // (Por default el teclado no funcionaba correctamente para las ventanas
-        // que se generan dentro de la app, estaba pensado para que sea un proceso
-        // aparte.)
-        private static void ActivateWindow() {
-            var curr = UnsafeNativeMethods.GetForegroundWindow();
-            var wdw = UIManager.GeCurrent().Handle;
-            if (curr != wdw) {
-                UnsafeNativeMethods.SetForegroundWindow(wdw);
-                Debug.WriteLine("ActivateWindow");
-            }
-        }
-
+        
         /// <summary>
         /// Handle the key button click event.
         /// </summary>
         void KeyButton_Click(object sender, EventArgs e) {
-            ActivateWindow();
+            UIManager.ActivateCurrWindow();
 
             KeyButton btn = sender as KeyButton;
             if (btn == null)

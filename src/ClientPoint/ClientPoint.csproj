@@ -87,6 +87,12 @@
     <Compile Include="Espf\Request\SupRequest.cs" />
     <Compile Include="Espf\Response.cs" />
     <Compile Include="Espf\Services.cs" />
+    <Compile Include="Keyboard\FrmNumKeyBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Keyboard\FrmNumKeyBoard.Designer.cs">
+      <DependentUpon>FrmNumKeyBoard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Keyboard\KeyBoardForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,6 +223,9 @@
     <Compile Include="UI\UIManager.cs" />
     <Compile Include="Utils\Logger.cs" />
     <Compile Include="Utils\MsgBox.cs" />
+    <EmbeddedResource Include="Keyboard\FrmNumKeyBoard.resx">
+      <DependentUpon>FrmNumKeyBoard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Keyboard\KeyBoardForm.resx">
       <DependentUpon>KeyBoardForm.cs</DependentUpon>
     </EmbeddedResource>

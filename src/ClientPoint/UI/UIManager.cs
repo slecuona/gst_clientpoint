@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Forms;
 using ClientPoint.Keyboard;
+using ClientPoint.Keyboard.NoActivate;
 
 namespace ClientPoint.UI {
     public static class UIManager {
@@ -15,6 +16,7 @@ namespace ClientPoint.UI {
         public static FrmBase GeCurrent() => _windows[CurrWindow];
 
         private static KeyBoardForm KeyBoard;
+        private static FrmNumKeyBoard NumKeyBoard;
 
         // Debe ser ejecutado en UI Thread
         public static void Init() {
@@ -30,6 +32,7 @@ namespace ClientPoint.UI {
                 { Window.MainMenu, new FrmMainMenu()},
             };
             KeyBoard = new KeyBoardForm();
+            NumKeyBoard = new FrmNumKeyBoard();
             // Hago el render al inicio
             // (evito el flickering)
             foreach (var w in _windows) {
@@ -66,6 +69,27 @@ namespace ClientPoint.UI {
 
         public static void HideKeyboard() =>
             KeyBoard.Hide();
+
+        public static void ShowNumKeyboard() {
+            NumKeyBoard.Show();
+            NumKeyBoard.ActiveControl = null;
+        }
+
+        public static void HideNumKeyboard() =>
+            NumKeyBoard.Hide();
+
+        // Esto nos permite activar la ventana actual de la app
+        // al clickear el teclado virtual.
+        // (Por default el teclado no funcionaba correctamente para las ventanas
+        // que se generan dentro de la app, estaba pensado para que sea un proceso
+        // aparte.)
+        public static void ActivateCurrWindow() {
+            var curr = UnsafeNativeMethods.GetForegroundWindow();
+            var wdw = GeCurrent().Handle;
+            if (curr != wdw) {
+                UnsafeNativeMethods.SetForegroundWindow(wdw);
+            }
+        }
     }
 
     public enum Window {
