@@ -55,7 +55,6 @@ namespace ClientPoint.UI {
         }
 
         protected override void OnBack(object sender, EventArgs e) {
-            UIManager.HideNumKeyboard();
             UIManager.Show(Window.Ads);
         }
 
@@ -64,6 +63,10 @@ namespace ClientPoint.UI {
             fldDocument.Value = "";
             fldDocument.Control.Select();
             UIManager.ShowNumKeyboard();
+        }
+
+        public override void AfterHide() {
+            UIManager.HideNumKeyboard();
         }
 
         private void radButton1_Click(object sender, EventArgs e) {

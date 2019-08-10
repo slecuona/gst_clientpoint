@@ -52,6 +52,12 @@ namespace ClientPoint.UI {
             // Reset del form
             fldPassword.Value = "";
             fldPassword.Control.Select();
+
+            UIManager.ShowKeyboard();
+        }
+
+        public override void AfterHide() {
+            UIManager.HideKeyboard();
         }
     }
 }

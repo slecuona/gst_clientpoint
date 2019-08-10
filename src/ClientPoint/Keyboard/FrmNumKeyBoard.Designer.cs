@@ -324,7 +324,7 @@ namespace ClientPoint.Keyboard {
             this.ClientSize = new System.Drawing.Size(360, 240);
             this.Controls.Add(this.tableLayoutPanelKeyButtons);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Location = new System.Drawing.Point(500, 400);
+            this.Location = new System.Drawing.Point(470, 400);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "FrmNumKeyBoard";

@@ -15,7 +15,7 @@ namespace ClientPoint.UI {
         public static FrmBase Get(Window w) => _windows[w];
         public static FrmBase GeCurrent() => _windows[CurrWindow];
 
-        private static KeyBoardForm KeyBoard;
+        private static FrmKeyBoard KeyBoard;
         private static FrmNumKeyBoard NumKeyBoard;
 
         // Debe ser ejecutado en UI Thread
@@ -31,7 +31,7 @@ namespace ClientPoint.UI {
                 { Window.Confirm, new FrmConfirm()},
                 { Window.MainMenu, new FrmMainMenu()},
             };
-            KeyBoard = new KeyBoardForm();
+            KeyBoard = new FrmKeyBoard();
             NumKeyBoard = new FrmNumKeyBoard();
             // Hago el render al inicio
             // (evito el flickering)
