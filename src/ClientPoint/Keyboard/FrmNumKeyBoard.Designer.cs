@@ -92,7 +92,7 @@ namespace ClientPoint.Keyboard {
             this.keyButtonBack.ShiftText = null;
             this.keyButtonBack.Size = new System.Drawing.Size(94, 44);
             this.keyButtonBack.TabIndex = 0;
-            this.keyButtonBack.Text = "Bksp";
+            this.keyButtonBack.Text = "← Borrar";
             this.keyButtonBack.UnNumLockKeyCode = 0;
             this.keyButtonBack.UnNumLockText = null;
             this.keyButtonBack.UseMnemonic = false;

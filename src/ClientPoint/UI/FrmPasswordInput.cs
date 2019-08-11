@@ -51,11 +51,12 @@ namespace ClientPoint.UI {
         public override void BeforeShow() {
             // Reset del form
             fldPassword.Value = "";
-            fldPassword.Control.Select();
         }
 
         public override void AfterShow() {
             UIManager.ShowKeyboard();
+            fldPassword.Control.Select();
+            this.Select();
         }
 
         public override void AfterHide() {

@@ -61,11 +61,12 @@ namespace ClientPoint.UI {
         public override void BeforeShow() {
             // Reset del form
             fldDocument.Value = "";
-            fldDocument.Control.Select();
         }
 
         public override void AfterShow() {
             UIManager.ShowNumKeyboard();
+            fldDocument.Control.Select();
+            this.Select();
         }
 
         public override void AfterHide() {

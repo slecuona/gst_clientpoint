@@ -16,6 +16,7 @@
 \***************************************************************************/
 
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 using Telerik.WinControls.UI;
 
@@ -172,6 +173,7 @@ namespace ClientPoint.Keyboard
             //this.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             //this.BackColor = System.Drawing.Color.Black;
             //this.ForeColor = System.Drawing.Color.White;
+            this.Font = new Font(FontFamily.GenericSansSerif, 15);
         }
 
         /// <summary>
