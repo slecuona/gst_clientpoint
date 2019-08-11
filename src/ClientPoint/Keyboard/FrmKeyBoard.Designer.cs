@@ -75,6 +75,8 @@ namespace ClientPoint.Keyboard {
             this.keyButtonA = new ClientPoint.Keyboard.KeyButton();
             this.keyButtonQ = new ClientPoint.Keyboard.KeyButton();
             this.keyButtonEnie = new ClientPoint.Keyboard.KeyButton();
+            this.keyButtonArroba = new ClientPoint.Keyboard.KeyButton();
+            this.keyButtonUnderscore = new ClientPoint.Keyboard.KeyButton();
             this.tableLayoutPanelKeyButtons = new ClientPoint.Ke.MyBufferedTableLayoutPanel();
             this.fluentTheme1 = new Telerik.WinControls.Themes.FluentTheme();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonD0)).BeginInit();
@@ -121,6 +123,8 @@ namespace ClientPoint.Keyboard {
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonQ)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonEnie)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.keyButtonArroba)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.keyButtonUnderscore)).BeginInit();
             this.tableLayoutPanelKeyButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
@@ -874,6 +878,40 @@ namespace ClientPoint.Keyboard {
             this.keyButtonEnie.UnNumLockText = null;
             this.keyButtonEnie.UseMnemonic = false;
             // 
+            // keyButtonArroba
+            // 
+            this.keyButtonArroba.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonArroba.IsPressed = false;
+            this.keyButtonArroba.KeyCode = 0;
+            this.keyButtonArroba.Location = new System.Drawing.Point(543, 129);
+            this.keyButtonArroba.Name = "keyButtonArroba";
+            this.keyButtonArroba.NormalText = "@";
+            this.keyButtonArroba.Padding = new System.Windows.Forms.Padding(2);
+            this.keyButtonArroba.ShiftText = "@";
+            this.keyButtonArroba.Size = new System.Drawing.Size(54, 54);
+            this.keyButtonArroba.TabIndex = 0;
+            this.keyButtonArroba.Text = "@";
+            this.keyButtonArroba.UnNumLockKeyCode = 0;
+            this.keyButtonArroba.UnNumLockText = null;
+            this.keyButtonArroba.UseMnemonic = false;
+            // 
+            // keyButtonUnderscore
+            // 
+            this.keyButtonUnderscore.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonUnderscore.IsPressed = false;
+            this.keyButtonUnderscore.KeyCode = 0;
+            this.keyButtonUnderscore.Location = new System.Drawing.Point(543, 129);
+            this.keyButtonUnderscore.Name = "keyButtonUnderscore";
+            this.keyButtonUnderscore.NormalText = "_";
+            this.keyButtonUnderscore.Padding = new System.Windows.Forms.Padding(2);
+            this.keyButtonUnderscore.ShiftText = "_";
+            this.keyButtonUnderscore.Size = new System.Drawing.Size(54, 54);
+            this.keyButtonUnderscore.TabIndex = 0;
+            this.keyButtonUnderscore.Text = "_";
+            this.keyButtonUnderscore.UnNumLockKeyCode = 0;
+            this.keyButtonUnderscore.UnNumLockText = null;
+            this.keyButtonUnderscore.UseMnemonic = false;
+            // 
             // tableLayoutPanelKeyButtons
             // 
             this.tableLayoutPanelKeyButtons.ColumnCount = 13;
@@ -906,6 +944,8 @@ namespace ClientPoint.Keyboard {
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonS, 2, 2);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonA, 1, 2);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonEnie, 10, 2);
+            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonArroba, 12, 2);
+            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonUnderscore, 12, 3);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonD1, 1, 0);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonMinus, 11, 3);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonD2, 2, 0);
@@ -1009,6 +1049,8 @@ namespace ClientPoint.Keyboard {
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonA)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonQ)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonEnie)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.keyButtonArroba)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.keyButtonUnderscore)).EndInit();
             this.tableLayoutPanelKeyButtons.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
@@ -1017,6 +1059,8 @@ namespace ClientPoint.Keyboard {
 
         #endregion
         
+        private KeyButton keyButtonArroba;
+        private KeyButton keyButtonUnderscore;
         private KeyButton keyButtonEnie;
         private KeyButton keyButtonD1;
         private KeyButton keyButtonD2;

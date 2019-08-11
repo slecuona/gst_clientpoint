@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -47,23 +48,10 @@ namespace ClientPoint.Keyboard
         public FrmKeyBoard()
         {
             InitializeComponent();
-
-            //ThemeResolutionService.ApplicationThemeName = "Fluent";
         }
         
-
-        #region Handle key board event
-
         private void KeyBoardForm_Load(object sender, EventArgs e)
         {
-            try
-            {
-                //InitializeKeyButtons();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
 
             // Register the key button click event.
             foreach (KeyButton btn in this.KeyButtonList)
@@ -83,55 +71,26 @@ namespace ClientPoint.Keyboard
 
             KeyButton btn = sender as KeyButton;
             if (btn == null)
-            {
+                return;
+            
+            // para que no quede el foco en el boton
+            this.ActiveControl = null;
+
+            if (btn.Text == "@") {
+                // ALT Gr + Q
+                UserInteraction.KeyboardInput.SendKey(new List<int>() {165}, 81);
                 return;
             }
 
-            // para que no quede el foco en el boton
-            this.ActiveControl = null;
-            UserInteraction.KeyboardInput.SendKey(PressedModifierKeyCodes, btn.KeyCode);
-
-        }
-
-        /// <summary>
-        /// Initialize the key buttons.
-        /// </summary>
-        void InitializeKeyButtons()
-        {
-            
-            var keysMappingDoc = XDocument.Load("Resources\\KeysMapping.xml");
-            foreach (var key in keysMappingDoc.Root.Elements())
-            {
-                int keyCode = int.Parse(key.Element("KeyCode").Value);
-
-                IEnumerable<KeyButton> btns = KeyButtonList.Where(btn => btn.KeyCode == keyCode);
-
-                foreach (KeyButton btn in btns)
-                {
-                    btn.NormalText = key.Element("NormalText").Value;
-
-                    if (key.Elements("ShiftText").Count() > 0)
-                    {
-                        btn.ShiftText = key.Element("ShiftText").Value;
-                    }
-
-                    if (key.Elements("UnNumLockText").Count() > 0)
-                    {
-                        btn.UnNumLockText = key.Element("UnNumLockText").Value;
-                    }
-
-                    if (key.Elements("UnNumLockKeyCode").Count() > 0)
-                    {
-                        btn.UnNumLockKeyCode =
-                            int.Parse(key.Element("UnNumLockKeyCode").Value);
-                    }
-
-                    btn.UpdateDisplayText(false, true, true);
-                }
+            if (btn.Text == "_") {
+                // Shift + (-)
+                UserInteraction.KeyboardInput.SendKey(new List<int>() {16}, 189);
+                return;
             }
-        }
 
-        #endregion
+            UserInteraction.KeyboardInput.SendKey(PressedModifierKeyCodes, btn.KeyCode);
+        }
+        
 
 
     }

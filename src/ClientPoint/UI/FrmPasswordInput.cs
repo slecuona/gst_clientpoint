@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using ClientPoint.Api;
 using ClientPoint.Session;
 
@@ -8,6 +9,9 @@ namespace ClientPoint.UI {
         public FrmPasswordInput() {
             InitializeComponent();
             fldPassword.Password = true;
+            //fldPassword.Control.KeyDown += (sender, args) => {
+            //    Debug.WriteLine(args.KeyValue);
+            //};
         }
         
         private string PasswordValue => fldPassword.Value;

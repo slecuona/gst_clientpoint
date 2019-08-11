@@ -114,7 +114,7 @@ namespace ClientPoint.Keyboard
         {
             try
             {
-                HideUnsedKeys();
+                //HideUnsedKeys();
                 InitializeKeyButtons();
             }
             catch (Exception ex)
