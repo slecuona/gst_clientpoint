@@ -62,6 +62,9 @@ namespace ClientPoint.UI {
             // Reset del form
             fldDocument.Value = "";
             fldDocument.Control.Select();
+        }
+
+        public override void AfterShow() {
             UIManager.ShowNumKeyboard();
         }
 

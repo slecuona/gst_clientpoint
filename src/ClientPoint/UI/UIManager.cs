@@ -39,6 +39,10 @@ namespace ClientPoint.UI {
                 w.Value.Show();
                 w.Value.Hide();
             }
+            KeyBoard.Show();
+            KeyBoard.Hide();
+            NumKeyBoard.Show();
+            NumKeyBoard.Hide();
         }
 
         public static void SafeExec(Action action) {
@@ -49,16 +53,20 @@ namespace ClientPoint.UI {
         }
 
         public static void Show(Window toShow) {
+            var prev = CurrWindow;
             CurrWindow = toShow;
             SafeExec(() => {
                 _windows[toShow].BeforeShow();
                 _windows[toShow].Show();
-                foreach (var w in _windows) {
-                    if (w.Key == toShow)
-                        continue;
-                    w.Value.Hide();
-                    w.Value.AfterHide();
-                }
+                _windows[prev].Hide();
+                _windows[prev].AfterHide();
+                //foreach (var w in _windows) {
+                //    if (w.Key == toShow)
+                //        continue;
+                //    w.Value.Hide();
+                //    w.Value.AfterHide();
+                //}
+                _windows[toShow].AfterShow();
             });
         }
 

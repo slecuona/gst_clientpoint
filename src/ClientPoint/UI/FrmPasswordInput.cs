@@ -52,7 +52,9 @@ namespace ClientPoint.UI {
             // Reset del form
             fldPassword.Value = "";
             fldPassword.Control.Select();
+        }
 
+        public override void AfterShow() {
             UIManager.ShowKeyboard();
         }
 

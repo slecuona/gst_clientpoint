@@ -38,6 +38,7 @@
             this.ClientSize = new System.Drawing.Size(1484, 660);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.TopMost = true;
+            this.DoubleBuffered = true;
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
         }
