@@ -37,9 +37,9 @@ namespace ClientPoint.UI {
             return true;
         }
 
-        protected override void AfterError() {
-            fldEmail.Control.Select();
-        }
+        //protected override void AfterError() {
+        //    fldEmail.Control.Select();
+        //}
 
         protected override void OnBack(object sender, EventArgs e) {
             UIManager.Show(Window.NotConfirmedMenu);

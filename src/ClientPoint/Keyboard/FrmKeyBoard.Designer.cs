@@ -993,7 +993,7 @@ namespace ClientPoint.Keyboard {
             this.ClientSize = new System.Drawing.Size(720, 315);
             this.Controls.Add(this.tableLayoutPanelKeyButtons);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Location = new System.Drawing.Point(300, 350);
+            this.Location = new System.Drawing.Point(320, 435);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "FrmKeyBoard";

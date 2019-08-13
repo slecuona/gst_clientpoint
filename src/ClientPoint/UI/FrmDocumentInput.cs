@@ -10,6 +10,7 @@ namespace ClientPoint.UI {
         public FrmDocumentInput() {
             InitializeComponent();
             //fldDocument.CustomMaskType = CustomMaskType.Document;
+            ConfigureCurrentControlHandle();
         }
         
         private string DocumentValue => fldDocument.Value;
@@ -50,9 +51,9 @@ namespace ClientPoint.UI {
             }
         }
 
-        protected override void AfterError() {
-            fldDocument.Control.Select();
-        }
+        //protected override void AfterError() {
+        //    fldDocument.Control.Select();
+        //}
 
         protected override void OnBack(object sender, EventArgs e) {
             UIManager.Show(Window.Ads);

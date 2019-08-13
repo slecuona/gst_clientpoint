@@ -43,9 +43,9 @@ namespace ClientPoint.UI {
             return false;
         }
 
-        protected override void AfterError() {
-            fldPassword.Control.Select();
-        }
+        //protected override void AfterError() {
+        //    fldPassword.Control.Select();
+        //}
 
         protected override void OnBack(object sender, EventArgs e) {
             UIManager.Show(

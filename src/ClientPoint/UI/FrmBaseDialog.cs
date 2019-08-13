@@ -10,10 +10,33 @@ namespace ClientPoint.UI {
     /// Incluye el panel de navegacion
     /// </summary>
     public partial class FrmBaseDialog : FrmBase {
+        public Control CurrentControl = null;
+
         public FrmBaseDialog() {
             InitializeComponent();
             footerPanel.OnNextClick(OnNext);
             footerPanel.OnBackClick(OnBack);
+            //ConfigureCurrentHandle();
+        }
+
+        // Nos permite monitorear el control activo
+        // (En donde se debe hacer foco al utilizar el teclado)
+        // Este metodo se debe llamar luego de agregar los controles del dialogo.
+        protected void ConfigureCurrentControlHandle() {
+            foreach (Control ctrl in radScrollablePanel1.PanelContainer.Controls) {
+                if (ctrl is CustomField field) {
+                    field.Control.GotFocus += ControlOnGotFocus;
+                    continue;
+                }
+                if (ctrl is CustomMaskedField maskedField) {
+                    maskedField.Control.GotFocus += ControlOnGotFocus;
+                    continue;
+                }
+            }
+        }
+
+        private void ControlOnGotFocus(object sender, EventArgs e) {
+            CurrentControl = sender as Control;
         }
 
         /// <summary>
@@ -35,6 +58,7 @@ namespace ClientPoint.UI {
             
             if (errors.Count > 0) {
                 MsgBox.Error(this, string.Join("\n", errors));
+                AfterError();
                 return false;
             }
             return true;
@@ -83,7 +107,9 @@ namespace ClientPoint.UI {
         }
 
         // Handle safe thread
-        protected virtual void AfterError() {}
+        protected virtual void AfterError() {
+            CurrentControl?.Select();
+        }
 
         /// <summary>
         /// Accion a realizar al retroceder el formulario.

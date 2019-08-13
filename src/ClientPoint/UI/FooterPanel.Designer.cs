@@ -43,7 +43,7 @@ namespace ClientPoint.UI {
             this.btnNext.Location = new System.Drawing.Point(0, 0);
             this.btnNext.Name = "btnNext";
             this.btnNext.Padding = new System.Windows.Forms.Padding(20, 5, 20, 5);
-            this.btnNext.Size = new System.Drawing.Size(400, 75);
+            this.btnNext.Size = new System.Drawing.Size(250, 75);
             this.btnNext.TabIndex = 0;
             this.btnNext.TabStop = false;
             this.btnNext.Text = "Siguiente";
@@ -56,7 +56,7 @@ namespace ClientPoint.UI {
             this.btnBack.Location = new System.Drawing.Point(0, 0);
             this.btnBack.Name = "btnBack";
             this.btnBack.Padding = new System.Windows.Forms.Padding(20, 5, 20, 5);
-            this.btnBack.Size = new System.Drawing.Size(400, 75);
+            this.btnBack.Size = new System.Drawing.Size(250, 75);
             this.btnBack.TabIndex = 1;
             this.btnBack.TabStop = false;
             this.btnBack.Text = "Atrás";

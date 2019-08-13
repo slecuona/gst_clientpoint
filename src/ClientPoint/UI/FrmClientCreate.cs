@@ -78,9 +78,9 @@ namespace ClientPoint.UI {
             return true;
         }
 
-        protected override void AfterError() {
-            fldName.Control.Select();
-        }
+        //protected override void AfterError() {
+        //    fldName.Control.Select();
+        //}
 
         protected override void OnBack(object sender, EventArgs e) {
             UIManager.Show(Window.Ads);
