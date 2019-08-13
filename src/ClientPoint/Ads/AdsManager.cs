@@ -21,11 +21,17 @@ namespace ClientPoint.Ads {
 
         public static string LoadRandom() {
             try {
-                //var res = ApiQuery.LoadAdvertising();
-                var res = new List<string>() {
-                    "c:\\ads\\Adv1.mp4",
-                    "c:\\ads\\Adv2.mp4"
-                };
+                List<string> res;
+                if (Config.DebugMode) {
+                    // En modo Debug hardcodeo
+                    // (Porque la URL viene con IP local)
+                    res = new List<string>() {
+                        "c:\\ads\\Adv1.mp4",
+                        "c:\\ads\\Adv2.mp4"
+                    };
+                } else
+                    res = ApiService.LoadAdvertising();
+                
                 // Del listado, recibo uno al azar
                 var rnd = GetRandom(res.Count - 1);
                 Debug.WriteLine($"Random: {rnd}");
