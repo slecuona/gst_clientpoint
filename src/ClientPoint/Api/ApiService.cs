@@ -113,5 +113,15 @@ namespace ClientPoint.Api {
             }
             return res;
         }
+
+        public static string GetNumberCard() {
+            try {
+                var json = SendRequest("GetNumberCard", "");
+                var res = (string)JsonUtils.Deserialize(typeof(string), json);
+                return res;
+            } catch (Exception ex) {
+                throw new Exception("Error al obtener numero de tarjeta.", ex);
+            }
+        }
     }
 }

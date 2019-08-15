@@ -76,5 +76,11 @@ namespace Tests {
             Assert.IsTrue(errMsg.Contains("Tarjeta Inexistente"));
             Assert.IsTrue(res == null);
         }
+
+        [TestMethod]
+        public void GetNumberCard() {
+            var res = ApiService.GetNumberCard();
+            Assert.IsFalse(string.IsNullOrEmpty(res));
+        }
     }
 }
