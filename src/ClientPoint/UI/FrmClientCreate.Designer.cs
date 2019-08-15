@@ -38,6 +38,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.radScrollablePanel1)).BeginInit();
             this.radScrollablePanel1.PanelContainer.SuspendLayout();
             this.radScrollablePanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.headerPanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,11 +62,12 @@
             this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldCellphone);
             this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldPassword);
             this.radScrollablePanel1.PanelContainer.Controls.Add(this.fldPassword2);
+            this.radScrollablePanel1.PanelContainer.Location = new System.Drawing.Point(20, 20);
             this.radScrollablePanel1.PanelContainer.Size = new System.Drawing.Size(1326, 543);
             // 
             // fldSex
             // 
-            this.fldSex.Location = new System.Drawing.Point(34, 319);
+            this.fldSex.Location = new System.Drawing.Point(34, 226);
             this.fldSex.Name = "fldSex";
             this.fldSex.Size = new System.Drawing.Size(600, 50);
             this.fldSex.TabIndex = 7;
@@ -74,7 +76,7 @@
             // fldName
             // 
             this.fldName.Label = "Nombre/s";
-            this.fldName.Location = new System.Drawing.Point(34, 49);
+            this.fldName.Location = new System.Drawing.Point(34, 65);
             this.fldName.Name = "fldName";
             this.fldName.Password = false;
             this.fldName.Size = new System.Drawing.Size(615, 53);
@@ -84,7 +86,7 @@
             // fldLastname
             // 
             this.fldLastname.Label = "Apellido/s";
-            this.fldLastname.Location = new System.Drawing.Point(34, 139);
+            this.fldLastname.Location = new System.Drawing.Point(34, 145);
             this.fldLastname.Name = "fldLastname";
             this.fldLastname.Password = false;
             this.fldLastname.Size = new System.Drawing.Size(615, 53);
@@ -93,24 +95,29 @@
             // 
             // fldDocument
             // 
+            this.fldDocument.CustomMaskType = ClientPoint.UI.CustomMaskType.None;
             this.fldDocument.Label = "Nr. Documento";
             this.fldDocument.Location = new System.Drawing.Point(34, 229);
             this.fldDocument.Name = "fldDocument";
             this.fldDocument.Size = new System.Drawing.Size(615, 53);
             this.fldDocument.TabIndex = 4;
+            this.fldDocument.Value = "";
+            this.fldDocument.Visible = false;
             // 
             // fldEmail
             // 
+            this.fldEmail.CustomMaskType = ClientPoint.UI.CustomMaskType.None;
             this.fldEmail.Label = "Correo Electrónico";
-            this.fldEmail.Location = new System.Drawing.Point(714, 49);
+            this.fldEmail.Location = new System.Drawing.Point(714, 65);
             this.fldEmail.Name = "fldEmail";
             this.fldEmail.Size = new System.Drawing.Size(650, 53);
             this.fldEmail.TabIndex = 3;
+            this.fldEmail.Value = "";
             // 
             // fldCellphone
             // 
             this.fldCellphone.Label = "Nr. Celular";
-            this.fldCellphone.Location = new System.Drawing.Point(714, 139);
+            this.fldCellphone.Location = new System.Drawing.Point(714, 145);
             this.fldCellphone.Name = "fldCellphone";
             this.fldCellphone.Password = false;
             this.fldCellphone.Size = new System.Drawing.Size(615, 53);
@@ -120,7 +127,7 @@
             // fldPassword
             // 
             this.fldPassword.Label = "Contraseña";
-            this.fldPassword.Location = new System.Drawing.Point(714, 229);
+            this.fldPassword.Location = new System.Drawing.Point(714, 226);
             this.fldPassword.Name = "fldPassword";
             this.fldPassword.Password = true;
             this.fldPassword.Size = new System.Drawing.Size(615, 53);
@@ -130,7 +137,7 @@
             // fldPassword2
             // 
             this.fldPassword2.Label = "Repita Contraseña";
-            this.fldPassword2.Location = new System.Drawing.Point(714, 319);
+            this.fldPassword2.Location = new System.Drawing.Point(714, 309);
             this.fldPassword2.Name = "fldPassword2";
             this.fldPassword2.Password = true;
             this.fldPassword2.Size = new System.Drawing.Size(615, 53);
@@ -140,7 +147,7 @@
             // fldBirthDate
             // 
             this.fldBirthDate.Label = "Fecha Nacimiento";
-            this.fldBirthDate.Location = new System.Drawing.Point(34, 383);
+            this.fldBirthDate.Location = new System.Drawing.Point(34, 309);
             this.fldBirthDate.Name = "fldBirthDate";
             this.fldBirthDate.Size = new System.Drawing.Size(600, 50);
             this.fldBirthDate.TabIndex = 8;
@@ -159,6 +166,7 @@
             this.radScrollablePanel1.PanelContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.radScrollablePanel1)).EndInit();
             this.radScrollablePanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.headerPanel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 

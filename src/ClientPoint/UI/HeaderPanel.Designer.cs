@@ -52,13 +52,13 @@ namespace ClientPoint.UI {
             // 
             //this.lblTitle.Location = new System.Drawing.Point(150, 20);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(800, 30);
+            this.lblTitle.Size = new System.Drawing.Size(800, 100);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "";
             this.lblTitle.Font = Config.DefaultFont;
             this.lblTitle.AutoSize = false;
             this.lblTitle.Dock = DockStyle.Fill;
-            this.lblTitle.TextAlignment = ContentAlignment.MiddleCenter;
+            this.lblTitle.TextAlignment = ContentAlignment.BottomCenter;
             this.lblTitle.ForeColor = Color.White;
             // 
             // radWaitingBar1
@@ -78,7 +78,7 @@ namespace ClientPoint.UI {
             this.Controls.Add(lblTitle);
             this.Dock = System.Windows.Forms.DockStyle.Top;
             this.Name = "footerPanel";
-            this.Padding = new System.Windows.Forms.Padding(20, 20, 20, 20);
+            //this.Padding = new System.Windows.Forms.Padding(50, 50, 50, 50);
             this.Size = new System.Drawing.Size(1340, 80);
             this.BackColor = Color.Transparent;
             ((Telerik.WinControls.UI.RadPanelElement)(this.GetChildAt(0))).Padding = new System.Windows.Forms.Padding(20, 0, 20, 20);

@@ -68,7 +68,7 @@
             this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.headerPanel.Location = new System.Drawing.Point(0, 0);
             this.headerPanel.Name = "headerPanel";
-            this.headerPanel.Padding = new System.Windows.Forms.Padding(20, 20, 20, 20);
+            this.headerPanel.Padding = new System.Windows.Forms.Padding(20, 40, 20, 0);
             this.headerPanel.Size = new System.Drawing.Size(1366, 80);
             this.headerPanel.TabIndex = 0;
             // 
