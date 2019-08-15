@@ -17,14 +17,12 @@ namespace ClientPoint.UI {
 
         public static FrmBase Get(Window w) => _windows[w];
         
-        public static FrmBase GeCurrent() => _windows[CurrWindow];
-        public static Control GetCurrentControl() {
-            var ctrl = GeCurrent()?.ActiveControl;
-            if (ctrl is CustomField field)
-                return field.Control;
-            if (ctrl is CustomMaskedField maskedField)
-                return maskedField.Control;
-            return ctrl;
+        public static FrmBase GetCurrent() => _windows[CurrWindow];
+        public static void ActivateCurrentControl() {
+            var w = GetCurrent()?.ActiveControl;
+            if (w is FrmBaseDialog dlg) {
+                dlg.CurrentControl?.Select();
+            }
         }
 
         private static FrmKeyBoard KeyBoard;
@@ -107,7 +105,7 @@ namespace ClientPoint.UI {
         // aparte.)
         public static void ActivateCurrWindow() {
             var curr = UnsafeNativeMethods.GetForegroundWindow();
-            var wdw = GeCurrent().Handle;
+            var wdw = GetCurrent().Handle;
             if (curr != wdw) {
                 UnsafeNativeMethods.SetForegroundWindow(wdw);
             }

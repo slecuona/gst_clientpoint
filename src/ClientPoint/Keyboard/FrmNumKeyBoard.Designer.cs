@@ -336,6 +336,7 @@ namespace ClientPoint.Keyboard {
             this.Text = "Teclado Numerico";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.KeyBoardForm_Load);
+            this.Activated += OnActivated;
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonRight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonLeft)).EndInit();

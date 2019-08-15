@@ -49,7 +49,7 @@
             // 
             this.fldDocument.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.fldDocument.Label = "Nr. Documento";
-            this.fldDocument.Location = new System.Drawing.Point(350, 80);
+            this.fldDocument.Location = new System.Drawing.Point(350, 120);
             this.fldDocument.Name = "fldDocument";
             this.fldDocument.Size = new System.Drawing.Size(630, 53);
             this.fldDocument.TabIndex = 0;

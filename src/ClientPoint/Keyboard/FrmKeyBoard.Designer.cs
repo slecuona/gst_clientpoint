@@ -1005,6 +1005,7 @@ namespace ClientPoint.Keyboard {
             this.Text = "Teclado";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.KeyBoardForm_Load);
+            this.Activated += OnActivated;
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonD0)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonRight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonBack)).EndInit();

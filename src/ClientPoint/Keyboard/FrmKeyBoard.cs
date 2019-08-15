@@ -90,8 +90,10 @@ namespace ClientPoint.Keyboard
 
             UserInteraction.KeyboardInput.SendKey(PressedModifierKeyCodes, btn.KeyCode);
         }
-        
 
 
+        private void OnActivated(object sender, EventArgs e) {
+            this.ActiveControl = null;
+        }
     }
 }

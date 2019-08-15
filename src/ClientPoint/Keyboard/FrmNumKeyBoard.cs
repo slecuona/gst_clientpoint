@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Windows.Forms;
 using ClientPoint.Keyboard.NoActivate;
 using ClientPoint.UI;
 
@@ -77,6 +79,25 @@ namespace ClientPoint.Keyboard
 
         #endregion
 
+        //protected override void WndProc(ref Message m) {
+        //    // Listen for operating system messages.
+        //    Debug.WriteLine($"Msg: {m.Msg}");
+            
+        //    // Mouse activate
+        //    if (m.Msg == 33) {
+        //        this.ActiveControl = null;
+        //        UIManager.ActivateCurrWindow();
+        //        UIManager.ActivateCurrentControl();
+        //        return;
+        //    }
 
+        //    base.WndProc(ref m);
+        //}
+
+        private void OnActivated(object sender, EventArgs e) {
+            this.ActiveControl = null;
+            //UIManager.ActivateCurrWindow();
+            //UIManager.ActivateCurrentControl();
+        }
     }
 }
