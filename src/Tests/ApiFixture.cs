@@ -82,5 +82,14 @@ namespace Tests {
             var res = ApiService.GetNumberCard();
             Assert.IsFalse(string.IsNullOrEmpty(res));
         }
+
+        [TestMethod]
+        public void CreateCard() {
+            var res = ApiService.CreateCard(new CreateCardRequest(), out string errMsg);
+            // Cuando enviamos vacio, nos devuelve:
+            // "El Cliente ya tiene Tarjeta Asignada."
+            Assert.IsFalse(string.IsNullOrEmpty(errMsg));
+            Assert.IsFalse(res);
+        }
     }
 }

@@ -123,5 +123,10 @@ namespace ClientPoint.Api {
                 throw new Exception("Error al obtener numero de tarjeta.", ex);
             }
         }
+
+        public static bool CreateCard(CreateCardRequest req, out string errMsg) {
+            var res = PrepareAndSendRequest<BaseResponse>("CreateCard", req, out errMsg);
+            return res.ResponseCode == 0;
+        }
     }
 }

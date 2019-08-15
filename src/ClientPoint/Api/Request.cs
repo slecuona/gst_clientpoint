@@ -32,4 +32,10 @@ namespace ClientPoint.Api {
     public struct ClientLoadRequest {
         public string IdCard;
     }
+
+    public struct CreateCardRequest {
+        public string DocumentNumber;
+        public string Password;
+        public string IdCard;
+    }
 }
