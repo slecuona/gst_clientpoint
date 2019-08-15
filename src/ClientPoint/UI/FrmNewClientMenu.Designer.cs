@@ -35,18 +35,21 @@ namespace ClientPoint.UI
             this.btnCreate = new ClientPoint.UI.CustomButton();
             this.btnUpdate = new ClientPoint.UI.CustomButton();
             this.btnBack = new ClientPoint.UI.CustomButton();
+            this.headerPanel1 = new ClientPoint.UI.HeaderPanel();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).BeginInit();
             this.radPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnConfirm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCreate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnUpdate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.headerPanel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // radPanel1
             // 
             this.radPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.radPanel1.BackColor = System.Drawing.Color.Transparent;
             this.radPanel1.Controls.Add(this.btnConfirm);
             this.radPanel1.Controls.Add(this.btnCreate);
             this.radPanel1.Controls.Add(this.btnUpdate);
@@ -55,7 +58,6 @@ namespace ClientPoint.UI
             this.radPanel1.Name = "radPanel1";
             this.radPanel1.Size = new System.Drawing.Size(400, 375);
             this.radPanel1.TabIndex = 3;
-            this.radPanel1.BackColor = Color.Transparent;
             ((Telerik.WinControls.Primitives.BorderPrimitive)(this.radPanel1.GetChildAt(0).GetChildAt(1))).Width = 0F;
             // 
             // btnConfirm
@@ -109,11 +111,22 @@ namespace ClientPoint.UI
             this.btnBack.Text = "Salir";
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click_1);
             // 
+            // headerPanel1
+            // 
+            this.headerPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.headerPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.headerPanel1.Location = new System.Drawing.Point(0, 0);
+            this.headerPanel1.Name = "headerPanel1";
+            this.headerPanel1.Size = new System.Drawing.Size(1341, 80);
+            this.headerPanel1.TabIndex = 4;
+            this.headerPanel1.Title = "";
+            // 
             // FrmNewClientMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1341, 648);
+            this.Controls.Add(this.headerPanel1);
             this.Controls.Add(this.radPanel1);
             this.Name = "FrmNewClientMenu";
             // 
@@ -127,6 +140,7 @@ namespace ClientPoint.UI
             ((System.ComponentModel.ISupportInitialize)(this.btnCreate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnUpdate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.headerPanel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -139,5 +153,6 @@ namespace ClientPoint.UI
         private CustomButton btnUpdate;
         private CustomButton btnBack;
         private CustomButton btnCreate;
+        private HeaderPanel headerPanel1;
     }
 }

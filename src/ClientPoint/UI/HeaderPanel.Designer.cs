@@ -47,6 +47,7 @@ namespace ClientPoint.UI {
             this.lblImg.Dock = DockStyle.None;
             this.lblImg.BackgroundImage = Properties.Resources.logo;
             this.lblImg.BackgroundImageLayout = ImageLayout.None;
+            this.lblImg.DoubleClick += LblImgOnDoubleClick;
             // 
             // radLabel1
             // 

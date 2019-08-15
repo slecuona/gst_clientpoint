@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
 using ClientPoint.Api;
 using ClientPoint.Session;
 
@@ -59,10 +58,6 @@ namespace ClientPoint.UI {
 
         public override void AfterHide() {
             UIManager.HideNumKeyboard();
-        }
-
-        private void radButton1_Click(object sender, EventArgs e) {
-            Application.Exit();
         }
     }
 }
