@@ -66,7 +66,7 @@ namespace ClientPoint.UI {
         protected override bool PerformConfirm(out string errMsg) {
             var sucess = ApiService.ClientCreate(CreateRequest, out errMsg);
             if (!sucess) return false;
-
+            
             MsgBox.Show(this,
                 "Cliente creado correctamente. " +
                 "Se ha enviado el código de confirmación.");
@@ -100,6 +100,8 @@ namespace ClientPoint.UI {
             fldBirthDate.Value = MaxBirthDate;
             
             fldName.Control.Select();
+
+            UIManager.ShowKeyboard();
         }
     }
 }

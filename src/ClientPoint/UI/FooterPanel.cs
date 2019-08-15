@@ -5,7 +5,6 @@ namespace ClientPoint.UI {
     public partial class FooterPanel : RadPanel {
         public FooterPanel() {
             InitializeComponent();
-            Waiting = false;
         }
 
         public void OnBackClick(EventHandler action) => 
@@ -20,19 +19,6 @@ namespace ClientPoint.UI {
 
         public string BackText {
             set => btnBack.Text = value;
-        }
-
-        public bool Waiting {
-            set {
-                if (value) {
-                    waitingBar.StartWaiting();
-                    waitingBar.Visible = true;
-                }
-                else {
-                    waitingBar.Visible = false;
-                    waitingBar.StopWaiting();
-                }
-            }
         }
     }
 }

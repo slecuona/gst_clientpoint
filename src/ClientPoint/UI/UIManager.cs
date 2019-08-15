@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Forms;
+using ClientPoint.Api;
 using ClientPoint.Keyboard;
 using ClientPoint.Keyboard.NoActivate;
+using ClientPoint.Session;
+using static ClientPoint.Utils.ExUtils;
 
 namespace ClientPoint.UI {
     public static class UIManager {
@@ -13,6 +16,7 @@ namespace ClientPoint.UI {
         public static Window CurrWindow = Window.Ads;
 
         public static FrmBase Get(Window w) => _windows[w];
+        
         public static FrmBase GeCurrent() => _windows[CurrWindow];
         public static Control GetCurrentControl() {
             var ctrl = GeCurrent()?.ActiveControl;
@@ -33,7 +37,7 @@ namespace ClientPoint.UI {
                 { Window.Ads, new FrmAds()},
                 { Window.DocumentInput, new FrmDocumentInput()},
                 { Window.PasswordInput, new FrmPasswordInput()},
-                { Window.NotConfirmedMenu, new FrmNotConfirmedMenu()},
+                { Window.NewClientMenu, new FrmNewClientMenu()},
                 { Window.ClientCreate, new FrmClientCreate()},
                 { Window.ClientUpdate, new FrmClientUpdate()},
                 { Window.Confirm, new FrmConfirm()},
@@ -108,13 +112,68 @@ namespace ClientPoint.UI {
                 UnsafeNativeMethods.SetForegroundWindow(wdw);
             }
         }
+
+        public static FrmDocumentInput DocumentInput => 
+            (FrmDocumentInput)_windows[Window.DocumentInput];
+
+        public static FrmPasswordInput PasswordInput =>
+            (FrmPasswordInput)_windows[Window.PasswordInput];
+
+        public static void ClientCreate() {
+            DocumentInput.OnConfirm = res => {
+                if (res.NotExists) {
+                    Show(Window.ClientCreate);
+                    return null;
+                } else {
+                    // El usuario ya existe.
+                    return "Ya existe un usuario con el numero de documento ingresado.";
+                }
+            };
+            Show(Window.DocumentInput);
+        }
+
+        // Accion a realizar luego de ingresar el documento, cuando el usuario
+        // desea confirmar o actualizar datos.
+        private static string OnConfirmDocInputExistingUsr(ClientStatusResponse res) {
+            if (res.NotExists) {
+                return "No existe un usuario con el numero de documento ingresado.";
+            } else {
+                var cl = ClientSession.CurrClient;
+                if (cl.Status != ClientStatus.Pendiente && 
+                    cl.Status != ClientStatus.SinTarjeta)
+                    return "El usuario ya fue confirmado.";
+                Show(Window.PasswordInput);
+                return null;
+            }
+        }
+
+        public static void ClientConfirm() {
+            DocumentInput.OnConfirm = OnConfirmDocInputExistingUsr;
+
+            PasswordInput.OnConfirm = () => {
+                Show(Window.Confirm);
+            };
+
+            Show(Window.DocumentInput);
+        }
+
+        public static void ClientUpdate() {
+            DocumentInput.OnConfirm = OnConfirmDocInputExistingUsr;
+
+            PasswordInput.OnConfirm = () => {
+                Show(Window.ClientUpdate);
+            };
+
+            Show(Window.DocumentInput);
+        }
+
     }
 
     public enum Window {
         Ads = 0,
         DocumentInput = 1,
         PasswordInput = 2,
-        NotConfirmedMenu = 3,
+        NewClientMenu = 3,
         ClientCreate = 4,
         ClientUpdate = 5,
         Confirm = 6,

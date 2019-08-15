@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace ClientPoint.UI
 {
-    partial class FrmNotConfirmedMenu {
+    partial class FrmNewClientMenu {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -31,34 +31,62 @@ namespace ClientPoint.UI
         private void InitializeComponent()
         {
             this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
+            this.btnConfirm = new ClientPoint.UI.CustomButton();
+            this.btnCreate = new ClientPoint.UI.CustomButton();
             this.btnUpdate = new ClientPoint.UI.CustomButton();
             this.btnBack = new ClientPoint.UI.CustomButton();
-            this.btnConfirm = new ClientPoint.UI.CustomButton();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).BeginInit();
             this.radPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnConfirm)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCreate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnUpdate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnConfirm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // radPanel1
             // 
             this.radPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.radPanel1.Controls.Add(this.btnConfirm);
+            this.radPanel1.Controls.Add(this.btnCreate);
             this.radPanel1.Controls.Add(this.btnUpdate);
             this.radPanel1.Controls.Add(this.btnBack);
-            this.radPanel1.Controls.Add(this.btnConfirm);
-            this.radPanel1.Location = new System.Drawing.Point(19, 69);
+            this.radPanel1.Location = new System.Drawing.Point(468, 125);
             this.radPanel1.Name = "radPanel1";
-            this.radPanel1.Size = new System.Drawing.Size(400, 325);
+            this.radPanel1.Size = new System.Drawing.Size(400, 375);
             this.radPanel1.TabIndex = 3;
             ((Telerik.WinControls.Primitives.BorderPrimitive)(this.radPanel1.GetChildAt(0).GetChildAt(1))).Width = 0F;
+            // 
+            // btnConfirm
+            // 
+            this.btnConfirm.Font = new System.Drawing.Font("Helvetica-Normal", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirm.Image = global::ClientPoint.Properties.Resources.confirm;
+            this.btnConfirm.Location = new System.Drawing.Point(0, 100);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Padding = new System.Windows.Forms.Padding(20, 5, 0, 5);
+            this.btnConfirm.Size = new System.Drawing.Size(400, 75);
+            this.btnConfirm.TabIndex = 4;
+            this.btnConfirm.TabStop = false;
+            this.btnConfirm.Text = "Confirmar";
+            // 
+            // btnCreate
+            // 
+            this.btnCreate.Font = new System.Drawing.Font("Helvetica-Normal", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreate.Image = global::ClientPoint.Properties.Resources.plus;
+            this.btnCreate.Location = new System.Drawing.Point(0, 0);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Padding = new System.Windows.Forms.Padding(20, 5, 0, 5);
+            this.btnCreate.Size = new System.Drawing.Size(400, 75);
+            this.btnCreate.TabIndex = 6;
+            this.btnCreate.TabStop = false;
+            this.btnCreate.Text = "Crear cuenta";
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // btnUpdate
             // 
             this.btnUpdate.Font = new System.Drawing.Font("Helvetica-Normal", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.Image = global::ClientPoint.Properties.Resources.edit;
-            this.btnUpdate.Location = new System.Drawing.Point(0, 125);
+            this.btnUpdate.Location = new System.Drawing.Point(0, 200);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Padding = new System.Windows.Forms.Padding(20, 5, 0, 5);
             this.btnUpdate.Size = new System.Drawing.Size(400, 75);
@@ -71,7 +99,7 @@ namespace ClientPoint.UI
             // 
             this.btnBack.Font = new System.Drawing.Font("Helvetica-Normal", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.Image = global::ClientPoint.Properties.Resources.back;
-            this.btnBack.Location = new System.Drawing.Point(0, 250);
+            this.btnBack.Location = new System.Drawing.Point(0, 300);
             this.btnBack.Name = "btnBack";
             this.btnBack.Padding = new System.Windows.Forms.Padding(20, 5, 0, 5);
             this.btnBack.Size = new System.Drawing.Size(400, 75);
@@ -80,25 +108,13 @@ namespace ClientPoint.UI
             this.btnBack.Text = "Salir";
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click_1);
             // 
-            // btnConfirm
-            // 
-            this.btnConfirm.Font = new System.Drawing.Font("Helvetica-Normal", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfirm.Image = global::ClientPoint.Properties.Resources.confirm;
-            this.btnConfirm.Location = new System.Drawing.Point(0, 0);
-            this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Padding = new System.Windows.Forms.Padding(20, 5, 0, 5);
-            this.btnConfirm.Size = new System.Drawing.Size(400, 75);
-            this.btnConfirm.TabIndex = 4;
-            this.btnConfirm.TabStop = false;
-            this.btnConfirm.Text = "Confirmar";
-            // 
-            // FrmNotConfirmedMenu
+            // FrmNewClientMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(443, 451);
+            this.ClientSize = new System.Drawing.Size(1341, 648);
             this.Controls.Add(this.radPanel1);
-            this.Name = "FrmNotConfirmedMenu";
+            this.Name = "FrmNewClientMenu";
             // 
             // 
             // 
@@ -106,9 +122,10 @@ namespace ClientPoint.UI
             this.Text = "FrmNewUsr";
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).EndInit();
             this.radPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnConfirm)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCreate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnUpdate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnConfirm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -120,5 +137,6 @@ namespace ClientPoint.UI
         private CustomButton btnConfirm;
         private CustomButton btnUpdate;
         private CustomButton btnBack;
+        private CustomButton btnCreate;
     }
 }

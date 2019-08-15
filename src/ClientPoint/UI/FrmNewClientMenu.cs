@@ -2,9 +2,9 @@
 
 namespace ClientPoint.UI
 {
-    public partial class FrmNotConfirmedMenu : FrmBase
+    public partial class FrmNewClientMenu : FrmBase
     {
-        public FrmNotConfirmedMenu()
+        public FrmNewClientMenu()
         {
             InitializeComponent();
 
@@ -12,7 +12,7 @@ namespace ClientPoint.UI
         }
 
         private void BtnConfirmOnClick(object sender, EventArgs e) {
-            UIManager.Show(Window.Confirm);
+            UIManager.ClientConfirm();
         }
 
         private void btnBack_Click_1(object sender, EventArgs e) {
@@ -20,7 +20,11 @@ namespace ClientPoint.UI
         }
 
         private void btnUpdate_Click(object sender, EventArgs e) {
-            UIManager.Show(Window.ClientUpdate);
+            UIManager.ClientUpdate();
+        }
+
+        private void btnCreate_Click(object sender, EventArgs e) {
+            UIManager.ClientCreate();
         }
     }
 }

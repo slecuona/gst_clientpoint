@@ -10,6 +10,9 @@ namespace ClientPoint.UI {
             InitializeComponent();
             this.fldCode.CustomMaskType = CustomMaskType.ConfirmCode;
             this.fldCode.Uppercase = true;
+            ConfigureCurrentControlHandle();
+            headerPanel.Title = 
+                "Ingrese el código de confirmación enviado por SMS o a su casilla de correo.";
         }
         
         private string CodeValue => fldCode?.Value?.ToUpper();
@@ -30,8 +33,7 @@ namespace ClientPoint.UI {
             var sucess = ApiService.ConfirmCode(CreateRequest, out errMsg);
             if (!sucess) return false;
 
-            MsgBox.Show(this, "Cliente confirmado correctamente.");
-            // TODO: Ir a confirmed menu
+            MsgBox.Show(this, "Cliente confirmado correctamente. (Imprimiendo tarjeta...)");
             UIManager.Show(Window.Ads);
             return true;
         }
@@ -40,14 +42,23 @@ namespace ClientPoint.UI {
         //    fldCode.Control.Select();
         //}
 
+        public override void AfterHide() {
+            UIManager.HideKeyboard();
+        }
+
         protected override void OnBack(object sender, EventArgs e) {
-            UIManager.Show(Window.NotConfirmedMenu);
+            UIManager.Show(Window.NewClientMenu);
         }
 
         public override void BeforeShow() {
             // Reset del form
             fldCode.Value = null;
+        }
+
+        public override void AfterShow() {
+            UIManager.ShowKeyboard();
             fldCode.Control.Select();
+            this.Select();
         }
     }
 }

@@ -132,6 +132,12 @@
     <Compile Include="UI\DateField.Designer.cs">
       <DependentUpon>DateField.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\HeaderPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\HeaderPanel.Designer.cs">
+      <DependentUpon>HeaderPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\UserPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -220,13 +226,14 @@
     <Compile Include="UI\FrmClientCreate.Designer.cs">
       <DependentUpon>FrmClientCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\FrmNotConfirmedMenu.cs">
+    <Compile Include="UI\FrmNewClientMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\FrmNotConfirmedMenu.Designer.cs">
-      <DependentUpon>FrmNotConfirmedMenu.cs</DependentUpon>
+    <Compile Include="UI\FrmNewClientMenu.Designer.cs">
+      <DependentUpon>FrmNewClientMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\UIManager.cs" />
+    <Compile Include="Utils\ExUtils.cs" />
     <Compile Include="Utils\Logger.cs" />
     <Compile Include="Utils\MsgBox.cs" />
     <EmbeddedResource Include="Keyboard\FrmNumKeyBoard.resx">
@@ -242,6 +249,9 @@
     <EmbeddedResource Include="UI\DateField.resx">
       <DependentUpon>DateField.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\HeaderPanel.resx">
+      <DependentUpon>HeaderPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\UserPanel.resx">
       <DependentUpon>UserPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -253,6 +263,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FrmBaseDialog.resx">
       <DependentUpon>FrmBaseDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FrmMainMenu.resx">
       <DependentUpon>FrmMainMenu.cs</DependentUpon>
@@ -295,8 +306,8 @@
     <EmbeddedResource Include="UI\FrmClientCreate.resx">
       <DependentUpon>FrmClientCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\FrmNotConfirmedMenu.resx">
-      <DependentUpon>FrmNotConfirmedMenu.cs</DependentUpon>
+    <EmbeddedResource Include="UI\FrmNewClientMenu.resx">
+      <DependentUpon>FrmNewClientMenu.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -349,6 +360,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

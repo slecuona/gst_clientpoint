@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using ClientPoint.Api;
 using ClientPoint.Session;
 
 namespace ClientPoint.UI {
@@ -9,9 +7,8 @@ namespace ClientPoint.UI {
         public FrmPasswordInput() {
             InitializeComponent();
             fldPassword.Password = true;
-            //fldPassword.Control.KeyDown += (sender, args) => {
-            //    Debug.WriteLine(args.KeyValue);
-            //};
+            ConfigureCurrentControlHandle();
+            headerPanel.Title = "";
         }
         
         private string PasswordValue => fldPassword.Value;
@@ -20,22 +17,12 @@ namespace ClientPoint.UI {
             if (string.IsNullOrEmpty(PasswordValue))
                 errors.Add("Debe ingresar su contraseña.");
         }
-
-        //TODO: Falta un endpoint de autenticacion
-        private ClientStatusRequest CreateRequest => 
-            new ClientStatusRequest() {
-                DocumentNumber = ClientSession.CurrClient.DocumentNumber
-            };
-
+        
+        // devuelve mensaje de error (si hay)
+        public Action OnConfirm;
         protected override bool PerformConfirm(out string errMsg) {
             if (PasswordValue == ClientSession.CurrClient.Password) {
-                // Si el cliente no esta confirmado, lo envio al menu
-                // donde puede actualizar datos e ingresar el cod. de confirmacion.
-                // Si no, va al menu principal
-                UIManager.Show(
-                    ClientSession.CurrClient.Status == ClientStatus.Pendiente
-                        ? Window.NotConfirmedMenu
-                        : Window.MainMenu);
+                OnConfirm?.Invoke();
                 errMsg = "";
                 return true;
             }
@@ -44,9 +31,9 @@ namespace ClientPoint.UI {
         }
 
         //protected override void AfterError() {
-        //    fldPassword.Control.Select();
+        //    UIManager.Show(Window.NewClientMenu);
         //}
-
+        
         protected override void OnBack(object sender, EventArgs e) {
             UIManager.Show(
                 ClientSession.AccessByCard ? Window.Ads : Window.DocumentInput);

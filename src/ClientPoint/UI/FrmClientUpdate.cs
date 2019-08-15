@@ -8,6 +8,9 @@ namespace ClientPoint.UI {
     public partial class FrmClientUpdate : FrmBaseDialog {
         public FrmClientUpdate() {
             InitializeComponent();
+            ConfigureCurrentControlHandle();
+            headerPanel.Title =
+                "Al confirmar, se reenviará el código de confirmación.";
         }
 
         private string EmailValue => fldEmail.Value;
@@ -42,13 +45,22 @@ namespace ClientPoint.UI {
         //}
 
         protected override void OnBack(object sender, EventArgs e) {
-            UIManager.Show(Window.NotConfirmedMenu);
+            UIManager.Show(Window.NewClientMenu);
         }
 
         public override void BeforeShow() {
             fldEmail.Value = ClientSession.CurrClient.Email;
             fldCellphone.Value = ClientSession.CurrClient.CellPhone;
+        }
+
+        public override void AfterShow() {
+            UIManager.ShowKeyboard();
             fldEmail.Control.Select();
+            this.Select();
+        }
+
+        public override void AfterHide() {
+            UIManager.HideKeyboard();
         }
     }
 }

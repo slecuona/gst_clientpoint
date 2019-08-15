@@ -83,7 +83,7 @@ namespace ClientPoint.UI {
         private void OnNext(object sender, EventArgs e) {
             if (!Validation())
                 return;
-            footerPanel.Waiting = true;
+            headerPanel.Waiting = true;
             var t = new Thread(ConfirmAsync);
             t.Start();
         }
@@ -99,7 +99,7 @@ namespace ClientPoint.UI {
                 errMsg = ex.Message;
             } finally {
                 SafeInvoke(() => {
-                    footerPanel.Waiting = false;
+                    headerPanel.Waiting = false;
                 });
             }
             MsgBox.Error(this, errMsg);
