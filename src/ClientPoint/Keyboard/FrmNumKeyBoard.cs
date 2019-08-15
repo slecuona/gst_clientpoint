@@ -99,5 +99,9 @@ namespace ClientPoint.Keyboard
             //UIManager.ActivateCurrWindow();
             //UIManager.ActivateCurrentControl();
         }
+
+        protected override void OnPaintBackground(PaintEventArgs e) {
+            //empty implementation
+        }
     }
 }

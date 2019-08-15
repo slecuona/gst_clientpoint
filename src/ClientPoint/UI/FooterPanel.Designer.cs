@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Drawing;
+using System.Windows.Forms;
 using Telerik.WinControls.Enumerations;
 
 namespace ClientPoint.UI {
@@ -67,6 +68,7 @@ namespace ClientPoint.UI {
             this.Name = "footerPanel";
             this.Padding = new System.Windows.Forms.Padding(20, 0, 20, 20);
             this.Size = new System.Drawing.Size(1340, 80);
+            this.BackColor = Color.Transparent;
             ((Telerik.WinControls.UI.RadPanelElement)(this.GetChildAt(0))).Padding = new System.Windows.Forms.Padding(20, 0, 20, 20);
             ((Telerik.WinControls.Primitives.BorderPrimitive)(this.GetChildAt(0).GetChildAt(1))).Width = 0F;
             ((System.ComponentModel.ISupportInitialize)(this.btnNext)).EndInit();

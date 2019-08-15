@@ -42,6 +42,7 @@ namespace ClientPoint.UI {
             this.radLabel1.Size = new System.Drawing.Size(106, 34);
             this.radLabel1.TabIndex = 0;
             this.radLabel1.Text = "radLabel1";
+            this.radLabel1.ForeColor = Color.White;
             // 
             // radDateTimePicker1
             // 

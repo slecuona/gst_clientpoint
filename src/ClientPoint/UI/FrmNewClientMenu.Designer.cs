@@ -55,6 +55,7 @@ namespace ClientPoint.UI
             this.radPanel1.Name = "radPanel1";
             this.radPanel1.Size = new System.Drawing.Size(400, 375);
             this.radPanel1.TabIndex = 3;
+            this.radPanel1.BackColor = Color.Transparent;
             ((Telerik.WinControls.Primitives.BorderPrimitive)(this.radPanel1.GetChildAt(0).GetChildAt(1))).Width = 0F;
             // 
             // btnConfirm

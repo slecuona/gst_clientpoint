@@ -59,6 +59,7 @@
             this.radScrollablePanel1.PanelContainer.Size = new System.Drawing.Size(1366, 600);
             this.radScrollablePanel1.Size = new System.Drawing.Size(1366, 600);
             this.radScrollablePanel1.TabIndex = 4;
+            this.BackColor = System.Drawing.Color.Transparent;
             ((Telerik.WinControls.UI.RadScrollablePanelElement)(this.radScrollablePanel1.GetChildAt(0))).Padding = new System.Windows.Forms.Padding(0);
             ((Telerik.WinControls.Primitives.BorderPrimitive)(this.radScrollablePanel1.GetChildAt(0).GetChildAt(1))).Width = 0F;
             // 

@@ -1,4 +1,6 @@
-﻿namespace ClientPoint.UI {
+﻿using System.Drawing;
+
+namespace ClientPoint.UI {
     partial class SexField {
         /// <summary> 
         /// Required designer variable.
@@ -39,6 +41,7 @@
             this.radLabel1.Size = new System.Drawing.Size(59, 34);
             this.radLabel1.TabIndex = 0;
             this.radLabel1.Text = "Sexo";
+            this.radLabel1.ForeColor = Color.White;
             // 
             // radioM
             // 

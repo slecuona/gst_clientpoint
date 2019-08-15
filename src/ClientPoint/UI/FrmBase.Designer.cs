@@ -1,4 +1,6 @@
-﻿namespace ClientPoint.UI
+﻿using System.Windows.Forms;
+
+namespace ClientPoint.UI
 {
     partial class FrmBase
     {
@@ -33,6 +35,8 @@
             // 
             // RadForm1
             // 
+            this.BackgroundImage = Properties.Resources.bg;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1484, 660);
