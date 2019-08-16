@@ -1,7 +1,12 @@
-﻿using ClientPoint.Api;
+﻿using System;
+using System.Threading;
+using ClientPoint.Api;
+using ClientPoint.Espf;
 using ClientPoint.Session;
 using ClientPoint.UI;
+using ClientPoint.Utils;
 using static ClientPoint.UI.UIManager;
+using static ClientPoint.Utils.ExUtils;
 
 namespace ClientPoint {
     // Esta clase contiene las distintas operaciones/procesos
@@ -13,7 +18,8 @@ namespace ClientPoint {
                 if (res.NotExists) {
                     Show(Window.ClientCreate);
                     return null;
-                } else {
+                }
+                else {
                     // El usuario ya existe.
                     return "Ya existe un usuario con el numero de documento ingresado.";
                 }
@@ -26,7 +32,8 @@ namespace ClientPoint {
         private static string OnConfirmDocInputExistingUsr(ClientStatusResponse res) {
             if (res.NotExists) {
                 return "No existe un usuario con el numero de documento ingresado.";
-            } else {
+            }
+            else {
                 var cl = ClientSession.CurrClient;
                 if (cl.Status != ClientStatus.Pendiente &&
                     cl.Status != ClientStatus.SinTarjeta)
@@ -39,9 +46,7 @@ namespace ClientPoint {
         public static void ClientConfirm() {
             DocumentInput.OnConfirm = OnConfirmDocInputExistingUsr;
 
-            PasswordInput.OnConfirm = () => {
-                Show(Window.Confirm);
-            };
+            PasswordInput.OnConfirm = () => { Show(Window.Confirm); };
 
             Show(Window.DocumentInput);
         }
@@ -49,11 +54,41 @@ namespace ClientPoint {
         public static void ClientUpdate() {
             DocumentInput.OnConfirm = OnConfirmDocInputExistingUsr;
 
-            PasswordInput.OnConfirm = () => {
-                Show(Window.ClientUpdate);
-            };
+            PasswordInput.OnConfirm = () => { Show(Window.ClientUpdate); };
 
             Show(Window.DocumentInput);
         }
+
+        public static void PrintCard() {
+            SafeExec(() => {
+                StatusWindow.SetState(States.PrintingCard);
+                Show(Window.Status);
+            });
+            var t = new Thread(PrintCardAsync);
+            t.Start();
+        }
+
+        private static void PrintCardAsync() {
+            try {
+                var card = ApiService.GetNumberCard();
+                var pj = new PrintJob(card);
+                var cl = ClientSession.CurrClient;
+                pj.WriteData();
+                pj.Start();
+                var success = ApiService.CreateCard(new CreateCardRequest() {
+                    DocumentNumber = cl.DocumentNumber,
+                    Password = cl.Password,
+                    IdCard = card
+                }, out string err);
+                DieIf(!success, err);
+
+                SafeExec(() => { StatusWindow.SetState(States.RemoveCard); });
+            }
+            catch (Exception ex) {
+                Logger.Exception(ex);
+                MsgBox.Error(StatusWindow, "Error al imprimir tarjeta.");
+            }
+        }
+
     }
 }

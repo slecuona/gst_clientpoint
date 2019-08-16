@@ -37,6 +37,7 @@ namespace ClientPoint.UI {
                 { Window.ClientUpdate, new FrmClientUpdate()},
                 { Window.Confirm, new FrmConfirm()},
                 { Window.MainMenu, new FrmMainMenu()},
+                { Window.Status, new FrmStatus()},
             };
             KeyBoard = new FrmKeyBoard();
             NumKeyBoard = new FrmNumKeyBoard();
@@ -116,6 +117,9 @@ namespace ClientPoint.UI {
         public static FrmPasswordInput PasswordInput =>
             (FrmPasswordInput)_windows[Window.PasswordInput];
 
+        public static FrmStatus StatusWindow =>
+            (FrmStatus)_windows[Window.Status];
+
     }
 
     public enum Window {
@@ -126,6 +130,7 @@ namespace ClientPoint.UI {
         ClientCreate = 4,
         ClientUpdate = 5,
         Confirm = 6,
-        MainMenu = 7
+        MainMenu = 7,
+        Status = 8
     }
 }

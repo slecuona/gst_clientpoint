@@ -8,6 +8,7 @@ namespace ClientPoint.UI {
     public partial class FrmClientCreate : FrmBaseDialog {
         public FrmClientCreate() {
             InitializeComponent();
+            ConfigureCurrentControlHandle();
         }
 
         private string NameValue => fldName.Value;
@@ -104,6 +105,8 @@ namespace ClientPoint.UI {
 
         public override void AfterShow() {
             UIManager.ShowKeyboard();
+            fldName.Control.Select();
+            this.Select();
         }
     }
 }

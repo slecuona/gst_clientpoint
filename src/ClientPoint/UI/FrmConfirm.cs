@@ -33,8 +33,7 @@ namespace ClientPoint.UI {
             var sucess = ApiService.ConfirmCode(CreateRequest, out errMsg);
             if (!sucess) return false;
 
-            MsgBox.Show(this, "Cliente confirmado correctamente. (Imprimiendo tarjeta...)");
-            UIManager.Show(Window.Ads);
+            Op.PrintCard();
             return true;
         }
 
@@ -42,7 +41,7 @@ namespace ClientPoint.UI {
         //    fldCode.Control.Select();
         //}
 
-        public override void AfterHide() {
+        public override void BeforeHide() {
             UIManager.HideKeyboard();
         }
 

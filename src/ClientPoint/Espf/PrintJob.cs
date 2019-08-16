@@ -23,8 +23,8 @@ namespace ClientPoint.Espf {
         private string _sessionId;
         private string _data;
 
-        public PrintJob() {
-            _data = "60001105854000";
+        public PrintJob(string data) {
+            _data = data;
         }
 
         private static void ExecStepOrFail(Func<string> action, string msg) {
@@ -52,8 +52,6 @@ namespace ClientPoint.Espf {
                 ExecStepOrFail(
                     () => Services.PrintStart("PRINT4", _sessionId),
                     "PrintStart");
-                
-
             }
             catch (Exception ex) {
                 throw new Exception("ESPF: Error al ejecutar impresion.", ex);
@@ -106,10 +104,10 @@ namespace ClientPoint.Espf {
                     throw new Exception("Los datos no se grabaron correctamente. " +
                                         $"({res} != {_data})");
 
-                // 6 - eject?
-                ExecStepOrFail(
-                    () => Services.CmdSend("WRITE7", "Se", 30000),
-                    "Eject");
+                //// 6 - eject?
+                //ExecStepOrFail(
+                //    () => Services.CmdSend("WRITE7", "Se", 30000),
+                //    "Eject");
                 
 
             } catch (Exception ex) {

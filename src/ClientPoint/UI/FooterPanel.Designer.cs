@@ -45,7 +45,7 @@ namespace ClientPoint.UI {
             this.btnNext.Size = new System.Drawing.Size(250, 60);
             this.btnNext.TabIndex = 0;
             this.btnNext.TabStop = false;
-            this.btnNext.Text = "Siguiente";
+            this.btnNext.Text = "Confirmar";
             // 
             // btnBack
             // 
