@@ -12,7 +12,7 @@ namespace ClientPoint.UI
         }
 
         private void BtnConfirmOnClick(object sender, EventArgs e) {
-            UIManager.ClientConfirm();
+            Op.ClientConfirm();
         }
 
         private void btnBack_Click_1(object sender, EventArgs e) {
@@ -20,11 +20,11 @@ namespace ClientPoint.UI
         }
 
         private void btnUpdate_Click(object sender, EventArgs e) {
-            UIManager.ClientUpdate();
+            Op.ClientUpdate();
         }
 
         private void btnCreate_Click(object sender, EventArgs e) {
-            UIManager.ClientCreate();
+            Op.ClientCreate();
         }
     }
 }

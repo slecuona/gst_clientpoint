@@ -118,6 +118,7 @@
     <Compile Include="Keyboard\MyTableLayoutPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Op.cs" />
     <Compile Include="Session\Client.cs" />
     <Compile Include="Session\ClientSession.cs" />
     <Compile Include="UI\CustomButton.cs">
