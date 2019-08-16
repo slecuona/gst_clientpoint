@@ -66,17 +66,19 @@ namespace ClientPoint.UI {
             var prev = CurrWindow;
             CurrWindow = toShow;
             SafeExec(() => {
+                _windows[prev].BeforeHide();
                 _windows[toShow].BeforeShow();
                 _windows[toShow].Show();
                 _windows[prev].Hide();
                 _windows[prev].AfterHide();
+                _windows[toShow].AfterShow();
                 //foreach (var w in _windows) {
                 //    if (w.Key == toShow)
                 //        continue;
                 //    w.Value.Hide();
                 //    w.Value.AfterHide();
                 //}
-                _windows[toShow].AfterShow();
+                //_windows[toShow].AfterShow();
             });
         }
 

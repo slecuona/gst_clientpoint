@@ -5,6 +5,8 @@ using System.Linq;
 using System.Windows.Forms;
 using ClientPoint.Keyboard.NoActivate;
 using ClientPoint.UI;
+using ClientPoint.Utils;
+using Telerik.WinControls;
 
 namespace ClientPoint.Keyboard
 {
@@ -53,14 +55,13 @@ namespace ClientPoint.Keyboard
 
         private void KeyBoardForm_Load(object sender, EventArgs e)
         {
-
             // Register the key button click event.
             foreach (KeyButton btn in this.KeyButtonList) {
                 if(btn.Visible)
                     btn.Click += new EventHandler(KeyButton_Click);
             }
         }
-
+        
         /// <summary>
         /// Handle the key button click event.
         /// </summary>

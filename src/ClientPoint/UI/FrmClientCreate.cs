@@ -100,7 +100,9 @@ namespace ClientPoint.UI {
             fldBirthDate.Value = MaxBirthDate;
             
             fldName.Control.Select();
+        }
 
+        public override void AfterShow() {
             UIManager.ShowKeyboard();
         }
     }

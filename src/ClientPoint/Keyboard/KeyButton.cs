@@ -18,6 +18,7 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Telerik.WinControls;
 using Telerik.WinControls.UI;
 
 namespace ClientPoint.Keyboard
@@ -140,7 +141,7 @@ namespace ClientPoint.Keyboard
                 {
                     isPressed = value;
 
-                    this.OnIsPressedChange(EventArgs.Empty);
+                    //this.OnIsPressedChange(EventArgs.Empty);
                 }
             }
 
@@ -151,22 +152,22 @@ namespace ClientPoint.Keyboard
         /// <summary>
         /// Specify whether the mouse is over this key.
         /// </summary>
-        bool IsMouseOver
-        {
-            get
-            {
-                return isMouseOver;
-            }
-            set
-            {
-                if (isMouseOver != value)
-                {
-                    isMouseOver = value;
+        //bool IsMouseOver
+        //{
+        //    get
+        //    {
+        //        return isMouseOver;
+        //    }
+        //    set
+        //    {
+        //        if (isMouseOver != value)
+        //        {
+        //            isMouseOver = value;
 
-                    this.OnIsMouseOverChange(EventArgs.Empty);
-                }
-            }
-        }
+        //            //this.OnIsMouseOverChange(EventArgs.Empty);
+        //        }
+        //    }
+        //}
 
         public KeyButton()
         {
@@ -174,99 +175,95 @@ namespace ClientPoint.Keyboard
             //this.BackColor = System.Drawing.Color.Black;
             //this.ForeColor = System.Drawing.Color.White;
             this.Font = new Font(FontFamily.GenericSansSerif, 15);
+
+            this.EnableGesture(GestureType.All);
         }
 
-        /// <summary>
-        /// Update the text of the key.
-        /// </summary>
-        public void UpdateDisplayText(bool isShiftKeyPressed, bool isNumLockPressed, bool isCapsLockPressed)
-        {
-            if (this.IsLetterKey)
-            {
+        ///// <summary>
+        ///// Update the text of the key.
+        ///// </summary>
+        public void UpdateDisplayText(bool isShiftKeyPressed, bool isNumLockPressed, bool isCapsLockPressed) {
+            if (this.IsLetterKey) {
                 this.Text = (isShiftKeyPressed ^ isCapsLockPressed) ? ShiftText : NormalText;
-            }
-            else if (!string.IsNullOrEmpty(this.ShiftText))
-            {
+            } else if (!string.IsNullOrEmpty(this.ShiftText)) {
                 this.Text = isShiftKeyPressed ? ShiftText : NormalText;
-            }
-            else if (this.IsNumberPadKey)
-            {
+            } else if (this.IsNumberPadKey) {
                 this.Text = isNumLockPressed ? NormalText : UnNumLockText;
             }
 
         }
 
-        #region Update the style of the key board button.
+        //#region Update the style of the key board button.
 
-        /// <summary>
-        /// Handle the MouseDown event.
-        /// Change the value of the IsPressed property, will cause the button to
-        /// refresh.
-        /// </summary>
-        protected override void OnMouseDown(MouseEventArgs e)
-        {
-            base.OnMouseDown(e);
+        ///// <summary>
+        ///// Handle the MouseDown event.
+        ///// Change the value of the IsPressed property, will cause the button to
+        ///// refresh.
+        ///// </summary>
+        //protected override void OnMouseDown(MouseEventArgs e)
+        //{
+        //    base.OnMouseDown(e);
 
-            IsPressed = !IsPressed;
-        }
+        //    IsPressed = !IsPressed;
+        //}
 
-        /// <summary>
-        /// Handle the MouseUp event.
-        /// If the key is not a modifier key or a lock key, set the IsPressed property 
-        /// to false, which makes the button refresh.
-        /// </summary>
-        protected override void OnMouseUp(MouseEventArgs e)
-        {
-            base.OnMouseUp(e);
+        ///// <summary>
+        ///// Handle the MouseUp event.
+        ///// If the key is not a modifier key or a lock key, set the IsPressed property 
+        ///// to false, which makes the button refresh.
+        ///// </summary>
+        //protected override void OnMouseUp(MouseEventArgs e)
+        //{
+        //    base.OnMouseUp(e);
 
-            if (!IsModifierKey && !IsLockKey)
-            {
-                IsPressed = false;
-            }
-        }
+        //    if (!IsModifierKey && !IsLockKey)
+        //    {
+        //        IsPressed = false;
+        //    }
+        //}
 
-        protected override void OnMouseEnter(EventArgs e)
-        {
-            base.OnMouseEnter(e);
-            IsMouseOver = true;
-        }
+        //protected override void OnMouseEnter(EventArgs e)
+        //{
+        //    base.OnMouseEnter(e);
+        //    IsMouseOver = true;
+        //}
 
-        protected override void OnMouseLeave(EventArgs e)
-        {
-            base.OnMouseLeave(e);
-            IsMouseOver = false;
-        }
+        //protected override void OnMouseLeave(EventArgs e)
+        //{
+        //    base.OnMouseLeave(e);
+        //    IsMouseOver = false;
+        //}
 
 
-        protected virtual void OnIsMouseOverChange(EventArgs e)
-        {
-            ReDrawKeyButton();
-        }
+        //protected virtual void OnIsMouseOverChange(EventArgs e)
+        //{
+        //    ReDrawKeyButton();
+        //}
 
-        protected virtual void OnIsPressedChange(EventArgs e)
-        {
-            ReDrawKeyButton();
-        }
+        //protected virtual void OnIsPressedChange(EventArgs e)
+        //{
+        //    ReDrawKeyButton();
+        //}
 
-        protected virtual void ReDrawKeyButton()
-        {
-            //if (IsPressed)
-            //{
-            //    this.BackColor = KeyButton.pressedBackColor;
-            //    this.ForeColor = KeyButton.pressedlLabelForeColor;
-            //}
-            //else if (IsMouseOver)
-            //{
-            //    this.BackColor = KeyButton.mouseOverBackColor;
-            //    this.ForeColor = KeyButton.normalLabelForeColor;
-            //}
-            //else
-            //{
-            //    this.BackColor = KeyButton.normalBackColor;
-            //    this.ForeColor = KeyButton.normalLabelForeColor;
-            //}
-        }
+        //protected virtual void ReDrawKeyButton()
+        //{
+        //    //if (IsPressed)
+        //    //{
+        //    //    this.BackColor = KeyButton.pressedBackColor;
+        //    //    this.ForeColor = KeyButton.pressedlLabelForeColor;
+        //    //}
+        //    //else if (IsMouseOver)
+        //    //{
+        //    //    this.BackColor = KeyButton.mouseOverBackColor;
+        //    //    this.ForeColor = KeyButton.normalLabelForeColor;
+        //    //}
+        //    //else
+        //    //{
+        //    //    this.BackColor = KeyButton.normalBackColor;
+        //    //    this.ForeColor = KeyButton.normalLabelForeColor;
+        //    //}
+        //}
 
-        #endregion
+        //#endregion
     }
 }

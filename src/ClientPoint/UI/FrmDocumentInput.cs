@@ -56,7 +56,7 @@ namespace ClientPoint.UI {
             this.Select();
         }
 
-        public override void AfterHide() {
+        public override void BeforeHide() {
             UIManager.HideNumKeyboard();
         }
     }

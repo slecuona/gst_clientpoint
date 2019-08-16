@@ -26,6 +26,7 @@ namespace ClientPoint.UI {
         public virtual void AfterHide() {}
         public virtual void AfterShow() {}
 
+        public virtual void BeforeHide() { }
         public virtual void BeforeShow() {
             // No debe haber foco en ningun control
             this.ActiveControl = null;
