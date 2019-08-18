@@ -27,7 +27,7 @@ namespace ClientPoint.UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.fldDocument = new ClientPoint.UI.CustomMaskedField();
+            this.fldDocument = new ClientPoint.UI.CustomField();
             ((System.ComponentModel.ISupportInitialize)(this.footerPanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radScrollablePanel1)).BeginInit();
             this.radScrollablePanel1.PanelContainer.SuspendLayout();
@@ -78,6 +78,6 @@ namespace ClientPoint.UI
 
         #endregion
         
-        private CustomMaskedField fldDocument;
+        private CustomField fldDocument;
     }
 }

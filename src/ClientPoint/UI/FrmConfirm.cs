@@ -2,14 +2,11 @@
 using System.Collections.Generic;
 using ClientPoint.Api;
 using ClientPoint.Session;
-using ClientPoint.Utils;
 
 namespace ClientPoint.UI {
     public partial class FrmConfirm : FrmBaseDialog {
         public FrmConfirm() {
             InitializeComponent();
-            this.fldCode.CustomMaskType = CustomMaskType.ConfirmCode;
-            this.fldCode.Uppercase = true;
             ConfigureCurrentControlHandle();
             headerPanel.Title = 
                 "Ingrese el código de confirmación enviado por SMS o a su casilla de correo.";

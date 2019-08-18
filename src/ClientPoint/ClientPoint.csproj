@@ -364,11 +364,6 @@
     <None Include="Resources\edit.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\KeysMapping.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
@@ -385,6 +380,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\card.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

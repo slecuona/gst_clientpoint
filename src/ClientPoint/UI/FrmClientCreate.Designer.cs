@@ -28,8 +28,8 @@
             this.fldSex = new ClientPoint.UI.SexField();
             this.fldName = new ClientPoint.UI.CustomField();
             this.fldLastname = new ClientPoint.UI.CustomField();
-            this.fldDocument = new ClientPoint.UI.CustomMaskedField();
-            this.fldEmail = new ClientPoint.UI.CustomMaskedField();
+            this.fldDocument = new ClientPoint.UI.CustomField();
+            this.fldEmail = new ClientPoint.UI.CustomField();
             this.fldCellphone = new ClientPoint.UI.CustomField();
             this.fldPassword = new ClientPoint.UI.CustomField();
             this.fldPassword2 = new ClientPoint.UI.CustomField();
@@ -95,7 +95,6 @@
             // 
             // fldDocument
             // 
-            this.fldDocument.CustomMaskType = ClientPoint.UI.CustomMaskType.None;
             this.fldDocument.Label = "Nr. Documento";
             this.fldDocument.Location = new System.Drawing.Point(34, 229);
             this.fldDocument.Name = "fldDocument";
@@ -106,7 +105,6 @@
             // 
             // fldEmail
             // 
-            this.fldEmail.CustomMaskType = ClientPoint.UI.CustomMaskType.None;
             this.fldEmail.Label = "Correo Electrónico";
             this.fldEmail.Location = new System.Drawing.Point(714, 65);
             this.fldEmail.Name = "fldEmail";
@@ -178,8 +176,8 @@
         
         private CustomField fldName;
         private CustomField fldLastname;
-        private CustomMaskedField fldDocument;
-        private CustomMaskedField fldEmail;
+        private CustomField fldDocument;
+        private CustomField fldEmail;
         private CustomField fldCellphone;
         private CustomField fldPassword;
         private CustomField fldPassword2;

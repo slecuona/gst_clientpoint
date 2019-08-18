@@ -25,7 +25,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.fldEmail = new ClientPoint.UI.CustomMaskedField();
+            this.fldEmail = new ClientPoint.UI.CustomField();
             this.fldCellphone = new ClientPoint.UI.CustomField();
             ((System.ComponentModel.ISupportInitialize)(this.footerPanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radScrollablePanel1)).BeginInit();
@@ -51,7 +51,6 @@
             // 
             // fldEmail
             // 
-            this.fldEmail.CustomMaskType = ClientPoint.UI.CustomMaskType.Email;
             this.fldEmail.Label = "Correo Electrónico";
             this.fldEmail.Location = new System.Drawing.Point(350, 120);
             this.fldEmail.Name = "fldEmail";
@@ -90,7 +89,7 @@
 
         #endregion
         
-        private CustomMaskedField fldEmail;
+        private CustomField fldEmail;
         private CustomField fldCellphone;
     }
 }

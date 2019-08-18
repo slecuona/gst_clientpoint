@@ -25,7 +25,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.fldCode = new ClientPoint.UI.CustomMaskedField();
+            this.fldCode = new ClientPoint.UI.CustomField();
             ((System.ComponentModel.ISupportInitialize)(this.footerPanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radScrollablePanel1)).BeginInit();
             this.radScrollablePanel1.PanelContainer.SuspendLayout();
@@ -77,6 +77,6 @@
 
         #endregion
         
-        private CustomMaskedField fldCode;
+        private CustomField fldCode;
     }
 }
