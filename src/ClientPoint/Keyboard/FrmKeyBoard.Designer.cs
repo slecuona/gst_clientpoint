@@ -132,6 +132,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonD0
             // 
             this.keyButtonD0.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonD0.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonD0.IsPressed = false;
             this.keyButtonD0.KeyCode = 48;
             this.keyButtonD0.Location = new System.Drawing.Point(543, 3);
@@ -149,14 +150,15 @@ namespace ClientPoint.Keyboard {
             // keyButtonRight
             // 
             this.keyButtonRight.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonRight.IsPressed = false;
             this.keyButtonRight.KeyCode = 39;
-            this.keyButtonRight.Location = new System.Drawing.Point(723, 249);
+            this.keyButtonRight.Location = new System.Drawing.Point(663, 249);
             this.keyButtonRight.Name = "keyButtonRight";
             this.keyButtonRight.NormalText = null;
             this.keyButtonRight.Padding = new System.Windows.Forms.Padding(2);
             this.keyButtonRight.ShiftText = null;
-            this.keyButtonRight.Size = new System.Drawing.Size(54, 58);
+            this.keyButtonRight.Size = new System.Drawing.Size(54, 63);
             this.keyButtonRight.TabIndex = 0;
             this.keyButtonRight.Text = "→";
             this.keyButtonRight.UnNumLockKeyCode = 0;
@@ -167,9 +169,10 @@ namespace ClientPoint.Keyboard {
             // 
             this.tableLayoutPanelKeyButtons.SetColumnSpan(this.keyButtonBack, 2);
             this.keyButtonBack.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonBack.IsPressed = false;
             this.keyButtonBack.KeyCode = 8;
-            this.keyButtonBack.Location = new System.Drawing.Point(663, 3);
+            this.keyButtonBack.Location = new System.Drawing.Point(603, 3);
             this.keyButtonBack.Name = "keyButtonBack";
             this.keyButtonBack.NormalText = null;
             this.keyButtonBack.Padding = new System.Windows.Forms.Padding(2);
@@ -184,14 +187,15 @@ namespace ClientPoint.Keyboard {
             // keyButtonLeft
             // 
             this.keyButtonLeft.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonLeft.IsPressed = false;
             this.keyButtonLeft.KeyCode = 37;
-            this.keyButtonLeft.Location = new System.Drawing.Point(663, 249);
+            this.keyButtonLeft.Location = new System.Drawing.Point(603, 249);
             this.keyButtonLeft.Name = "keyButtonLeft";
             this.keyButtonLeft.NormalText = null;
             this.keyButtonLeft.Padding = new System.Windows.Forms.Padding(2);
             this.keyButtonLeft.ShiftText = null;
-            this.keyButtonLeft.Size = new System.Drawing.Size(54, 58);
+            this.keyButtonLeft.Size = new System.Drawing.Size(54, 63);
             this.keyButtonLeft.TabIndex = 0;
             this.keyButtonLeft.Text = "←";
             this.keyButtonLeft.UnNumLockKeyCode = 0;
@@ -201,9 +205,10 @@ namespace ClientPoint.Keyboard {
             // keyButtonMinus
             // 
             this.keyButtonMinus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonMinus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonMinus.IsPressed = false;
             this.keyButtonMinus.KeyCode = 189;
-            this.keyButtonMinus.Location = new System.Drawing.Point(603, 189);
+            this.keyButtonMinus.Location = new System.Drawing.Point(543, 189);
             this.keyButtonMinus.Name = "keyButtonMinus";
             this.keyButtonMinus.NormalText = null;
             this.keyButtonMinus.Padding = new System.Windows.Forms.Padding(2);
@@ -218,6 +223,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonTilde
             // 
             this.keyButtonTilde.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonTilde.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonTilde.IsPressed = false;
             this.keyButtonTilde.KeyCode = 186;
             this.keyButtonTilde.Location = new System.Drawing.Point(603, 69);
@@ -235,6 +241,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonP
             // 
             this.keyButtonP.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonP.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonP.IsPressed = false;
             this.keyButtonP.KeyCode = 80;
             this.keyButtonP.Location = new System.Drawing.Point(543, 69);
@@ -252,6 +259,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonD9
             // 
             this.keyButtonD9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonD9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonD9.IsPressed = false;
             this.keyButtonD9.KeyCode = 57;
             this.keyButtonD9.Location = new System.Drawing.Point(483, 3);
@@ -266,12 +274,13 @@ namespace ClientPoint.Keyboard {
             this.keyButtonD9.UnNumLockText = null;
             this.keyButtonD9.UseMnemonic = false;
             // 
-            // keyButtonPeriod
+            // keyButtonDot
             // 
             this.keyButtonDot.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonDot.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonDot.IsPressed = false;
             this.keyButtonDot.KeyCode = 190;
-            this.keyButtonDot.Location = new System.Drawing.Point(543, 189);
+            this.keyButtonDot.Location = new System.Drawing.Point(483, 189);
             this.keyButtonDot.Name = "keyButtonDot";
             this.keyButtonDot.NormalText = null;
             this.keyButtonDot.Padding = new System.Windows.Forms.Padding(2);
@@ -286,6 +295,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonL
             // 
             this.keyButtonL.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonL.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonL.IsPressed = false;
             this.keyButtonL.KeyCode = 76;
             this.keyButtonL.Location = new System.Drawing.Point(483, 129);
@@ -303,6 +313,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonO
             // 
             this.keyButtonO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonO.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonO.IsPressed = false;
             this.keyButtonO.KeyCode = 79;
             this.keyButtonO.Location = new System.Drawing.Point(483, 69);
@@ -320,6 +331,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonD8
             // 
             this.keyButtonD8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonD8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonD8.IsPressed = false;
             this.keyButtonD8.KeyCode = 56;
             this.keyButtonD8.Location = new System.Drawing.Point(423, 3);
@@ -337,6 +349,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonK
             // 
             this.keyButtonK.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonK.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonK.IsPressed = false;
             this.keyButtonK.KeyCode = 75;
             this.keyButtonK.Location = new System.Drawing.Point(423, 129);
@@ -354,6 +367,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonI
             // 
             this.keyButtonI.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonI.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonI.IsPressed = false;
             this.keyButtonI.KeyCode = 73;
             this.keyButtonI.Location = new System.Drawing.Point(423, 69);
@@ -371,6 +385,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonD7
             // 
             this.keyButtonD7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonD7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonD7.IsPressed = false;
             this.keyButtonD7.KeyCode = 55;
             this.keyButtonD7.Location = new System.Drawing.Point(363, 3);
@@ -388,6 +403,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonM
             // 
             this.keyButtonM.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonM.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonM.IsPressed = false;
             this.keyButtonM.KeyCode = 77;
             this.keyButtonM.Location = new System.Drawing.Point(423, 189);
@@ -405,6 +421,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonJ
             // 
             this.keyButtonJ.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonJ.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonJ.IsPressed = false;
             this.keyButtonJ.KeyCode = 74;
             this.keyButtonJ.Location = new System.Drawing.Point(363, 129);
@@ -422,6 +439,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonU
             // 
             this.keyButtonU.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonU.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonU.IsPressed = false;
             this.keyButtonU.KeyCode = 85;
             this.keyButtonU.Location = new System.Drawing.Point(363, 69);
@@ -439,6 +457,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonD6
             // 
             this.keyButtonD6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonD6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonD6.IsPressed = false;
             this.keyButtonD6.KeyCode = 54;
             this.keyButtonD6.Location = new System.Drawing.Point(303, 3);
@@ -456,6 +475,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonN
             // 
             this.keyButtonN.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonN.IsPressed = false;
             this.keyButtonN.KeyCode = 78;
             this.keyButtonN.Location = new System.Drawing.Point(363, 189);
@@ -473,6 +493,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonH
             // 
             this.keyButtonH.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonH.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonH.IsPressed = false;
             this.keyButtonH.KeyCode = 72;
             this.keyButtonH.Location = new System.Drawing.Point(303, 129);
@@ -490,6 +511,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonY
             // 
             this.keyButtonY.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonY.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonY.IsPressed = false;
             this.keyButtonY.KeyCode = 89;
             this.keyButtonY.Location = new System.Drawing.Point(303, 69);
@@ -507,6 +529,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonD5
             // 
             this.keyButtonD5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonD5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonD5.IsPressed = false;
             this.keyButtonD5.KeyCode = 53;
             this.keyButtonD5.Location = new System.Drawing.Point(243, 3);
@@ -524,6 +547,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonB
             // 
             this.keyButtonB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonB.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonB.IsPressed = false;
             this.keyButtonB.KeyCode = 66;
             this.keyButtonB.Location = new System.Drawing.Point(303, 189);
@@ -541,6 +565,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonG
             // 
             this.keyButtonG.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonG.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonG.IsPressed = false;
             this.keyButtonG.KeyCode = 71;
             this.keyButtonG.Location = new System.Drawing.Point(243, 129);
@@ -558,6 +583,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonT
             // 
             this.keyButtonT.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonT.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonT.IsPressed = false;
             this.keyButtonT.KeyCode = 84;
             this.keyButtonT.Location = new System.Drawing.Point(243, 69);
@@ -575,6 +601,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonD4
             // 
             this.keyButtonD4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonD4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonD4.IsPressed = false;
             this.keyButtonD4.KeyCode = 52;
             this.keyButtonD4.Location = new System.Drawing.Point(183, 3);
@@ -592,6 +619,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonV
             // 
             this.keyButtonV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonV.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonV.IsPressed = false;
             this.keyButtonV.KeyCode = 86;
             this.keyButtonV.Location = new System.Drawing.Point(243, 189);
@@ -609,6 +637,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonF
             // 
             this.keyButtonF.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonF.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonF.IsPressed = false;
             this.keyButtonF.KeyCode = 70;
             this.keyButtonF.Location = new System.Drawing.Point(183, 129);
@@ -626,6 +655,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonR
             // 
             this.keyButtonR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonR.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonR.IsPressed = false;
             this.keyButtonR.KeyCode = 82;
             this.keyButtonR.Location = new System.Drawing.Point(183, 69);
@@ -643,6 +673,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonD3
             // 
             this.keyButtonD3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonD3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonD3.IsPressed = false;
             this.keyButtonD3.KeyCode = 51;
             this.keyButtonD3.Location = new System.Drawing.Point(123, 3);
@@ -659,8 +690,9 @@ namespace ClientPoint.Keyboard {
             // 
             // keyButtonSpace
             // 
-            this.tableLayoutPanelKeyButtons.SetColumnSpan(this.keyButtonSpace, 9);
+            this.tableLayoutPanelKeyButtons.SetColumnSpan(this.keyButtonSpace, 10);
             this.keyButtonSpace.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonSpace.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonSpace.IsPressed = false;
             this.keyButtonSpace.KeyCode = 32;
             this.keyButtonSpace.Location = new System.Drawing.Point(3, 249);
@@ -668,7 +700,7 @@ namespace ClientPoint.Keyboard {
             this.keyButtonSpace.NormalText = null;
             this.keyButtonSpace.Padding = new System.Windows.Forms.Padding(2);
             this.keyButtonSpace.ShiftText = null;
-            this.keyButtonSpace.Size = new System.Drawing.Size(534, 58);
+            this.keyButtonSpace.Size = new System.Drawing.Size(594, 63);
             this.keyButtonSpace.TabIndex = 0;
             this.keyButtonSpace.UnNumLockKeyCode = 0;
             this.keyButtonSpace.UnNumLockText = null;
@@ -677,6 +709,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonC
             // 
             this.keyButtonC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonC.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonC.IsPressed = false;
             this.keyButtonC.KeyCode = 67;
             this.keyButtonC.Location = new System.Drawing.Point(183, 189);
@@ -694,6 +727,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonD
             // 
             this.keyButtonD.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonD.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonD.IsPressed = false;
             this.keyButtonD.KeyCode = 68;
             this.keyButtonD.Location = new System.Drawing.Point(123, 129);
@@ -711,6 +745,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonE
             // 
             this.keyButtonE.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonE.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonE.IsPressed = false;
             this.keyButtonE.KeyCode = 69;
             this.keyButtonE.Location = new System.Drawing.Point(123, 69);
@@ -728,6 +763,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonD2
             // 
             this.keyButtonD2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonD2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonD2.IsPressed = false;
             this.keyButtonD2.KeyCode = 50;
             this.keyButtonD2.Location = new System.Drawing.Point(63, 3);
@@ -745,6 +781,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonX
             // 
             this.keyButtonX.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonX.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonX.IsPressed = false;
             this.keyButtonX.KeyCode = 88;
             this.keyButtonX.Location = new System.Drawing.Point(123, 189);
@@ -762,6 +799,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonS
             // 
             this.keyButtonS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonS.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonS.IsPressed = false;
             this.keyButtonS.KeyCode = 83;
             this.keyButtonS.Location = new System.Drawing.Point(63, 129);
@@ -779,6 +817,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonW
             // 
             this.keyButtonW.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonW.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonW.IsPressed = false;
             this.keyButtonW.KeyCode = 87;
             this.keyButtonW.Location = new System.Drawing.Point(63, 69);
@@ -796,6 +835,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonD1
             // 
             this.keyButtonD1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonD1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonD1.IsPressed = false;
             this.keyButtonD1.KeyCode = 49;
             this.keyButtonD1.Location = new System.Drawing.Point(3, 3);
@@ -813,6 +853,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonZ
             // 
             this.keyButtonZ.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonZ.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonZ.IsPressed = false;
             this.keyButtonZ.KeyCode = 90;
             this.keyButtonZ.Location = new System.Drawing.Point(63, 189);
@@ -830,6 +871,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonA
             // 
             this.keyButtonA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonA.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonA.IsPressed = false;
             this.keyButtonA.KeyCode = 65;
             this.keyButtonA.Location = new System.Drawing.Point(3, 129);
@@ -847,6 +889,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonQ
             // 
             this.keyButtonQ.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonQ.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonQ.IsPressed = false;
             this.keyButtonQ.KeyCode = 81;
             this.keyButtonQ.Location = new System.Drawing.Point(3, 69);
@@ -864,6 +907,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonEnie
             // 
             this.keyButtonEnie.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonEnie.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonEnie.IsPressed = false;
             this.keyButtonEnie.KeyCode = 192;
             this.keyButtonEnie.Location = new System.Drawing.Point(543, 129);
@@ -881,9 +925,10 @@ namespace ClientPoint.Keyboard {
             // keyButtonArroba
             // 
             this.keyButtonArroba.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonArroba.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonArroba.IsPressed = false;
             this.keyButtonArroba.KeyCode = 0;
-            this.keyButtonArroba.Location = new System.Drawing.Point(543, 129);
+            this.keyButtonArroba.Location = new System.Drawing.Point(603, 129);
             this.keyButtonArroba.Name = "keyButtonArroba";
             this.keyButtonArroba.NormalText = "@";
             this.keyButtonArroba.Padding = new System.Windows.Forms.Padding(2);
@@ -898,9 +943,10 @@ namespace ClientPoint.Keyboard {
             // keyButtonUnderscore
             // 
             this.keyButtonUnderscore.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonUnderscore.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonUnderscore.IsPressed = false;
             this.keyButtonUnderscore.KeyCode = 0;
-            this.keyButtonUnderscore.Location = new System.Drawing.Point(543, 129);
+            this.keyButtonUnderscore.Location = new System.Drawing.Point(603, 189);
             this.keyButtonUnderscore.Name = "keyButtonUnderscore";
             this.keyButtonUnderscore.NormalText = "_";
             this.keyButtonUnderscore.Padding = new System.Windows.Forms.Padding(2);
@@ -916,18 +962,18 @@ namespace ClientPoint.Keyboard {
             // 
             this.tableLayoutPanelKeyButtons.ColumnCount = 13;
             this.tableLayoutPanelKeyButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanelKeyButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanelKeyButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanelKeyButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanelKeyButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanelKeyButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanelKeyButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanelKeyButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanelKeyButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanelKeyButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanelKeyButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanelKeyButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanelKeyButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanelKeyButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanelKeyButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanelKeyButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanelKeyButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanelKeyButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanelKeyButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanelKeyButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanelKeyButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanelKeyButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanelKeyButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanelKeyButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanelKeyButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonSpace, 1, 4);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonRight, 12, 4);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonTilde, 11, 1);
@@ -944,10 +990,10 @@ namespace ClientPoint.Keyboard {
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonS, 2, 2);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonA, 1, 2);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonEnie, 10, 2);
-            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonArroba, 12, 2);
-            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonUnderscore, 12, 3);
+            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonArroba, 11, 2);
+            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonUnderscore, 11, 3);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonD1, 1, 0);
-            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonMinus, 11, 3);
+            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonMinus, 10, 3);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonD2, 2, 0);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonD3, 3, 0);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonD4, 4, 0);
@@ -966,7 +1012,7 @@ namespace ClientPoint.Keyboard {
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonI, 8, 1);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonO, 9, 1);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonP, 10, 1);
-            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonDot, 10, 3);
+            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonDot, 9, 3);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonM, 8, 3);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonN, 7, 3);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonB, 6, 3);
@@ -978,22 +1024,22 @@ namespace ClientPoint.Keyboard {
             this.tableLayoutPanelKeyButtons.Name = "tableLayoutPanelKeyButtons";
             this.tableLayoutPanelKeyButtons.RowCount = 5;
             this.tableLayoutPanelKeyButtons.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelKeyButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanelKeyButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanelKeyButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanelKeyButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanelKeyButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanelKeyButtons.Size = new System.Drawing.Size(720, 315);
+            this.tableLayoutPanelKeyButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanelKeyButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanelKeyButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanelKeyButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanelKeyButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanelKeyButtons.Size = new System.Drawing.Size(840, 350);
             this.tableLayoutPanelKeyButtons.TabIndex = 3;
             // 
             // FrmKeyBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(720, 315);
+            this.ClientSize = new System.Drawing.Size(840, 350);
             this.Controls.Add(this.tableLayoutPanelKeyButtons);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Location = new System.Drawing.Point(320, 435);
+            this.Location = new System.Drawing.Point(265, 400);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "FrmKeyBoard";
@@ -1006,7 +1052,6 @@ namespace ClientPoint.Keyboard {
             this.TopMost = true;
             this.TransparencyKey = this.BackColor;
             this.Load += new System.EventHandler(this.KeyBoardForm_Load);
-            this.Activated += OnActivated;
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonD0)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonRight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonBack)).EndInit();

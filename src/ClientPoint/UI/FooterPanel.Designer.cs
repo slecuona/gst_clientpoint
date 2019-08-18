@@ -42,7 +42,7 @@ namespace ClientPoint.UI {
             this.btnNext.Location = new System.Drawing.Point(0, 0);
             this.btnNext.Name = "btnNext";
             this.btnNext.Padding = new System.Windows.Forms.Padding(20, 5, 20, 5);
-            this.btnNext.Size = new System.Drawing.Size(250, 60);
+            this.btnNext.Size = new System.Drawing.Size(220, 30);
             this.btnNext.TabIndex = 0;
             this.btnNext.TabStop = false;
             this.btnNext.Text = "Confirmar";
@@ -55,7 +55,7 @@ namespace ClientPoint.UI {
             this.btnBack.Location = new System.Drawing.Point(0, 0);
             this.btnBack.Name = "btnBack";
             this.btnBack.Padding = new System.Windows.Forms.Padding(20, 5, 20, 5);
-            this.btnBack.Size = new System.Drawing.Size(250, 60);
+            this.btnBack.Size = new System.Drawing.Size(220, 30);
             this.btnBack.TabIndex = 1;
             this.btnBack.TabStop = false;
             this.btnBack.Text = "Atrás";
@@ -67,7 +67,7 @@ namespace ClientPoint.UI {
             this.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Name = "footerPanel";
             this.Padding = new System.Windows.Forms.Padding(20, 0, 20, 20);
-            this.Size = new System.Drawing.Size(1340, 80);
+            this.Size = new System.Drawing.Size(1340, 50);
             this.BackColor = Color.Transparent;
             ((Telerik.WinControls.UI.RadPanelElement)(this.GetChildAt(0))).Padding = new System.Windows.Forms.Padding(20, 0, 20, 20);
             ((Telerik.WinControls.Primitives.BorderPrimitive)(this.GetChildAt(0).GetChildAt(1))).Width = 0F;

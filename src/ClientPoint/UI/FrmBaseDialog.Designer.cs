@@ -43,7 +43,7 @@
             this.footerPanel.Location = new System.Drawing.Point(0, 598);
             this.footerPanel.Name = "footerPanel";
             this.footerPanel.Padding = new System.Windows.Forms.Padding(20, 0, 20, 20);
-            this.footerPanel.Size = new System.Drawing.Size(1386, 100);
+            this.footerPanel.Size = new System.Drawing.Size(1386, 88);
             this.footerPanel.TabIndex = 5;
             // 
             // radScrollablePanel1
