@@ -29,9 +29,11 @@ namespace ClientPoint.UI {
             this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
             this.radTextBox1 = new Telerik.WinControls.UI.RadTextBox();
             this.btnClear = new Telerik.WinControls.UI.RadButton();
+            this.btnViewPass = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radTextBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClear)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnViewPass)).BeginInit();
             this.SuspendLayout();
             // 
             // radLabel1
@@ -69,11 +71,25 @@ namespace ClientPoint.UI {
             this.btnClear.ImageScalingSize = new Size(20, 20);
             this.btnClear.Visible = false;
             // 
+            // btnViewPass
+            // 
+            this.btnViewPass.Location = new System.Drawing.Point(550, 0);
+            this.btnViewPass.Name = "btnViewPass";
+            this.btnViewPass.Size = new System.Drawing.Size(50, 49);
+            this.btnViewPass.TabIndex = 2;
+            this.btnViewPass.Text = "";
+            this.btnViewPass.Image = Properties.Resources.eye;
+            this.btnViewPass.ImageAlignment = ContentAlignment.MiddleCenter;
+            this.btnViewPass.ImageScalingSize = new Size(20, 20);
+            this.btnViewPass.Visible = false;
+            this.btnViewPass.Focusable = false;
+            // 
             // CustomField
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.btnViewPass);
             this.Controls.Add(this.radTextBox1);
             this.Controls.Add(this.radLabel1);
             this.Name = "CustomField";
@@ -81,6 +97,7 @@ namespace ClientPoint.UI {
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radTextBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClear)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnViewPass)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -91,5 +108,6 @@ namespace ClientPoint.UI {
         private Telerik.WinControls.UI.RadLabel radLabel1;
         private Telerik.WinControls.UI.RadTextBox radTextBox1;
         private Telerik.WinControls.UI.RadButton btnClear;
+        private Telerik.WinControls.UI.RadButton btnViewPass;
     }
 }

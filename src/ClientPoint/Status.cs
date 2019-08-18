@@ -67,7 +67,7 @@ namespace ClientPoint {
         }
 
         public static void Api() {
-            string msg = "API Connection: ";
+            string msg = "API Connection =>";
             try {
                 ApiService.Ping();
                 Print($"{msg} OK");
