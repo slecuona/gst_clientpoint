@@ -1,4 +1,6 @@
-﻿namespace ClientPoint.UI
+﻿using System.Drawing;
+
+namespace ClientPoint.UI
 {
     partial class FrmDocumentInput {
         /// <summary>
@@ -46,11 +48,13 @@
             // 
             this.fldDocument.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.fldDocument.Label = "Nr. Documento";
-            this.fldDocument.Location = new System.Drawing.Point(350, 120);
+            this.fldDocument.Location = new System.Drawing.Point(500, 130);
             this.fldDocument.Name = "fldDocument";
-            this.fldDocument.Size = new System.Drawing.Size(630, 53);
+            this.fldDocument.Size = new System.Drawing.Size(500, 53);
             this.fldDocument.TabIndex = 0;
             this.fldDocument.Value = "";
+            fldDocument.Control.Width = 200;
+            fldDocument.Control.Location = new Point(180, 0);
             // 
             // FrmDocumentInput
             // 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using ClientPoint.Keyboard.NoActivate;
@@ -49,6 +50,7 @@ namespace ClientPoint.Keyboard
         public FrmNumKeyBoard()
         {
             InitializeComponent();
+            this.SetPosCenter();
         }
         
         #region Handle key board event
@@ -103,6 +105,10 @@ namespace ClientPoint.Keyboard
 
         protected override void OnPaintBackground(PaintEventArgs e) {
             //empty implementation
+        }
+
+        public void SetPosCenter() {
+            this.Location = new Point(530, 310);
         }
     }
 }
