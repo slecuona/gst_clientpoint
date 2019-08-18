@@ -43,6 +43,7 @@ namespace ClientPoint.UI
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.TopMost = true;
             this.DoubleBuffered = true;
+            this.Opacity = 0;
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
         }

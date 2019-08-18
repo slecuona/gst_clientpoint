@@ -46,6 +46,7 @@ namespace ClientPoint.UI {
             foreach (var w in _windows) {
                 w.Value.Show();
                 w.Value.Hide();
+                w.Value.Opacity = 1;
             }
             KeyBoard.Show();
             KeyBoard.Hide();
