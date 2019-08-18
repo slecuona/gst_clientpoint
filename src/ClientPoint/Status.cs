@@ -1,6 +1,7 @@
 ﻿using System;
 using ClientPoint.Api;
 using ClientPoint.Espf;
+using ClientPoint.UI;
 using ClientPoint.Utils;
 
 namespace ClientPoint {
@@ -23,6 +24,7 @@ namespace ClientPoint {
         private static void Print(string msg) {
             Console.WriteLine(msg);
             Logger.WriteAsync(msg);
+            UIManager.SplashStatus(msg);
         }
 
         // Este metodo chequea el estado del servicio ESPF

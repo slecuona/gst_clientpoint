@@ -14,6 +14,9 @@ namespace ClientPoint {
             Application.SetCompatibleTextRenderingDefault(false);
 
             try {
+                // Arranco el splash
+                UIManager.StartSplash();
+
                 // Inicializa logs
                 Logger.Init();
 
@@ -26,6 +29,7 @@ namespace ClientPoint {
                 // Inicializa las ventanas que utiliza la app
                 UIManager.Init();
 
+                UIManager.StopSplash();
                 // Pantalla principal / inicial (publicidades)
                 Application.Run(UIManager.Get(Window.Ads));
             }

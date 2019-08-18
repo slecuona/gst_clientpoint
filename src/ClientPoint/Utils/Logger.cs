@@ -2,6 +2,7 @@
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using ClientPoint.UI;
 
 namespace ClientPoint.Utils {
     public static class Logger {
@@ -24,6 +25,7 @@ namespace ClientPoint.Utils {
                 if (!Directory.Exists(LogPath))
                     Directory.CreateDirectory(LogPath);
                 Write("Init. Logs OK.").Wait();
+                UIManager.SplashStatus("LOGS => [OK]");
             } catch (Exception ex) {
                 var msg = ERR_INIT;
                 if (!string.IsNullOrEmpty(LogPath))

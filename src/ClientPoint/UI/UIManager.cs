@@ -4,6 +4,7 @@ using System.Threading;
 using System.Windows.Forms;
 using ClientPoint.Keyboard;
 using ClientPoint.Keyboard.NoActivate;
+using ClientPoint.Utils;
 
 namespace ClientPoint.UI {
     public static class UIManager {
@@ -22,11 +23,13 @@ namespace ClientPoint.UI {
             }
         }
 
+        private static FrmSplash Splash;
         private static FrmKeyBoard KeyBoard;
         private static FrmNumKeyBoard NumKeyBoard;
 
         // Debe ser ejecutado en UI Thread
         public static void Init() {
+            SplashStatus("Iniciando UI...");
             _syncCtx = new WindowsFormsSynchronizationContext();
             _windows = new Dictionary<Window, FrmBase>() {
                 { Window.Ads, new FrmAds()},
@@ -121,6 +124,27 @@ namespace ClientPoint.UI {
         public static FrmStatus StatusWindow =>
             (FrmStatus)_windows[Window.Status];
 
+        public static void StartSplash() {
+            var t = new Thread(() => {
+                Splash = new FrmSplash();
+                Splash.InvokeIfRequired(() => { Splash.ShowDialog(); });
+            });
+            t.Start();
+            while (Splash == null) {
+                // Wait for it
+                Thread.Sleep(500);
+            }
+        }
+
+        public static void StopSplash() {
+            Splash?.InvokeIfRequired(()=> Splash?.Close());
+        }
+        
+        public static void SplashStatus(string m) {
+            Splash.InvokeIfRequired(()=> Splash?.AppendText(m));
+            // Esto es solo para buscar un efecto mas progresivo
+            Thread.Sleep(500);
+        }
     }
 
     public enum Window {
