@@ -40,6 +40,8 @@ namespace ClientPoint.UI {
         private void ShowBtn(RadButton btn) {
             btn.Location = new Point(
                 radTextBox1.Left + radTextBox1.Width - 51, 1);
+            var p = radTextBox1.Padding;
+            radTextBox1.Padding = new Padding(p.Left,p.Top,60,p.Bottom);
             btn.Visible = true;
         }
 
