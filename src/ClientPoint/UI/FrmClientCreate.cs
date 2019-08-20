@@ -15,6 +15,7 @@ namespace ClientPoint.UI {
         private string LastNameValue => fldLastname.Value;
         private string DocumentValue => fldDocument.Value;
         private string EmailValue => fldEmail.Value;
+        private string Email2Value => fldEmail2.Value;
         private string CellphoneValue => fldCellphone.Value;
         private string PasswordValue => fldPassword.Value;
         private string Password2Value => fldPassword2.Value;
@@ -25,29 +26,29 @@ namespace ClientPoint.UI {
         private static DateTime MaxBirthDate => DateTime.Today.AddYears(-18);
 
         protected override void PerformValidation(ref List<string> errors) {
-            if (string.IsNullOrEmpty(NameValue))
+            if (_stepNr == 1 && string.IsNullOrEmpty(NameValue))
                 errors.Add("Debe ingresar su nombre.");
 
-            if (string.IsNullOrEmpty(LastNameValue))
+            if (_stepNr == 1 && string.IsNullOrEmpty(LastNameValue))
                 errors.Add("Debe ingresar su apellido.");
 
-            if (string.IsNullOrEmpty(DocumentValue))
+            if (_stepNr == 1 && string.IsNullOrEmpty(DocumentValue))
                 errors.Add("Debe ingresar su número de documento.");
 
-            if (string.IsNullOrEmpty(EmailValue) && string.IsNullOrEmpty(CellphoneValue))
-                errors.Add("Debe ingresar una dirección de correo electrónico o un número de celular.");
-
-            if (string.IsNullOrEmpty(PasswordValue) || string.IsNullOrEmpty(Password2Value))
-                errors.Add("Debe ingresar una contraseña y su repetición.");
-
-            if (PasswordValue != Password2Value)
-                errors.Add("Las contraseñas ingresadas no son iguales.");
-
-            if (SexValue == null)
+            if (_stepNr == 1 && SexValue == null)
                 errors.Add("Debe especificar su sexo.");
 
-            if (BirthDateValue.Date > MaxBirthDate.Date)
+            if (_stepNr == 1 && BirthDateValue.Date > MaxBirthDate.Date)
                 errors.Add("Debe tener mas de 18 años para registrarse.");
+
+            if (_stepNr == 2 && string.IsNullOrEmpty(EmailValue) && string.IsNullOrEmpty(CellphoneValue))
+                errors.Add("Debe ingresar una dirección de correo electrónico o un número de celular.");
+
+            if (_stepNr == 2 && (string.IsNullOrEmpty(PasswordValue) || string.IsNullOrEmpty(Password2Value)))
+                errors.Add("Debe ingresar una contraseña y su repetición.");
+
+            if (_stepNr == 2 && PasswordValue != Password2Value)
+                errors.Add("Las contraseñas ingresadas no son iguales.");
 
             //TODO: Que otras validaciones?
         }
@@ -65,6 +66,12 @@ namespace ClientPoint.UI {
             };
 
         protected override bool PerformConfirm(out string errMsg) {
+            if (_stepNr == 1) {
+                SafeInvoke(InitStepTwo);
+                errMsg = "";
+                return true;
+            }
+
             var sucess = ApiService.ClientCreate(CreateRequest, out errMsg);
             if (!sucess) return false;
             
@@ -84,29 +91,69 @@ namespace ClientPoint.UI {
         //}
 
         protected override void OnBack(object sender, EventArgs e) {
-            UIManager.Show(Window.Ads);
+            if (_stepNr == 1) {
+                UIManager.Show(Window.Ads);
+                return;
+            }
+            if (_stepNr == 2) {
+                InitStepOne();
+                return;
+            }
         }
 
         public override void BeforeShow() {
             // Reset del form
             fldName.Value = "";
             fldLastname.Value = "";
-            fldDocument.Value = ClientSession.CurrClient.DocumentNumber;
             fldDocument.Control.Enabled = false;
+            fldDocument.Value = ClientSession.CurrClient.DocumentNumber;
             fldEmail.Value = "";
+            fldEmail2.Value = "";
             fldCellphone.Value = "";
             fldPassword.Value = "";
             fldPassword2.Value = "";
             fldSex.Value = null;
             fldBirthDate.Value = MaxBirthDate;
-            
-            fldName.Control.Select();
+
+            InitStepOne();
         }
 
         public override void AfterShow() {
             UIManager.ShowKeyboard();
             fldName.Control.Select();
             this.Select();
+        }
+
+        private void ShowHideFields(bool stepOne) {
+            fldName.Visible = stepOne;
+            fldLastname.Visible = stepOne;
+            fldDocument.Visible = stepOne;
+            fldSex.Visible = stepOne;
+            fldBirthDate.Visible = stepOne;
+
+            fldEmail.Visible = !stepOne;
+            fldEmail2.Visible = !stepOne;
+            fldCellphone.Visible = !stepOne;
+            fldPassword.Visible = !stepOne;
+            fldPassword2.Visible = !stepOne;
+        }
+
+        private int _stepNr = 0;
+        private void InitStepOne() {
+            _stepNr = 1;
+            ShowHideFields(true);
+
+            footerPanel.NextText = "Siguiente";
+
+            fldName.Control.Select();
+        }
+        private void InitStepTwo() {
+            _stepNr = 2;
+            ShowHideFields(false);
+
+            footerPanel.NextText = "Confirmar";
+
+            fldEmail.Control.Select();
         }
     }
 }

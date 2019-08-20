@@ -46,7 +46,7 @@ namespace ClientPoint.UI {
         }
 
         private void RefreshBtnClear() {
-            if(Password)
+            if(Password || !radTextBox1.Enabled)
                 return;
             if (string.IsNullOrEmpty(radTextBox1.Text)) {
                 btnClear.Visible = false;
