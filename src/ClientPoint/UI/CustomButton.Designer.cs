@@ -28,7 +28,7 @@ namespace ClientPoint.UI {
         private void InitializeComponent() {
             components = new System.ComponentModel.Container();
             Font = new System.Drawing.Font("Helvetica-Normal", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            Padding = new System.Windows.Forms.Padding(20, 5, 0, 5);
+            Padding = new System.Windows.Forms.Padding(20, 10, 0, 5);
             DisplayStyle = DisplayStyle.ImageAndText;
             ImageAlignment = ContentAlignment.MiddleLeft;
             // No deben tener foco

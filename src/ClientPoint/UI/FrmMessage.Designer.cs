@@ -65,7 +65,7 @@ namespace ClientPoint.UI
             this.btnOk.Font = new System.Drawing.Font("Helvetica-Normal", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOk.Location = new System.Drawing.Point(160, 120);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Padding = new System.Windows.Forms.Padding(20, 5, 0, 5);
+            this.btnOk.Padding = new System.Windows.Forms.Padding(5, 10, 0, 5);
             this.btnOk.Size = new System.Drawing.Size(200, 50);
             this.btnOk.TabIndex = 3;
             this.btnOk.TabStop = false;

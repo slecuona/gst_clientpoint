@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Windows.Forms;
+using ClientPoint.Utils;
 
 namespace ClientPoint.UI
 {
@@ -53,6 +54,11 @@ namespace ClientPoint.UI
         private void customButton1_Click(object sender, EventArgs e) {
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        protected override void OnPaint(PaintEventArgs e) {
+            base.OnPaint(e);
+            this.SetRoundBorders(e, 10);
         }
     }
 }

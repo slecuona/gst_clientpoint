@@ -254,6 +254,7 @@
     <Compile Include="UI\UIManager.cs" />
     <Compile Include="Utils\Extensions.cs" />
     <Compile Include="Utils\ExUtils.cs" />
+    <Compile Include="Utils\GraphUtils.cs" />
     <Compile Include="Utils\Logger.cs" />
     <Compile Include="Utils\MsgBox.cs" />
     <EmbeddedResource Include="Keyboard\FrmNumKeyBoard.resx">

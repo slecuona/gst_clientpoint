@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using ClientPoint.Utils;
 using Telerik.WinControls;
 
 namespace ClientPoint.UI
@@ -22,5 +23,10 @@ namespace ClientPoint.UI
         }
 
         public void AppendText(string t) => radLabel1.Text += $"\n{t}";
+
+        protected override void OnPaint(PaintEventArgs e) {
+            base.OnPaint(e);
+            this.SetRoundBorders(e, 30);
+        }
     }
 }
