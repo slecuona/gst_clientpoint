@@ -49,7 +49,7 @@
             // 
             // radScrollablePanel1
             // 
-            this.radScrollablePanel1.Location = new System.Drawing.Point(0, 7);
+            this.radScrollablePanel1.Location = new System.Drawing.Point(0, 30);
             this.radScrollablePanel1.Padding = new System.Windows.Forms.Padding(20);
             // 
             // radScrollablePanel1.PanelContainer
@@ -76,6 +76,7 @@
             this.fldName.Size = new System.Drawing.Size(615, 53);
             this.fldName.TabIndex = 0;
             this.fldName.Value = "";
+            this.fldName.Keyboard = Keyboard.AlphaNum;
             // 
             // fldLastname
             // 
@@ -86,6 +87,7 @@
             this.fldLastname.Size = new System.Drawing.Size(615, 53);
             this.fldLastname.TabIndex = 1;
             this.fldLastname.Value = "";
+            this.fldLastname.Keyboard = Keyboard.AlphaNum;
             // 
             // fldDocument
             // 
@@ -123,6 +125,7 @@
             this.fldEmail.Size = new System.Drawing.Size(650, 53);
             this.fldEmail.TabIndex = 3;
             this.fldEmail.Value = "";
+            this.fldEmail.Keyboard = Keyboard.AlphaNum;
             // 
             // fldEmail2
             // 
@@ -132,6 +135,7 @@
             this.fldEmail2.Size = new System.Drawing.Size(650, 53);
             this.fldEmail2.TabIndex = 3;
             this.fldEmail2.Value = "";
+            this.fldEmail2.Keyboard = Keyboard.AlphaNum;
             // 
             // fldCellphone
             // 
@@ -142,6 +146,7 @@
             this.fldCellphone.Size = new System.Drawing.Size(615, 53);
             this.fldCellphone.TabIndex = 2;
             this.fldCellphone.Value = "";
+            this.fldCellphone.Keyboard = Keyboard.Num;
             // 
             // fldPassword
             // 
@@ -152,6 +157,7 @@
             this.fldPassword.Size = new System.Drawing.Size(615, 53);
             this.fldPassword.TabIndex = 5;
             this.fldPassword.Value = "";
+            this.fldPassword.Keyboard = Keyboard.AlphaNum;
             // 
             // fldPassword2
             // 
@@ -162,6 +168,7 @@
             this.fldPassword2.Size = new System.Drawing.Size(615, 53);
             this.fldPassword2.TabIndex = 6;
             this.fldPassword2.Value = "";
+            this.fldPassword2.Keyboard = Keyboard.AlphaNum;
             // 
             // FrmClientCreate
             // 

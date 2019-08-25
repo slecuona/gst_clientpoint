@@ -51,6 +51,7 @@ namespace ClientPoint.UI {
         }
 
         public override void AfterShow() {
+            UIManager.SetNumKeyboardCenter(true);
             UIManager.SetKeyboard(Keyboard.Num);
             fldDocument.Control.Select();
             this.Select();

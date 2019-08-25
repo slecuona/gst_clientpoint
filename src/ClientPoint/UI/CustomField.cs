@@ -7,6 +7,9 @@ namespace ClientPoint.UI {
     public partial class CustomField : UserControl {
         private bool _isPass = false;
         private bool _passVisible = false;
+
+        public Keyboard Keyboard = Keyboard.None;
+
         public CustomField() {
             InitializeComponent();
             radTextBox1.GotFocus += RadTextBox1OnGotFocus;
@@ -77,6 +80,11 @@ namespace ClientPoint.UI {
         private void RadTextBox1OnGotFocus(object sender, EventArgs e) {
             RefreshBtnClear();
             RefreshBtnViewPass();
+            // En este caso, no forzamos el ocultamiento de los teclados.
+            if (Keyboard == Keyboard.None)
+                return;
+            UIManager.SetNumKeyboardCenter(false);
+            UIManager.SetKeyboard(Keyboard);
         }
 
         public Control Control => radTextBox1;

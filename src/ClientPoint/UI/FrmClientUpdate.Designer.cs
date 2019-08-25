@@ -56,6 +56,7 @@
             this.fldEmail.Name = "fldEmail";
             this.fldEmail.Size = new System.Drawing.Size(650, 53);
             this.fldEmail.TabIndex = 3;
+            this.fldEmail.Keyboard = Keyboard.AlphaNum;
             // 
             // fldCellphone
             // 
@@ -66,6 +67,7 @@
             this.fldCellphone.Size = new System.Drawing.Size(615, 53);
             this.fldCellphone.TabIndex = 2;
             this.fldCellphone.Value = "";
+            this.fldCellphone.Keyboard = Keyboard.Num;
             // 
             // FrmClientUpdate
             // 

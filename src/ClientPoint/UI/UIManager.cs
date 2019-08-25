@@ -107,6 +107,12 @@ namespace ClientPoint.UI {
             });
         }
 
+        // Nos permite setear las 2 posiciones posibles para
+        // el teclado numerico.
+        public static void SetNumKeyboardCenter(bool center) {
+            _keyboards[Keyboard.Num].Top = center ? 310 : 400;
+        }
+
         // Esto nos permite activar la ventana actual de la app
         // al clickear el teclado virtual.
         // (Por default el teclado no funcionaba correctamente para las ventanas
