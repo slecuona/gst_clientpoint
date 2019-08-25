@@ -30,12 +30,13 @@ namespace ClientPoint {
                 UIManager.Init();
 
                 UIManager.StopSplash();
+                
                 // Pantalla principal / inicial (publicidades)
                 Application.Run(UIManager.Get(Window.Ads));
             }
             catch (Exception ex) {
                 Logger.Exception(ex);
-                MsgBox.Error(null, $"Error: {ex.Message}");
+                MsgBox.Error($"Error: {ex.Message}");
             }
         }
     }

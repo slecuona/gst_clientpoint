@@ -133,6 +133,12 @@
     <Compile Include="UI\DateField.Designer.cs">
       <DependentUpon>DateField.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\FrmMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmMessage.Designer.cs">
+      <DependentUpon>FrmMessage.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\FrmSplash.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -262,6 +268,9 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="UI\DateField.resx">
       <DependentUpon>DateField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmMessage.resx">
+      <DependentUpon>FrmMessage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FrmSplash.resx">
       <DependentUpon>FrmSplash.cs</DependentUpon>
@@ -399,6 +408,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\eye_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg_light.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

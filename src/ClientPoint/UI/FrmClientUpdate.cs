@@ -33,9 +33,10 @@ namespace ClientPoint.UI {
             var sucess = ApiService.ClientUpdate(CreateRequest, out errMsg);
             if (!sucess) return false;
 
-            MsgBox.Show(this,
+            MsgBox.Show(
                 "Datos actualizados correctamente. " +
-                "Se ha enviado el código de confirmación.");
+                "Se ha enviado el código de confirmación.",
+                this);
             UIManager.Show(Window.Confirm);
             return true;
         }

@@ -1,39 +1,35 @@
 ﻿using System.Windows.Forms;
+using ClientPoint.UI;
 using Telerik.WinControls;
 
 namespace ClientPoint.Utils {
     public static class MsgBox {
 
-        public static void Show(Form owner, string msg, string title = "") {
+        private static void PrepareAndShow(string msg, Form owner = null, MsgType type = MsgType.Info) {
+            var frm = new FrmMessage(msg, type);
+            frm.ShowDialog(owner);
+        }
+
+        public static void Show(string msg, Form owner = null) {
             // Safe thread
             if (owner != null && owner.InvokeRequired) {
                 owner.Invoke((MethodInvoker)delegate {
-                    Show(owner, msg, title);
+                    Show(msg, owner);
                 });
                 return;
             }
-            RadMessageBox.Show(
-                owner,
-                msg,
-                title,
-                MessageBoxButtons.OK,
-                RadMessageIcon.Info);
+            PrepareAndShow(msg, owner);
         }
 
-        public static void Error(Form owner, string msg) {
+        public static void Error(string msg, Form owner = null) {
             // Safe thread
             if (owner != null && owner.InvokeRequired) {
                 owner.Invoke((MethodInvoker) delegate {
-                    Error(owner, msg);
+                    Error(msg, owner);
                 });
                 return;
             }
-            RadMessageBox.Show(
-                owner,
-                msg,
-                "Error",
-                MessageBoxButtons.OK,
-                RadMessageIcon.Error);
+            PrepareAndShow(msg, owner, MsgType.Error);
         }
 
         public static bool Confirm(Form owner, string msg, string title = "") {

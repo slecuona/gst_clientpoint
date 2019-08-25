@@ -57,7 +57,7 @@ namespace ClientPoint.UI {
             PerformValidation(ref errors);
             
             if (errors.Count > 0) {
-                MsgBox.Error(this, string.Join("\n", errors));
+                MsgBox.Error(string.Join("\n", errors), this);
                 AfterError();
                 return false;
             }
@@ -102,7 +102,7 @@ namespace ClientPoint.UI {
                     headerPanel.Waiting = false;
                 });
             }
-            MsgBox.Error(this, errMsg);
+            MsgBox.Error(errMsg, this);
             SafeInvoke(AfterError);
         }
 

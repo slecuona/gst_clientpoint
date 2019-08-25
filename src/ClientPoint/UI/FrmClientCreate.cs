@@ -75,9 +75,10 @@ namespace ClientPoint.UI {
             var sucess = ApiService.ClientCreate(CreateRequest, out errMsg);
             if (!sucess) return false;
             
-            MsgBox.Show(this,
+            MsgBox.Show(
                 "Cliente creado correctamente. " +
-                "Se ha enviado el código de confirmación.");
+                "Se ha enviado el código de confirmación.",
+                this);
 
             // Cargo la password ingresada para enviar en el request
             // de confirmacion

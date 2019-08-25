@@ -86,7 +86,7 @@ namespace ClientPoint {
             }
             catch (Exception ex) {
                 Logger.Exception(ex);
-                MsgBox.Error(StatusWindow, "Error al imprimir tarjeta.");
+                MsgBox.Error("Error al imprimir tarjeta.", StatusWindow);
             }
         }
 
