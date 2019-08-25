@@ -24,6 +24,7 @@ namespace ClientPoint.UI
 
         public override void BeforeShow() {
             usrPanel.LoadUserData();
+            UIManager.SetKeyboard(Keyboard.None);
             base.BeforeShow();
         }
 

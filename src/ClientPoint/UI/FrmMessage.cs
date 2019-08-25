@@ -32,18 +32,18 @@ namespace ClientPoint.UI
         private void ReSize() {
             var lns = lblMessage.Text.Split('\n').Length;
             var offset = (lns - 1) * 22;
-            if (offset == 0) // Una sola linea
-                return;
-            lblMessage.Height = lblMessage.Height + offset;
-            btnOk.Top = btnOk.Top + offset;
-            lblIcon.Top = lblIcon.Top + (offset / 2);
-            this.Height = this.Height + offset;
-            Debug.WriteLine($"Label width: {lblMessage.Width}");
-            if (lblMessage.Width < 400)
-                return;
+            if (offset > 0) {
+                lblMessage.Height = lblMessage.Height + offset;
+                btnOk.Top = btnOk.Top + offset;
+                lblIcon.Top = lblIcon.Top + (offset / 2);
+                this.Height = this.Height + offset;
+            }
+            
             var offset2 = lblMessage.Width - 400;
-            this.Width = this.Width + offset2;
-            btnOk.Left = btnOk.Left + (offset2 / 2);
+            if (offset2 > 0) {
+                this.Width = this.Width + offset2;
+                btnOk.Left = btnOk.Left + (offset2 / 2);
+            }
         }
 
         private void OnShown(object sender, EventArgs e) {

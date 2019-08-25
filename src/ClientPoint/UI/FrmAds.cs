@@ -43,8 +43,7 @@ namespace ClientPoint.UI {
         public override void BeforeShow() {
             _adsPlayer.PlayRandom();
             _started = true;
-            UIManager.HideKeyboard();
-            UIManager.HideNumKeyboard();
+            UIManager.SetKeyboard(Keyboard.None);
             // Si muestro este form es porque ya termino la sesion
             ClientSession.Clear();
             Application.AddMessageFilter(this);

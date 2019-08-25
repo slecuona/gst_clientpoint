@@ -347,6 +347,7 @@ namespace ClientPoint.Keyboard {
             this.Text = "Teclado Numerico";
             this.TopMost = true;
             this.TransparencyKey = this.BackColor;
+            //this.Opacity = 0;
             this.Load += new System.EventHandler(this.KeyBoardForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonRight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonBack)).EndInit();

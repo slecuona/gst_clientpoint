@@ -45,13 +45,13 @@ namespace ClientPoint.UI {
         }
 
         public override void AfterShow() {
-            UIManager.ShowKeyboard();
+            UIManager.SetKeyboard(Keyboard.AlphaNum);
             fldPassword.Control.Select();
             this.Select();
         }
 
         public override void AfterHide() {
-            UIManager.HideKeyboard();
+            //UIManager.HideKeyboard();
         }
     }
 }

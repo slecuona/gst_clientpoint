@@ -55,13 +55,13 @@ namespace ClientPoint.UI {
         }
 
         public override void AfterShow() {
-            UIManager.ShowKeyboard();
+            UIManager.SetKeyboard(Keyboard.AlphaNum);
             fldEmail.Control.Select();
             this.Select();
         }
 
         public override void AfterHide() {
-            UIManager.HideKeyboard();
+            //UIManager.HideKeyboard();
         }
     }
 }

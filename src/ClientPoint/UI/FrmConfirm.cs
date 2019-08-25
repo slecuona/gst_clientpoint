@@ -39,7 +39,7 @@ namespace ClientPoint.UI {
         //}
 
         public override void BeforeHide() {
-            UIManager.HideKeyboard();
+            //UIManager.HideKeyboard();
         }
 
         protected override void OnBack(object sender, EventArgs e) {
@@ -52,7 +52,7 @@ namespace ClientPoint.UI {
         }
 
         public override void AfterShow() {
-            UIManager.ShowKeyboard();
+            UIManager.SetKeyboard(Keyboard.AlphaNum);
             fldCode.Control.Select();
             this.Select();
         }

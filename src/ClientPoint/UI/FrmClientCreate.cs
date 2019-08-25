@@ -117,10 +117,12 @@ namespace ClientPoint.UI {
             fldBirthDate.Value = MaxBirthDate;
 
             InitStepOne();
+
+            UIManager.SetKeyboard(Keyboard.None);
         }
 
         public override void AfterShow() {
-            UIManager.ShowKeyboard();
+            UIManager.SetKeyboard(Keyboard.AlphaNum);
             fldName.Control.Select();
             this.Select();
         }

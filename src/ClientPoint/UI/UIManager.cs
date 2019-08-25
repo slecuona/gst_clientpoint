@@ -9,9 +9,12 @@ using ClientPoint.Utils;
 namespace ClientPoint.UI {
     public static class UIManager {
         private static Dictionary<Window, FrmBase> _windows;
+        private static Dictionary<Keyboard, Form> _keyboards;
+
         private static SynchronizationContext _syncCtx;
 
         public static Window CurrWindow = Window.Ads;
+        public static Keyboard CurrKeyboard = Keyboard.None;
 
         public static FrmBase Get(Window w) => _windows[w];
         
@@ -24,8 +27,6 @@ namespace ClientPoint.UI {
         }
 
         private static FrmSplash Splash;
-        private static FrmKeyBoard KeyBoard;
-        private static FrmNumKeyBoard NumKeyBoard;
 
         // Debe ser ejecutado en UI Thread
         public static void Init() {
@@ -42,8 +43,11 @@ namespace ClientPoint.UI {
                 { Window.MainMenu, new FrmMainMenu()},
                 { Window.Status, new FrmStatus()},
             };
-            KeyBoard = new FrmKeyBoard();
-            NumKeyBoard = new FrmNumKeyBoard();
+            _keyboards = new Dictionary<Keyboard, Form>() {
+                { Keyboard.None, null},
+                { Keyboard.AlphaNum, new FrmKeyBoard()},
+                { Keyboard.Num, new FrmNumKeyBoard()},
+            };
             // Hago el render al inicio
             // (evito el flickering)
             foreach (var w in _windows) {
@@ -51,10 +55,13 @@ namespace ClientPoint.UI {
                 w.Value.Hide();
                 w.Value.Opacity = 1;
             }
-            KeyBoard.Show();
-            KeyBoard.Hide();
-            NumKeyBoard.Show();
-            NumKeyBoard.Hide();
+            foreach (var w in _keyboards) {
+                if (w.Key == Keyboard.None)
+                    return;
+                w.Value.Show();
+                w.Value.Hide();
+                w.Value.Opacity = 1;
+            }
         }
 
         public static void SafeExec(Action action) {
@@ -84,23 +91,21 @@ namespace ClientPoint.UI {
             });
         }
 
-        public static void ShowKeyboard() {
-            //new KeyBoardForm().Show();
-            //return;
-            KeyBoard.Show();
-            KeyBoard.ActiveControl = null;
+        public static void SetKeyboard(Keyboard k) {
+            if (CurrKeyboard == k)
+                return;
+            var prev = CurrKeyboard;
+            CurrKeyboard = k;
+            if (k == Keyboard.None) {
+                _keyboards[prev]?.Hide();
+                return;
+            }
+            SafeExec(() => {
+                _keyboards[prev]?.Hide();
+                _keyboards[k].Show();
+                _keyboards[k].ActiveControl = null;
+            });
         }
-
-        public static void HideKeyboard() =>
-            KeyBoard.Hide();
-
-        public static void ShowNumKeyboard() {
-            NumKeyBoard.Show();
-            NumKeyBoard.ActiveControl = null;
-        }
-
-        public static void HideNumKeyboard() =>
-            NumKeyBoard.Hide();
 
         // Esto nos permite activar la ventana actual de la app
         // al clickear el teclado virtual.
@@ -157,5 +162,11 @@ namespace ClientPoint.UI {
         Confirm = 6,
         MainMenu = 7,
         Status = 8
+    }
+
+    public enum Keyboard {
+        None = 0,
+        Num = 1,
+        AlphaNum = 2,
     }
 }

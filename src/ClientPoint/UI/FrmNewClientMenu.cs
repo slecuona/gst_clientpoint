@@ -26,5 +26,10 @@ namespace ClientPoint.UI
         private void btnCreate_Click(object sender, EventArgs e) {
             Op.ClientCreate();
         }
+
+        public override void BeforeShow() {
+            UIManager.SetKeyboard(Keyboard.None);
+            base.BeforeShow();
+        }
     }
 }

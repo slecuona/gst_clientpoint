@@ -51,13 +51,13 @@ namespace ClientPoint.UI {
         }
 
         public override void AfterShow() {
-            UIManager.ShowNumKeyboard();
+            UIManager.SetKeyboard(Keyboard.Num);
             fldDocument.Control.Select();
             this.Select();
         }
 
         public override void BeforeHide() {
-            UIManager.HideNumKeyboard();
+            //UIManager.HideNumKeyboard();
         }
     }
 }
