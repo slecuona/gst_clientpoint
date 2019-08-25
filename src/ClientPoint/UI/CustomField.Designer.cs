@@ -27,7 +27,7 @@ namespace ClientPoint.UI {
         /// </summary>
         private void InitializeComponent() {
             this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
-            this.radTextBox1 = new Telerik.WinControls.UI.RadTextBox();
+            this.radTextBox1 = new CustomTextBox();
             this.btnClear = new Telerik.WinControls.UI.RadButton();
             this.btnViewPass = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
@@ -106,7 +106,7 @@ namespace ClientPoint.UI {
         #endregion
 
         private Telerik.WinControls.UI.RadLabel radLabel1;
-        private Telerik.WinControls.UI.RadTextBox radTextBox1;
+        private CustomTextBox radTextBox1;
         private Telerik.WinControls.UI.RadButton btnClear;
         private Telerik.WinControls.UI.RadButton btnViewPass;
     }
