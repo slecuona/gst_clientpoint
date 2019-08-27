@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using ClientPoint.Api;
 using ClientPoint.Session;
 using ClientPoint.Utils;
@@ -106,7 +107,8 @@ namespace ClientPoint.UI {
             // Reset del form
             fldName.Value = "";
             fldLastname.Value = "";
-            fldDocument.Control.Enabled = false;
+            fldDocument.Control.ReadOnly = true;
+            fldDocument.Control.BackColor = Color.LightGray;
             fldDocument.Value = ClientSession.CurrClient.DocumentNumber;
             fldEmail.Value = "";
             fldEmail2.Value = "";

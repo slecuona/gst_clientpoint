@@ -49,7 +49,7 @@ namespace ClientPoint.UI {
         }
 
         private void RefreshBtnClear() {
-            if(Password || !radTextBox1.Enabled)
+            if(Password || !radTextBox1.Enabled || radTextBox1.ReadOnly)
                 return;
             if (string.IsNullOrEmpty(radTextBox1.Text)) {
                 btnClear.Visible = false;
@@ -87,7 +87,7 @@ namespace ClientPoint.UI {
             UIManager.SetKeyboard(Keyboard);
         }
 
-        public Control Control => radTextBox1;
+        public RadTextBox Control => radTextBox1;
 
         public string Label {
             get => radLabel1.Text;
