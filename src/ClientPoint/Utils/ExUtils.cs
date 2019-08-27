@@ -2,8 +2,8 @@
 
 namespace ClientPoint.Utils {
     public static class ExUtils {
-        public static void Die(string msg) {
-            throw new Exception(msg);
+        public static void Die(string msg, Exception ex = null) {
+            throw new Exception(msg, ex);
         }
 
         public static void DieIf(bool cond, string msg) {
