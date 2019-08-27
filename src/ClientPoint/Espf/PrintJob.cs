@@ -1,4 +1,6 @@
 ﻿using System;
+using ClientPoint.Session;
+using static ClientPoint.Utils.ExUtils;
 
 namespace ClientPoint.Espf {
     public class PrintJob {
@@ -21,10 +23,10 @@ namespace ClientPoint.Espf {
         private const string FORMAT = "2";
 
         private string _sessionId;
-        private string _data;
+        private Client _client;
 
-        public PrintJob(string data) {
-            _data = data;
+        public PrintJob(Client cl) {
+            _client = cl;
         }
 
         private static void ExecStepOrFail(Func<string> action, string msg) {
@@ -35,6 +37,9 @@ namespace ClientPoint.Espf {
 
         public void Start() {
             try {
+                DieIf(string.IsNullOrEmpty(_client.IdCard),
+                    "El cliente no tiene IdCard asignado.");
+
                 // 1 - Begin
                 _sessionId = Services.PrintBegin("PRINT1");
 
@@ -89,7 +94,7 @@ namespace ClientPoint.Espf {
 
                 // 4 - download data inside magnetic buffer track
                 ExecStepOrFail(
-                    () => Services.CmdSend("WRITE4", $"Dm;{TRACK};{_data}"),
+                    () => Services.CmdSend("WRITE4", $"Dm;{TRACK};{_client.IdCard}"),
                     "DownloadData");
 
                 // 5 - write magnetic track
@@ -100,9 +105,9 @@ namespace ClientPoint.Espf {
 
                 // 6 - read and check
                 var res = Services.CmdSend("WRITE6", $"Rmb;{TRACK}");
-                if(res != _data)
+                if(res != _client.IdCard)
                     throw new Exception("Los datos no se grabaron correctamente. " +
-                                        $"({res} != {_data})");
+                                        $"({res} != {_client.IdCard})");
 
                 //// 6 - eject?
                 //ExecStepOrFail(

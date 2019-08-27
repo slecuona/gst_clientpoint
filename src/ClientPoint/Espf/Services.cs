@@ -6,7 +6,7 @@ namespace ClientPoint.Espf {
         // Nos permite verificar que ESPF este funcionando
         public static string Echo(string id, string data) {
             var req = new EchoRequest(id, data);
-            return Client.Send(req);
+            return EspfClient.Send(req);
         }
 
         // Inicializa la session de impresion
@@ -16,7 +16,7 @@ namespace ClientPoint.Espf {
                     device = Config.EspfPrinter
                 });
             // devuelve session/job id
-            return Client.Send(req);
+            return EspfClient.Send(req);
         }
 
         // Setea los parametros de impresion
@@ -28,7 +28,7 @@ namespace ClientPoint.Espf {
                     data = data
                 });
             // devuelve "OK"
-            return Client.Send(req);
+            return EspfClient.Send(req);
         }
 
         public static string PrintSetBitmap(string id, string session, string data) {
@@ -42,7 +42,7 @@ namespace ClientPoint.Espf {
                     panel = "resin"
                 });
             // devuelve "OK"
-            return Client.Send(req);
+            return EspfClient.Send(req);
         }
 
         // Arranca la impresion
@@ -53,7 +53,7 @@ namespace ClientPoint.Espf {
                     session = session
                 });
             // devuelve "OK"
-            return Client.Send(req);
+            return EspfClient.Send(req);
         }
 
         // Devuelve la session actual.
@@ -64,7 +64,7 @@ namespace ClientPoint.Espf {
                     device = Config.EspfPrinter
                 });
             // devuelve session/job id
-            return Client.Send(req);
+            return EspfClient.Send(req);
         }
 
         // Finaliza la session de impresion
@@ -74,35 +74,35 @@ namespace ClientPoint.Espf {
                     session = session
                 });
             // devuelve "OK"
-            return Client.Send(req);
+            return EspfClient.Send(req);
         }
 
         // Estado de la impresora
         public static string SupGetState(string id) {
             var req = new SupRequest(id, "GetState");
             // devuelve string [majorstate, minorstate]
-            return Client.Send(req);
+            return EspfClient.Send(req);
         }
 
         // CMD.SendCommand
         public static string CmdSend(string id, string cmd, int timeout = 0) {
             var req = new CmdRequest(id, CmdMethods.SendCommand, cmd, timeout);
             // devuelve respuesta del cmd
-            return Client.Send(req);
+            return EspfClient.Send(req);
         }
 
         // CMD.GetStatus
         public static string CmdGetStatus(string id) {
             var req = new CmdRequest(id, CmdMethods.GetStatus);
             // devuelve un string binario (Ver 5.1. Binary status of a printer)
-            return Client.Send(req);
+            return EspfClient.Send(req);
         }
 
         // CMD.ResetCom: reinicia la comunicacion con la impresora
         public static string CmdResetCom(string id) {
             var req = new CmdRequest(id, CmdMethods.ResetCom);
             // devuelve "OK"
-            return Client.Send(req);
+            return EspfClient.Send(req);
         }
 
     }

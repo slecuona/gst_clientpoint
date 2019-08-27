@@ -71,8 +71,10 @@ namespace ClientPoint {
         private static void PrintCardAsync() {
             try {
                 var card = ApiService.GetNumberCard();
-                var pj = new PrintJob(card);
                 var cl = ClientSession.CurrClient;
+                cl.IdCard = card;
+                var pj = new PrintJob(cl);
+                
                 pj.WriteData();
                 pj.Start();
                 var success = ApiService.CreateCard(new CreateCardRequest() {

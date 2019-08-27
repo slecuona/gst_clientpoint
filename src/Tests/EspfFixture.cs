@@ -2,6 +2,7 @@
 using ClientPoint;
 using ClientPoint.Espf;
 using ClientPoint.Espf.Request;
+using ClientPoint.Session;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests {
@@ -62,7 +63,7 @@ namespace Tests {
             var org = Config.EspfPort;
             Config.EspfPort = "999";
             var req = new BaseRequest();
-            var res = Client.Send(req);
+            var res = EspfClient.Send(req);
             Config.EspfPort = org;
         }
 
@@ -70,14 +71,18 @@ namespace Tests {
         [ExpectedException(typeof(Exception), "Print error")]
         [TestMethod]
         public void PrintJob() {
-            var job = new PrintJob("");
+            var job = new PrintJob(new Client() {
+                IdCard = ""
+            });
             job.Start();
         }
 
         [ExpectedException(typeof(Exception), "Send command error")]
         [TestMethod]
         public void PrintJobWrite() {
-            var job = new PrintJob("");
+            var job = new PrintJob(new Client() {
+                IdCard = ""
+            });
             job.WriteData();
         }
     }

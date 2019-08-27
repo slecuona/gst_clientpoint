@@ -8,7 +8,7 @@ namespace ClientPoint.Espf {
     /// <summary>
     /// Esta clase se encarga de comunicarse con el ESPF por TCP
     /// </summary>
-    public static class Client {
+    public static class EspfClient {
 
         private static TcpClient NewClient() {
             TcpClient client = null;

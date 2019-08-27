@@ -77,7 +77,7 @@
     <Compile Include="Api\Response.cs" />
     <Compile Include="Api\Request.cs" />
     <Compile Include="Config.cs" />
-    <Compile Include="Espf\Client.cs" />
+    <Compile Include="Espf\EspfClient.cs" />
     <Compile Include="Espf\JsonUtils.cs" />
     <Compile Include="Espf\PrintJob.cs" />
     <Compile Include="Espf\Request\BaseRequest.cs" />
