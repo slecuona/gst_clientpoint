@@ -422,5 +422,8 @@
   <ItemGroup>
     <None Include="Resources\error.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\swipe_card.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

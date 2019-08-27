@@ -36,6 +36,8 @@ namespace ClientPoint.UI
             this.btnUpdate = new ClientPoint.UI.CustomButton();
             this.btnBack = new ClientPoint.UI.CustomButton();
             this.headerPanel1 = new ClientPoint.UI.HeaderPanel();
+            this.imgSwipe = new System.Windows.Forms.PictureBox();
+            this.lblSwipe = new Telerik.WinControls.UI.RadLabel();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).BeginInit();
             this.radPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnConfirm)).BeginInit();
@@ -43,6 +45,8 @@ namespace ClientPoint.UI
             ((System.ComponentModel.ISupportInitialize)(this.btnUpdate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.headerPanel1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgSwipe)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblSwipe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +58,7 @@ namespace ClientPoint.UI
             this.radPanel1.Controls.Add(this.btnCreate);
             this.radPanel1.Controls.Add(this.btnUpdate);
             this.radPanel1.Controls.Add(this.btnBack);
-            this.radPanel1.Location = new System.Drawing.Point(468, 125);
+            this.radPanel1.Location = new System.Drawing.Point(401, 131);
             this.radPanel1.Name = "radPanel1";
             this.radPanel1.Size = new System.Drawing.Size(400, 375);
             this.radPanel1.TabIndex = 3;
@@ -121,13 +125,38 @@ namespace ClientPoint.UI
             this.headerPanel1.TabIndex = 4;
             this.headerPanel1.Title = "";
             // 
+            // imgSwipe
+            // 
+            this.imgSwipe.BackColor = System.Drawing.Color.Transparent;
+            this.imgSwipe.Image = global::ClientPoint.Properties.Resources.swipe_card;
+            this.imgSwipe.Location = new System.Drawing.Point(796, 159);
+            this.imgSwipe.Name = "imgSwipe";
+            this.imgSwipe.Size = new System.Drawing.Size(804, 433);
+            this.imgSwipe.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgSwipe.TabIndex = 5;
+            this.imgSwipe.TabStop = false;
+            // 
+            // lblSwipe
+            // 
+            this.lblSwipe.BackColor = System.Drawing.Color.Transparent;
+            this.lblSwipe.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
+            this.lblSwipe.ForeColor = System.Drawing.Color.White;
+            this.lblSwipe.Location = new System.Drawing.Point(1004, 220);
+            this.lblSwipe.Name = "lblSwipe";
+            this.lblSwipe.Size = new System.Drawing.Size(357, 53);
+            this.lblSwipe.TabIndex = 6;
+            this.lblSwipe.Text = "Si ya es cliente y tiene su tarjeta,\n        deslícela por el lector.";
+            this.lblSwipe.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            // 
             // FrmNewClientMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1341, 648);
+            this.Controls.Add(this.lblSwipe);
             this.Controls.Add(this.headerPanel1);
             this.Controls.Add(this.radPanel1);
+            this.Controls.Add(this.imgSwipe);
             this.Name = "FrmNewClientMenu";
             // 
             // 
@@ -141,8 +170,11 @@ namespace ClientPoint.UI
             ((System.ComponentModel.ISupportInitialize)(this.btnUpdate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.headerPanel1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgSwipe)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblSwipe)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -154,5 +186,7 @@ namespace ClientPoint.UI
         private CustomButton btnBack;
         private CustomButton btnCreate;
         private HeaderPanel headerPanel1;
+        private PictureBox imgSwipe;
+        private Telerik.WinControls.UI.RadLabel lblSwipe;
     }
 }
