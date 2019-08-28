@@ -35,7 +35,7 @@ namespace ClientPoint.UI
             // 
             // RadForm1
             // 
-            this.BackgroundImage = Properties.Resources.bg;
+            this.BackgroundImage = Properties.Resources.bg2;
             this.BackgroundImageLayout = ImageLayout.Stretch;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
