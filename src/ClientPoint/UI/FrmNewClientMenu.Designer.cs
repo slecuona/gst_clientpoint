@@ -58,7 +58,7 @@ namespace ClientPoint.UI
             this.radPanel1.Controls.Add(this.btnCreate);
             this.radPanel1.Controls.Add(this.btnUpdate);
             this.radPanel1.Controls.Add(this.btnBack);
-            this.radPanel1.Location = new System.Drawing.Point(401, 131);
+            this.radPanel1.Location = new System.Drawing.Point(460, 129);
             this.radPanel1.Name = "radPanel1";
             this.radPanel1.Size = new System.Drawing.Size(400, 375);
             this.radPanel1.TabIndex = 3;

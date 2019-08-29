@@ -45,7 +45,7 @@ namespace ClientPoint.UI {
             this.lblImg.Text = "";
             this.lblImg.AutoSize = false;
             this.lblImg.Dock = DockStyle.None;
-            this.lblImg.BackgroundImage = Properties.Resources.logo;
+            this.lblImg.BackgroundImage = Properties.Resources.logo2;
             this.lblImg.BackgroundImageLayout = ImageLayout.None;
             this.lblImg.DoubleClick += LblImgOnDoubleClick;
             // 

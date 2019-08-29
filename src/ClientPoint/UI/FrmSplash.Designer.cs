@@ -62,10 +62,11 @@ namespace ClientPoint.UI
             // radLabel1
             // 
             this.radLabel1.AutoSize = false;
-            this.radLabel1.BackgroundImage = global::ClientPoint.Properties.Resources.bg;
-            this.radLabel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            //this.radLabel1.BackgroundImage = global::ClientPoint.Properties.Resources.bg2;
+            //this.radLabel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.radLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radLabel1.ForeColor = System.Drawing.Color.White;
+            this.radLabel1.BackColor = System.Drawing.Color.Transparent;
             this.radLabel1.Location = new System.Drawing.Point(0, 0);
             this.radLabel1.Name = "radLabel1";
             this.radLabel1.Size = new System.Drawing.Size(316, 360);
@@ -77,7 +78,7 @@ namespace ClientPoint.UI
             // lblLogo
             // 
             this.lblLogo.BackColor = System.Drawing.Color.Transparent;
-            this.lblLogo.Image = global::ClientPoint.Properties.Resources.logo;
+            this.lblLogo.Image = global::ClientPoint.Properties.Resources.logo2;
             this.lblLogo.Location = new System.Drawing.Point(4, 12);
             this.lblLogo.Name = "lblLogo";
             this.lblLogo.Size = new System.Drawing.Size(122, 67);
@@ -87,7 +88,7 @@ namespace ClientPoint.UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::ClientPoint.Properties.Resources.bg;
+            this.BackgroundImage = global::ClientPoint.Properties.Resources.bg2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(316, 316);
             this.Controls.Add(this.lblLogo);
