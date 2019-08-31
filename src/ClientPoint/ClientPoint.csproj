@@ -257,6 +257,7 @@
     <Compile Include="UI\UIManager.cs" />
     <Compile Include="Utils\Extensions.cs" />
     <Compile Include="Utils\ExUtils.cs" />
+    <Compile Include="Utils\FontUtils.cs" />
     <Compile Include="Utils\GraphUtils.cs" />
     <Compile Include="Utils\Logger.cs" />
     <Compile Include="Utils\MsgBox.cs" />
@@ -399,6 +400,7 @@
     <None Include="Resources\print.gif" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Roboto-Regular.ttf" />
     <None Include="Resources\swipe.png" />
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
+using ClientPoint.Utils;
 
 namespace ClientPoint.UI
 {
@@ -66,7 +67,6 @@ namespace ClientPoint.UI
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Font = new System.Drawing.Font("Helvetica-Normal", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirm.Image = global::ClientPoint.Properties.Resources.confirm;
             this.btnConfirm.Location = new System.Drawing.Point(0, 100);
             this.btnConfirm.Name = "btnConfirm";
@@ -78,7 +78,6 @@ namespace ClientPoint.UI
             // 
             // btnCreate
             // 
-            this.btnCreate.Font = new System.Drawing.Font("Helvetica-Normal", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreate.Image = global::ClientPoint.Properties.Resources.plus;
             this.btnCreate.Location = new System.Drawing.Point(0, 0);
             this.btnCreate.Name = "btnCreate";
@@ -91,7 +90,6 @@ namespace ClientPoint.UI
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Font = new System.Drawing.Font("Helvetica-Normal", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.Image = global::ClientPoint.Properties.Resources.edit;
             this.btnUpdate.Location = new System.Drawing.Point(0, 200);
             this.btnUpdate.Name = "btnUpdate";
@@ -104,7 +102,6 @@ namespace ClientPoint.UI
             // 
             // btnBack
             // 
-            this.btnBack.Font = new System.Drawing.Font("Helvetica-Normal", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.Image = global::ClientPoint.Properties.Resources.back;
             this.btnBack.Location = new System.Drawing.Point(0, 300);
             this.btnBack.Name = "btnBack";
@@ -139,7 +136,7 @@ namespace ClientPoint.UI
             // lblSwipe
             // 
             this.lblSwipe.BackColor = System.Drawing.Color.Transparent;
-            this.lblSwipe.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
+            this.lblSwipe.Font = FontUtils.Roboto(14);
             this.lblSwipe.ForeColor = System.Drawing.Color.White;
             this.lblSwipe.Location = new System.Drawing.Point(1004, 220);
             this.lblSwipe.Name = "lblSwipe";

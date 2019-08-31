@@ -30,6 +30,8 @@ namespace ClientPoint.UI {
 
         // Debe ser ejecutado en UI Thread
         public static void Init() {
+            // Antes de inicializar la interfaz...
+            FontUtils.Init();
             SplashStatus("Iniciando UI...");
             _syncCtx = new WindowsFormsSynchronizationContext();
             _windows = new Dictionary<Window, FrmBase>() {
