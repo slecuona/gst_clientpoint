@@ -469,5 +469,32 @@
   <ItemGroup>
     <None Include="Resources\btn_new_client_press.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_black_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_blue_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_blue_small_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UI\Buttons\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_next_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_back_press.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

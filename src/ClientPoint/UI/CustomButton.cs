@@ -33,6 +33,14 @@ namespace ClientPoint.UI {
                 this.Image = Properties.Resources.btn_client_press;
                 return;
             }
+            if (_type == Type.Next) {
+                this.Image = Properties.Resources.btn_next_press;
+                return;
+            }
+            if (_type == Type.Back) {
+                this.Image = Properties.Resources.btn_back_press;
+                return;
+            }
         }
 
         private void RefreshType() {
@@ -46,12 +54,24 @@ namespace ClientPoint.UI {
                 Size = new Size(240, 89);
                 return;
             }
+            if (_type == Type.Next) {
+                Image = Properties.Resources.btn_next;
+                Size = new Size(234, 78);
+                return;
+            }
+            if (_type == Type.Back) {
+                Image = Properties.Resources.btn_back;
+                Size = new Size(234, 78);
+                return;
+            }
         }
 
     }
 
     public enum Type {
         NewClient = 0,
-        Client = 1
+        Client = 1,
+        Next = 2,
+        Back = 3
     }
 }

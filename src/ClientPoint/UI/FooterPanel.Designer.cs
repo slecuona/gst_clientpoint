@@ -27,8 +27,8 @@ namespace ClientPoint.UI {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.btnNext = new ClientPoint.UI.CustomButtonDefault();
-            this.btnBack = new ClientPoint.UI.CustomButtonDefault();
+            this.btnNext = new ClientPoint.UI.CustomButton();
+            this.btnBack = new ClientPoint.UI.CustomButton();
             ((System.ComponentModel.ISupportInitialize)(this.btnNext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -37,28 +37,28 @@ namespace ClientPoint.UI {
             // btnNext
             // 
             this.btnNext.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnNext.Font = new System.Drawing.Font("Helvetica-Normal", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNext.Image = global::ClientPoint.Properties.Resources.confirm;
+            //this.btnNext.Font = new System.Drawing.Font("Helvetica-Normal", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //this.btnNext.Image = global::ClientPoint.Properties.Resources.confirm;
             this.btnNext.Location = new System.Drawing.Point(0, 0);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Padding = new System.Windows.Forms.Padding(20, 5, 20, 5);
-            this.btnNext.Size = new System.Drawing.Size(220, 30);
+            //this.btnNext.Padding = new System.Windows.Forms.Padding(20, 5, 20, 5);
+            //this.btnNext.Size = new System.Drawing.Size(220, 30);
             this.btnNext.TabIndex = 0;
             this.btnNext.TabStop = false;
-            this.btnNext.Text = "Confirmar";
+            this.btnNext.Type = Type.Next;
             // 
             // btnBack
             // 
             this.btnBack.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnBack.Font = new System.Drawing.Font("Helvetica-Normal", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Image = global::ClientPoint.Properties.Resources.back;
+            //this.btnBack.Font = new System.Drawing.Font("Helvetica-Normal", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //this.btnBack.Image = global::ClientPoint.Properties.Resources.back;
             this.btnBack.Location = new System.Drawing.Point(0, 0);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Padding = new System.Windows.Forms.Padding(20, 5, 20, 5);
-            this.btnBack.Size = new System.Drawing.Size(220, 30);
+            //this.btnBack.Padding = new System.Windows.Forms.Padding(20, 5, 20, 5);
+            ////this.btnBack.Size = new System.Drawing.Size(220, 30);
             this.btnBack.TabIndex = 1;
             this.btnBack.TabStop = false;
-            this.btnBack.Text = "Atrás";
+            this.btnBack.Type = Type.Back;
             // 
             // FooterPanel
             // 
@@ -66,8 +66,8 @@ namespace ClientPoint.UI {
             this.Controls.Add(this.btnBack);
             this.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Name = "footerPanel";
-            this.Padding = new System.Windows.Forms.Padding(20, 0, 20, 20);
-            this.Size = new System.Drawing.Size(1340, 50);
+            this.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.Size = new System.Drawing.Size(1340, 120);
             this.BackColor = Color.Transparent;
             ((Telerik.WinControls.UI.RadPanelElement)(this.GetChildAt(0))).Padding = new System.Windows.Forms.Padding(20, 0, 20, 20);
             ((Telerik.WinControls.Primitives.BorderPrimitive)(this.GetChildAt(0).GetChildAt(1))).Width = 0F;
@@ -80,7 +80,7 @@ namespace ClientPoint.UI {
 
         #endregion
 
-        private CustomButtonDefault btnNext;
-        private CustomButtonDefault btnBack;
+        private CustomButton btnNext;
+        private CustomButton btnBack;
     }
 }

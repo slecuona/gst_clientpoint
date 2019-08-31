@@ -1,4 +1,4 @@
-﻿using System.Drawing;
+using System.Drawing;
 using ClientPoint.Utils;
 using Telerik.WinControls;
 

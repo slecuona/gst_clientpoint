@@ -150,17 +150,13 @@ namespace ClientPoint.UI {
         private void InitStepOne() {
             _stepNr = 1;
             ShowHideFields(true);
-
-            footerPanel.NextText = "Siguiente";
-
+            
             fldName.Control.Select();
         }
         private void InitStepTwo() {
             _stepNr = 2;
             ShowHideFields(false);
-
-            footerPanel.NextText = "Confirmar";
-
+            
             fldEmail.Control.Select();
         }
     }

@@ -123,6 +123,66 @@ namespace ClientPoint.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btn_back {
+            get {
+                object obj = ResourceManager.GetObject("btn_back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_back_press {
+            get {
+                object obj = ResourceManager.GetObject("btn_back_press", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_black {
+            get {
+                object obj = ResourceManager.GetObject("btn_black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_black_press {
+            get {
+                object obj = ResourceManager.GetObject("btn_black_press", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_blue_small {
+            get {
+                object obj = ResourceManager.GetObject("btn_blue_small", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_blue_small_press {
+            get {
+                object obj = ResourceManager.GetObject("btn_blue_small_press", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btn_client {
             get {
                 object obj = ResourceManager.GetObject("btn_client", resourceCulture);
@@ -156,6 +216,26 @@ namespace ClientPoint.Properties {
         internal static System.Drawing.Bitmap btn_new_client_press {
             get {
                 object obj = ResourceManager.GetObject("btn_new_client_press", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_next {
+            get {
+                object obj = ResourceManager.GetObject("btn_next", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_next_press {
+            get {
+                object obj = ResourceManager.GetObject("btn_next_press", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

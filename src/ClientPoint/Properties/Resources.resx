@@ -196,4 +196,28 @@
   <data name="btn_new_client_press" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btn_new_client_press.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="btn_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btn_black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_black_press" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btn_black_press.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_blue_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btn_blue_small.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_blue_small_press" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btn_blue_small_press.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_back" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btn_back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_back_press" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btn_back_press.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_next" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btn_next.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_next_press" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btn_next_press.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

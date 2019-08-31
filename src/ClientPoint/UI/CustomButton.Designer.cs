@@ -1,6 +1,5 @@
 ﻿using System.Drawing;
 using ClientPoint.Utils;
-using Telerik.WinControls;
 
 namespace ClientPoint.UI {
     partial class CustomButton {
@@ -30,13 +29,16 @@ namespace ClientPoint.UI {
             components = new System.ComponentModel.Container();
             Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
             ImageAlignment = ContentAlignment.MiddleCenter;
-            Image = Properties.Resources.btn_1;
-            Size = new Size(421, 77);
+            //Image = Properties.Resources.btn_1;
+            Size = new Size(421, 89);
             TextAlignment = ContentAlignment.MiddleCenter;
             BackColor = Color.Transparent;
+            ForeColor = Color.White;
+            //Font = FontUtils.Roboto(18);
             // No deben tener foco
             TabStop = false;
             ButtonElement.BorderElement.Width = 0;
+            //((Telerik.WinControls.Primitives.TextPrimitive)(this.GetChildAt(0).GetChildAt(1).GetChildAt(1))).PositionOffset = new System.Drawing.SizeF(0F, -2F);
         }
 
         #endregion

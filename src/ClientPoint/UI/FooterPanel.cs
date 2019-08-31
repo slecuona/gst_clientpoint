@@ -12,13 +12,5 @@ namespace ClientPoint.UI {
 
         public void OnNextClick(EventHandler action) =>
             btnNext.Click += action;
-
-        public string NextText {
-            set => btnNext.Text = value;
-        }
-
-        public string BackText {
-            set => btnBack.Text = value;
-        }
     }
 }
