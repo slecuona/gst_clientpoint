@@ -24,6 +24,8 @@ namespace ClientPoint.UI
         }
 
         private void btnCreate_Click(object sender, EventArgs e) {
+            //Op.TestPrint();
+            //return;
             Op.ClientCreate();
         }
 

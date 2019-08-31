@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
@@ -62,6 +63,12 @@ namespace ClientPoint.Utils {
             
             if(ex.InnerException != null)
                 Exception(ex.InnerException);
+        }
+
+        public static void DebugWrite(string msg) {
+            Debug.WriteLine(msg);
+            if(Config.DebugMode)
+                Write(msg).Wait();
         }
     }
 }

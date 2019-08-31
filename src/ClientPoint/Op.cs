@@ -75,7 +75,6 @@ namespace ClientPoint {
                 cl.IdCard = card;
                 var pj = new PrintJob(cl);
                 
-                pj.WriteData();
                 pj.Start();
                 var success = ApiService.CreateCard(new CreateCardRequest() {
                     DocumentNumber = cl.DocumentNumber,
@@ -89,7 +88,26 @@ namespace ClientPoint {
             catch (Exception ex) {
                 Logger.Exception(ex);
                 MsgBox.Error("Error al imprimir tarjeta.", StatusWindow);
+                UIManager.Show(Window.Ads);
             }
+        }
+
+        public static void TestPrint() {
+            try {
+                var pj = new PrintJob(new Client() {
+                    Name = "SANTIAGO ELIAS",
+                    LastName = "LECUONA TOURNEE",
+                    IdCard = "00000012312312312"
+                });
+
+                pj.Start();
+            }
+            catch (Exception ex) {
+                Logger.Exception(ex);
+                MsgBox.Error("Error al imprimir tarjeta.");
+            }
+
+            
         }
 
     }

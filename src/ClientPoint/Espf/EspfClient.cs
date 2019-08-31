@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using ClientPoint.Utils;
 
 namespace ClientPoint.Espf {
     /// <summary>
@@ -27,7 +27,7 @@ namespace ClientPoint.Espf {
         private static string GetStream(TcpClient client, Request.BaseRequest req) {
             var res = string.Empty;
             var reqJson = req.ToJson();
-            Debug.WriteLine($"[JSON SEND] => {reqJson}");
+            Logger.DebugWrite($"[JSON SEND] => {reqJson}");
             var datain = Encoding.UTF8.GetBytes(reqJson);
             try {
                 NetworkStream ns = client.GetStream();
@@ -47,7 +47,8 @@ namespace ClientPoint.Espf {
                 }
                 ns.Close();
             } catch (Exception ex) {
-                Debug.WriteLine($"ERR. GetStream. => {ex.Message}");
+                Logger.DebugWrite($"ERR. GetStream. => {ex.Message}");
+                Logger.Exception(ex);
             } finally {
                 client.Close();
             }
@@ -62,7 +63,7 @@ namespace ClientPoint.Espf {
                 var json = GetStream(client, req);
                 if (string.IsNullOrEmpty(json))
                     throw new Exception("Se esperaba un json.");
-                Debug.WriteLine($"[JSON RESPONSE] => {json}");
+                Logger.DebugWrite($"[JSON RESPONSE] => {json}");
                 var res = Response.FromJson(json);
                 if (res.error != null)
                     throw new Exception(

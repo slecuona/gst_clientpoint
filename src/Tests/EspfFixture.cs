@@ -74,7 +74,7 @@ namespace Tests {
             var job = new PrintJob(new Client() {
                 IdCard = ""
             });
-            job.Start();
+            job.Print();
         }
 
         [ExpectedException(typeof(Exception), "Send command error")]

@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.IO;
+using System.Windows.Forms.VisualStyles;
 using ClientPoint.Session;
+using ClientPoint.Utils;
 using static ClientPoint.Utils.ExUtils;
 
 namespace ClientPoint.Espf {
@@ -40,6 +44,13 @@ namespace ClientPoint.Espf {
         }
 
         public void Start() {
+            CreateImage();
+            WriteData();
+            // El Print por default hace eject.
+            Print();
+        }
+
+        public void Print() {
             try {
                 DieIf(string.IsNullOrEmpty(_client.IdCard),
                     "El cliente no tiene IdCard asignado.");
@@ -124,14 +135,14 @@ namespace ClientPoint.Espf {
             }
         }
 
-        private static string BmpFileName =>
-            $"{DateTime.Now:yyyy-MM-dd-HH-mm-ss}.bmp";
+        private static string TimeStamp =>
+            $"{DateTime.Now:yyyy-MM-dd-HH-mm-ss}";
 
-        private string GetBmpPath() {
+        private string GetBmpFilePath(string ext) {
             var p = Path.GetFullPath("./bmp");
             if (!Directory.Exists(p))
                 Directory.CreateDirectory(p);
-            return Path.Combine(p, BmpFileName);
+            return Path.Combine(p, $"{TimeStamp}.{ext}");
         }
 
         private string FullNameDisplay => 
@@ -139,33 +150,47 @@ namespace ClientPoint.Espf {
 
         public void CreateImage() {
             try {
-                _image = new Bitmap(1016, 648);
-                var graph = Graphics.FromImage(_image);
-                var rectf = new RectangleF(
-                    Config.CardNameX, 
-                    Config.CardNameY,
-                    1016, 50);
-                graph.SmoothingMode = SmoothingMode.AntiAlias;
-                graph.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                var colorBmp = new Bitmap(1016, 648, PixelFormat.Format24bppRgb);
+                var graph = Graphics.FromImage(colorBmp);
+                graph.FillRectangle(
+                    Brushes.White, 0, 0, colorBmp.Width, colorBmp.Height);
+                graph.SmoothingMode = SmoothingMode.None;
+                graph.InterpolationMode = InterpolationMode.Low;
                 graph.PixelOffsetMode = PixelOffsetMode.HighQuality;
                 graph.DrawString(FullNameDisplay, 
-                    new Font("Arial", Config.CardNameSize, FontStyle.Regular), Brushes.Black, rectf);
+                    new Font("Arial", Config.CardNameSize, FontStyle.Regular), 
+                    Brushes.Black, 
+                    Config.CardNameX, 
+                    Config.CardNameY);
 
                 graph.Flush();
 
-                _image.Save(GetBmpPath());
+                // Esta conversion es necesaria para reducir el tamaño del base64.
+                // (Por más que la imagen no tenga colores)
+                _image = GraphUtils.ConvertTo1Bpp(colorBmp);
+
+                if(Config.DebugMode)
+                    _image.Save(GetBmpFilePath("bmp"), ImageFormat.Bmp);
             }
             catch (Exception ex) {
                 Die("Error al crear imagen BMP de la tarjeta", ex);
             }
         }
 
-        private string GetImageBase64() {
+        public string GetImageBase64() {
             try {
+                DieIf(_image == null, "La imagen aun no fue creada.");
                 var stream = new MemoryStream();
                 _image.Save(stream, System.Drawing.Imaging.ImageFormat.Bmp);
                 var imageBytes = stream.ToArray();
-                return $"base64:{Convert.ToBase64String(imageBytes)}";
+                var base64 = Convert.ToBase64String(imageBytes);
+                if (Config.DebugMode) {
+                    File.WriteAllText(
+                        GetBmpFilePath("txt"),
+                        base64);
+                }
+                Debug.WriteLine($"Base64 Image Length: {base64.Length}");
+                return $"base64:{base64}";
             }
             catch (Exception ex) {
                 Die($"Error al convertir imagen a Base64.", ex);

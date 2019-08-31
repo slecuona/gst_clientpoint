@@ -84,6 +84,9 @@ namespace ClientPoint.UI {
             // Cargo la password ingresada para enviar en el request
             // de confirmacion
             ClientSession.CurrClient.Password = PasswordValue;
+            // Cargo los datos necesarios para el resto de la sesión
+            ClientSession.CurrClient.Name = NameValue;
+            ClientSession.CurrClient.LastName = LastNameValue;
             UIManager.Show(Window.Confirm);
             return true;
         }

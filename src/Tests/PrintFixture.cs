@@ -14,7 +14,11 @@ namespace Tests {
                 LastName = "Perez Gonzalez"
             });
             p.CreateImage();
-            Assert.IsTrue(true);
+            var base64 = p.GetImageBase64();
+            // Para que se envie correctamente en el request,
+            // no debe ser muy largo.
+            Assert.IsTrue(base64.Length < 1000000, 
+                "La imagen en base64 no debe superar el millon de caracteres.");
         }
     }
 }

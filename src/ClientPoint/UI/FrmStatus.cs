@@ -27,6 +27,11 @@ namespace ClientPoint.UI
                 return;
             }
         }
+
+        public override void BeforeShow() {
+            UIManager.SetKeyboard(Keyboard.None);
+            base.BeforeShow();
+        }
     }
 
     public enum States {
