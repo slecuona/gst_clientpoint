@@ -127,6 +127,21 @@
     <Compile Include="UI\CustomButton.Designer.cs">
       <DependentUpon>CustomButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\CustomButtonBlue.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\CustomButtonBlue.Designer.cs">
+      <DependentUpon>CustomButtonBlue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CustomButtonDefault.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\CustomButtonDefault.Designer.cs">
+      <DependentUpon>CustomButtonDefault.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CustomLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UI\CustomTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -432,6 +447,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo_big.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_new_client.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_client.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_1_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_client_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_new_client_press.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

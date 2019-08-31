@@ -28,8 +28,8 @@
         private void InitializeComponent()
         {
             this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
-            this.btnBack = new ClientPoint.UI.CustomButton();
-            this.btnRewards = new ClientPoint.UI.CustomButton();
+            this.btnBack = new ClientPoint.UI.CustomButtonDefault();
+            this.btnRewards = new ClientPoint.UI.CustomButtonDefault();
             this.usrPanel = new ClientPoint.UI.UserPanel();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).BeginInit();
             this.radPanel1.SuspendLayout();
@@ -110,8 +110,8 @@
         #endregion
 
         private Telerik.WinControls.UI.RadPanel radPanel1;
-        private CustomButton btnRewards;
-        private CustomButton btnBack;
+        private CustomButtonDefault btnRewards;
+        private CustomButtonDefault btnBack;
         private UserPanel usrPanel;
     }
 }

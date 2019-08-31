@@ -32,7 +32,7 @@ namespace ClientPoint.UI
         {
             this.lblMessage = new Telerik.WinControls.UI.RadLabel();
             this.lblIcon = new Telerik.WinControls.UI.RadLabel();
-            this.btnOk = new ClientPoint.UI.CustomButton();
+            this.btnOk = new ClientPoint.UI.CustomButtonDefault();
             ((System.ComponentModel.ISupportInitialize)(this.lblMessage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnOk)).BeginInit();
@@ -105,6 +105,6 @@ namespace ClientPoint.UI
         
         private Telerik.WinControls.UI.RadLabel lblMessage;
         private Telerik.WinControls.UI.RadLabel lblIcon;
-        private CustomButton btnOk;
+        private CustomButtonDefault btnOk;
     }
 }

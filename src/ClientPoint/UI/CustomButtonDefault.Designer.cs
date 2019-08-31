@@ -3,7 +3,7 @@ using ClientPoint.Utils;
 using Telerik.WinControls;
 
 namespace ClientPoint.UI {
-    partial class CustomButton {
+    partial class CustomButtonDefault {
         /// <summary> 
         /// Required designer variable.
         /// </summary>
@@ -28,15 +28,12 @@ namespace ClientPoint.UI {
         /// </summary>
         private void InitializeComponent() {
             components = new System.ComponentModel.Container();
-            Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
-            ImageAlignment = ContentAlignment.MiddleCenter;
-            Image = Properties.Resources.btn_1;
-            Size = new Size(421, 77);
-            TextAlignment = ContentAlignment.MiddleCenter;
-            BackColor = Color.Transparent;
+            Font = FontUtils.Roboto(15.75F);
+            Padding = new System.Windows.Forms.Padding(20, 10, 0, 5);
+            DisplayStyle = DisplayStyle.ImageAndText;
+            ImageAlignment = ContentAlignment.MiddleLeft;
             // No deben tener foco
             TabStop = false;
-            ButtonElement.BorderElement.Width = 0;
         }
 
         #endregion

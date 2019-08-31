@@ -9,7 +9,7 @@ namespace ClientPoint.Utils {
         /// <summary>
         /// Carga en memoria las fuentes alojadas como recurso.
         /// </summary>
-        public static void Init() {
+        private static void Init() {
             _pfc = new PrivateFontCollection();
             
             var fontLength = Properties.Resources.Roboto_Regular.Length;
@@ -19,8 +19,10 @@ namespace ClientPoint.Utils {
             _pfc.AddMemoryFont(data, fontLength);
         }
 
-        public static Font Roboto(float size) {
-            return new Font(_pfc.Families[0], size);
+        public static Font Roboto(float size, FontStyle style = FontStyle.Regular) {
+            if(_pfc == null)
+                Init();
+            return new Font(_pfc.Families[0], size, style);
         }
     }
 }

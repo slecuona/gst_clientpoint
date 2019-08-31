@@ -175,4 +175,25 @@
   <data name="Roboto_Regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Roboto-Regular.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="logo_big" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo_big.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btn_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_client" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btn_client.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_new_client" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btn_new_client.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_1_press" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btn_1_press.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_client_press" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btn_client_press.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_new_client_press" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btn_new_client_press.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

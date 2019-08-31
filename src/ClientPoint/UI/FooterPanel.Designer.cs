@@ -27,8 +27,8 @@ namespace ClientPoint.UI {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.btnNext = new ClientPoint.UI.CustomButton();
-            this.btnBack = new ClientPoint.UI.CustomButton();
+            this.btnNext = new ClientPoint.UI.CustomButtonDefault();
+            this.btnBack = new ClientPoint.UI.CustomButtonDefault();
             ((System.ComponentModel.ISupportInitialize)(this.btnNext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -80,7 +80,7 @@ namespace ClientPoint.UI {
 
         #endregion
 
-        private CustomButton btnNext;
-        private CustomButton btnBack;
+        private CustomButtonDefault btnNext;
+        private CustomButtonDefault btnBack;
     }
 }
