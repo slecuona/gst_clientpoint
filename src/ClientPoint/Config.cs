@@ -67,13 +67,5 @@ namespace ClientPoint {
         private const string API_URL_DEF = 
             "http://192.168.10.12/mobile/api/ClientPoint/";
         public static string ApiUrl;
-        
-        public static Font DefaultFont = 
-            new Font(
-                "Helvetica-Normal", 
-                15.75F, 
-                FontStyle.Regular, 
-                GraphicsUnit.Point, 
-                0);
     }
 }

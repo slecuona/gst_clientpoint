@@ -65,7 +65,6 @@ namespace ClientPoint.Keyboard {
             // keyButtonRight
             // 
             this.keyButtonRight.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyButtonRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonRight.IsPressed = false;
             this.keyButtonRight.KeyCode = 39;
             this.keyButtonRight.Location = new System.Drawing.Point(213, 183);
@@ -83,7 +82,7 @@ namespace ClientPoint.Keyboard {
             // keyButtonBack
             // 
             this.keyButtonBack.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyButtonBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.keyButtonBack.Font = Utils.FontUtils.Roboto(15F);
             this.keyButtonBack.IsPressed = false;
             this.keyButtonBack.KeyCode = 8;
             this.keyButtonBack.Location = new System.Drawing.Point(213, 3);
@@ -102,7 +101,6 @@ namespace ClientPoint.Keyboard {
             // keyButtonLeft
             // 
             this.keyButtonLeft.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyButtonLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonLeft.IsPressed = false;
             this.keyButtonLeft.KeyCode = 37;
             this.keyButtonLeft.Location = new System.Drawing.Point(143, 183);
@@ -120,7 +118,6 @@ namespace ClientPoint.Keyboard {
             // keyButtonNumberPad3
             // 
             this.keyButtonNumberPad3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyButtonNumberPad3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonNumberPad3.IsPressed = false;
             this.keyButtonNumberPad3.KeyCode = 99;
             this.keyButtonNumberPad3.Location = new System.Drawing.Point(143, 3);
@@ -138,7 +135,6 @@ namespace ClientPoint.Keyboard {
             // keyButtonNumberPad6
             // 
             this.keyButtonNumberPad6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyButtonNumberPad6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonNumberPad6.IsPressed = false;
             this.keyButtonNumberPad6.KeyCode = 102;
             this.keyButtonNumberPad6.Location = new System.Drawing.Point(143, 63);
@@ -156,7 +152,6 @@ namespace ClientPoint.Keyboard {
             // keyButtonNumberPad9
             // 
             this.keyButtonNumberPad9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyButtonNumberPad9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonNumberPad9.IsPressed = false;
             this.keyButtonNumberPad9.KeyCode = 105;
             this.keyButtonNumberPad9.Location = new System.Drawing.Point(143, 123);
@@ -174,7 +169,6 @@ namespace ClientPoint.Keyboard {
             // keyButtonNumberPad2
             // 
             this.keyButtonNumberPad2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyButtonNumberPad2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonNumberPad2.IsPressed = false;
             this.keyButtonNumberPad2.KeyCode = 98;
             this.keyButtonNumberPad2.Location = new System.Drawing.Point(73, 3);
@@ -192,7 +186,6 @@ namespace ClientPoint.Keyboard {
             // keyButtonNumberPad5
             // 
             this.keyButtonNumberPad5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyButtonNumberPad5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonNumberPad5.IsPressed = false;
             this.keyButtonNumberPad5.KeyCode = 101;
             this.keyButtonNumberPad5.Location = new System.Drawing.Point(73, 63);
@@ -210,7 +203,6 @@ namespace ClientPoint.Keyboard {
             // keyButtonNumberPad8
             // 
             this.keyButtonNumberPad8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyButtonNumberPad8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonNumberPad8.IsPressed = false;
             this.keyButtonNumberPad8.KeyCode = 104;
             this.keyButtonNumberPad8.Location = new System.Drawing.Point(73, 123);
@@ -229,7 +221,6 @@ namespace ClientPoint.Keyboard {
             // 
             this.tableLayoutPanelKeyButtons.SetColumnSpan(this.keyButtonNumberPad0, 2);
             this.keyButtonNumberPad0.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyButtonNumberPad0.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonNumberPad0.IsPressed = false;
             this.keyButtonNumberPad0.KeyCode = 96;
             this.keyButtonNumberPad0.Location = new System.Drawing.Point(3, 183);
@@ -247,7 +238,6 @@ namespace ClientPoint.Keyboard {
             // keyButtonNumberPad1
             // 
             this.keyButtonNumberPad1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyButtonNumberPad1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonNumberPad1.IsPressed = false;
             this.keyButtonNumberPad1.KeyCode = 97;
             this.keyButtonNumberPad1.Location = new System.Drawing.Point(3, 3);
@@ -265,7 +255,6 @@ namespace ClientPoint.Keyboard {
             // keyButtonNumberPad4
             // 
             this.keyButtonNumberPad4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyButtonNumberPad4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonNumberPad4.IsPressed = false;
             this.keyButtonNumberPad4.KeyCode = 100;
             this.keyButtonNumberPad4.Location = new System.Drawing.Point(3, 63);
@@ -283,7 +272,6 @@ namespace ClientPoint.Keyboard {
             // keyButtonNumberPad7
             // 
             this.keyButtonNumberPad7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.keyButtonNumberPad7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.keyButtonNumberPad7.IsPressed = false;
             this.keyButtonNumberPad7.KeyCode = 103;
             this.keyButtonNumberPad7.Location = new System.Drawing.Point(3, 123);

@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
+using ClientPoint.Utils;
 
 namespace ClientPoint.UI {
     partial class CustomField {
@@ -38,7 +39,7 @@ namespace ClientPoint.UI {
             // 
             // radLabel1
             // 
-            this.radLabel1.Font = new System.Drawing.Font("Helvetica-Normal", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radLabel1.Font = FontUtils.Roboto(15.75F);
             this.radLabel1.ForeColor = System.Drawing.Color.White;
             this.radLabel1.Location = new System.Drawing.Point(4, 10);
             this.radLabel1.Name = "radLabel1";
@@ -48,7 +49,7 @@ namespace ClientPoint.UI {
             // 
             // radTextBox1
             // 
-            this.radTextBox1.Font = new System.Drawing.Font("Helvetica-Normal", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radTextBox1.Font = FontUtils.Roboto(15.75F);
             this.radTextBox1.Location = new System.Drawing.Point(212, 0);
             this.radTextBox1.Name = "radTextBox1";
             this.radTextBox1.Padding = new System.Windows.Forms.Padding(10);

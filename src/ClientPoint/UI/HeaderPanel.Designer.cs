@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
+using ClientPoint.Utils;
 using Telerik.WinControls.Enumerations;
 
 namespace ClientPoint.UI {
@@ -56,7 +57,7 @@ namespace ClientPoint.UI {
             this.lblTitle.Size = new System.Drawing.Size(800, 100);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "";
-            this.lblTitle.Font = Config.DefaultFont;
+            this.lblTitle.Font = FontUtils.Roboto(15.75F);
             this.lblTitle.AutoSize = false;
             this.lblTitle.Dock = DockStyle.Fill;
             this.lblTitle.TextAlignment = ContentAlignment.BottomCenter;

@@ -1,4 +1,6 @@
-﻿namespace ClientPoint.UI {
+﻿using ClientPoint.Utils;
+
+namespace ClientPoint.UI {
     partial class UserPanel {
         /// <summary> 
         /// Required designer variable.
@@ -37,7 +39,7 @@
             this.lblUsr.Size = new System.Drawing.Size(100, 25);
             this.lblUsr.TabIndex = 0;
             this.lblUsr.Text = "";
-            this.lblUsr.Font = Config.DefaultFont;
+            this.lblUsr.Font = FontUtils.Roboto(15.75F);
             // 
             // radLabel2
             // 
@@ -46,7 +48,7 @@
             this.lblPoints.Size = new System.Drawing.Size(100, 25);
             this.lblPoints.TabIndex = 0;
             this.lblPoints.Text = "";
-            this.lblPoints.Font = Config.DefaultFont;
+            this.lblPoints.Font = FontUtils.Roboto(15.75F);
             // 
             // UserPanel
             // 

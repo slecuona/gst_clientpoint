@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using ClientPoint.Utils;
 
 namespace ClientPoint.UI {
     partial class DateField {
@@ -36,7 +37,7 @@ namespace ClientPoint.UI {
             // 
             // radLabel1
             // 
-            this.radLabel1.Font = new System.Drawing.Font("Helvetica-Normal", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radLabel1.Font = FontUtils.Roboto(15.75F);
             this.radLabel1.Location = new System.Drawing.Point(4, 10);
             this.radLabel1.Name = "radLabel1";
             this.radLabel1.Size = new System.Drawing.Size(106, 34);
@@ -48,7 +49,7 @@ namespace ClientPoint.UI {
             // 
             this.dateTimePicker.CalendarSize = new System.Drawing.Size(350, 300);
             this.dateTimePicker.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker.Font = new System.Drawing.Font("Helvetica-Normal", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker.Font = FontUtils.Roboto(15F);
             this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker.Location = new System.Drawing.Point(415, 3);
             this.dateTimePicker.Name = "dateTimePicker";

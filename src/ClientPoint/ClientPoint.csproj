@@ -481,9 +481,7 @@
   <ItemGroup>
     <None Include="Resources\btn_blue_small_press.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UI\Buttons\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\btn_next.png" />
   </ItemGroup>
