@@ -27,11 +27,11 @@ namespace ClientPoint.UI {
         // En fullscreen no hay manera de capturar el click.
         // Cuando se hace click, pausa el video.
         private void AdsPlayerPause(object sender, EventArgs e) {
-            UIManager.Show(Window.NewClientMenu);
+            UIManager.Show(Window.MainMenu);
         }
 
         private void AdsPlayerOnClickEvent(object sender, _WMPOCXEvents_ClickEvent e) {
-            UIManager.Show(Window.NewClientMenu);
+            UIManager.Show(Window.MainMenu);
         }
 
         private void OnShown(object sender, EventArgs e) {

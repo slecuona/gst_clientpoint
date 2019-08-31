@@ -38,11 +38,11 @@ namespace ClientPoint.UI {
                 { Window.Ads, new FrmAds()},
                 { Window.DocumentInput, new FrmDocumentInput()},
                 { Window.PasswordInput, new FrmPasswordInput()},
-                { Window.NewClientMenu, new FrmNewClientMenu()},
+                { Window.MainMenu, new FrmMainMenu()},
                 { Window.ClientCreate, new FrmClientCreate()},
                 { Window.ClientUpdate, new FrmClientUpdate()},
                 { Window.Confirm, new FrmConfirm()},
-                { Window.MainMenu, new FrmMainMenu()},
+                { Window.UserMenu, new FrmUserMenu()},
                 { Window.Status, new FrmStatus()},
             };
             _keyboards = new Dictionary<Keyboard, Form>() {
@@ -164,11 +164,11 @@ namespace ClientPoint.UI {
         Ads = 0,
         DocumentInput = 1,
         PasswordInput = 2,
-        NewClientMenu = 3,
+        MainMenu = 3,
         ClientCreate = 4,
         ClientUpdate = 5,
         Confirm = 6,
-        MainMenu = 7,
+        UserMenu = 7,
         Status = 8
     }
 

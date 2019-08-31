@@ -38,11 +38,11 @@ namespace ClientPoint.UI {
         }
         
         protected override void OnBack(object sender, EventArgs e) {
-            UIManager.Show(Window.NewClientMenu);
+            UIManager.Show(Window.MainMenu);
         }
 
         protected override void AfterError() {
-            UIManager.Show(Window.NewClientMenu);
+            UIManager.Show(Window.MainMenu);
         }
 
         public override void BeforeShow() {

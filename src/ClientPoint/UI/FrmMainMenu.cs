@@ -1,6 +1,4 @@
 ﻿using System;
-using ClientPoint.Session;
-using ClientPoint.Utils;
 
 namespace ClientPoint.UI
 {
@@ -10,27 +8,30 @@ namespace ClientPoint.UI
         {
             InitializeComponent();
 
-            btnRewards.Click += BtnRewardsOnClick;
+            btnConfirm.Click += BtnConfirmOnClick;
         }
 
-        private void BtnRewardsOnClick(object sender, EventArgs e) {
-            MsgBox.Show("Not implemented.", this);
+        private void BtnConfirmOnClick(object sender, EventArgs e) {
+            Op.ClientConfirm();
         }
 
         private void btnBack_Click_1(object sender, EventArgs e) {
-            ClientSession.Clear();
             UIManager.Show(Window.Ads);
         }
 
-        public override void BeforeShow() {
-            usrPanel.LoadUserData();
-            UIManager.SetKeyboard(Keyboard.None);
-            base.BeforeShow();
+        private void btnUpdate_Click(object sender, EventArgs e) {
+            Op.ClientUpdate();
         }
 
-        public override void AfterHide() {
-            usrPanel.ClearData();
-            base.AfterHide();
+        private void btnCreate_Click(object sender, EventArgs e) {
+            //Op.TestPrint();
+            //return;
+            Op.ClientCreate();
+        }
+
+        public override void BeforeShow() {
+            UIManager.SetKeyboard(Keyboard.None);
+            base.BeforeShow();
         }
     }
 }
