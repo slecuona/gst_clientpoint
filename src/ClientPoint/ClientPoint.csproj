@@ -127,29 +127,29 @@
     <Compile Include="UI\FrmMainContainer.Designer.cs">
       <DependentUpon>FrmMainContainer.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Panels\PanelDocumentInput.cs">
+    <Compile Include="UI\Views\DocInputView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Panels\PanelDocumentInput.Designer.cs">
-      <DependentUpon>PanelDocumentInput.cs</DependentUpon>
+    <Compile Include="UI\Views\DocInputView.Designer.cs">
+      <DependentUpon>DocInputView.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Panels\PanelBaseDialog.cs">
+    <Compile Include="UI\Views\BaseDialogView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Panels\PanelBaseDialog.Designer.cs">
-      <DependentUpon>PanelBaseDialog.cs</DependentUpon>
+    <Compile Include="UI\Views\BaseDialogView.Designer.cs">
+      <DependentUpon>BaseDialogView.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Panels\PanelMainMenu.cs">
+    <Compile Include="UI\Views\MainMenuView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Panels\PanelMainMenu.Designer.cs">
-      <DependentUpon>PanelMainMenu.cs</DependentUpon>
+    <Compile Include="UI\Views\MainMenuView.Designer.cs">
+      <DependentUpon>MainMenuView.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Panels\PanelBase.cs">
+    <Compile Include="UI\Views\BaseView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Panels\PanelBase.Designer.cs">
-      <DependentUpon>PanelBase.cs</DependentUpon>
+    <Compile Include="UI\Views\BaseView.Designer.cs">
+      <DependentUpon>BaseView.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\CustomButton.cs">
       <SubType>Component</SubType>
@@ -334,18 +334,18 @@
     <EmbeddedResource Include="UI\HeaderPanel.resx">
       <DependentUpon>HeaderPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Panels\PanelDocumentInput.resx">
-      <DependentUpon>PanelDocumentInput.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Views\DocInputView.resx">
+      <DependentUpon>DocInputView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Panels\PanelBaseDialog.resx">
-      <DependentUpon>PanelBaseDialog.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Views\BaseDialogView.resx">
+      <DependentUpon>BaseDialogView.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Panels\PanelMainMenu.resx">
-      <DependentUpon>PanelMainMenu.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Views\MainMenuView.resx">
+      <DependentUpon>MainMenuView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Panels\PanelBase.resx">
-      <DependentUpon>PanelBase.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Views\BaseView.resx">
+      <DependentUpon>BaseView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\UserPanel.resx">
       <DependentUpon>UserPanel.cs</DependentUpon>

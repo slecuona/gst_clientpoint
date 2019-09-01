@@ -11,13 +11,13 @@ namespace ClientPoint.UI {
     public static class UIManager {
         private static Dictionary<Window, FrmBase> _windows;
         private static Dictionary<Keyboard, Form> _keyboards;
-        private static Dictionary<MainView, PanelBase> _views;
+        private static Dictionary<View, PanelBase> _views;
 
         private static SynchronizationContext _syncCtx;
 
         public static Window CurrWindow = Window.Ads;
         public static Keyboard CurrKeyboard = Keyboard.None;
-        public static MainView CurrView = MainView.MainMenu;
+        public static View CurrView = View.MainMenu;
 
         public static FrmBase Get(Window w) => _windows[w];
         
@@ -35,7 +35,7 @@ namespace ClientPoint.UI {
         public static void Init() {
             SplashStatus("Iniciando UI...");
             _syncCtx = new WindowsFormsSynchronizationContext();
-            _views = new Dictionary<MainView, PanelBase>();
+            _views = new Dictionary<View, PanelBase>();
             _windows = new Dictionary<Window, FrmBase>() {
                 { Window.Ads, new FrmAds()},
                 { Window.Main, new FrmMainContainer()},
@@ -61,7 +61,7 @@ namespace ClientPoint.UI {
             }
         }
 
-        public static void AddView(MainView v, PanelBase p) {
+        public static void AddView(View v, PanelBase p) {
             _views.Add(v, p);
         }
 
@@ -85,7 +85,7 @@ namespace ClientPoint.UI {
             });
         }
 
-        public static void ShowView(MainView toShow) {
+        public static void ShowView(View toShow) {
             var prev = CurrView;
             if (prev == toShow)
                 return;
@@ -169,7 +169,7 @@ namespace ClientPoint.UI {
         Main = 1
     }
 
-    public enum MainView {
+    public enum View {
         DocumentInput = 0,
         PasswordInput = 1,
         MainMenu = 2,
