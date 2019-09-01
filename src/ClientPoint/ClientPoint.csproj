@@ -139,6 +139,24 @@
     <Compile Include="UI\Views\BaseDialogView.Designer.cs">
       <DependentUpon>BaseDialogView.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Views\ClientCreateView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\ClientCreateView.Designer.cs">
+      <DependentUpon>ClientCreateView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\ClientUpdateView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\ClientUpdateView.Designer.cs">
+      <DependentUpon>ClientUpdateView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\ConfirmView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\ConfirmView.Designer.cs">
+      <DependentUpon>ConfirmView.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Views\PassInputView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -346,6 +364,15 @@
     <EmbeddedResource Include="UI\Views\BaseDialogView.resx">
       <DependentUpon>BaseDialogView.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\ClientCreateView.resx">
+      <DependentUpon>ClientCreateView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\ClientUpdateView.resx">
+      <DependentUpon>ClientUpdateView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\ConfirmView.resx">
+      <DependentUpon>ConfirmView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Views\PassInputView.resx">
       <DependentUpon>PassInputView.cs</DependentUpon>

@@ -36,6 +36,7 @@ namespace ClientPoint.UI.Views
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).BeginInit();
             this.panelContainer.SuspendLayout();
             this.SuspendLayout();
+            this.containerPanel.Controls.Add(this.fldDocument);
             // 
             // fldDocument
             // 
