@@ -121,6 +121,24 @@
     <Compile Include="Op.cs" />
     <Compile Include="Session\Client.cs" />
     <Compile Include="Session\ClientSession.cs" />
+    <Compile Include="UI\FrmMainContainer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmMainContainer.Designer.cs">
+      <DependentUpon>FrmMainContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Panels\PanelMainMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Panels\PanelMainMenu.Designer.cs">
+      <DependentUpon>PanelMainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Panels\PanelBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Panels\PanelBase.Designer.cs">
+      <DependentUpon>PanelBase.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\CustomButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -295,11 +313,20 @@
     <EmbeddedResource Include="UI\FrmSplash.resx">
       <DependentUpon>FrmSplash.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmMainContainer.resx">
+      <DependentUpon>FrmMainContainer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\FrmStatus.resx">
       <DependentUpon>FrmStatus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\HeaderPanel.resx">
       <DependentUpon>HeaderPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Panels\PanelMainMenu.resx">
+      <DependentUpon>PanelMainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Panels\PanelBase.resx">
+      <DependentUpon>PanelBase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\UserPanel.resx">
       <DependentUpon>UserPanel.cs</DependentUpon>

@@ -170,6 +170,17 @@ namespace ClientPoint.UI {
         Status = 8
     }
 
+    public enum Main {
+        DocumentInput = 0,
+        PasswordInput = 1,
+        MainMenu = 2,
+        ClientLogin = 3,
+        ClientCreate = 3,
+        ClientUpdate = 4,
+        Confirm = 5,
+        Status = 6
+    }
+
     public enum Keyboard {
         None = 0,
         Num = 1,
