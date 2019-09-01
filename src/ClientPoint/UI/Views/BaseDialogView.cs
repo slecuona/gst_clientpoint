@@ -5,15 +5,15 @@ using System.Windows.Forms;
 using ClientPoint.UI.Panels;
 using ClientPoint.Utils;
 
-namespace ClientPoint.UI.Panels {
+namespace ClientPoint.UI.Views {
     /// <summary>
     /// Form base para una ventana de dialogo. (Ingreso de campos)
     /// Incluye el panel de navegacion
     /// </summary>
-    public partial class PanelBaseDialog : PanelBase {
+    public partial class BaseDialogView : PanelBase {
         public Control CurrentControl = null;
 
-        public PanelBaseDialog() {
+        public BaseDialogView() {
             InitializeComponent();
             footerPanel.OnNextClick(OnNext);
             footerPanel.OnBackClick(OnBack);

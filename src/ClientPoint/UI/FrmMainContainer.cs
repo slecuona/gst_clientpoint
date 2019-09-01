@@ -4,7 +4,7 @@
         public FrmMainContainer() {
             InitializeComponent();
             this.Window = Window.Main;
-            UIManager.AddView(MainView.MainMenu, MainMenu);
+            UIManager.AddView(View.MainMenu, MainMenu);
         }
         
         public override void BeforeShow() {

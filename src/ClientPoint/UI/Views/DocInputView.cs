@@ -4,9 +4,9 @@ using ClientPoint.Api;
 using ClientPoint.Session;
 using ClientPoint.UI.Panels;
 
-namespace ClientPoint.UI.Panels {
-    public partial class PanelDocumentInput : PanelBaseDialog {
-        public PanelDocumentInput() {
+namespace ClientPoint.UI.Views {
+    public partial class DocumentInput : BaseDialogView {
+        public DocumentInput() {
             InitializeComponent();
             //fldDocument.CustomMaskType = CustomMaskType.Document;
             ConfigureCurrentControlHandle();

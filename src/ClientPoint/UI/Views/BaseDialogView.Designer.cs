@@ -1,6 +1,6 @@
-﻿namespace ClientPoint.UI.Panels
+﻿namespace ClientPoint.UI.Views
 {
-    partial class PanelBaseDialog {
+    partial class BaseDialogView {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -84,7 +84,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.BackColor = System.Drawing.Color.Transparent;
-            this.Name = "PanelBaseDialog";
+            this.Name = "BaseDialogView";
             this.Size = new System.Drawing.Size(1302, 567);
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).EndInit();
             this.panelContainer.ResumeLayout(false);

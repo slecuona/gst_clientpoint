@@ -1,8 +1,8 @@
 ﻿using System.Drawing;
 
-namespace ClientPoint.UI.Panels
+namespace ClientPoint.UI.Views
 {
-    partial class PanelDocumentInput {
+    partial class DocumentInput {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -51,7 +51,7 @@ namespace ClientPoint.UI.Panels
             // PanelDocumentInput
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.Name = "PanelDocumentInput";
+            this.Name = "DocumentInput";
             ((System.ComponentModel.ISupportInitialize)(this.footerPanel)).EndInit();
             this.containerPanel.PanelContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.containerPanel)).EndInit();
