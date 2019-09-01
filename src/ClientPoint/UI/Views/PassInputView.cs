@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using ClientPoint.Session;
-using ClientPoint.UI.Panels;
 
 namespace ClientPoint.UI.Views {
-    public partial class PassInputView : BaseDialogView {
+    public partial class PassInputView : BaseViewDialogView {
         public PassInputView() {
             InitializeComponent();
             fldPassword.Password = true;
@@ -36,9 +35,11 @@ namespace ClientPoint.UI.Views {
         //}
         
         protected override void OnBack(object sender, EventArgs e) {
-            UIManager.ShowWindow(
-                //ClientSession.AccessByCard ? Window.Ads : Window.DocumentInput);
-                ClientSession.AccessByCard ? Window.Ads : Window.Main);
+            if (ClientSession.AccessByCard) {
+                UIManager.ShowWindow(Window.Ads);
+                return;
+            }
+            UIManager.ShowView(View.DocumentInput);
         }
 
         public override void BeforeShow() {

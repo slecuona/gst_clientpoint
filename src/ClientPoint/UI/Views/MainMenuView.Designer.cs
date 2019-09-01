@@ -2,9 +2,9 @@
 using System.Windows.Forms;
 using ClientPoint.Utils;
 
-namespace ClientPoint.UI.Panels
+namespace ClientPoint.UI.Views
 {
-    partial class PanelMainMenu {
+    partial class MainMenuView {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -30,7 +30,7 @@ namespace ClientPoint.UI.Panels
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PanelMainMenu));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenuView));
             this.btnUpdate = new ClientPoint.UI.CustomButtonBlue();
             this.btnNewlient = new ClientPoint.UI.CustomButton();
             this.btnConfirm = new ClientPoint.UI.CustomButtonBlue();
@@ -142,7 +142,7 @@ namespace ClientPoint.UI.Panels
             // PanelMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.Name = "PanelMainMenu";
+            this.Name = "MainMenuView";
             this.Size = new System.Drawing.Size(1302, 567);
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).EndInit();
             this.panelContainer.ResumeLayout(false);

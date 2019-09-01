@@ -5,7 +5,7 @@ using ClientPoint.Session;
 using ClientPoint.Utils;
 
 namespace ClientPoint.UI.Views {
-    public partial class ClientUpdateView : BaseDialogView {
+    public partial class ClientUpdateView : BaseViewDialogView {
         public ClientUpdateView() {
             InitializeComponent();
             ConfigureCurrentControlHandle();
@@ -37,7 +37,7 @@ namespace ClientPoint.UI.Views {
                 "Datos actualizados correctamente. " +
                 "Se ha enviado el código de confirmación.");
             //UIManager.ShowWindow(Window.Confirm);
-            UIManager.ShowWindow(Window.Main);
+            UIManager.ShowView(View.Confirm);
             return true;
         }
 
@@ -47,7 +47,7 @@ namespace ClientPoint.UI.Views {
 
         protected override void OnBack(object sender, EventArgs e) {
             //UIManager.ShowWindow(Window.MainMenu);
-            UIManager.ShowWindow(Window.Main);
+            UIManager.ShowView(View.MainMenu);
         }
 
         public override void BeforeShow() {

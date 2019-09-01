@@ -1,5 +1,5 @@
 ﻿using System.Windows.Forms;
-using ClientPoint.UI.Panels;
+using ClientPoint.UI.Views;
 
 namespace ClientPoint.UI
 {
@@ -30,17 +30,18 @@ namespace ClientPoint.UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.MainMenu = new ClientPoint.UI.Panels.PanelMainMenu();
+            this.MainMenu = new ClientPoint.UI.Views.MainMenuView();
+            this.DocInput = new DocInputView();
+            this.PassInput = new PassInputView();
+            this.ClientCreate = new ClientCreateView();
+            this.ClientUpdate = new ClientUpdateView();
+            this.Confirm = new ConfirmView();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMainMenu1
             // 
-            this.MainMenu.BackColor = System.Drawing.Color.Transparent;
-            this.MainMenu.Location = new System.Drawing.Point(2, -12);
             this.MainMenu.Name = "MainMenu";
-            this.MainMenu.Size = new System.Drawing.Size(1366, 768);
-            this.MainMenu.TabIndex = 0;
             // 
             // FrmMainContainer
             // 
@@ -48,6 +49,11 @@ namespace ClientPoint.UI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1366, 768);
             this.Controls.Add(this.MainMenu);
+            this.Controls.Add(this.DocInput);
+            this.Controls.Add(this.PassInput);
+            this.Controls.Add(this.ClientCreate);
+            this.Controls.Add(this.ClientUpdate);
+            this.Controls.Add(this.Confirm);
             this.Name = "FrmMainContainer";
             // 
             // 
@@ -61,6 +67,11 @@ namespace ClientPoint.UI
 
         #endregion
 
-        public PanelMainMenu MainMenu;
+        public Views.MainMenuView MainMenu;
+        public Views.DocInputView DocInput;
+        public Views.PassInputView PassInput;
+        public Views.ClientCreateView ClientCreate;
+        public Views.ClientUpdateView ClientUpdate;
+        public Views.ConfirmView Confirm;
     }
 }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Forms;
-using ClientPoint.UI.Panels;
 using ClientPoint.Utils;
 
 namespace ClientPoint.UI.Views {
@@ -10,10 +9,10 @@ namespace ClientPoint.UI.Views {
     /// Form base para una ventana de dialogo. (Ingreso de campos)
     /// Incluye el panel de navegacion
     /// </summary>
-    public partial class BaseDialogView : PanelBase {
+    public partial class BaseViewDialogView : BaseView {
         public Control CurrentControl = null;
 
-        public BaseDialogView() {
+        public BaseViewDialogView() {
             InitializeComponent();
             footerPanel.OnNextClick(OnNext);
             footerPanel.OnBackClick(OnBack);

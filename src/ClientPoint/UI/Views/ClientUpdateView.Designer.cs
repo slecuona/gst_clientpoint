@@ -53,7 +53,6 @@
 
             this.Name = "ClientUpdateView";
             // 
-            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
         }

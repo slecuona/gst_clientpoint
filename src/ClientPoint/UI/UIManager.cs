@@ -4,30 +4,30 @@ using System.Threading;
 using System.Windows.Forms;
 using ClientPoint.Keyboard;
 using ClientPoint.Keyboard.NoActivate;
-using ClientPoint.UI.Panels;
+using ClientPoint.UI.Views;
 using ClientPoint.Utils;
 
 namespace ClientPoint.UI {
     public static class UIManager {
         private static Dictionary<Window, FrmBase> _windows;
         private static Dictionary<Keyboard, Form> _keyboards;
-        private static Dictionary<View, PanelBase> _views;
+        private static Dictionary<View, BaseView> _views;
 
         private static SynchronizationContext _syncCtx;
 
-        public static Window CurrWindow = Window.Ads;
+        public static Window CurrWindow = Window.None;
         public static Keyboard CurrKeyboard = Keyboard.None;
-        public static View CurrView = View.MainMenu;
+        public static View CurrView = View.None;
 
         public static FrmBase Get(Window w) => _windows[w];
         
         public static FrmBase GetCurrent() => _windows[CurrWindow];
-        public static void ActivateCurrentControl() {
-            var w = GetCurrent()?.ActiveControl;
-            if (w is FrmBaseDialog dlg) {
-                dlg.CurrentControl?.Select();
-            }
-        }
+        //public static void ActivateCurrentControl() {
+        //    var w = GetCurrent()?.ActiveControl;
+        //    if (w is FrmBaseDialog dlg) {
+        //        dlg.CurrentControl?.Select();
+        //    }
+        //}
 
         private static FrmSplash Splash;
 
@@ -35,7 +35,7 @@ namespace ClientPoint.UI {
         public static void Init() {
             SplashStatus("Iniciando UI...");
             _syncCtx = new WindowsFormsSynchronizationContext();
-            _views = new Dictionary<View, PanelBase>();
+            _views = new Dictionary<View, BaseView>();
             _windows = new Dictionary<Window, FrmBase>() {
                 { Window.Ads, new FrmAds()},
                 { Window.Main, new FrmMainContainer()},
@@ -61,7 +61,7 @@ namespace ClientPoint.UI {
             }
         }
 
-        public static void AddView(View v, PanelBase p) {
+        public static void AddView(View v, BaseView p) {
             _views.Add(v, p);
         }
 
@@ -73,31 +73,39 @@ namespace ClientPoint.UI {
         }
 
         public static void ShowWindow(Window toShow) {
+            if (toShow == CurrWindow)
+                return;
             var prev = CurrWindow;
             CurrWindow = toShow;
             SafeExec(() => {
-                _windows[prev].BeforeHide();
+                if(prev != Window.None)
+                    _windows[prev].BeforeHide();
                 _windows[toShow].BeforeShow();
                 _windows[toShow].Show();
-                _windows[prev].Hide();
-                _windows[prev].AfterHide();
+                if (prev != Window.None) {
+                    _windows[prev].Hide();
+                    _windows[prev].AfterHide();
+                }
                 _windows[toShow].AfterShow();
             });
         }
 
         public static void ShowView(View toShow) {
             var prev = CurrView;
-            if (prev == toShow)
-                return;
-            CurrView = toShow;
-            SafeExec(() => {
-                _views[prev].BeforeHide();
-                _views[toShow].BeforeShow();
-                _views[toShow].Visible = true;
-                _views[prev].Visible = false;
-                _views[prev].AfterHide();
-                _views[toShow].AfterShow();
-            });
+            if (prev != toShow) {
+                CurrView = toShow;
+                SafeExec(() => {
+                    if(prev != View.None)
+                        _views[prev].BeforeHide();
+                    _views[toShow].BeforeShow();
+                    _views[toShow].Visible = true;
+                    if (prev != View.None) {
+                        _views[prev].Visible = false;
+                        _views[prev].AfterHide();
+                    }
+                    _views[toShow].AfterShow();
+                });
+            }
             var w = _views[toShow].GetParentWindow();
             ShowWindow(w);
         }
@@ -159,25 +167,29 @@ namespace ClientPoint.UI {
             Thread.Sleep(500);
         }
 
-        public static FrmDocumentInput DocumentInput;
-        public static FrmPasswordInput PasswordInput;
+        public static DocInputView DocInput => 
+            (DocInputView)_views[View.DocumentInput];
+        public static PassInputView PassInput => 
+            (PassInputView)_views[View.PasswordInput];
         public static FrmStatus StatusWindow;
     }
 
     public enum Window {
-        Ads = 0,
-        Main = 1
+        None = 0,
+        Ads = 1,
+        Main = 2
     }
 
     public enum View {
-        DocumentInput = 0,
-        PasswordInput = 1,
-        MainMenu = 2,
-        ClientLogin = 3,
-        ClientCreate = 3,
-        ClientUpdate = 4,
-        Confirm = 5,
-        Status = 6
+        None = 0,
+        DocumentInput = 1,
+        PasswordInput = 2,
+        MainMenu = 3,
+        ClientLogin = 4,
+        ClientCreate = 5,
+        ClientUpdate = 6,
+        Confirm = 7,
+        Status = 8
     }
 
     public enum Keyboard {

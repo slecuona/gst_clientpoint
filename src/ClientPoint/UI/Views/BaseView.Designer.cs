@@ -1,8 +1,8 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 
-namespace ClientPoint.UI.Panels {
-    partial class PanelBase {
+namespace ClientPoint.UI.Views {
+    partial class BaseView {
         /// <summary> 
         /// Required designer variable.
         /// </summary>
@@ -38,6 +38,7 @@ namespace ClientPoint.UI.Panels {
             this.panelContainer.TabIndex = 0;
             this.panelContainer.BackColor = Color.Transparent;
             this.panelContainer.Dock = DockStyle.Fill;
+            ((Telerik.WinControls.Primitives.BorderPrimitive)(this.panelContainer.GetChildAt(0).GetChildAt(1))).Width = 0F;
             // 
             // PanelBase
             // 
@@ -45,7 +46,7 @@ namespace ClientPoint.UI.Panels {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelContainer);
             this.Size = new Size(1366, 768);
-            this.Name = "PanelBase";
+            this.Name = "BaseView";
             this.BackColor = Color.Transparent;
             this.Dock = DockStyle.Fill;
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).EndInit();

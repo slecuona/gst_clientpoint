@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using ClientPoint.Api;
 using ClientPoint.Session;
-using ClientPoint.UI.Panels;
 
 namespace ClientPoint.UI.Views {
-    public partial class DocumentInput : BaseDialogView {
-        public DocumentInput() {
+    public partial class DocInputView : BaseViewDialogView {
+        public DocInputView() {
             InitializeComponent();
             //fldDocument.CustomMaskType = CustomMaskType.Document;
             ConfigureCurrentControlHandle();
@@ -40,12 +39,12 @@ namespace ClientPoint.UI.Views {
         
         protected override void OnBack(object sender, EventArgs e) {
             //UIManager.ShowWindow(Window.MainMenu);
-            UIManager.ShowWindow(Window.Main);
+            UIManager.ShowView(View.MainMenu);
         }
 
         protected override void AfterError() {
             //UIManager.ShowWindow(Window.MainMenu);
-            UIManager.ShowWindow(Window.Main);
+            UIManager.ShowView(View.MainMenu);
         }
 
         public override void BeforeShow() {

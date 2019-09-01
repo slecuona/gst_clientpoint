@@ -1,11 +1,10 @@
 ﻿using System;
-using ClientPoint.UI.Panels;
 
-namespace ClientPoint.UI.Panels
+namespace ClientPoint.UI.Views
 {
-    public partial class PanelMainMenu : PanelBase
+    public partial class MainMenuView : BaseView
     {
-        public PanelMainMenu()
+        public MainMenuView()
         {
             InitializeComponent();
 

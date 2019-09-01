@@ -2,7 +2,7 @@
 
 namespace ClientPoint.UI.Views
 {
-    partial class DocumentInput {
+    partial class DocInputView {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -52,7 +52,7 @@ namespace ClientPoint.UI.Views
             // PanelDocumentInput
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.Name = "DocumentInput";
+            this.Name = "DocInputView";
             ((System.ComponentModel.ISupportInitialize)(this.footerPanel)).EndInit();
             this.containerPanel.PanelContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.containerPanel)).EndInit();

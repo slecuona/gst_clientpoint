@@ -241,41 +241,11 @@
     <Compile Include="UI\FooterPanel.Designer.cs">
       <DependentUpon>FooterPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\FrmClientUpdate.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\FrmClientUpdate.Designer.cs">
-      <DependentUpon>FrmClientUpdate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\FrmBaseDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\FrmBaseDialog.Designer.cs">
-      <DependentUpon>FrmBaseDialog.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\FrmUserMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\FrmUserMenu.Designer.cs">
       <DependentUpon>FrmUserMenu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\FrmPasswordInput.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\FrmPasswordInput.Designer.cs">
-      <DependentUpon>FrmPasswordInput.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\FrmDocumentInput.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\FrmDocumentInput.Designer.cs">
-      <DependentUpon>FrmDocumentInput.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\FrmConfirm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\FrmConfirm.Designer.cs">
-      <DependentUpon>FrmConfirm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\SexField.cs">
       <SubType>UserControl</SubType>
@@ -311,18 +281,6 @@
     </Compile>
     <Compile Include="Status.cs" />
     <Compile Include="SwipeReader.cs" />
-    <Compile Include="UI\FrmClientCreate.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\FrmClientCreate.Designer.cs">
-      <DependentUpon>FrmClientCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\FrmMainMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\FrmMainMenu.Designer.cs">
-      <DependentUpon>FrmMainMenu.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\UIManager.cs" />
     <Compile Include="Utils\Extensions.cs" />
     <Compile Include="Utils\ExUtils.cs" />
@@ -390,25 +348,8 @@
     <EmbeddedResource Include="UI\FooterPanel.resx">
       <DependentUpon>FooterPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\FrmClientUpdate.resx">
-      <DependentUpon>FrmClientUpdate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\FrmBaseDialog.resx">
-      <DependentUpon>FrmBaseDialog.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="UI\FrmUserMenu.resx">
       <DependentUpon>FrmUserMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\FrmPasswordInput.resx">
-      <DependentUpon>FrmPasswordInput.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\FrmDocumentInput.resx">
-      <DependentUpon>FrmDocumentInput.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\FrmConfirm.resx">
-      <DependentUpon>FrmConfirm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\SexField.resx">
       <DependentUpon>SexField.cs</DependentUpon>
@@ -434,12 +375,6 @@
     </Compile>
     <EmbeddedResource Include="UI\FrmBase.resx">
       <DependentUpon>FrmBase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\FrmClientCreate.resx">
-      <DependentUpon>FrmClientCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\FrmMainMenu.resx">
-      <DependentUpon>FrmMainMenu.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

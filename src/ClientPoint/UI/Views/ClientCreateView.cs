@@ -6,7 +6,7 @@ using ClientPoint.Session;
 using ClientPoint.Utils;
 
 namespace ClientPoint.UI.Views {
-    public partial class ClientCreateView : BaseDialogView {
+    public partial class ClientCreateView : BaseViewDialogView {
         public ClientCreateView() {
             InitializeComponent();
             ConfigureCurrentControlHandle();
@@ -87,7 +87,7 @@ namespace ClientPoint.UI.Views {
             ClientSession.CurrClient.Name = NameValue;
             ClientSession.CurrClient.LastName = LastNameValue;
             //UIManager.ShowWindow(Window.Confirm);
-            UIManager.ShowWindow(Window.Main);
+            UIManager.ShowView(View.Confirm);
             return true;
         }
 

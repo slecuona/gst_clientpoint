@@ -1,8 +1,8 @@
 ﻿using System.Windows.Forms;
 
-namespace ClientPoint.UI.Panels {
-    public partial class PanelBase : UserControl {
-        public PanelBase() {
+namespace ClientPoint.UI.Views {
+    public partial class BaseView : UserControl {
+        public BaseView() {
             InitializeComponent();
         }
 

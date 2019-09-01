@@ -4,7 +4,7 @@ using ClientPoint.Api;
 using ClientPoint.Session;
 
 namespace ClientPoint.UI.Views {
-    public partial class ConfirmView : BaseDialogView {
+    public partial class ConfirmView : BaseViewDialogView {
         public ConfirmView() {
             InitializeComponent();
             ConfigureCurrentControlHandle();
@@ -44,7 +44,7 @@ namespace ClientPoint.UI.Views {
 
         protected override void OnBack(object sender, EventArgs e) {
             //UIManager.ShowWindow(Window.MainMenu);
-            UIManager.ShowWindow(Window.Main);
+            UIManager.ShowView(View.MainMenu);
         }
 
         public override void BeforeShow() {

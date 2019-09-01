@@ -14,10 +14,10 @@ namespace ClientPoint {
     public static class Op {
 
         public static void ClientCreate() {
-            DocumentInput.OnConfirm = res => {
+            DocInput.OnConfirm = res => {
                 if (res.NotExists) {
                     //ShowWindow(Window.ClientCreate);
-                    ShowWindow(Window.Main);
+                    ShowView(View.ClientCreate);
                     return null;
                 }
                 else {
@@ -26,7 +26,7 @@ namespace ClientPoint {
                 }
             };
             //ShowWindow(Window.DocumentInput);
-            ShowWindow(Window.Main);
+            ShowView(View.DocumentInput);
         }
 
         // Accion a realizar luego de ingresar el documento, cuando el usuario
@@ -41,29 +41,29 @@ namespace ClientPoint {
                     cl.Status != ClientStatus.SinTarjeta)
                     return "El usuario ya fue confirmado.";
                 //ShowWindow(Window.PasswordInput);
-                ShowWindow(Window.Main);
+                ShowView(View.PasswordInput);
                 return null;
             }
         }
 
         public static void ClientConfirm() {
-            DocumentInput.OnConfirm = OnConfirmDocInputExistingUsr;
+            DocInput.OnConfirm = OnConfirmDocInputExistingUsr;
 
             //PasswordInput.OnConfirm = () => { ShowWindow(Window.Confirm); };
-            PasswordInput.OnConfirm = () => { ShowWindow(Window.Main); };
+            PassInput.OnConfirm = () => { ShowView(View.Confirm); };
 
             //ShowWindow(Window.DocumentInput);
-            ShowWindow(Window.Main);
+            ShowView(View.DocumentInput);
         }
 
         public static void ClientUpdate() {
-            DocumentInput.OnConfirm = OnConfirmDocInputExistingUsr;
+            DocInput.OnConfirm = OnConfirmDocInputExistingUsr;
 
             //PasswordInput.OnConfirm = () => { ShowWindow(Window.ClientUpdate); };
-            PasswordInput.OnConfirm = () => { ShowWindow(Window.Main); };
+            PassInput.OnConfirm = () => {  ShowView(View.ClientUpdate); };
 
             //ShowWindow(Window.DocumentInput);
-            ShowWindow(Window.Main);
+            ShowView(View.DocumentInput);
         }
 
         public static void PrintCard() {
@@ -114,8 +114,6 @@ namespace ClientPoint {
                 Logger.Exception(ex);
                 MsgBox.Error("Error al imprimir tarjeta.");
             }
-
-            
         }
 
     }
