@@ -87,7 +87,8 @@ namespace ClientPoint.UI {
             // Cargo los datos necesarios para el resto de la sesión
             ClientSession.CurrClient.Name = NameValue;
             ClientSession.CurrClient.LastName = LastNameValue;
-            UIManager.Show(Window.Confirm);
+            //UIManager.ShowWindow(Window.Confirm);
+            UIManager.ShowWindow(Window.Main);
             return true;
         }
 
@@ -97,7 +98,7 @@ namespace ClientPoint.UI {
 
         protected override void OnBack(object sender, EventArgs e) {
             if (_stepNr == 1) {
-                UIManager.Show(Window.Ads);
+                UIManager.ShowWindow(Window.Ads);
                 return;
             }
             if (_stepNr == 2) {

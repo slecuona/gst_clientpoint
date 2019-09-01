@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using ClientPoint.Api;
 using ClientPoint.Session;
+using ClientPoint.UI.Panels;
 
-namespace ClientPoint.UI {
-    public partial class FrmDocumentInput : FrmBaseDialog {
-        public FrmDocumentInput() {
+namespace ClientPoint.UI.Panels {
+    public partial class PanelDocumentInput : PanelBaseDialog {
+        public PanelDocumentInput() {
             InitializeComponent();
             //fldDocument.CustomMaskType = CustomMaskType.Document;
             ConfigureCurrentControlHandle();

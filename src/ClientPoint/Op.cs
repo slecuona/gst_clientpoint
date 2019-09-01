@@ -16,7 +16,8 @@ namespace ClientPoint {
         public static void ClientCreate() {
             DocumentInput.OnConfirm = res => {
                 if (res.NotExists) {
-                    Show(Window.ClientCreate);
+                    //ShowWindow(Window.ClientCreate);
+                    ShowWindow(Window.Main);
                     return null;
                 }
                 else {
@@ -24,7 +25,8 @@ namespace ClientPoint {
                     return "Ya existe un usuario con el numero de documento ingresado.";
                 }
             };
-            Show(Window.DocumentInput);
+            //ShowWindow(Window.DocumentInput);
+            ShowWindow(Window.Main);
         }
 
         // Accion a realizar luego de ingresar el documento, cuando el usuario
@@ -38,7 +40,8 @@ namespace ClientPoint {
                 if (cl.Status != ClientStatus.Pendiente &&
                     cl.Status != ClientStatus.SinTarjeta)
                     return "El usuario ya fue confirmado.";
-                Show(Window.PasswordInput);
+                //ShowWindow(Window.PasswordInput);
+                ShowWindow(Window.Main);
                 return null;
             }
         }
@@ -46,23 +49,28 @@ namespace ClientPoint {
         public static void ClientConfirm() {
             DocumentInput.OnConfirm = OnConfirmDocInputExistingUsr;
 
-            PasswordInput.OnConfirm = () => { Show(Window.Confirm); };
+            //PasswordInput.OnConfirm = () => { ShowWindow(Window.Confirm); };
+            PasswordInput.OnConfirm = () => { ShowWindow(Window.Main); };
 
-            Show(Window.DocumentInput);
+            //ShowWindow(Window.DocumentInput);
+            ShowWindow(Window.Main);
         }
 
         public static void ClientUpdate() {
             DocumentInput.OnConfirm = OnConfirmDocInputExistingUsr;
 
-            PasswordInput.OnConfirm = () => { Show(Window.ClientUpdate); };
+            //PasswordInput.OnConfirm = () => { ShowWindow(Window.ClientUpdate); };
+            PasswordInput.OnConfirm = () => { ShowWindow(Window.Main); };
 
-            Show(Window.DocumentInput);
+            //ShowWindow(Window.DocumentInput);
+            ShowWindow(Window.Main);
         }
 
         public static void PrintCard() {
             SafeExec(() => {
                 StatusWindow.SetState(States.PrintingCard);
-                Show(Window.Status);
+                //ShowWindow(Window.Status);
+                ShowWindow(Window.Main);
             });
             var t = new Thread(PrintCardAsync);
             t.Start();
@@ -88,7 +96,7 @@ namespace ClientPoint {
             catch (Exception ex) {
                 Logger.Exception(ex);
                 MsgBox.Error("Error al imprimir tarjeta.", StatusWindow);
-                UIManager.Show(Window.Ads);
+                UIManager.ShowWindow(Window.Ads);
             }
         }
 

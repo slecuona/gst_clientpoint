@@ -35,8 +35,9 @@ namespace ClientPoint.UI {
         //}
         
         protected override void OnBack(object sender, EventArgs e) {
-            UIManager.Show(
-                ClientSession.AccessByCard ? Window.Ads : Window.DocumentInput);
+            UIManager.ShowWindow(
+                //ClientSession.AccessByCard ? Window.Ads : Window.DocumentInput);
+                ClientSession.AccessByCard ? Window.Ads : Window.Main);
         }
 
         public override void BeforeShow() {

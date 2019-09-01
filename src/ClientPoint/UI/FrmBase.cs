@@ -3,6 +3,8 @@ using System.Windows.Forms;
 
 namespace ClientPoint.UI {
     public partial class FrmBase : Telerik.WinControls.UI.RadForm {
+        public Window Window;
+
         protected FrmBase() {
             InitializeComponent();
 

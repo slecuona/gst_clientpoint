@@ -12,7 +12,7 @@ namespace ClientPoint.UI
         }
 
         private void ImgBoxOnClick(object sender, EventArgs e) {
-            UIManager.Show(Window.Ads);
+            UIManager.ShowWindow(Window.Ads);
         }
 
         public void SetState(States st) {

@@ -37,7 +37,8 @@ namespace ClientPoint.UI {
                 "Datos actualizados correctamente. " +
                 "Se ha enviado el código de confirmación.",
                 this);
-            UIManager.Show(Window.Confirm);
+            //UIManager.ShowWindow(Window.Confirm);
+            UIManager.ShowWindow(Window.Main);
             return true;
         }
 
@@ -46,7 +47,8 @@ namespace ClientPoint.UI {
         //}
 
         protected override void OnBack(object sender, EventArgs e) {
-            UIManager.Show(Window.MainMenu);
+            //UIManager.ShowWindow(Window.MainMenu);
+            UIManager.ShowWindow(Window.Main);
         }
 
         public override void BeforeShow() {

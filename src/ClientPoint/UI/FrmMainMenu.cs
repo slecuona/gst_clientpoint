@@ -16,7 +16,7 @@ namespace ClientPoint.UI
         }
 
         private void btnBack_Click_1(object sender, EventArgs e) {
-            UIManager.Show(Window.Ads);
+            UIManager.ShowWindow(Window.Ads);
         }
 
         private void btnUpdate_Click(object sender, EventArgs e) {

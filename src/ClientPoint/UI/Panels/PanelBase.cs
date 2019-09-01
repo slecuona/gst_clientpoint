@@ -6,6 +6,11 @@ namespace ClientPoint.UI.Panels {
             InitializeComponent();
         }
 
+        public Window GetParentWindow() {
+            var f = this.ParentForm as FrmBase;
+            return f?.Window ?? Window.Main;
+        }
+
         public virtual void AfterHide() { }
         public virtual void AfterShow() { }
 

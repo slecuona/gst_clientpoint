@@ -47,7 +47,7 @@ namespace ClientPoint.UI.Panels
             ((System.ComponentModel.ISupportInitialize)(this.imgHost)).BeginInit();
             this.SuspendLayout();
             // 
-            // radPanel
+            // panelContainer
             // 
             this.panelContainer.Controls.Add(this.lblWelcome);
             this.panelContainer.Controls.Add(this.imgHost);
@@ -55,7 +55,7 @@ namespace ClientPoint.UI.Panels
             this.panelContainer.Controls.Add(this.btnConfirm);
             this.panelContainer.Controls.Add(this.btnNewlient);
             this.panelContainer.Controls.Add(this.btnUpdate);
-            this.panelContainer.Size = new System.Drawing.Size(1366, 768);
+            this.panelContainer.Size = new System.Drawing.Size(1302, 567);
             // 
             // btnUpdate
             // 
@@ -123,7 +123,7 @@ namespace ClientPoint.UI.Panels
             this.lblWelcome.Location = new System.Drawing.Point(0, 0);
             this.lblWelcome.Name = "lblWelcome";
             this.lblWelcome.Padding = new System.Windows.Forms.Padding(0, 80, 0, 0);
-            this.lblWelcome.Size = new System.Drawing.Size(1366, 143);
+            this.lblWelcome.Size = new System.Drawing.Size(1302, 143);
             this.lblWelcome.TabIndex = 4;
             this.lblWelcome.Text = "BIENVENIDO";
             this.lblWelcome.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
@@ -132,7 +132,7 @@ namespace ClientPoint.UI.Panels
             // 
             this.imgHost.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.imgHost.Image = global::ClientPoint.Properties.Resources.logo_big;
-            this.imgHost.Location = new System.Drawing.Point(-13, 159);
+            this.imgHost.Location = new System.Drawing.Point(1289, 725);
             this.imgHost.Name = "imgHost";
             this.imgHost.Size = new System.Drawing.Size(1366, 251);
             this.imgHost.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -143,6 +143,7 @@ namespace ClientPoint.UI.Panels
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.Name = "PanelMainMenu";
+            this.Size = new System.Drawing.Size(1302, 567);
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).EndInit();
             this.panelContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnUpdate)).EndInit();

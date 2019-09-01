@@ -19,7 +19,7 @@ namespace ClientPoint.UI
 
         private void btnBack_Click_1(object sender, EventArgs e) {
             ClientSession.Clear();
-            UIManager.Show(Window.Ads);
+            UIManager.ShowWindow(Window.Ads);
         }
 
         public override void BeforeShow() {

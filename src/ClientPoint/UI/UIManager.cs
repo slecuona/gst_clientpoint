@@ -4,17 +4,20 @@ using System.Threading;
 using System.Windows.Forms;
 using ClientPoint.Keyboard;
 using ClientPoint.Keyboard.NoActivate;
+using ClientPoint.UI.Panels;
 using ClientPoint.Utils;
 
 namespace ClientPoint.UI {
     public static class UIManager {
         private static Dictionary<Window, FrmBase> _windows;
         private static Dictionary<Keyboard, Form> _keyboards;
+        private static Dictionary<MainView, PanelBase> _views;
 
         private static SynchronizationContext _syncCtx;
 
         public static Window CurrWindow = Window.Ads;
         public static Keyboard CurrKeyboard = Keyboard.None;
+        public static MainView CurrView = MainView.MainMenu;
 
         public static FrmBase Get(Window w) => _windows[w];
         
@@ -32,16 +35,10 @@ namespace ClientPoint.UI {
         public static void Init() {
             SplashStatus("Iniciando UI...");
             _syncCtx = new WindowsFormsSynchronizationContext();
+            _views = new Dictionary<MainView, PanelBase>();
             _windows = new Dictionary<Window, FrmBase>() {
                 { Window.Ads, new FrmAds()},
-                { Window.DocumentInput, new FrmDocumentInput()},
-                { Window.PasswordInput, new FrmPasswordInput()},
-                { Window.MainMenu, new FrmMainMenu()},
-                { Window.ClientCreate, new FrmClientCreate()},
-                { Window.ClientUpdate, new FrmClientUpdate()},
-                { Window.Confirm, new FrmConfirm()},
-                { Window.UserMenu, new FrmUserMenu()},
-                { Window.Status, new FrmStatus()},
+                { Window.Main, new FrmMainContainer()},
             };
             _keyboards = new Dictionary<Keyboard, Form>() {
                 { Keyboard.None, null},
@@ -64,6 +61,10 @@ namespace ClientPoint.UI {
             }
         }
 
+        public static void AddView(MainView v, PanelBase p) {
+            _views.Add(v, p);
+        }
+
         public static void SafeExec(Action action) {
             if (_syncCtx != null)
                 _syncCtx.Send(ui => { action.Invoke(); }, null);
@@ -71,7 +72,7 @@ namespace ClientPoint.UI {
                 action.Invoke();
         }
 
-        public static void Show(Window toShow) {
+        public static void ShowWindow(Window toShow) {
             var prev = CurrWindow;
             CurrWindow = toShow;
             SafeExec(() => {
@@ -81,14 +82,24 @@ namespace ClientPoint.UI {
                 _windows[prev].Hide();
                 _windows[prev].AfterHide();
                 _windows[toShow].AfterShow();
-                //foreach (var w in _windows) {
-                //    if (w.Key == toShow)
-                //        continue;
-                //    w.Value.Hide();
-                //    w.Value.AfterHide();
-                //}
-                //_windows[toShow].AfterShow();
             });
+        }
+
+        public static void ShowView(MainView toShow) {
+            var prev = CurrView;
+            if (prev == toShow)
+                return;
+            CurrView = toShow;
+            SafeExec(() => {
+                _views[prev].BeforeHide();
+                _views[toShow].BeforeShow();
+                _views[toShow].Visible = true;
+                _views[prev].Visible = false;
+                _views[prev].AfterHide();
+                _views[toShow].AfterShow();
+            });
+            var w = _views[toShow].GetParentWindow();
+            ShowWindow(w);
         }
 
         public static void SetKeyboard(Keyboard k) {
@@ -125,16 +136,7 @@ namespace ClientPoint.UI {
                 UnsafeNativeMethods.SetForegroundWindow(wdw);
             }
         }
-
-        public static FrmDocumentInput DocumentInput => 
-            (FrmDocumentInput)_windows[Window.DocumentInput];
-
-        public static FrmPasswordInput PasswordInput =>
-            (FrmPasswordInput)_windows[Window.PasswordInput];
-
-        public static FrmStatus StatusWindow =>
-            (FrmStatus)_windows[Window.Status];
-
+        
         public static void StartSplash() {
             var t = new Thread(() => {
                 Splash = new FrmSplash();
@@ -156,21 +158,18 @@ namespace ClientPoint.UI {
             // Esto es solo para buscar un efecto mas progresivo
             Thread.Sleep(500);
         }
+
+        public static FrmDocumentInput DocumentInput;
+        public static FrmPasswordInput PasswordInput;
+        public static FrmStatus StatusWindow;
     }
 
     public enum Window {
         Ads = 0,
-        DocumentInput = 1,
-        PasswordInput = 2,
-        MainMenu = 3,
-        ClientCreate = 4,
-        ClientUpdate = 5,
-        Confirm = 6,
-        UserMenu = 7,
-        Status = 8
+        Main = 1
     }
 
-    public enum Main {
+    public enum MainView {
         DocumentInput = 0,
         PasswordInput = 1,
         MainMenu = 2,

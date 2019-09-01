@@ -127,6 +127,18 @@
     <Compile Include="UI\FrmMainContainer.Designer.cs">
       <DependentUpon>FrmMainContainer.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Panels\PanelDocumentInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Panels\PanelDocumentInput.Designer.cs">
+      <DependentUpon>PanelDocumentInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Panels\PanelBaseDialog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Panels\PanelBaseDialog.Designer.cs">
+      <DependentUpon>PanelBaseDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Panels\PanelMainMenu.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -321,6 +333,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\HeaderPanel.resx">
       <DependentUpon>HeaderPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Panels\PanelDocumentInput.resx">
+      <DependentUpon>PanelDocumentInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Panels\PanelBaseDialog.resx">
+      <DependentUpon>PanelBaseDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Panels\PanelMainMenu.resx">
       <DependentUpon>PanelMainMenu.cs</DependentUpon>
