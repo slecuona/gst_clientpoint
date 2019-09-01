@@ -56,9 +56,6 @@ namespace ClientPoint.UI {
             this.radTextBox1.Size = new System.Drawing.Size(400, 51);
             this.radTextBox1.TabIndex = 1;
             this.radTextBox1.CharacterCasing = CharacterCasing.Upper;
-            ((Telerik.WinControls.UI.RadTextBoxElement)(this.radTextBox1.GetChildAt(0))).Padding = new System.Windows.Forms.Padding(10);
-            ((Telerik.WinControls.UI.RadTextBoxItem)(this.radTextBox1.GetChildAt(0).GetChildAt(0))).Font = new System.Drawing.Font("Helvetica-Normal", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            ((Telerik.WinControls.UI.RadTextBoxItem)(this.radTextBox1.GetChildAt(0).GetChildAt(0))).Padding = new System.Windows.Forms.Padding(5);
             // 
             // radButton1
             // 

@@ -14,7 +14,7 @@ namespace ClientPoint.UI {
             InitializeComponent();
             radTextBox1.GotFocus += RadTextBox1OnGotFocus;
             //radTextBox1.LostFocus += RadTextBox1OnLostFocus;
-            radTextBox1.TextChanged += RadTextBox1OnTextChanged;
+            //radTextBox1.TextChanged += RadTextBox1OnTextChanged;
             btnClear.Click += BtnClearOnClick;
             btnViewPass.Click += BtnViewPassOnClick;
         }

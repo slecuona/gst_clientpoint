@@ -91,6 +91,9 @@ namespace ClientPoint.UI {
         }
 
         public static void ShowView(View toShow) {
+            var w = _views[toShow].GetParentWindow();
+            ShowWindow(w);
+
             var prev = CurrView;
             if (prev != toShow) {
                 CurrView = toShow;
@@ -106,8 +109,7 @@ namespace ClientPoint.UI {
                     _views[toShow].AfterShow();
                 });
             }
-            var w = _views[toShow].GetParentWindow();
-            ShowWindow(w);
+            
         }
 
         public static void SetKeyboard(Keyboard k) {

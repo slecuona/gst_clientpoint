@@ -63,8 +63,8 @@
             // containerPanel.PanelContainer
             // 
             this.containerPanel.PanelContainer.Location = new System.Drawing.Point(0, 0);
-            this.containerPanel.PanelContainer.Size = new System.Drawing.Size(1366, 600);
-            this.containerPanel.Size = new System.Drawing.Size(1366, 600);
+            this.containerPanel.PanelContainer.Size = new System.Drawing.Size(1366, 568);
+            this.containerPanel.Size = new System.Drawing.Size(1366, 568);
             this.containerPanel.TabIndex = 4;
             ((Telerik.WinControls.UI.RadScrollablePanelElement)(this.containerPanel.GetChildAt(0))).Padding = new System.Windows.Forms.Padding(0);
             ((Telerik.WinControls.Primitives.BorderPrimitive)(this.containerPanel.GetChildAt(0).GetChildAt(1))).Width = 0F;
