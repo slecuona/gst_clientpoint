@@ -43,7 +43,7 @@ namespace ClientPoint.UI.Views
             // 
             this.fldDocument.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.fldDocument.Label = "Nr. Documento";
-            this.fldDocument.Location = new System.Drawing.Point(450, 110);
+            this.fldDocument.Location = new System.Drawing.Point(480, 110);
             this.fldDocument.Name = "fldDocument";
             this.fldDocument.Password = false;
             this.fldDocument.Size = new System.Drawing.Size(460, 53);

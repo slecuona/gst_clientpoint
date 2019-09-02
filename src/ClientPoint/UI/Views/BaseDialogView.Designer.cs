@@ -41,7 +41,7 @@
             this.panelContainer.Controls.Add(this.headerPanel);
             this.panelContainer.Controls.Add(this.containerPanel);
             this.panelContainer.Controls.Add(this.footerPanel);
-            this.panelContainer.Size = new System.Drawing.Size(1302, 567);
+            this.panelContainer.Size = new System.Drawing.Size(1366, 567);
             // 
             // footerPanel
             // 
@@ -50,7 +50,7 @@
             this.footerPanel.Location = new System.Drawing.Point(0, 447);
             this.footerPanel.Name = "footerPanel";
             this.footerPanel.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.footerPanel.Size = new System.Drawing.Size(1302, 120);
+            this.footerPanel.Size = new System.Drawing.Size(1366, 120);
             this.footerPanel.TabIndex = 5;
             // 
             // containerPanel
@@ -76,7 +76,7 @@
             this.headerPanel.Location = new System.Drawing.Point(0, 0);
             this.headerPanel.Name = "headerPanel";
             this.headerPanel.Padding = new System.Windows.Forms.Padding(20, 40, 20, 0);
-            this.headerPanel.Size = new System.Drawing.Size(1302, 80);
+            this.headerPanel.Size = new System.Drawing.Size(1366, 80);
             this.headerPanel.TabIndex = 0;
             this.headerPanel.Title = "";
             // 
@@ -85,7 +85,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.BackColor = System.Drawing.Color.Transparent;
             this.Name = "BaseViewDialogView";
-            this.Size = new System.Drawing.Size(1302, 567);
+            this.Size = new System.Drawing.Size(1366, 567);
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).EndInit();
             this.panelContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.footerPanel)).EndInit();
