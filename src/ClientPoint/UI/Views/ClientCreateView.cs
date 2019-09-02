@@ -10,6 +10,7 @@ namespace ClientPoint.UI.Views {
         public ClientCreateView() {
             InitializeComponent();
             ConfigureCurrentControlHandle();
+            headerPanel.Title = "NUEVO CLIENTE";
         }
 
         private string NameValue => fldName.Value;
