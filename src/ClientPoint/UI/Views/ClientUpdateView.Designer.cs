@@ -36,7 +36,7 @@ namespace ClientPoint.UI.Views
             // fldEmail
             // 
             this.fldEmail.Label = "Correo Electrónico";
-            this.fldEmail.Location = new System.Drawing.Point(350, 120);
+            this.fldEmail.Location = new System.Drawing.Point(350, 90);
             this.fldEmail.Name = "fldEmail";
             this.fldEmail.Size = new System.Drawing.Size(650, 53);
             this.fldEmail.TabIndex = 3;
@@ -45,7 +45,7 @@ namespace ClientPoint.UI.Views
             // fldCellphone
             // 
             this.fldCellphone.Label = "Nr. Celular";
-            this.fldCellphone.Location = new System.Drawing.Point(350, 207);
+            this.fldCellphone.Location = new System.Drawing.Point(350, 175);
             this.fldCellphone.Name = "fldCellphone";
             this.fldCellphone.Password = false;
             this.fldCellphone.Size = new System.Drawing.Size(615, 53);

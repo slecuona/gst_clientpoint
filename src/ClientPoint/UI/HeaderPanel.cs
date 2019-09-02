@@ -10,7 +10,7 @@ namespace ClientPoint.UI {
         }
 
         public string Title {
-            set => lblTitle.Text = value;
+            set => lblTitle.Text = value.ToUpper();
             get => lblTitle.Text;
         }
 

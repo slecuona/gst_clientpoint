@@ -38,7 +38,7 @@ namespace ClientPoint.UI.Views
             // fldPassword
             // 
             this.fldPassword.Label = "Contraseña";
-            this.fldPassword.Location = new System.Drawing.Point(350, 120);
+            this.fldPassword.Location = new System.Drawing.Point(350, 100);
             this.fldPassword.Name = "fldPassword";
             this.fldPassword.Password = false;
             this.fldPassword.Size = new System.Drawing.Size(615, 53);

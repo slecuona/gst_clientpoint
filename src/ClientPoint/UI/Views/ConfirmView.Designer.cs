@@ -28,14 +28,13 @@ namespace ClientPoint.UI.Views
         private void InitializeComponent()
         {
             this.fldCode = new CustomField();
-            ((System.ComponentModel.ISupportInitialize)(this.footerPanel)).BeginInit();
             this.SuspendLayout();
             this.panelContainer.Controls.Add(fldCode);
             // 
             // fldCode
             // 
             this.fldCode.Label = "Código";
-            this.fldCode.Location = new System.Drawing.Point(350, 120);
+            this.fldCode.Location = new System.Drawing.Point(350, 110);
             this.fldCode.Name = "fldCode";
             this.fldCode.Size = new System.Drawing.Size(615, 53);
             this.fldCode.TabIndex = 2;
