@@ -1,4 +1,6 @@
-﻿namespace ClientPoint.UI.Views
+﻿using ClientPoint.UI.Controls;
+
+namespace ClientPoint.UI.Views
 {
     partial class ClientUpdateView {
         /// <summary>
@@ -25,8 +27,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.fldEmail = new ClientPoint.UI.CustomField();
-            this.fldCellphone = new ClientPoint.UI.CustomField();
+            this.fldEmail = new CustomField();
+            this.fldCellphone = new CustomField();
             this.SuspendLayout();
             this.containerPanel.Controls.Add(this.fldEmail);
             this.containerPanel.Controls.Add(this.fldCellphone);

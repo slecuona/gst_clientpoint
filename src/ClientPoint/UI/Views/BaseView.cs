@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using ClientPoint.UI.Forms;
 
 namespace ClientPoint.UI.Views {
     public partial class BaseView : UserControl {

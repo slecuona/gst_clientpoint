@@ -1,8 +1,9 @@
-﻿using ClientPoint.UI.Controls;
+﻿using System.Windows.Forms;
 
-namespace ClientPoint.UI.Views
+namespace ClientPoint.UI.Forms
 {
-    partial class ConfirmView {
+    partial class FrmBase
+    {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -21,36 +22,32 @@ namespace ClientPoint.UI.Views
             base.Dispose(disposing);
         }
 
+        #region Windows Form Designer generated code
+
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            this.fldCode = new CustomField();
-            ((System.ComponentModel.ISupportInitialize)(this.footerPanel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
-            this.panelContainer.Controls.Add(fldCode);
             // 
-            // fldCode
+            // RadForm1
             // 
-            this.fldCode.Label = "Código";
-            this.fldCode.Location = new System.Drawing.Point(350, 120);
-            this.fldCode.Name = "fldCode";
-            this.fldCode.Size = new System.Drawing.Size(615, 53);
-            this.fldCode.TabIndex = 2;
-            // 
-            this.Name = "ConfirmView";
-            // 
-            // 
+            this.BackgroundImage = Properties.Resources.bg2;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1484, 660);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.TopMost = true;
+            this.DoubleBuffered = true;
+            this.Opacity = 0;
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
-
         }
 
-        #region Windows Form Designer generated code
-
         #endregion
-        
-        private CustomField fldCode;
     }
 }

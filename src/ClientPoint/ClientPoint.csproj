@@ -121,10 +121,10 @@
     <Compile Include="Op.cs" />
     <Compile Include="Session\Client.cs" />
     <Compile Include="Session\ClientSession.cs" />
-    <Compile Include="UI\FrmMainContainer.cs">
+    <Compile Include="UI\Forms\FrmMainContainer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\FrmMainContainer.Designer.cs">
+    <Compile Include="UI\Forms\FrmMainContainer.Designer.cs">
       <DependentUpon>FrmMainContainer.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Views\DocInputView.cs">
@@ -175,52 +175,52 @@
     <Compile Include="UI\Views\BaseView.Designer.cs">
       <DependentUpon>BaseView.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\CustomButton.cs">
+    <Compile Include="UI\Controls\CustomButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UI\CustomButton.Designer.cs">
+    <Compile Include="UI\Controls\CustomButton.Designer.cs">
       <DependentUpon>CustomButton.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\CustomButtonBlue.cs">
+    <Compile Include="UI\Controls\CustomButtonBlue.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UI\CustomButtonBlue.Designer.cs">
+    <Compile Include="UI\Controls\CustomButtonBlue.Designer.cs">
       <DependentUpon>CustomButtonBlue.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\CustomButtonDefault.cs">
+    <Compile Include="UI\Controls\CustomButtonDefault.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UI\CustomButtonDefault.Designer.cs">
+    <Compile Include="UI\Controls\CustomButtonDefault.Designer.cs">
       <DependentUpon>CustomButtonDefault.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\CustomLabel.cs">
+    <Compile Include="UI\Controls\CustomLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UI\CustomTextBox.cs">
+    <Compile Include="UI\Controls\CustomTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="UI\DateField.cs">
+    <Compile Include="UI\Controls\DateField.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\DateField.Designer.cs">
+    <Compile Include="UI\Controls\DateField.Designer.cs">
       <DependentUpon>DateField.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\FrmMessage.cs">
+    <Compile Include="UI\Forms\FrmMessage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\FrmMessage.Designer.cs">
+    <Compile Include="UI\Forms\FrmMessage.Designer.cs">
       <DependentUpon>FrmMessage.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\FrmSplash.cs">
+    <Compile Include="UI\Forms\FrmSplash.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\FrmSplash.Designer.cs">
+    <Compile Include="UI\Forms\FrmSplash.Designer.cs">
       <DependentUpon>FrmSplash.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\FrmStatus.cs">
+    <Compile Include="UI\Forms\FrmStatus.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\FrmStatus.Designer.cs">
+    <Compile Include="UI\Forms\FrmStatus.Designer.cs">
       <DependentUpon>FrmStatus.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\HeaderPanel.cs">
@@ -241,42 +241,42 @@
     <Compile Include="UI\FooterPanel.Designer.cs">
       <DependentUpon>FooterPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\FrmUserMenu.cs">
+    <Compile Include="UI\Forms\FrmUserMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\FrmUserMenu.Designer.cs">
+    <Compile Include="UI\Forms\FrmUserMenu.Designer.cs">
       <DependentUpon>FrmUserMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\SexField.cs">
+    <Compile Include="UI\Controls\SexField.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\SexField.Designer.cs">
+    <Compile Include="UI\Controls\SexField.Designer.cs">
       <DependentUpon>SexField.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\CustomMaskedFied.cs">
+    <Compile Include="UI\Controls\CustomMaskedFied.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\CustomMaskedFied.Designer.cs">
+    <Compile Include="UI\Controls\CustomMaskedFied.Designer.cs">
       <DependentUpon>CustomMaskedFied.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\CustomField.cs">
+    <Compile Include="UI\Controls\CustomField.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\CustomField.Designer.cs">
+    <Compile Include="UI\Controls\CustomField.Designer.cs">
       <DependentUpon>CustomField.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\FrmAds.cs">
+    <Compile Include="UI\Forms\FrmAds.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\FrmAds.Designer.cs">
+    <Compile Include="UI\Forms\FrmAds.Designer.cs">
       <DependentUpon>FrmAds.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI\FrmBase.cs">
+    <Compile Include="UI\Forms\FrmBase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\FrmBase.Designer.cs">
+    <Compile Include="UI\Forms\FrmBase.Designer.cs">
       <DependentUpon>FrmBase.cs</DependentUpon>
     </Compile>
     <Compile Include="Status.cs" />
@@ -298,19 +298,19 @@
       <DependentUpon>KeyBoardForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
-    <EmbeddedResource Include="UI\DateField.resx">
+    <EmbeddedResource Include="UI\Controls\DateField.resx">
       <DependentUpon>DateField.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\FrmMessage.resx">
+    <EmbeddedResource Include="UI\Forms\FrmMessage.resx">
       <DependentUpon>FrmMessage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\FrmSplash.resx">
+    <EmbeddedResource Include="UI\Forms\FrmSplash.resx">
       <DependentUpon>FrmSplash.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\FrmMainContainer.resx">
+    <EmbeddedResource Include="UI\Forms\FrmMainContainer.resx">
       <DependentUpon>FrmMainContainer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\FrmStatus.resx">
+    <EmbeddedResource Include="UI\Forms\FrmStatus.resx">
       <DependentUpon>FrmStatus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\HeaderPanel.resx">
@@ -348,19 +348,19 @@
     <EmbeddedResource Include="UI\FooterPanel.resx">
       <DependentUpon>FooterPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\FrmUserMenu.resx">
+    <EmbeddedResource Include="UI\Forms\FrmUserMenu.resx">
       <DependentUpon>FrmUserMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\SexField.resx">
+    <EmbeddedResource Include="UI\Controls\SexField.resx">
       <DependentUpon>SexField.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\CustomMaskedFied.resx">
+    <EmbeddedResource Include="UI\Controls\CustomMaskedFied.resx">
       <DependentUpon>CustomMaskedFied.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\CustomField.resx">
+    <EmbeddedResource Include="UI\Controls\CustomField.resx">
       <DependentUpon>CustomField.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\FrmAds.resx">
+    <EmbeddedResource Include="UI\Forms\FrmAds.resx">
       <DependentUpon>FrmAds.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -373,7 +373,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UI\FrmBase.resx">
+    <EmbeddedResource Include="UI\Forms\FrmBase.resx">
       <DependentUpon>FrmBase.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

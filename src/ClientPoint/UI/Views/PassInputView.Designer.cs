@@ -1,4 +1,6 @@
-﻿namespace ClientPoint.UI.Views
+﻿using ClientPoint.UI.Controls;
+
+namespace ClientPoint.UI.Views
 {
     partial class PassInputView {
         /// <summary>
@@ -25,7 +27,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.fldPassword = new ClientPoint.UI.CustomField();
+            this.fldPassword = new CustomField();
             ((System.ComponentModel.ISupportInitialize)(this.footerPanel)).BeginInit();
             this.SuspendLayout();
             // 

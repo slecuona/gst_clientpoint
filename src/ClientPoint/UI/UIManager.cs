@@ -4,6 +4,7 @@ using System.Threading;
 using System.Windows.Forms;
 using ClientPoint.Keyboard;
 using ClientPoint.Keyboard.NoActivate;
+using ClientPoint.UI.Forms;
 using ClientPoint.UI.Views;
 using ClientPoint.Utils;
 

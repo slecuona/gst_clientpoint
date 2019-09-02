@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 using ClientPoint.UI;
+using ClientPoint.UI.Forms;
 using Telerik.WinControls;
 
 namespace ClientPoint.Utils {

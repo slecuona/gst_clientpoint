@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Forms;
+using ClientPoint.UI.Controls;
 using ClientPoint.Utils;
 
 namespace ClientPoint.UI.Views {

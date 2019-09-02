@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using ClientPoint.UI.Controls;
 
 namespace ClientPoint.UI.Views
 {
@@ -27,7 +28,7 @@ namespace ClientPoint.UI.Views
         /// </summary>
         private void InitializeComponent()
         {
-            this.fldDocument = new ClientPoint.UI.CustomField();
+            this.fldDocument = new CustomField();
             ((System.ComponentModel.ISupportInitialize)(this.footerPanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.containerPanel)).BeginInit();
             this.containerPanel.PanelContainer.SuspendLayout();

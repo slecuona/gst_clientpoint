@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
+using ClientPoint.UI.Controls;
 using ClientPoint.Utils;
 
 namespace ClientPoint.UI.Views
@@ -31,11 +32,11 @@ namespace ClientPoint.UI.Views
         /// </summary>
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenuView));
-            this.btnUpdate = new ClientPoint.UI.CustomButtonBlue();
-            this.btnNewlient = new ClientPoint.UI.CustomButton();
-            this.btnConfirm = new ClientPoint.UI.CustomButtonBlue();
-            this.btnClient = new ClientPoint.UI.CustomButton();
-            this.lblWelcome = new ClientPoint.UI.CustomLabel();
+            this.btnUpdate = new CustomButtonBlue();
+            this.btnNewlient = new CustomButton();
+            this.btnConfirm = new CustomButtonBlue();
+            this.btnClient = new CustomButton();
+            this.lblWelcome = new CustomLabel();
             this.imgHost = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).BeginInit();
             this.panelContainer.SuspendLayout();
@@ -83,7 +84,7 @@ namespace ClientPoint.UI.Views
             this.btnNewlient.Size = new System.Drawing.Size(240, 89);
             this.btnNewlient.TabIndex = 6;
             this.btnNewlient.TabStop = false;
-            this.btnNewlient.Type = ClientPoint.UI.Type.NewClient;
+            this.btnNewlient.Type = Type.NewClient;
             this.btnNewlient.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // btnConfirm
@@ -111,7 +112,7 @@ namespace ClientPoint.UI.Views
             this.btnClient.Size = new System.Drawing.Size(240, 89);
             this.btnClient.TabIndex = 7;
             this.btnClient.TabStop = false;
-            this.btnClient.Type = ClientPoint.UI.Type.Client;
+            this.btnClient.Type = Type.Client;
             // 
             // lblWelcome
             // 

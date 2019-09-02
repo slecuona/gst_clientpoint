@@ -1,4 +1,6 @@
-﻿namespace ClientPoint.UI.Views
+﻿using ClientPoint.UI.Controls;
+
+namespace ClientPoint.UI.Views
 {
     partial class ClientCreateView {
         /// <summary>
@@ -25,16 +27,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.fldSex = new ClientPoint.UI.SexField();
-            this.fldName = new ClientPoint.UI.CustomField();
-            this.fldLastname = new ClientPoint.UI.CustomField();
-            this.fldDocument = new ClientPoint.UI.CustomField();
-            this.fldEmail = new ClientPoint.UI.CustomField();
-            this.fldEmail2 = new ClientPoint.UI.CustomField();
-            this.fldCellphone = new ClientPoint.UI.CustomField();
-            this.fldPassword = new ClientPoint.UI.CustomField();
-            this.fldPassword2 = new ClientPoint.UI.CustomField();
-            this.fldBirthDate = new ClientPoint.UI.DateField();
+            this.fldSex = new SexField();
+            this.fldName = new CustomField();
+            this.fldLastname = new CustomField();
+            this.fldDocument = new CustomField();
+            this.fldEmail = new CustomField();
+            this.fldEmail2 = new CustomField();
+            this.fldCellphone = new CustomField();
+            this.fldPassword = new CustomField();
+            this.fldPassword2 = new CustomField();
+            this.fldBirthDate = new DateField();
             ((System.ComponentModel.ISupportInitialize)(this.footerPanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.headerPanel)).BeginInit();
             this.SuspendLayout();

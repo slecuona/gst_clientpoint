@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
+using ClientPoint.UI.Controls;
 using Telerik.WinControls.Enumerations;
 
 namespace ClientPoint.UI {
@@ -27,8 +28,8 @@ namespace ClientPoint.UI {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.btnNext = new ClientPoint.UI.CustomButton();
-            this.btnBack = new ClientPoint.UI.CustomButton();
+            this.btnNext = new CustomButton();
+            this.btnBack = new CustomButton();
             ((System.ComponentModel.ISupportInitialize)(this.btnNext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
