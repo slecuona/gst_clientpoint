@@ -58,7 +58,7 @@ namespace ClientPoint.UI.Views {
             PerformValidation(ref errors);
             
             if (errors.Count > 0) {
-                MsgBox.Error(string.Join("\n", errors));
+                MsgBox.Error(string.Join("\n", errors), this.ParentForm);
                 AfterError();
                 return false;
             }
@@ -103,7 +103,7 @@ namespace ClientPoint.UI.Views {
                     headerPanel.Waiting = false;
                 });
             }
-            MsgBox.Error(errMsg);
+            MsgBox.Error(errMsg, this.ParentForm);
             UIManager.SafeExec(AfterError);
         }
 
