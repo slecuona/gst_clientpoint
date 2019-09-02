@@ -157,6 +157,12 @@
     <Compile Include="UI\Views\ConfirmView.Designer.cs">
       <DependentUpon>ConfirmView.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Views\StatusView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\StatusView.Designer.cs">
+      <DependentUpon>StatusView.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Views\PassInputView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -216,12 +222,6 @@
     </Compile>
     <Compile Include="UI\Forms\FrmSplash.Designer.cs">
       <DependentUpon>FrmSplash.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Forms\FrmStatus.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Forms\FrmStatus.Designer.cs">
-      <DependentUpon>FrmStatus.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\HeaderPanel.cs">
       <SubType>Component</SubType>
@@ -310,9 +310,6 @@
     <EmbeddedResource Include="UI\Forms\FrmMainContainer.resx">
       <DependentUpon>FrmMainContainer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Forms\FrmStatus.resx">
-      <DependentUpon>FrmStatus.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UI\HeaderPanel.resx">
       <DependentUpon>HeaderPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -331,6 +328,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Views\ConfirmView.resx">
       <DependentUpon>ConfirmView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\StatusView.resx">
+      <DependentUpon>StatusView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Views\PassInputView.resx">
       <DependentUpon>PassInputView.cs</DependentUpon>

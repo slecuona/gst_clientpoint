@@ -35,6 +35,7 @@ namespace ClientPoint.UI.Forms
             this.ClientCreate = new ClientCreateView();
             this.ClientUpdate = new ClientUpdateView();
             this.Confirm = new ConfirmView();
+            this.Status = new StatusView();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,6 +54,7 @@ namespace ClientPoint.UI.Forms
             this.Controls.Add(this.ClientCreate);
             this.Controls.Add(this.ClientUpdate);
             this.Controls.Add(this.Confirm);
+            this.Controls.Add(this.Status);
             this.Name = "FrmMainContainer";
             // 
             // 
@@ -72,5 +74,6 @@ namespace ClientPoint.UI.Forms
         public Views.ClientCreateView ClientCreate;
         public Views.ClientUpdateView ClientUpdate;
         public Views.ConfirmView Confirm;
+        public Views.StatusView Status;
     }
 }

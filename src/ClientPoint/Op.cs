@@ -4,7 +4,7 @@ using ClientPoint.Api;
 using ClientPoint.Espf;
 using ClientPoint.Session;
 using ClientPoint.UI;
-using ClientPoint.UI.Forms;
+using ClientPoint.UI.Views;
 using ClientPoint.Utils;
 using static ClientPoint.UI.UIManager;
 using static ClientPoint.Utils.ExUtils;
@@ -69,7 +69,7 @@ namespace ClientPoint {
 
         public static void PrintCard() {
             SafeExec(() => {
-                StatusWindow.SetState(States.PrintingCard);
+                UIManager.StatusMainView.SetState(States.PrintingCard);
                 //ShowWindow(Window.Status);
                 ShowWindow(Window.Main);
             });
@@ -92,11 +92,11 @@ namespace ClientPoint {
                 }, out string err);
                 DieIf(!success, err);
 
-                SafeExec(() => { StatusWindow.SetState(States.RemoveCard); });
+                SafeExec(() => { UIManager.StatusMainView.SetState(States.RemoveCard); });
             }
             catch (Exception ex) {
                 Logger.Exception(ex);
-                MsgBox.Error("Error al imprimir tarjeta.", StatusWindow);
+                MsgBox.Error("Error al imprimir tarjeta.");
                 UIManager.ShowWindow(Window.Ads);
             }
         }

@@ -174,7 +174,8 @@ namespace ClientPoint.UI {
             (DocInputView)_views[View.DocumentInput];
         public static PassInputView PassInput => 
             (PassInputView)_views[View.PasswordInput];
-        public static FrmStatus StatusWindow;
+        public static StatusView StatusMainView =>
+            (StatusView)_views[View.StatusMain];
     }
 
     public enum Window {
@@ -192,7 +193,7 @@ namespace ClientPoint.UI {
         ClientCreate = 5,
         ClientUpdate = 6,
         Confirm = 7,
-        Status = 8
+        StatusMain = 8
     }
 
     public enum Keyboard {

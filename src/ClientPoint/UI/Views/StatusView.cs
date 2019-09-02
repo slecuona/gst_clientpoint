@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace ClientPoint.UI.Forms
+namespace ClientPoint.UI.Views
 {
-    public partial class FrmStatus : FrmBase
+    public partial class StatusView : BaseView
     {
-        public FrmStatus()
+        public StatusView()
         {
             InitializeComponent();
             imgBox.Click += ImgBoxOnClick;

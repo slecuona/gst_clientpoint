@@ -9,6 +9,12 @@ namespace ClientPoint.UI.Views
             InitializeComponent();
 
             btnConfirm.Click += BtnConfirmOnClick;
+            btnClient.Click += BtnClientOnClick;
+        }
+
+        private void BtnClientOnClick(object sender, EventArgs e) {
+            UIManager.StatusMainView.SetState(States.RemoveCard);
+            UIManager.ShowView(View.StatusMain);
         }
 
         private void BtnConfirmOnClick(object sender, EventArgs e) {

@@ -1,8 +1,8 @@
 ﻿using System.Windows.Forms;
 
-namespace ClientPoint.UI.Forms
+namespace ClientPoint.UI.Views
 {
-    partial class FrmStatus {
+    partial class StatusView {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -33,18 +33,17 @@ namespace ClientPoint.UI.Forms
             this.headerPanel1 = new ClientPoint.UI.HeaderPanel();
             ((System.ComponentModel.ISupportInitialize)(this.imgBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.headerPanel1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // imgBox
             // 
-            this.imgBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.imgBox.Dock = DockStyle.Fill;
             this.imgBox.BackColor = System.Drawing.Color.Transparent;
             this.imgBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.imgBox.Image = global::ClientPoint.Properties.Resources.print;
-            this.imgBox.Location = new System.Drawing.Point(468, 125);
+            this.imgBox.Location = new System.Drawing.Point(0, 125);
             this.imgBox.Name = "imgBox";
-            this.imgBox.Size = new System.Drawing.Size(400, 375);
+            this.imgBox.Size = new System.Drawing.Size(1366, 375);
             this.imgBox.TabIndex = 3;
             this.imgBox.TabStop = false;
             imgBox.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -55,26 +54,21 @@ namespace ClientPoint.UI.Forms
             this.headerPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.headerPanel1.Location = new System.Drawing.Point(0, 0);
             this.headerPanel1.Name = "headerPanel1";
-            this.headerPanel1.Size = new System.Drawing.Size(1341, 80);
+            this.headerPanel1.Size = new System.Drawing.Size(1366, 80);
             this.headerPanel1.TabIndex = 4;
             this.headerPanel1.Title = "";
             // 
-            // FrmStatus
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1341, 648);
-            this.Controls.Add(this.headerPanel1);
-            this.Controls.Add(this.imgBox);
-            this.Name = "FrmStatus";
+            // 
+            this.panelContainer.Controls.Add(this.headerPanel1);
+            this.panelContainer.Controls.Add(this.imgBox);
+            this.Name = "StatusView";
             // 
             // 
             // 
-            this.RootElement.ApplyShapeToControl = true;
-            this.Text = "FrmStatus";
+            this.Text = "StatusView";
             ((System.ComponentModel.ISupportInitialize)(this.imgBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.headerPanel1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
         }

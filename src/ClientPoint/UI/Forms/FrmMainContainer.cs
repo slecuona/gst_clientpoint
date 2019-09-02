@@ -10,12 +10,14 @@
             UIManager.AddView(View.ClientCreate, ClientCreate);
             UIManager.AddView(View.ClientUpdate, ClientUpdate);
             UIManager.AddView(View.Confirm, Confirm);
+            UIManager.AddView(View.StatusMain, Status);
             MainMenu.Visible = true;
             DocInput.Visible = false;
             PassInput.Visible = false;
             ClientCreate.Visible = false;
             ClientUpdate.Visible = false;
             Confirm.Visible = false;
+            Status.Visible = false;
         }
         
         public override void BeforeShow() {
