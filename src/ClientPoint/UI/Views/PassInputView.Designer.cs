@@ -33,7 +33,7 @@ namespace ClientPoint.UI.Views
             // 
             // radScrollablePanel1.PanelContainer
             // 
-            this.containerPanel.Controls.Add(this.fldPassword);
+            this.dialogPanel.Controls.Add(this.fldPassword);
             // 
             // fldPassword
             // 

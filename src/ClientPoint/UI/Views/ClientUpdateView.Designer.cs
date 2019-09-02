@@ -30,8 +30,8 @@ namespace ClientPoint.UI.Views
             this.fldEmail = new CustomField();
             this.fldCellphone = new CustomField();
             this.SuspendLayout();
-            this.containerPanel.Controls.Add(this.fldEmail);
-            this.containerPanel.Controls.Add(this.fldCellphone);
+            this.dialogPanel.Controls.Add(this.fldEmail);
+            this.dialogPanel.Controls.Add(this.fldCellphone);
             // 
             // fldEmail
             // 

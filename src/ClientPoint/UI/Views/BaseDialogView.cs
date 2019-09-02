@@ -24,7 +24,7 @@ namespace ClientPoint.UI.Views {
         // (En donde se debe hacer foco al utilizar el teclado)
         // Este metodo se debe llamar luego de agregar los controles del dialogo.
         protected void ConfigureCurrentControlHandle() {
-            foreach (Control ctrl in containerPanel.PanelContainer.Controls) {
+            foreach (Control ctrl in dialogPanel.PanelContainer.Controls) {
                 if (ctrl is CustomField field) {
                     field.Control.GotFocus += ControlOnGotFocus;
                     continue;

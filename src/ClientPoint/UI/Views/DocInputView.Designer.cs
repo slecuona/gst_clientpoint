@@ -30,14 +30,14 @@ namespace ClientPoint.UI.Views
         {
             this.fldDocument = new CustomField();
             ((System.ComponentModel.ISupportInitialize)(this.footerPanel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.containerPanel)).BeginInit();
-            this.containerPanel.PanelContainer.SuspendLayout();
-            this.containerPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dialogPanel)).BeginInit();
+            this.dialogPanel.PanelContainer.SuspendLayout();
+            this.dialogPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.headerPanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).BeginInit();
             this.panelContainer.SuspendLayout();
             this.SuspendLayout();
-            this.containerPanel.Controls.Add(this.fldDocument);
+            this.dialogPanel.Controls.Add(this.fldDocument);
             // 
             // fldDocument
             // 
@@ -56,9 +56,9 @@ namespace ClientPoint.UI.Views
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.Name = "DocInputView";
             ((System.ComponentModel.ISupportInitialize)(this.footerPanel)).EndInit();
-            this.containerPanel.PanelContainer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.containerPanel)).EndInit();
-            this.containerPanel.ResumeLayout(false);
+            this.dialogPanel.PanelContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dialogPanel)).EndInit();
+            this.dialogPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.headerPanel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).EndInit();
             this.panelContainer.ResumeLayout(false);

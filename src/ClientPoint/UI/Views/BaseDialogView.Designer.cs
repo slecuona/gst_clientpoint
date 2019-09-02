@@ -26,20 +26,20 @@
         private void InitializeComponent()
         {
             this.footerPanel = new ClientPoint.UI.FooterPanel();
-            this.containerPanel = new Telerik.WinControls.UI.RadScrollablePanel();
+            this.dialogPanel = new Telerik.WinControls.UI.RadScrollablePanel();
             this.headerPanel = new ClientPoint.UI.HeaderPanel();
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).BeginInit();
             this.panelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.footerPanel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.containerPanel)).BeginInit();
-            this.containerPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dialogPanel)).BeginInit();
+            this.dialogPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.headerPanel)).BeginInit();
             this.SuspendLayout();
             // 
             // panelContainer
             // 
             this.panelContainer.Controls.Add(this.headerPanel);
-            this.panelContainer.Controls.Add(this.containerPanel);
+            this.panelContainer.Controls.Add(this.dialogPanel);
             this.panelContainer.Controls.Add(this.footerPanel);
             this.panelContainer.Size = new System.Drawing.Size(1366, 567);
             // 
@@ -55,19 +55,19 @@
             // 
             // containerPanel
             // 
-            this.containerPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.containerPanel.Location = new System.Drawing.Point(0, 0);
-            this.containerPanel.Name = "containerPanel";
-            this.containerPanel.Padding = new System.Windows.Forms.Padding(20);
+            this.dialogPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dialogPanel.Location = new System.Drawing.Point(0, 0);
+            this.dialogPanel.Name = "dialogPanel";
+            this.dialogPanel.Padding = new System.Windows.Forms.Padding(20);
             // 
             // containerPanel.PanelContainer
             // 
-            this.containerPanel.PanelContainer.Location = new System.Drawing.Point(0, 0);
-            this.containerPanel.PanelContainer.Size = new System.Drawing.Size(1366, 568);
-            this.containerPanel.Size = new System.Drawing.Size(1366, 568);
-            this.containerPanel.TabIndex = 4;
-            ((Telerik.WinControls.UI.RadScrollablePanelElement)(this.containerPanel.GetChildAt(0))).Padding = new System.Windows.Forms.Padding(0);
-            ((Telerik.WinControls.Primitives.BorderPrimitive)(this.containerPanel.GetChildAt(0).GetChildAt(1))).Width = 0F;
+            this.dialogPanel.PanelContainer.Location = new System.Drawing.Point(0, 0);
+            this.dialogPanel.PanelContainer.Size = new System.Drawing.Size(1366, 568);
+            this.dialogPanel.Size = new System.Drawing.Size(1366, 568);
+            this.dialogPanel.TabIndex = 4;
+            ((Telerik.WinControls.UI.RadScrollablePanelElement)(this.dialogPanel.GetChildAt(0))).Padding = new System.Windows.Forms.Padding(0);
+            ((Telerik.WinControls.Primitives.BorderPrimitive)(this.dialogPanel.GetChildAt(0).GetChildAt(1))).Width = 0F;
             // 
             // headerPanel
             // 
@@ -89,8 +89,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).EndInit();
             this.panelContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.footerPanel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.containerPanel)).EndInit();
-            this.containerPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dialogPanel)).EndInit();
+            this.dialogPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.headerPanel)).EndInit();
             this.ResumeLayout(false);
 
@@ -101,7 +101,7 @@
         #endregion
 
         protected FooterPanel footerPanel;
-        protected Telerik.WinControls.UI.RadScrollablePanel containerPanel;
+        protected Telerik.WinControls.UI.RadScrollablePanel dialogPanel;
         protected HeaderPanel headerPanel;
     }
 }

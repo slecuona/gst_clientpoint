@@ -41,16 +41,16 @@ namespace ClientPoint.UI.Views
             ((System.ComponentModel.ISupportInitialize)(this.headerPanel)).BeginInit();
             this.SuspendLayout();
 
-            this.containerPanel.Controls.Add(this.fldName);
-            this.containerPanel.Controls.Add(this.fldLastname);
-            this.containerPanel.Controls.Add(this.fldDocument);
-            this.containerPanel.Controls.Add(this.fldSex);
-            this.containerPanel.Controls.Add(this.fldEmail);
-            this.containerPanel.Controls.Add(this.fldEmail2);
-            this.containerPanel.Controls.Add(this.fldCellphone);
-            this.containerPanel.Controls.Add(this.fldPassword);
-            this.containerPanel.Controls.Add(this.fldPassword2);
-            this.containerPanel.Controls.Add(this.fldBirthDate);
+            this.dialogPanel.Controls.Add(this.fldName);
+            this.dialogPanel.Controls.Add(this.fldLastname);
+            this.dialogPanel.Controls.Add(this.fldDocument);
+            this.dialogPanel.Controls.Add(this.fldSex);
+            this.dialogPanel.Controls.Add(this.fldEmail);
+            this.dialogPanel.Controls.Add(this.fldEmail2);
+            this.dialogPanel.Controls.Add(this.fldCellphone);
+            this.dialogPanel.Controls.Add(this.fldPassword);
+            this.dialogPanel.Controls.Add(this.fldPassword2);
+            this.dialogPanel.Controls.Add(this.fldBirthDate);
 
             // 
             // fldName
