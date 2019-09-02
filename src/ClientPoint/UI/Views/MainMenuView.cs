@@ -29,5 +29,9 @@ namespace ClientPoint.UI.Views
             UIManager.SetKeyboard(Keyboard.None);
             base.BeforeShow();
         }
+
+        private void LblWelcomeOnDoubleClick(object sender, EventArgs e) {
+            UIManager.ShowWindow(Window.Ads);
+        }
     }
 }

@@ -37,7 +37,7 @@ namespace ClientPoint.UI {
         private void OnShown(object sender, EventArgs e) {
             _adsPlayer.Init();
             // Es el main form, hay que ejecutar el before show manualmente
-            BeforeShow();
+            //BeforeShow();
         }
 
         public override void BeforeShow() {

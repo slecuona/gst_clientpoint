@@ -127,6 +127,7 @@ namespace ClientPoint.UI.Views
             this.lblWelcome.TabIndex = 4;
             this.lblWelcome.Text = "BIENVENIDO";
             this.lblWelcome.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
+            this.lblWelcome.DoubleClick += LblWelcomeOnDoubleClick;
             // 
             // imgHost
             // 
