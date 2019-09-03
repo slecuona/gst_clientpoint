@@ -13,8 +13,7 @@ namespace ClientPoint.UI.Views
         }
 
         private void BtnClientOnClick(object sender, EventArgs e) {
-            UIManager.StatusMainView.SetState(States.RemoveCard);
-            UIManager.ShowView(View.StatusMain);
+            Op.TestPrint();
         }
 
         private void BtnConfirmOnClick(object sender, EventArgs e) {

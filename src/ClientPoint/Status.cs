@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using ClientPoint.Api;
 using ClientPoint.Espf;
 using ClientPoint.UI;
@@ -9,6 +10,10 @@ namespace ClientPoint {
     public static class Status {
 
         public static void Espf() {
+            // Busca evitar el error de
+            // "An existing connection was forcibly closed by the remote host"
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
             var espfOk = EspfService(out string espfService);
             Print($"ESPF Service => {espfService}");
 

@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Threading;
 using System.Windows.Forms.VisualStyles;
 using ClientPoint.Session;
 using ClientPoint.Utils;
@@ -38,6 +39,9 @@ namespace ClientPoint.Espf {
         }
 
         private static void ExecStepOrFail(Func<string> action, string msg) {
+            // Haciendo pruebas, con este sleep se reduce el error de
+            // "An existing connection was forcibly closed by the remote host"
+            Thread.Sleep(1000);
             var res = action();
             if (res != "OK")
                 throw new Exception($"Error de respuesta impresion ESPF: {msg}");
@@ -158,7 +162,7 @@ namespace ClientPoint.Espf {
                 graph.InterpolationMode = InterpolationMode.Low;
                 graph.PixelOffsetMode = PixelOffsetMode.HighQuality;
                 graph.DrawString(FullNameDisplay, 
-                    new Font("Arial", Config.CardNameSize, FontStyle.Regular), 
+                    FontUtils.Roboto(Config.CardNameSize, FontStyle.Bold), 
                     Brushes.Black, 
                     Config.CardNameX, 
                     Config.CardNameY);

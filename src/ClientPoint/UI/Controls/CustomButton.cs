@@ -5,7 +5,7 @@ using Telerik.WinControls.UI;
 namespace ClientPoint.UI.Controls {
     public partial class CustomButton : RadButton {
         private Type _type;
-
+        
         public Type Type {
             get => _type;
             set {

@@ -33,9 +33,9 @@ namespace ClientPoint {
 
             ApiUrl = GetSetting("ApiUrl", API_URL_DEF);
 
-            CardNameX = GetInt("CardNameX", 20);
+            CardNameX = GetInt("CardNameX", 40);
             CardNameY = GetInt("CardNameY", 400);
-            CardNameSize = GetInt("CardNameSize", 20);
+            CardNameSize = GetInt("CardNameSize", 28);
 
             DebugMode = GetBool("Debug", false);
         }

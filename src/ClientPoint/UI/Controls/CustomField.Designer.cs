@@ -61,19 +61,20 @@ namespace ClientPoint.UI.Controls {
             // 
             this.btnClear.Location = new System.Drawing.Point(550, 0);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(50, 49);
+            this.btnClear.Size = new System.Drawing.Size(50, 47);
             this.btnClear.TabIndex = 2;
             this.btnClear.Text = "";
             this.btnClear.Image = Properties.Resources.delete;
             this.btnClear.ImageAlignment = ContentAlignment.MiddleCenter;
             this.btnClear.ImageScalingSize = new Size(20, 20);
             this.btnClear.Visible = false;
+            this.btnClear.TabStop = false;
             // 
             // btnViewPass
             // 
             this.btnViewPass.Location = new System.Drawing.Point(550, 0);
             this.btnViewPass.Name = "btnViewPass";
-            this.btnViewPass.Size = new System.Drawing.Size(50, 49);
+            this.btnViewPass.Size = new System.Drawing.Size(50, 47);
             this.btnViewPass.TabIndex = 2;
             this.btnViewPass.Text = "";
             this.btnViewPass.Image = Properties.Resources.eye;
@@ -81,6 +82,7 @@ namespace ClientPoint.UI.Controls {
             this.btnViewPass.ImageScalingSize = new Size(20, 20);
             this.btnViewPass.Visible = false;
             this.btnViewPass.Focusable = false;
+            this.btnViewPass.TabStop = false;
             // 
             // CustomField
             // 

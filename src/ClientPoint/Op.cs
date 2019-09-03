@@ -70,8 +70,7 @@ namespace ClientPoint {
         public static void PrintCard() {
             SafeExec(() => {
                 UIManager.StatusMainView.SetState(States.PrintingCard);
-                //ShowWindow(Window.Status);
-                ShowWindow(Window.Main);
+                ShowView(View.StatusMain);
             });
             var t = new Thread(PrintCardAsync);
             t.Start();
@@ -92,7 +91,10 @@ namespace ClientPoint {
                 }, out string err);
                 DieIf(!success, err);
 
-                SafeExec(() => { UIManager.StatusMainView.SetState(States.RemoveCard); });
+                SafeExec(() => {
+                    UIManager.StatusMainView.SetState(States.RemoveCard);
+                    ShowView(View.StatusMain);
+                });
             }
             catch (Exception ex) {
                 Logger.Exception(ex);
