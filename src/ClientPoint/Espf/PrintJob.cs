@@ -12,7 +12,7 @@ using static ClientPoint.Utils.ExUtils;
 
 namespace ClientPoint.Espf {
     public class PrintJob {
-        private const string SETTINGS = "GRibbonType=RM_KBLACK;Duplex=NONE";
+        private const string SETTINGS_DEF = "GRibbonType=RM_KBLACK;Duplex=NONE";
         private const string COERCIVITY = "l"; // (high or low)
         private const int TRACK = 2;
         
@@ -30,18 +30,23 @@ namespace ClientPoint.Espf {
         //d Default value
         private const string FORMAT = "2";
 
+        private string _settings;
         private string _sessionId;
         private Client _client;
         private Bitmap _image;
 
         public PrintJob(Client cl) {
             _client = cl;
+            _settings = SETTINGS_DEF;
+            var xSettings = Config.EspfSettingsX;
+            if (!string.IsNullOrEmpty(xSettings))
+                _settings += $";{xSettings}";
         }
 
         private static void ExecStepOrFail(Func<string> action, string msg) {
             // Haciendo pruebas, con este sleep se reduce el error de
             // "An existing connection was forcibly closed by the remote host"
-            Thread.Sleep(1000);
+            Thread.Sleep(100);
             var res = action();
             if (res != "OK")
                 throw new Exception($"Error de respuesta impresion ESPF: {msg}");
@@ -64,7 +69,7 @@ namespace ClientPoint.Espf {
 
                 // 2- PrintSet
                 ExecStepOrFail(
-                    () => Services.PrintSet("PRINT2", _sessionId, SETTINGS),
+                    () => Services.PrintSet("PRINT2", _sessionId, _settings),
                     "PrintSet");
 
                 // 3 - SetBitmap

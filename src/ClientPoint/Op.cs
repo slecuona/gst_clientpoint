@@ -122,6 +122,11 @@ namespace ClientPoint {
                 });
 
                 pj.Start();
+
+                SafeExec(() => {
+                    MsgBox.Show("OK");
+                    ShowView(View.MainMenu);
+                });
             }
             catch (Exception ex) {
                 Logger.Exception(ex);

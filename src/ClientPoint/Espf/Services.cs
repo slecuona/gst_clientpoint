@@ -22,8 +22,8 @@ namespace ClientPoint.Espf {
         // Setea los parametros de impresion
         // data ej: "FColorBrightness=VAL12;GRibbonType=RC_YMCKO"
         public static string PrintSet(string id, string session, string data) {
-            var req = new PrintRequest(id, PrintMethods.Set,
-                new PrintParams() {
+            var req = new PrintRequest3(id, PrintMethods.Set,
+                new PrintParams3() {
                     session = session,
                     data = data
                 });
@@ -48,8 +48,8 @@ namespace ClientPoint.Espf {
         // Arranca la impresion
         // El metodo se llama "PRINT.Print"
         public static string PrintStart(string id, string session) {
-            var req = new PrintRequest(id, PrintMethods.Print,
-                new PrintParams() {
+            var req = new PrintRequestSet(id, PrintMethods.Print,
+                new PrintParamsSet() {
                     session = session
                 });
             // devuelve "OK"
