@@ -72,11 +72,11 @@ namespace ClientPoint {
                 UIManager.StatusMainView.SetState(States.PrintingCard);
                 ShowView(View.StatusMain);
             });
-            var t = new Thread(PrintCardAsync);
+            var t = new Thread(PrintCardSync);
             t.Start();
         }
 
-        private static void PrintCardAsync() {
+        private static void PrintCardSync() {
             try {
                 var card = ApiService.GetNumberCard();
                 var cl = ClientSession.CurrClient;
@@ -104,7 +104,16 @@ namespace ClientPoint {
             }
         }
 
-        public static void TestPrint() {
+        public static void TestPrintAsync() {
+            SafeExec(() => {
+                UIManager.StatusMainView.SetState(States.PrintingCard);
+                ShowView(View.StatusMain);
+            });
+            var t = new Thread(TestPrintSync);
+            t.Start();
+        }
+
+        public static void TestPrintSync() {
             try {
                 var pj = new PrintJob(new Client() {
                     Name = "SANTIAGO ELIAS",
@@ -117,6 +126,7 @@ namespace ClientPoint {
             catch (Exception ex) {
                 Logger.Exception(ex);
                 MsgBox.Error("Error al imprimir tarjeta.");
+                UIManager.ShowWindow(Window.Ads);
             }
         }
 

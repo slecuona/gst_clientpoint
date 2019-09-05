@@ -23,9 +23,22 @@ namespace ClientPoint.Espf {
             return client;
         }
 
+        private static string GetStream(Request.BaseRequest req) {
+            var intents = 0;
+            do {
+                intents++;
+                var client = NewClient();
+                if (TryGetStream(client, req, out string res))
+                    return res;
+                Thread.Sleep(1000);
+                Logger.DebugWrite($"Fail GetStream intent {intents}.");
+            } while (intents < 3);
+            return null;
+        }
+
         // Este metodo se replicó del DemoProgram (EspfClientProcessor)
-        private static string GetStream(TcpClient client, Request.BaseRequest req) {
-            var res = string.Empty;
+        private static bool TryGetStream(TcpClient client, Request.BaseRequest req, out string res) {
+            res = "";
             var reqJson = req.ToJson();
             Logger.DebugWrite($"[JSON SEND] => {reqJson}");
             var datain = Encoding.UTF8.GetBytes(reqJson);
@@ -49,18 +62,18 @@ namespace ClientPoint.Espf {
             } catch (Exception ex) {
                 Logger.DebugWrite($"ERR. GetStream. => {ex.Message}");
                 Logger.Exception(ex);
+                return false;
             } finally {
                 client.Close();
             }
-            return res;
+            return !string.IsNullOrEmpty(res);
         }
 
         private static object _locker = new object();
 
         public static string Send(Request.BaseRequest req) {
             lock (_locker) {
-                var client = NewClient();
-                var json = GetStream(client, req);
+                var json = GetStream(req);
                 if (string.IsNullOrEmpty(json))
                     throw new Exception("Se esperaba un json.");
                 Logger.DebugWrite($"[JSON RESPONSE] => {json}");
