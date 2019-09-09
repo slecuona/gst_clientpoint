@@ -36,6 +36,7 @@ namespace ClientPoint.UI.Forms
             this.ClientUpdate = new ClientUpdateView();
             this.Confirm = new ConfirmView();
             this.Status = new StatusView();
+            this.Swipe = new SwipeView();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,12 +56,14 @@ namespace ClientPoint.UI.Forms
             this.Controls.Add(this.ClientUpdate);
             this.Controls.Add(this.Confirm);
             this.Controls.Add(this.Status);
+            this.Controls.Add(this.Swipe);
             this.Name = "FrmMainContainer";
             // 
             // 
             // 
             this.RootElement.ApplyShapeToControl = true;
             this.Text = "Main";
+            this.KeyPreview = true;
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -75,5 +78,6 @@ namespace ClientPoint.UI.Forms
         public Views.ClientUpdateView ClientUpdate;
         public Views.ConfirmView Confirm;
         public Views.StatusView Status;
+        public Views.SwipeView Swipe;
     }
 }

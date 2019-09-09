@@ -35,6 +35,6 @@ namespace ClientPoint.UI.Views
 
     public enum States {
         PrintingCard = 0,
-        RemoveCard = 1
+        RemoveCard = 1,
     }
 }

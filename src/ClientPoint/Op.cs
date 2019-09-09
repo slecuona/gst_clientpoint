@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading;
 using ClientPoint.Api;
 using ClientPoint.Espf;
@@ -134,5 +135,27 @@ namespace ClientPoint {
             }
         }
 
+        public static void Client() {
+            ShowView(View.SwipeCard);
+        }
+
+        public static void ClientLoadAsync(string idCard) {
+            Debug.WriteLine($"Card Swiped: {idCard}");
+            var t = new Thread(() => ClientLoadSync(idCard));
+            t.Start();
+        }
+
+        private static void ClientLoadSync(string idCard) {
+            var res = ApiService.ClientLoad(new ClientLoadRequest() {
+                IdCard = idCard
+            }, out string errMsg);
+            if (res == null) {
+                MsgBox.Error(errMsg);
+                return;
+            }
+            // Cargo todos los datos del usuario
+            ClientSession.Load(res, null);
+            //UIManager.ShowWindow(Window.PasswordInput);
+        }
     }
 }

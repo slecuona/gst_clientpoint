@@ -101,14 +101,14 @@ namespace ClientPoint.UI {
             if (prev != toShow) {
                 CurrView = toShow;
                 SafeExec(() => {
-                    if(prev != View.None)
-                        _views[prev].BeforeHide();
-                    _views[toShow].BeforeShow();
-                    _views[toShow].Visible = true;
                     if (prev != View.None) {
+                        _views[prev].BeforeHide();
                         _views[prev].Visible = false;
                         _views[prev].AfterHide();
                     }
+                    GetCurrent().Refresh();
+                    _views[toShow].BeforeShow();
+                    _views[toShow].Visible = true;
                     _views[toShow].AfterShow();
                 });
             }
@@ -195,7 +195,8 @@ namespace ClientPoint.UI {
         ClientCreate = 5,
         ClientUpdate = 6,
         Confirm = 7,
-        StatusMain = 8
+        StatusMain = 8,
+        SwipeCard = 9
     }
 
     public enum Keyboard {

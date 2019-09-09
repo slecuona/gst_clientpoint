@@ -13,7 +13,7 @@ namespace ClientPoint.UI.Views
         }
 
         private void BtnClientOnClick(object sender, EventArgs e) {
-            Op.TestPrintAsync();
+            Op.Client();
         }
 
         private void BtnConfirmOnClick(object sender, EventArgs e) {

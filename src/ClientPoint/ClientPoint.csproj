@@ -157,6 +157,12 @@
     <Compile Include="UI\Views\ConfirmView.Designer.cs">
       <DependentUpon>ConfirmView.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Views\SwipeView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\SwipeView.Designer.cs">
+      <DependentUpon>SwipeView.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Views\StatusView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -328,6 +334,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Views\ConfirmView.resx">
       <DependentUpon>ConfirmView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\SwipeView.resx">
+      <DependentUpon>SwipeView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Views\StatusView.resx">
       <DependentUpon>StatusView.cs</DependentUpon>
