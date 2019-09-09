@@ -79,8 +79,7 @@ namespace ClientPoint.UI.Views {
             
             MsgBox.Show(
                 "Cliente creado correctamente. " +
-                "Se ha enviado el código de confirmación.",
-                this.ParentForm);
+                "Se ha enviado el código de confirmación.");
 
             // Cargo la password ingresada para enviar en el request
             // de confirmacion

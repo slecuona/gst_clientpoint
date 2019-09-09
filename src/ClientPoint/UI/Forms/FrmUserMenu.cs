@@ -14,7 +14,7 @@ namespace ClientPoint.UI.Forms
         }
 
         private void BtnRewardsOnClick(object sender, EventArgs e) {
-            MsgBox.Show("Not implemented.", this);
+            MsgBox.Show("Not implemented.");
         }
 
         private void btnBack_Click_1(object sender, EventArgs e) {

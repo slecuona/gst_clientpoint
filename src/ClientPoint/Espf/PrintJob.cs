@@ -5,7 +5,6 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Threading;
-using System.Windows.Forms.VisualStyles;
 using ClientPoint.Session;
 using ClientPoint.Utils;
 using static ClientPoint.Utils.ExUtils;

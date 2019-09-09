@@ -6,31 +6,28 @@ using Telerik.WinControls;
 namespace ClientPoint.Utils {
     public static class MsgBox {
 
-        private static void PrepareAndShow(string msg, Form owner = null, MsgType type = MsgType.Info) {
+        private static void PrepareAndShow(string msg, MsgType type = MsgType.Info) {
+            var owner = UIManager.CurrKeyboard != UI.Keyboard.None ? 
+                UIManager.GetKeyboard(UIManager.CurrKeyboard) : 
+                UIManager.GetCurrent();
+
+            if (owner.InvokeRequired) {
+                owner.Invoke((MethodInvoker)delegate {
+                    PrepareAndShow(msg, type);
+                });
+                return;
+            }
             var frm = new FrmMessage(msg, type);
             frm.ShowDialog(owner);
         }
 
-        public static void Show(string msg, Form owner = null) {
+        public static void Show(string msg) {
             // Safe thread
-            if (owner != null && owner.InvokeRequired) {
-                owner.Invoke((MethodInvoker)delegate {
-                    Show(msg, owner);
-                });
-                return;
-            }
-            PrepareAndShow(msg, owner);
+            PrepareAndShow(msg);
         }
 
-        public static void Error(string msg, Form owner = null) {
-            // Safe thread
-            if (owner != null && owner.InvokeRequired) {
-                owner.Invoke((MethodInvoker) delegate {
-                    Error(msg, owner);
-                });
-                return;
-            }
-            PrepareAndShow(msg, owner, MsgType.Error);
+        public static void Error(string msg) {
+            PrepareAndShow(msg, MsgType.Error);
         }
 
         public static bool Confirm(Form owner, string msg, string title = "") {

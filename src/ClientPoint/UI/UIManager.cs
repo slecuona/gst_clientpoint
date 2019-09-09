@@ -21,6 +21,8 @@ namespace ClientPoint.UI {
         public static View CurrView = View.None;
 
         public static FrmBase Get(Window w) => _windows[w];
+        public static Form GetKeyboard(Keyboard k) => 
+            k == Keyboard.None ? null : _keyboards[k];
         
         public static FrmBase GetCurrent() => _windows[CurrWindow];
         //public static void ActivateCurrentControl() {

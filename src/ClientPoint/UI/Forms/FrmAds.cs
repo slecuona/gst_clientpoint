@@ -66,7 +66,7 @@ namespace ClientPoint.UI.Forms {
                 IdCard = idCard
             }, out string errMsg);
             if (res == null) {
-                MsgBox.Error(errMsg, this);
+                MsgBox.Error(errMsg);
                 return;
             }
             // Cargo todos los datos del usuario

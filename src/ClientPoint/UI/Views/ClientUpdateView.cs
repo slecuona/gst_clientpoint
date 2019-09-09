@@ -35,8 +35,7 @@ namespace ClientPoint.UI.Views {
 
             MsgBox.Show(
                 "Datos actualizados correctamente. " +
-                "Se ha enviado el código de confirmación.",
-                this.ParentForm);
+                "Se ha enviado el código de confirmación.");
             //UIManager.ShowWindow(Window.Confirm);
             UIManager.ShowView(View.Confirm);
             return true;
