@@ -53,10 +53,20 @@ namespace ClientPoint.Espf {
         }
 
         public void Start() {
-            CreateImage();
-            WriteData();
-            // El Print por default hace eject.
-            Print();
+            try {
+                CreateImage();
+                WriteData();
+                // El Print por default hace eject.
+                Print();
+            }
+            catch (Exception e) {
+                Die("Error PrintJob.", e);
+            }
+            finally {
+                // En modo debug, escribo el log despues de finalizar
+                // el proceso
+                Logger.Commit();
+            }
         }
 
         public void Print() {

@@ -10,6 +10,12 @@ namespace ClientPoint.Espf {
     /// </summary>
     public static class EspfClient {
 
+        private static void Log(string msg) {
+            if (!Config.DebugMode)
+                return;
+            Logger.WriteBuff(msg);
+        }
+
         private static TcpClient NewClient() {
             TcpClient client = null;
             try {
@@ -31,7 +37,7 @@ namespace ClientPoint.Espf {
                 if (TryGetStream(client, req, out string res))
                     return res;
                 Thread.Sleep(1000);
-                Logger.DebugWrite($"Fail GetStream intent {intents}.");
+                Log($"Fail GetStream intent {intents}.");
             } while (intents < 3);
             return null;
         }
@@ -40,7 +46,7 @@ namespace ClientPoint.Espf {
         private static bool TryGetStream(TcpClient client, Request.BaseRequest req, out string res) {
             res = "";
             var reqJson = req.ToJson();
-            Logger.DebugWrite($"[JSON SEND] => {reqJson}");
+            Log($"[JSON SEND] => {reqJson}");
             var datain = Encoding.UTF8.GetBytes(reqJson);
             try {
                 NetworkStream ns = client.GetStream();
@@ -60,7 +66,7 @@ namespace ClientPoint.Espf {
                 }
                 ns.Close();
             } catch (Exception ex) {
-                Logger.DebugWrite($"ERR. GetStream. => {ex.Message}");
+                Log($"ERR. GetStream. => {ex.Message}");
                 Logger.Exception(ex);
                 return false;
             } finally {
@@ -76,7 +82,7 @@ namespace ClientPoint.Espf {
                 var json = GetStream(req);
                 if (string.IsNullOrEmpty(json))
                     throw new Exception("Se esperaba un json.");
-                Logger.DebugWrite($"[JSON RESPONSE] => {json}");
+                Log($"[JSON RESPONSE] => {json}");
                 var res = Response.FromJson(json);
                 if (res.error != null)
                     throw new Exception(

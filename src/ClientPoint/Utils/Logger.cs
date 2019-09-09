@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using ClientPoint.UI;
@@ -11,6 +12,8 @@ namespace ClientPoint.Utils {
             "Error al inicializar logs.";
 
         static object _syncRoot = new object();
+
+        private static StringBuilder _buff;
 
         private static string LogPath;
 
@@ -35,12 +38,13 @@ namespace ClientPoint.Utils {
             }
         }
 
-        public static async Task Write(string info) {
+        public static async Task Write(string info, bool time = true) {
             try {
                 lock (_syncRoot) {
                     var file = Path.Combine(LogPath, LogFileName);
                     using (StreamWriter outputFile = new StreamWriter(file, true)) {
-                        outputFile.WriteLineAsync($"{Timestamp} {info}");
+                        outputFile.WriteLineAsync(
+                            $"{(time ? $"{Timestamp} " : "")}{info}");
                     }
                 }
             } catch (Exception ex) {
@@ -53,6 +57,19 @@ namespace ClientPoint.Utils {
                 Write(info).Wait()
             );
             t.Start();
+        }
+
+        public static void WriteBuff(string info) {
+            if(_buff == null)
+                _buff = new StringBuilder();
+
+            _buff.AppendLine($"{Timestamp} {info}");
+        }
+
+        public static void Commit() {
+            if (_buff == null)
+                return;
+            Write(_buff.ToString(), false).Wait();
         }
 
         // Loggea toda la info posible de una excepcion
