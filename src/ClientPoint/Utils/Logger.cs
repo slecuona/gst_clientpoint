@@ -70,6 +70,7 @@ namespace ClientPoint.Utils {
             if (_buff == null)
                 return;
             Write(_buff.ToString(), false).Wait();
+            _buff.Clear();
         }
 
         // Loggea toda la info posible de una excepcion

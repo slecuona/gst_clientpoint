@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 using ClientPoint.UI;
 using ClientPoint.Utils;
@@ -20,6 +21,8 @@ namespace ClientPoint {
                 // Inicializa logs
                 Logger.Init();
 
+                KillEvolisCenter();
+
                 // Estado de servicio Evolis
                 Status.Espf();
 
@@ -39,6 +42,14 @@ namespace ClientPoint {
             catch (Exception ex) {
                 Logger.Exception(ex);
                 MsgBox.Error($"Error: {ex.Message}");
+            }
+        }
+
+        // Cerramos el Evolis Print Center
+        // Asi evitamos los popups con el estado de impresion
+        private static void KillEvolisCenter() {
+            foreach (var process in Process.GetProcessesByName("EvoPCUI")) {
+                process.Kill();
             }
         }
     }
