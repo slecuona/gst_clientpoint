@@ -155,7 +155,7 @@ namespace ClientPoint {
             }
             // Cargo todos los datos del usuario
             ClientSession.Load(res, null);
-            //UIManager.ShowWindow(Window.PasswordInput);
+            UIManager.ShowView(View.ClientMenu);
         }
     }
 }

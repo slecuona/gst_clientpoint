@@ -12,6 +12,7 @@
             UIManager.AddView(View.Confirm, Confirm);
             UIManager.AddView(View.StatusMain, Status);
             UIManager.AddView(View.SwipeCard, Swipe);
+            UIManager.AddView(View.ClientMenu, ClientMenu);
             MainMenu.Visible = true;
             DocInput.Visible = false;
             PassInput.Visible = false;

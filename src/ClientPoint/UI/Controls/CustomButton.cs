@@ -41,6 +41,10 @@ namespace ClientPoint.UI.Controls {
                 this.Image = Properties.Resources.btn_back_press;
                 return;
             }
+            if (_type == Type.Price) {
+                this.Image = Properties.Resources.btn_price_press;
+                return;
+            }
         }
 
         private void RefreshType() {
@@ -64,6 +68,11 @@ namespace ClientPoint.UI.Controls {
                 Size = new Size(234, 78);
                 return;
             }
+            if (_type == Type.Price) {
+                Image = Properties.Resources.btn_price;
+                Size = new Size(240, 89);
+                return;
+            }
         }
 
     }
@@ -72,6 +81,7 @@ namespace ClientPoint.UI.Controls {
         NewClient = 0,
         Client = 1,
         Next = 2,
-        Back = 3
+        Back = 3,
+        Price = 4
     }
 }

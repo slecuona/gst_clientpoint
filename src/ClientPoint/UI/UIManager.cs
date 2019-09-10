@@ -191,12 +191,12 @@ namespace ClientPoint.UI {
         DocumentInput = 1,
         PasswordInput = 2,
         MainMenu = 3,
-        ClientLogin = 4,
+        SwipeCard = 4,
         ClientCreate = 5,
         ClientUpdate = 6,
         Confirm = 7,
         StatusMain = 8,
-        SwipeCard = 9
+        ClientMenu = 9
     }
 
     public enum Keyboard {

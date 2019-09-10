@@ -37,6 +37,7 @@ namespace ClientPoint.UI.Forms
             this.Confirm = new ConfirmView();
             this.Status = new StatusView();
             this.Swipe = new SwipeView();
+            this.ClientMenu = new ClientMenuView();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,6 +58,7 @@ namespace ClientPoint.UI.Forms
             this.Controls.Add(this.Confirm);
             this.Controls.Add(this.Status);
             this.Controls.Add(this.Swipe);
+            this.Controls.Add(this.ClientMenu);
             this.Name = "FrmMainContainer";
             // 
             // 
@@ -79,5 +81,6 @@ namespace ClientPoint.UI.Forms
         public Views.ConfirmView Confirm;
         public Views.StatusView Status;
         public Views.SwipeView Swipe;
+        public Views.ClientMenuView ClientMenu;
     }
 }

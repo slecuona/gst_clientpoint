@@ -16,7 +16,8 @@ namespace ClientPoint.UI.Views
         }
 
         private void ImgBoxOnClick(object sender, EventArgs e) {
-            //UIManager.ShowWindow(Window.Ads);
+            if(Config.DebugMode)
+                Op.ClientLoadAsync("0010100001234");
         }
         
         public override void BeforeShow() {

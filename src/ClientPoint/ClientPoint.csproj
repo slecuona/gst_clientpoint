@@ -157,6 +157,12 @@
     <Compile Include="UI\Views\ConfirmView.Designer.cs">
       <DependentUpon>ConfirmView.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Views\ClientMenuView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\ClientMenuView.Designer.cs">
+      <DependentUpon>ClientMenuView.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Views\SwipeView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -335,6 +341,10 @@
     <EmbeddedResource Include="UI\Views\ConfirmView.resx">
       <DependentUpon>ConfirmView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\ClientMenuView.resx">
+      <DependentUpon>ClientMenuView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Views\SwipeView.resx">
       <DependentUpon>SwipeView.cs</DependentUpon>
     </EmbeddedResource>
@@ -508,7 +518,9 @@
   <ItemGroup>
     <None Include="Resources\btn_blue_small_press.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\btn_price_press.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\btn_next.png" />
   </ItemGroup>
@@ -520,6 +532,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\btn_back_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_box.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_price.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

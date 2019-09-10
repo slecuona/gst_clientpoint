@@ -243,6 +243,26 @@ namespace ClientPoint.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btn_price {
+            get {
+                object obj = ResourceManager.GetObject("btn_price", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_price_press {
+            get {
+                object obj = ResourceManager.GetObject("btn_price_press", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap card {
             get {
                 object obj = ResourceManager.GetObject("card", resourceCulture);
@@ -396,6 +416,16 @@ namespace ClientPoint.Properties {
         internal static System.Drawing.Bitmap swipe_card {
             get {
                 object obj = ResourceManager.GetObject("swipe_card", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user_box {
+            get {
+                object obj = ResourceManager.GetObject("user_box", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
