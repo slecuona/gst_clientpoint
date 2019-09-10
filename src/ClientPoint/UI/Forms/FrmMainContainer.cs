@@ -21,6 +21,7 @@
             Confirm.Visible = false;
             Status.Visible = false;
             Swipe.Visible = false;
+            ClientMenu.Visible = false;
         }
         
         public override void BeforeShow() {

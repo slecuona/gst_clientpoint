@@ -48,7 +48,7 @@ namespace ClientPoint {
         // Cerramos el Evolis Print Center
         // Asi evitamos los popups con el estado de impresion
         private static void KillEvolisCenter() {
-            foreach (var process in Process.GetProcessesByName("EvoPCUI")) {
+            foreach (var process in Process.GetProcessesByName("PrinterManager")) {
                 process.Kill();
             }
         }

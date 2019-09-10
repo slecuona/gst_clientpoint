@@ -31,6 +31,7 @@ namespace ClientPoint {
             EspfPort = GetSetting("EspfPort", "18000");
             EspfPrinter = GetSetting("EspfPrinter", "Evolis KC200");
             EspfSettingsX = GetSetting("EspfSettingsX", null);
+            EspfCommMethod = GetInt("EspfCommMethod", 0);
 
             ApiUrl = GetSetting("ApiUrl", API_URL_DEF);
 
@@ -60,6 +61,8 @@ namespace ClientPoint {
         /// Extension de settings de impresion de ESPF
         /// </summary>
         public static string EspfSettingsX;
+
+        public static int EspfCommMethod = 0;
 
         public static bool DebugMode;
 
