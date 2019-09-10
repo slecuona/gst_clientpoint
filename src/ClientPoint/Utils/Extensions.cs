@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace ClientPoint.Utils {
@@ -21,6 +22,10 @@ namespace ClientPoint.Utils {
                     e.Graphics.DrawPath(pen, GraphPath);
                 }
             }
+        }
+
+        public static string ToCamelCase(this string s) {
+            return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(s.ToLower());
         }
     }
 }

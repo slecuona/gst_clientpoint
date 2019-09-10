@@ -1,4 +1,6 @@
 ﻿using System;
+using ClientPoint.Session;
+using ClientPoint.Utils;
 
 namespace ClientPoint.UI.Views
 {
@@ -9,6 +11,12 @@ namespace ClientPoint.UI.Views
             InitializeComponent();
             
             btnPrices.Click += BtnPricesOnClick;
+
+            lblName.Font = FontUtils.Roboto(20);
+            lblPointsT.Font = FontUtils.Roboto(13);
+            lblCardT.Font = FontUtils.Roboto(13);
+            lblPoints.Font = FontUtils.Roboto(15);
+            lblCard.Font = FontUtils.Roboto(14);
         }
 
         private void BtnPricesOnClick(object sender, EventArgs e) {
@@ -21,6 +29,13 @@ namespace ClientPoint.UI.Views
 
         public override void BeforeShow() {
             UIManager.SetKeyboard(Keyboard.None);
+
+            var cl = ClientSession.CurrClient;
+
+            lblName.Text = $"{cl.Name} {cl.LastName}".ToCamelCase();
+            lblPoints.Text = cl.Points.ToString();
+            lblCard.Text = cl.IdCard;
+
             base.BeforeShow();
         }
 

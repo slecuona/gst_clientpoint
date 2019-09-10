@@ -22,7 +22,7 @@ namespace ClientPoint.UI.Views
             }
             if (st == States.RemoveCard) {
                 imgBox.Image = Properties.Resources.card;
-                headerPanel1.Title = "Tarjeta lista!";
+                headerPanel1.Title = "Tarjeta lista! retírela por favor.";
                 return;
             }
         }
