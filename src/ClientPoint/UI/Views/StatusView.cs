@@ -15,6 +15,7 @@ namespace ClientPoint.UI.Views
         }
 
         public void SetState(States st) {
+            btnBack.Visible = false;
             if (st == States.PrintingCard) {
                 imgBox.Image = Properties.Resources.print;
                 headerPanel1.Title = "Imprimiendo tarjeta...";
@@ -23,6 +24,7 @@ namespace ClientPoint.UI.Views
             if (st == States.RemoveCard) {
                 imgBox.Image = Properties.Resources.card;
                 headerPanel1.Title = "Tarjeta lista! retírela por favor.";
+                btnBack.Visible = true;
                 return;
             }
         }
@@ -30,6 +32,10 @@ namespace ClientPoint.UI.Views
         public override void BeforeShow() {
             UIManager.SetKeyboard(Keyboard.None);
             base.BeforeShow();
+        }
+
+        private void BtnBackOnClick(object sender, EventArgs e) {
+            UIManager.ShowWindow(Window.Ads);
         }
     }
 

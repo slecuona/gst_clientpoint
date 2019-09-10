@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using ClientPoint.UI.Controls;
 
 namespace ClientPoint.UI.Views
 {
@@ -31,8 +32,10 @@ namespace ClientPoint.UI.Views
         {
             this.imgBox = new System.Windows.Forms.PictureBox();
             this.headerPanel1 = new ClientPoint.UI.HeaderPanel();
+            this.btnBack = new CustomButton();
             ((System.ComponentModel.ISupportInitialize)(this.imgBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.headerPanel1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
             this.SuspendLayout();
             // 
             // imgBox
@@ -58,9 +61,20 @@ namespace ClientPoint.UI.Views
             this.headerPanel1.TabIndex = 4;
             this.headerPanel1.Title = "";
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(550, 650);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.TabIndex = 1;
+            this.btnBack.TabStop = false;
+            this.btnBack.Type = Type.Back;
+            this.btnBack.Click += BtnBackOnClick;
+            this.btnBack.Visible = false;
+            // 
             // 
             // 
             this.panelContainer.Controls.Add(this.headerPanel1);
+            this.panelContainer.Controls.Add(this.btnBack);
             this.panelContainer.Controls.Add(this.imgBox);
             this.Name = "StatusView";
             // 
@@ -69,6 +83,7 @@ namespace ClientPoint.UI.Views
             this.Text = "StatusView";
             ((System.ComponentModel.ISupportInitialize)(this.imgBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.headerPanel1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnBack)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -77,5 +92,6 @@ namespace ClientPoint.UI.Views
 
         private PictureBox imgBox;
         private HeaderPanel headerPanel1;
+        private CustomButton btnBack;
     }
 }
