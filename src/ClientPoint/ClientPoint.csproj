@@ -119,6 +119,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Op.cs" />
+    <Compile Include="Session\RewardsManager.cs" />
     <Compile Include="Session\Client.cs" />
     <Compile Include="Session\ClientSession.cs" />
     <Compile Include="Session\Reward.cs" />

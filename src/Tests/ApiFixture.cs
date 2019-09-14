@@ -1,5 +1,6 @@
 ﻿using System;
 using ClientPoint.Api;
+using ClientPoint.Session;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests {
@@ -122,6 +123,9 @@ namespace Tests {
                 IdCard = cl.IdCard
             });
             Assert.IsTrue(res.Count > 0);
+
+            var mgr = new RewardsManager(res);
+            Assert.IsTrue(mgr.Categories.Count > 0);
         }
     }
 }
