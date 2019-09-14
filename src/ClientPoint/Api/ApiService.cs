@@ -129,9 +129,11 @@ namespace ClientPoint.Api {
             return res.ResponseCode == 0;
         }
         
-        public static List<Reward> GetRewards(ClientLoadRequest req) {
+        public static List<Reward> GetRewards(string idCard) {
             try {
-                var json = SendRequest("GetRewards", ToJson(req));
+                var json = SendRequest("GetRewards", ToJson(new ClientLoadRequest() {
+                    IdCard = idCard
+                }));
                 var res = (Reward[])JsonUtils.Deserialize(typeof(Reward[]), json);
                 return res.ToList();
             }

@@ -96,17 +96,13 @@ namespace Tests {
 
         [TestMethod]
         public void GetRewardsInvalid() {
-            var res = ApiService.GetRewards(new ClientLoadRequest() {
-                IdCard = ""
-            });
+            var res = ApiService.GetRewards("");
             Assert.IsTrue(res.Count == 0);
         }
 
         [TestMethod]
         public void GetRewardsEmpty() {
-            var res = ApiService.GetRewards(new ClientLoadRequest() {
-                IdCard = "0010100001234"
-            });
+            var res = ApiService.GetRewards("0010100001234");
             Assert.IsTrue(res.Count == 0);
         }
 
@@ -119,9 +115,7 @@ namespace Tests {
                 Assert.Fail("IdCard no puede ser null.");
                 return;
             }
-            var res = ApiService.GetRewards(new ClientLoadRequest() {
-                IdCard = cl.IdCard
-            });
+            var res = ApiService.GetRewards(cl.IdCard);
             Assert.IsTrue(res.Count > 0);
 
             var mgr = new RewardsManager(res);

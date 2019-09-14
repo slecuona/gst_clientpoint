@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace ClientPoint.Session {
     public class RewardsManager {
@@ -7,6 +8,8 @@ namespace ClientPoint.Session {
 
         public RewardsManager(List<Reward> rewards) {
             Rewards = rewards;
+            //Rewards.AddRange(rewards);
+            //Rewards.AddRange(rewards);
             LoadCategories();
         }
 
