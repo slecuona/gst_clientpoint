@@ -38,6 +38,7 @@ namespace ClientPoint.UI.Forms
             this.Status = new StatusView();
             this.Swipe = new SwipeView();
             this.ClientMenu = new ClientMenuView();
+            this.Rewards = new RewardsView();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,6 +60,7 @@ namespace ClientPoint.UI.Forms
             this.Controls.Add(this.Status);
             this.Controls.Add(this.Swipe);
             this.Controls.Add(this.ClientMenu);
+            this.Controls.Add(this.Rewards);
             this.Name = "FrmMainContainer";
             // 
             // 
@@ -82,5 +84,6 @@ namespace ClientPoint.UI.Forms
         public Views.StatusView Status;
         public Views.SwipeView Swipe;
         public Views.ClientMenuView ClientMenu;
+        public Views.RewardsView Rewards;
     }
 }

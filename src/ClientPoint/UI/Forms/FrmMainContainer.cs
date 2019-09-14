@@ -13,6 +13,7 @@
             UIManager.AddView(View.StatusMain, Status);
             UIManager.AddView(View.SwipeCard, Swipe);
             UIManager.AddView(View.ClientMenu, ClientMenu);
+            UIManager.AddView(View.Rewards, Rewards);
             MainMenu.Visible = true;
             DocInput.Visible = false;
             PassInput.Visible = false;
@@ -22,6 +23,7 @@
             Status.Visible = false;
             Swipe.Visible = false;
             ClientMenu.Visible = false;
+            Rewards.Visible = false;
         }
         
         public override void BeforeShow() {

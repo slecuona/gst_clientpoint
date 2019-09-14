@@ -20,7 +20,7 @@ namespace ClientPoint.UI.Views
         }
 
         private void BtnPricesOnClick(object sender, EventArgs e) {
-            Op.Client();
+            UIManager.ShowView(View.Rewards);
         }
         
         private void btnBack_Click(object sender, EventArgs e) {

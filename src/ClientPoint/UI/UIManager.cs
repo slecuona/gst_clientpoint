@@ -196,7 +196,8 @@ namespace ClientPoint.UI {
         ClientUpdate = 6,
         Confirm = 7,
         StatusMain = 8,
-        ClientMenu = 9
+        ClientMenu = 9,
+        Rewards = 10
     }
 
     public enum Keyboard {

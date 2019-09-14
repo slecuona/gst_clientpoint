@@ -123,6 +123,18 @@
     <Compile Include="Session\Client.cs" />
     <Compile Include="Session\ClientSession.cs" />
     <Compile Include="Session\Reward.cs" />
+    <Compile Include="UI\Controls\CustomButtonArrow.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\CustomButtonArrow.Designer.cs">
+      <DependentUpon>CustomButtonArrow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\CustomButtonWhite.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\CustomButtonWhite.Designer.cs">
+      <DependentUpon>CustomButtonWhite.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Forms\FrmMainContainer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +176,12 @@
     </Compile>
     <Compile Include="UI\Views\ClientMenuView.Designer.cs">
       <DependentUpon>ClientMenuView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\RewardsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Views\RewardsView.Designer.cs">
+      <DependentUpon>RewardsView.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Views\SwipeView.cs">
       <SubType>UserControl</SubType>
@@ -345,6 +363,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Views\ClientMenuView.resx">
       <DependentUpon>ClientMenuView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Views\RewardsView.resx">
+      <DependentUpon>RewardsView.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Views\SwipeView.resx">
@@ -540,6 +562,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\btn_price.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_white_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_left_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_right_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg_rewards.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
