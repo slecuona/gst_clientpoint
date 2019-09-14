@@ -1,4 +1,5 @@
-﻿using ClientPoint.Api;
+﻿using System;
+using ClientPoint.Api;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests {
@@ -90,6 +91,37 @@ namespace Tests {
             // "El Cliente ya tiene Tarjeta Asignada."
             Assert.IsFalse(string.IsNullOrEmpty(errMsg));
             Assert.IsFalse(res);
+        }
+
+        [TestMethod]
+        public void GetRewardsInvalid() {
+            var res = ApiService.GetRewards(new ClientLoadRequest() {
+                IdCard = ""
+            });
+            Assert.IsTrue(res.Count == 0);
+        }
+
+        [TestMethod]
+        public void GetRewardsEmpty() {
+            var res = ApiService.GetRewards(new ClientLoadRequest() {
+                IdCard = "0010100001234"
+            });
+            Assert.IsTrue(res.Count == 0);
+        }
+
+        [TestMethod]
+        public void GetRewards() {
+            var cl = ApiService.ClientStatus(new ClientStatusRequest() {
+                DocumentNumber = "123456789"
+            }, out string errMsg);
+            if (cl.IdCard == null) {
+                Assert.Fail("IdCard no puede ser null.");
+                return;
+            }
+            var res = ApiService.GetRewards(new ClientLoadRequest() {
+                IdCard = cl.IdCard
+            });
+            Assert.IsTrue(res.Count > 0);
         }
     }
 }

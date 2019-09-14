@@ -121,6 +121,7 @@
     <Compile Include="Op.cs" />
     <Compile Include="Session\Client.cs" />
     <Compile Include="Session\ClientSession.cs" />
+    <Compile Include="Session\Reward.cs" />
     <Compile Include="UI\Forms\FrmMainContainer.cs">
       <SubType>Form</SubType>
     </Compile>

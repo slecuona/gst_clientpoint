@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using ClientPoint.Espf;
+using ClientPoint.Session;
 using ClientPoint.Utils;
 
 namespace ClientPoint.Api {
@@ -126,6 +127,17 @@ namespace ClientPoint.Api {
         public static bool CreateCard(CreateCardRequest req, out string errMsg) {
             var res = PrepareAndSendRequest<BaseResponse>("CreateCard", req, out errMsg);
             return res.ResponseCode == 0;
+        }
+        
+        public static List<Reward> GetRewards(ClientLoadRequest req) {
+            try {
+                var json = SendRequest("GetRewards", ToJson(req));
+                var res = (Reward[])JsonUtils.Deserialize(typeof(Reward[]), json);
+                return res.ToList();
+            }
+            catch (Exception e) {
+                throw new Exception("Error al obtener premios.", e);
+            }
         }
     }
 }
