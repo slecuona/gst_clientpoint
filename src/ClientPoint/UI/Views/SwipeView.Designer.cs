@@ -44,9 +44,9 @@ namespace ClientPoint.UI.Views
             this.imgBox.BackColor = System.Drawing.Color.Transparent;
             this.imgBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.imgBox.Image = global::ClientPoint.Properties.Resources.swipe_card;
-            this.imgBox.Location = new System.Drawing.Point(0, 180);
+            this.imgBox.Location = new System.Drawing.Point(1100, 180);
             this.imgBox.Name = "imgBox";
-            this.imgBox.Size = new System.Drawing.Size(1366, 350);
+            this.imgBox.Size = new System.Drawing.Size(250, 400);
             this.imgBox.TabIndex = 3;
             this.imgBox.TabStop = false;
             this.imgBox.Visible = false;

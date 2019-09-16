@@ -16,8 +16,8 @@ namespace ClientPoint.UI.Views
             //UIManager.ShowView(View.Rewards);
             //UIManager.StatusMainView.SetState(States.RemoveCard);
             //UIManager.ShowView(View.StatusMain);
-            //Op.Client();
-            Op.TestPrintAsync();
+            Op.Client();
+            //Op.TestPrintAsync();
         }
 
         private void BtnConfirmOnClick(object sender, EventArgs e) {
