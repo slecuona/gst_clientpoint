@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using ClientPoint.Api;
 using ClientPoint.Session;
@@ -16,21 +12,40 @@ namespace ClientPoint.UI.Views
 {
     public partial class RewardsView : BaseView {
         private RewardsManager _rewards;
-        private int _currCategory = 0;
         private int _lastBtnCatergoryY = 0;
 
         public RewardsView() {
             InitializeComponent();
             headerPanel1.Title = "                                                    Premios";
             btnNext.SetRight();
+            btnNext.Click += BtnNextOnClick;
+            btnPrev.Click += BtnPrevOnClick;
+            btnBack.Click += BtnBackOnClick;
         }
-        
+
+        private void BtnBackOnClick(object sender, EventArgs e) {
+            UIManager.ShowView(View.ClientMenu);
+        }
+
+        private void BtnPrevOnClick(object sender, EventArgs e) {
+            if (_rewards == null)
+                return;
+            _rewards?.Prev();
+            FillRewards();
+        }
+
+        private void BtnNextOnClick(object sender, EventArgs e) {
+            if (_rewards == null)
+                return;
+            _rewards?.Next();
+            FillRewards();
+        }
+
         public override void BeforeShow() {
             LoadRewards();
         }
 
         private void LoadRewards() {
-            _currCategory = 0;
             _lastBtnCatergoryY = btnAll.Top;
             var res = ApiService.GetRewards("0010100000123");
             _rewards = new RewardsManager(res);
@@ -42,8 +57,7 @@ namespace ClientPoint.UI.Views
 
         private void FillRewards() {
             container.Controls.Clear();
-            var rewards = _currCategory == 0 ? 
-                _rewards.Rewards : _rewards.GetByCategory(_currCategory);
+            var rewards = _rewards.CurrentRewards;
             var left = true;
             var top = 0;
             const int width = 515;
@@ -62,6 +76,14 @@ namespace ClientPoint.UI.Views
                 LoadSingleReward(r, ref pnl);
                 container.Controls.Add(pnl);
             }
+
+            RefreshPageInfo();
+        }
+
+        private void RefreshPageInfo() {
+            btnPrev.Enabled = !_rewards.FirstPage;
+            btnNext.Enabled = _rewards.CurrentPage < _rewards.TotalPages;
+            lblPages.Text = $"{_rewards.CurrentPage} / {_rewards.TotalPages}";
         }
 
         private void LoadSingleReward(Reward r, ref RadPanel pnl) {
@@ -108,10 +130,8 @@ namespace ClientPoint.UI.Views
 
 
         public override void AfterHide() {
-        }
-
-        private void BtnBackOnClick(object sender, EventArgs e) {
-            UIManager.ShowView(View.MainMenu);
+            _rewards = null;
+            container.Controls.Clear();
         }
     }
 }

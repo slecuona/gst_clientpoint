@@ -27,8 +27,7 @@ namespace ClientPoint.UI {
         }
 
         private void LblImgOnDoubleClick(object sender, EventArgs e) {
-            if(Config.DebugMode)
-                Application.Exit();
+            Application.Exit();
         }
     }
 }

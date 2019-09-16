@@ -116,9 +116,9 @@ namespace ClientPoint {
         public static void TestPrintSync() {
             try {
                 var pj = new PrintJob(new Client() {
-                    Name = "SANTIAGO ELIAS",
-                    LastName = "LECUONA TOURNEE",
-                    IdCard = "00000012312312312"
+                    Name = "PRIMERO",
+                    LastName = "GST",
+                    IdCard = Config.TEST_CARD
                 });
 
                 pj.Start();

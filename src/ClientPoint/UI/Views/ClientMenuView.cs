@@ -32,9 +32,9 @@ namespace ClientPoint.UI.Views
 
             var cl = ClientSession.CurrClient;
 
-            lblName.Text = $"{cl.Name} {cl.LastName}".ToCamelCase();
-            lblPoints.Text = cl.Points.ToString();
-            lblCard.Text = cl.IdCard;
+            lblName.Text = $"{cl?.Name} {cl?.LastName}".ToCamelCase();
+            lblPoints.Text = cl?.Points.ToString() ?? "0";
+            lblCard.Text = cl?.IdCard;
 
             base.BeforeShow();
         }

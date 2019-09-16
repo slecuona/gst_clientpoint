@@ -81,15 +81,20 @@ namespace ClientPoint.UI {
             var prev = CurrWindow;
             CurrWindow = toShow;
             SafeExec(() => {
-                if(prev != Window.None)
-                    _windows[prev].BeforeHide();
-                _windows[toShow].BeforeShow();
-                _windows[toShow].Show();
-                if (prev != Window.None) {
-                    _windows[prev].Hide();
-                    _windows[prev].AfterHide();
+                try {
+                    if (prev != Window.None)
+                        _windows[prev].BeforeHide();
+                    _windows[toShow].BeforeShow();
+                    _windows[toShow].Show();
+                    if (prev != Window.None) {
+                        _windows[prev].Hide();
+                        _windows[prev].AfterHide();
+                    }
+                    _windows[toShow].AfterShow();
                 }
-                _windows[toShow].AfterShow();
+                catch (Exception e) {
+                    Logger.Exception(e);
+                }
             });
         }
 
@@ -101,15 +106,19 @@ namespace ClientPoint.UI {
             if (prev != toShow) {
                 CurrView = toShow;
                 SafeExec(() => {
-                    if (prev != View.None) {
-                        _views[prev].BeforeHide();
-                        _views[prev].Visible = false;
-                        _views[prev].AfterHide();
+                    try {
+                        if (prev != View.None) {
+                            _views[prev].BeforeHide();
+                            _views[prev].Visible = false;
+                            _views[prev].AfterHide();
+                        }
+                        GetCurrent().Refresh();
+                        _views[toShow].BeforeShow();
+                        _views[toShow].Visible = true;
+                        _views[toShow].AfterShow();
+                    } catch (Exception e) {
+                        Logger.Exception(e);
                     }
-                    GetCurrent().Refresh();
-                    _views[toShow].BeforeShow();
-                    _views[toShow].Visible = true;
-                    _views[toShow].AfterShow();
                 });
             }
             

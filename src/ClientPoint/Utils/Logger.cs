@@ -85,7 +85,8 @@ namespace ClientPoint.Utils {
 
         public static void DebugWrite(string msg) {
             Debug.WriteLine(msg);
-            if(Config.DebugMode)
+            if(Config.
+                DebugMode)
                 Write(msg).Wait();
         }
     }

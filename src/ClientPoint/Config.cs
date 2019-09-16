@@ -76,5 +76,7 @@ namespace ClientPoint {
         private const string API_URL_DEF = 
             "http://192.168.10.12/mobile/api/ClientPoint/";
         public static string ApiUrl;
+
+        public const string TEST_CARD = "0010100000123";
     }
 }

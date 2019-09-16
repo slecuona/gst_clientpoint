@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 using ClientPoint.UI.Controls;
+using ClientPoint.Utils;
 
 namespace ClientPoint.UI.Views
 {
@@ -38,6 +39,7 @@ namespace ClientPoint.UI.Views
             this.btnPrev = new ClientPoint.UI.Controls.CustomButtonArrow();
             this.btnNext = new ClientPoint.UI.Controls.CustomButtonArrow();
             this.container = new System.Windows.Forms.PictureBox();
+            this.lblPages = new Telerik.WinControls.UI.RadLabel();
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).BeginInit();
             this.panelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.headerPanel1)).BeginInit();
@@ -46,17 +48,19 @@ namespace ClientPoint.UI.Views
             ((System.ComponentModel.ISupportInitialize)(this.btnPrev)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.container)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblPages)).BeginInit();
             this.SuspendLayout();
             // 
             // panelContainer
             // 
+            this.panelContainer.Controls.Add(this.lblPages);
             this.panelContainer.Controls.Add(this.container);
             this.panelContainer.Controls.Add(this.btnPrev);
             this.panelContainer.Controls.Add(this.btnNext);
             this.panelContainer.Controls.Add(this.btnAll);
             this.panelContainer.Controls.Add(this.headerPanel1);
             this.panelContainer.Controls.Add(this.btnBack);
-            this.panelContainer.Size = new System.Drawing.Size(1302, 567);
+            this.panelContainer.Size = new System.Drawing.Size(1352, 661);
             // 
             // headerPanel1
             // 
@@ -64,7 +68,7 @@ namespace ClientPoint.UI.Views
             this.headerPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.headerPanel1.Location = new System.Drawing.Point(0, 0);
             this.headerPanel1.Name = "headerPanel1";
-            this.headerPanel1.Size = new System.Drawing.Size(1302, 80);
+            this.headerPanel1.Size = new System.Drawing.Size(1352, 80);
             this.headerPanel1.TabIndex = 4;
             this.headerPanel1.Title = "";
             // 
@@ -72,7 +76,6 @@ namespace ClientPoint.UI.Views
             // 
             this.btnBack.BackColor = System.Drawing.Color.Transparent;
             this.btnBack.ForeColor = System.Drawing.Color.White;
-            this.btnBack.Image = ((System.Drawing.Image)(resources.GetObject("btnBack.Image")));
             this.btnBack.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnBack.Location = new System.Drawing.Point(30, 670);
             this.btnBack.Name = "btnBack";
@@ -113,28 +116,40 @@ namespace ClientPoint.UI.Views
             this.btnNext.TabStop = false;
             this.btnNext.Text = "SIGUIENTE  ";
             // 
-            // pictureBox1
+            // container
             // 
+            this.container.Image = global::ClientPoint.Properties.Resources.bg_rewards;
             this.container.Location = new System.Drawing.Point(306, 115);
             this.container.Name = "container";
             this.container.Size = new System.Drawing.Size(1040, 560);
             this.container.TabIndex = 7;
             this.container.TabStop = false;
-            this.container.Image = Properties.Resources.bg_rewards;
+            // 
+            // lblPages
+            // 
+            this.lblPages.Location = new System.Drawing.Point(770, 705);
+            this.lblPages.Name = "lblPages";
+            this.lblPages.Font = FontUtils.Roboto(16, FontStyle.Bold);
+            this.lblPages.ForeColor = Color.White;
+            this.lblPages.Size = new System.Drawing.Size(55, 18);
+            this.lblPages.TabIndex = 8;
+            this.lblPages.Text = "";
             // 
             // RewardsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.Name = "RewardsView";
-            this.Size = new System.Drawing.Size(1302, 567);
+            this.Size = new System.Drawing.Size(1352, 661);
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).EndInit();
             this.panelContainer.ResumeLayout(false);
+            this.panelContainer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.headerPanel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAll)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPrev)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNext)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.container)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblPages)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -147,5 +162,6 @@ namespace ClientPoint.UI.Views
         private CustomButtonArrow btnPrev;
         private CustomButtonArrow btnNext;
         private PictureBox container;
+        private Telerik.WinControls.UI.RadLabel lblPages;
     }
 }

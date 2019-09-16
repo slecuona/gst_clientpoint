@@ -17,7 +17,7 @@ namespace ClientPoint.UI.Views
 
         private void ImgBoxOnClick(object sender, EventArgs e) {
             if(Config.DebugMode)
-                Op.ClientLoadAsync("0010100000123");
+                Op.ClientLoadAsync(Config.TEST_CARD);
         }
         
         public override void BeforeShow() {

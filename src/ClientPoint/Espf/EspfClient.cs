@@ -15,7 +15,6 @@ namespace ClientPoint.Espf {
         private static void Log(string msg) {
             if (!Config.DebugMode)
                 return;
-            return;
             Logger.WriteBuff(msg);
         }
 
@@ -32,12 +31,12 @@ namespace ClientPoint.Espf {
             return client;
         }
 
-        private static string GetStream(Request.BaseRequest req) {
+        private static string GetStream(string json) {
             var intents = 0;
             do {
                 intents++;
                 var client = NewClient();
-                if (TryGetStream(client, req, out string res))
+                if (TryGetStream(client, json, out string res))
                     return res;
                 Thread.Sleep(1000);
                 Log($"Fail GetStream intent {intents}.");
@@ -46,11 +45,10 @@ namespace ClientPoint.Espf {
         }
 
         // Este metodo se replicó del DemoProgram (EspfClientProcessor)
-        private static bool TryGetStream(TcpClient client, Request.BaseRequest req, out string res) {
+        private static bool TryGetStream(TcpClient client, string json, out string res) {
             res = "";
-            var reqJson = req.ToJson();
-            Log($"[JSON SEND] => {reqJson}");
-            var datain = Encoding.UTF8.GetBytes(reqJson);
+            
+            var datain = Encoding.UTF8.GetBytes(json);
             try {
                 NetworkStream ns = client.GetStream();
                 var received = 0;
@@ -85,17 +83,20 @@ namespace ClientPoint.Espf {
 
                 string json = "";
 
+                var reqJson = req.ToJson();
+                Log($"[JSON SEND] => {reqJson}");
+
                 // Metodo default: TcpClient
                 if (Config.EspfCommMethod == 0)
-                    json = GetStream(req);
+                    json = GetStream(reqJson);
 
                 // Metodo alternativo 1 (TcpClient)
                 if (Config.EspfCommMethod == 1)
-                    json = SendTcpAlternative(req);
+                    json = SendTcpAlternative(reqJson);
 
                 // Metodo NamedPipedStream
                 if (Config.EspfCommMethod == 2)
-                    json = SendPipe(req.ToJson());
+                    json = SendPipe(reqJson);
                 
                 if (string.IsNullOrEmpty(json))
                     throw new Exception("Se esperaba un json.");
@@ -114,10 +115,8 @@ namespace ClientPoint.Espf {
         /// </summary>
         /// <param name="req"></param>
         /// <returns></returns>
-        private static string SendTcpAlternative(Request.BaseRequest req) {
-            string json = "";
+        private static string SendTcpAlternative(string json) {
             try {
-                json = req.ToJson();
                 using (var socket = NewClient()) {
                     var body = Encoding.UTF8.GetBytes(json);
                     var bodyLength = Encoding.UTF8.GetByteCount(json);
