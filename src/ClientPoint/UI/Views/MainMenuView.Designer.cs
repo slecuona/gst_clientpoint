@@ -132,10 +132,10 @@ namespace ClientPoint.UI.Views
             // imgHost
             // 
             this.imgHost.Dock = System.Windows.Forms.DockStyle.Top;
-            this.imgHost.Image = global::ClientPoint.Properties.Resources.logo_big;
+            this.imgHost.Image = Config.HostLogo;
             this.imgHost.Location = new System.Drawing.Point(0, 143);
             this.imgHost.Name = "imgHost";
-            this.imgHost.Size = new System.Drawing.Size(1352, 303);
+            this.imgHost.Size = new System.Drawing.Size(500, 303);
             this.imgHost.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.imgHost.TabIndex = 0;
             this.imgHost.TabStop = false;

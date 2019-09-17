@@ -1,5 +1,7 @@
-﻿using System.Windows.Forms;
+﻿using System.Drawing;
+using System.Windows.Forms;
 using ClientPoint.UI.Controls;
+using Telerik.WinControls.UI;
 
 namespace ClientPoint.UI.Views
 {
@@ -33,9 +35,11 @@ namespace ClientPoint.UI.Views
             this.imgBox = new System.Windows.Forms.PictureBox();
             this.headerPanel1 = new ClientPoint.UI.HeaderPanel();
             this.btnBack = new CustomButton();
+            this.imgHost = new RadLabel();
             ((System.ComponentModel.ISupportInitialize)(this.imgBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.headerPanel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgHost)).BeginInit();
             this.SuspendLayout();
             // 
             // imgBox
@@ -44,7 +48,7 @@ namespace ClientPoint.UI.Views
             this.imgBox.BackColor = System.Drawing.Color.Transparent;
             this.imgBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.imgBox.Image = global::ClientPoint.Properties.Resources.swipe_card;
-            this.imgBox.Location = new System.Drawing.Point(1100, 180);
+            this.imgBox.Location = new System.Drawing.Point(1050, 180);
             this.imgBox.Name = "imgBox";
             this.imgBox.Size = new System.Drawing.Size(250, 400);
             this.imgBox.TabIndex = 3;
@@ -71,11 +75,23 @@ namespace ClientPoint.UI.Views
             this.btnBack.Type = Type.Back;
             this.btnBack.Click += BtnBackOnClick;
             // 
+            // imgHost
+            // 
+            this.imgHost.Location = new System.Drawing.Point(300, 200);
+            this.imgHost.Size = new Size(500, 300);
+            this.imgHost.Name = "imgHost";
+            this.imgHost.TabIndex = 1;
+            this.imgHost.TabStop = false;
+            this.imgHost.AutoSize = false;
+            this.imgHost.BackgroundImage = Config.HostLogo;
+            this.imgHost.BackgroundImageLayout = ImageLayout.Stretch;
+            // 
             // 
             // 
             this.panelContainer.Controls.Add(this.headerPanel1);
             this.panelContainer.Controls.Add(this.btnBack);
             this.panelContainer.Controls.Add(this.imgBox);
+            this.panelContainer.Controls.Add(this.imgHost);
             this.Name = "StatusView";
             // 
             // 
@@ -84,6 +100,7 @@ namespace ClientPoint.UI.Views
             ((System.ComponentModel.ISupportInitialize)(this.imgBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.headerPanel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgHost)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -93,5 +110,6 @@ namespace ClientPoint.UI.Views
         private PictureBox imgBox;
         private HeaderPanel headerPanel1;
         private CustomButton btnBack;
+        private RadLabel imgHost;
     }
 }

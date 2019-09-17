@@ -11,7 +11,7 @@ namespace ClientPoint.UI.Views
         {
             InitializeComponent();
             imgBox.Click += ImgBoxOnClick;
-            headerPanel1.Title = "Por favor, deslice su tarjeta por el lector.";
+            headerPanel1.Title = "Por favor, deslice su tarjeta por el lector.                                                   ";
             _swipeReader = new SwipeReader(OnSwipe);
         }
 

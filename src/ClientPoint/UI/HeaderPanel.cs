@@ -26,7 +26,7 @@ namespace ClientPoint.UI {
             }
         }
 
-        private void LblImgOnDoubleClick(object sender, EventArgs e) {
+        private void LblHostOnDoubleClick(object sender, EventArgs e) {
             Application.Exit();
         }
     }

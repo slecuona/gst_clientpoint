@@ -1,6 +1,9 @@
-﻿using System.Collections.Specialized;
+﻿using System;
+using System.Collections.Specialized;
 using System.Configuration;
 using System.Drawing;
+using System.IO;
+using ClientPoint.Properties;
 
 namespace ClientPoint {
     public static class Config {
@@ -40,8 +43,25 @@ namespace ClientPoint {
             CardNameSize = GetInt("CardNameSize", 28);
 
             DebugMode = GetBool("Debug", false);
+
+            LoadHostLogo();
         }
 
+        static void LoadHostLogo() {
+            try {
+                HostLogo = Resources.logo_big;
+                var path = GetSetting("HostLogo", null);
+                if (path == null)
+                    return;
+                if (!File.Exists(path))
+                    return;
+                HostLogo = Image.FromFile(path);
+            }
+            catch (Exception e) {
+                throw new Exception("Error al cargar imagen logo host.", e);
+            }
+        }
+        
         /// <summary>
         /// Ip del servidor ESPF
         /// </summary>
@@ -78,5 +98,7 @@ namespace ClientPoint {
         public static string ApiUrl;
 
         public const string TEST_CARD = "0010100000123";
+
+        public static Image HostLogo;
     }
 }
