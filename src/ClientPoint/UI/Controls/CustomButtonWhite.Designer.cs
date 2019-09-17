@@ -31,12 +31,12 @@ namespace ClientPoint.UI.Controls {
             Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
             DisplayStyle = DisplayStyle.ImageAndText;
             ImageAlignment = ContentAlignment.MiddleLeft;
-            Image = Properties.Resources.btn_white;
+            Image = Properties.Resources.btn_white_dark;
             Size = new Size(240, 89);
-            Font = FontUtils.Roboto(18, FontStyle.Bold);
+            Font = FontUtils.Roboto(16, FontStyle.Bold);
             TextAlignment = ContentAlignment.MiddleCenter;
             BackColor = Color.Transparent;
-            ForeColor = Color.FromArgb(255, 169, 54, 54);
+            ForeColor = Color.Black;
             // No deben tener foco
             TabStop = false;
             ButtonElement.BorderElement.Width = 0;

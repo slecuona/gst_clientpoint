@@ -53,7 +53,8 @@ namespace ClientPoint.Session {
         }
 
         public void Filter(int id) {
-            CurrentRewards = GetByCategory(id);
+            CurrentRewards = id == 0 ? 
+                Rewards : GetByCategory(id);
             CurrentCategory = id;
             CalcPages();
             Select();

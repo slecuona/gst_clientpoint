@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 using ClientPoint.Api;
 using ClientPoint.Session;
@@ -13,6 +15,7 @@ namespace ClientPoint.UI.Views
     public partial class RewardsView : BaseView {
         private RewardsManager _rewards;
         private int _lastBtnCatergoryY = 0;
+        private List<CustomButtonWhite> _btns;
 
         public RewardsView() {
             InitializeComponent();
@@ -21,6 +24,24 @@ namespace ClientPoint.UI.Views
             btnNext.Click += BtnNextOnClick;
             btnPrev.Click += BtnPrevOnClick;
             btnBack.Click += BtnBackOnClick;
+            btnAll.Checked = true;
+            btnAll.Tag = 0;
+            btnAll.Click += BtnCategoryOnClick;
+            _btns = new List<CustomButtonWhite>();
+        }
+
+        private void BtnCategoryOnClick(object sender, EventArgs e) {
+            var btn = sender as CustomButtonWhite;
+            if (btn == null)
+                return;
+            if (!(btn.Tag is int id))
+                return;
+            foreach (var b in _btns) {
+                b.Checked = false;
+            }
+            btn.Checked = true;
+            _rewards.Filter(id);
+            FillRewardsAsync();
         }
 
         private void BtnBackOnClick(object sender, EventArgs e) {
@@ -31,33 +52,46 @@ namespace ClientPoint.UI.Views
             if (_rewards == null)
                 return;
             _rewards?.Prev();
-            FillRewards();
+            FillRewardsAsync();
         }
 
         private void BtnNextOnClick(object sender, EventArgs e) {
             if (_rewards == null)
                 return;
             _rewards?.Next();
-            FillRewards();
+            FillRewardsAsync();
         }
 
         public override void BeforeShow() {
-            LoadRewards();
+            _btns.Clear();
+            _rewards = null;
+            _lastBtnCatergoryY = 0;
+            container.Controls.Clear();
+        }
+
+        private void LoadRewardsAsync() {
+            headerPanel1.Waiting = true;
+            var t = new Thread(LoadRewards);
+            t.Start();
         }
 
         private void LoadRewards() {
             _lastBtnCatergoryY = btnAll.Top;
             var res = ApiService.GetRewards("0010100000123");
             _rewards = new RewardsManager(res);
-            foreach (var c in _rewards.Categories) {
-                AddCategoryBtn(c.Key, c.Value);
-            }
+            this.InvokeIfRequired(() => {
+                _btns.Add(btnAll);
+                categoryPanel.Controls.Add(btnAll);
+                foreach (var c in _rewards.Categories) {
+                    AddCategoryBtn(c.Key, c.Value);
+                }
+            });
             FillRewards();
         }
 
         private void FillRewards() {
-            container.Controls.Clear();
             var rewards = _rewards.CurrentRewards;
+            var panels = new List<RadPanel>();
             var left = true;
             var top = 0;
             const int width = 515;
@@ -74,10 +108,21 @@ namespace ClientPoint.UI.Views
                     top += height;
                 left = !left;
                 LoadSingleReward(r, ref pnl);
-                container.Controls.Add(pnl);
+                panels.Add(pnl);
             }
 
-            RefreshPageInfo();
+            this.InvokeIfRequired(() => {
+                container.Controls.AddRange(controls: panels?.ToArray());
+                RefreshPageInfo();
+                headerPanel1.Waiting = false;
+            });
+        }
+
+        private void FillRewardsAsync() {
+            headerPanel1.Waiting = true;
+            container.Controls.Clear();
+            var t = new Thread(FillRewards);
+            t.Start();
         }
 
         private void RefreshPageInfo() {
@@ -121,17 +166,25 @@ namespace ClientPoint.UI.Views
         private void AddCategoryBtn(int id, string name) {
             var btn = new CustomButtonWhite();
             btn.Name = $"btnCategory{id}";
-            btn.Text = name.ToUpper();
+            btn.Text = name.ToUpper().Replace(' ', '\n');
             btn.Tag = id;
-            btn.Location = new Point(31, _lastBtnCatergoryY + 100);
-            this.panelContainer.Controls.Add(btn);
+            btn.Location = new Point(0, _lastBtnCatergoryY + 100);
+            btn.Click += this.BtnCategoryOnClick;
+            this.categoryPanel.Controls.Add(btn);
             _lastBtnCatergoryY = btn.Top;
+            _btns.Add(btn);
         }
 
 
         public override void AfterHide() {
             _rewards = null;
+            _btns.Clear();
             container.Controls.Clear();
+            categoryPanel.Controls.Clear();
+        }
+
+        public override void AfterShow() {
+            LoadRewardsAsync();
         }
     }
 }

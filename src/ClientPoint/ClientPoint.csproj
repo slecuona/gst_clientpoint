@@ -590,5 +590,11 @@
   <ItemGroup>
     <None Include="Resources\gift.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_white_checked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_white_dark.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

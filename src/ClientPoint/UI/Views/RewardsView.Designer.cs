@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using ClientPoint.UI.Controls;
 using ClientPoint.Utils;
+using Telerik.WinControls.Primitives;
 
 namespace ClientPoint.UI.Views
 {
@@ -40,11 +41,13 @@ namespace ClientPoint.UI.Views
             this.btnNext = new ClientPoint.UI.Controls.CustomButtonArrow();
             this.container = new System.Windows.Forms.PictureBox();
             this.lblPages = new Telerik.WinControls.UI.RadLabel();
+            this.categoryPanel = new Telerik.WinControls.UI.RadPanel();
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).BeginInit();
             this.panelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.headerPanel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAll)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryPanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPrev)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.container)).BeginInit();
@@ -57,9 +60,9 @@ namespace ClientPoint.UI.Views
             this.panelContainer.Controls.Add(this.container);
             this.panelContainer.Controls.Add(this.btnPrev);
             this.panelContainer.Controls.Add(this.btnNext);
-            this.panelContainer.Controls.Add(this.btnAll);
             this.panelContainer.Controls.Add(this.headerPanel1);
             this.panelContainer.Controls.Add(this.btnBack);
+            this.panelContainer.Controls.Add(this.categoryPanel);
             this.panelContainer.Size = new System.Drawing.Size(1352, 661);
             // 
             // headerPanel1
@@ -87,12 +90,20 @@ namespace ClientPoint.UI.Views
             // btnAll
             // 
             this.btnAll.BackColor = System.Drawing.Color.Transparent;
-            this.btnAll.Location = new System.Drawing.Point(31, 115);
+            this.btnAll.Location = new System.Drawing.Point(0, 0);
             this.btnAll.Name = "btnAll";
             this.btnAll.Size = new System.Drawing.Size(240, 89);
             this.btnAll.TabIndex = 5;
             this.btnAll.TabStop = false;
             this.btnAll.Text = "TODOS";
+            // 
+            // categoryPanel
+            // 
+            this.categoryPanel.BackColor = System.Drawing.Color.Transparent;
+            this.categoryPanel.Location = new System.Drawing.Point(31, 115);
+            this.categoryPanel.Size = new Size(240, 600);
+            this.categoryPanel.Name = "categoryPanel";
+            ((BorderPrimitive)(categoryPanel.GetChildAt(0).GetChildAt(1))).Width = 0F;
             // 
             // btnPrev
             // 
@@ -145,6 +156,7 @@ namespace ClientPoint.UI.Views
             this.panelContainer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.headerPanel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryPanel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAll)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPrev)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNext)).EndInit();
@@ -158,6 +170,7 @@ namespace ClientPoint.UI.Views
         
         private HeaderPanel headerPanel1;
         private CustomButton btnBack;
+        private Telerik.WinControls.UI.RadPanel categoryPanel;
         private CustomButtonWhite btnAll;
         private CustomButtonArrow btnPrev;
         private CustomButtonArrow btnNext;
