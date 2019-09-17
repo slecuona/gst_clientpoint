@@ -86,6 +86,7 @@ namespace ClientPoint.UI.Views
                     AddCategoryBtn(c.Key, c.Value);
                 }
             });
+            btnAll.Checked = true;
             FillRewards();
         }
 
