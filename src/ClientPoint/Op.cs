@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 using System.Threading;
 using ClientPoint.Api;
 using ClientPoint.Espf;
@@ -156,6 +157,23 @@ namespace ClientPoint {
             // Cargo todos los datos del usuario
             ClientSession.Load(res, null);
             UIManager.ShowView(View.ClientMenu);
+        }
+
+        public static void ShowReward(Reward reward) {
+            UIManager.RewardModal.ShowDialog(UIManager.GetCurrent());
+        }
+
+        public static void TestBase64() {
+            using (MemoryStream m = new MemoryStream()) {
+                var image = Properties.Resources.crucero;
+                image.Save(m, image.RawFormat);
+                byte[] imageBytes = m.ToArray();
+
+                // Convert byte[] to Base64 String
+                string base64String = Convert.ToBase64String(imageBytes);
+                Console.WriteLine(base64String);
+            }
+
         }
     }
 }

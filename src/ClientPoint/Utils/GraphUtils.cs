@@ -83,12 +83,16 @@ namespace ClientPoint.Utils {
         public static bool TryGetImageFromBase64(string base64, out Image img) {
             img = null;
             try {
-                    var imgData = Convert.FromBase64String(base64);
+                var imgData = Convert.FromBase64String(base64);
 
-                    MemoryStream ms = new MemoryStream(imgData);
-                    ms.Seek(0, SeekOrigin.Begin);
+                MemoryStream ms = new MemoryStream();
+                ms.Write(imgData, 0, imgData.Length);
+                //ms.Seek(0, SeekOrigin.Begin);
+                Bitmap bit = new Bitmap(ms);
 
-                    img = Image.FromStream(ms);
+                img = bit;
+                return true;
+                img = Image.FromStream(ms);
 
                 //    var bitmap = new Bitmap(100, 100, PixelFormat.Format32bppArgb);
                 //    var bitmap_data = bitmap.LockBits(

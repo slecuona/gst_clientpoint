@@ -33,6 +33,7 @@ namespace ClientPoint.UI {
         //}
 
         private static FrmSplash Splash;
+        public static FrmRewardModal RewardModal;
 
         // Debe ser ejecutado en UI Thread
         public static void Init() {
@@ -57,11 +58,12 @@ namespace ClientPoint.UI {
             }
             foreach (var w in _keyboards) {
                 if (w.Key == Keyboard.None)
-                    return;
+                    continue;
                 w.Value.Show();
                 w.Value.Hide();
                 w.Value.Opacity = 1;
             }
+            RewardModal = new FrmRewardModal();
         }
 
         public static void AddView(View v, BaseView p) {

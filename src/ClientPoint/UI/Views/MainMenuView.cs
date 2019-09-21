@@ -18,6 +18,7 @@ namespace ClientPoint.UI.Views
             //UIManager.ShowView(View.StatusMain);
             Op.Client();
             //Op.TestPrintAsync();
+            //Op.ShowReward(null);
         }
 
         private void BtnConfirmOnClick(object sender, EventArgs e) {

@@ -100,5 +100,11 @@ namespace ClientPoint {
         public const string TEST_CARD = "0010100000123";
 
         public static Image HostLogo;
+
+        public static Color LightBlue = 
+            Color.FromArgb(80, 186, 226);
+
+
+
     }
 }

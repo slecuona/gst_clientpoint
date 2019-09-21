@@ -34,6 +34,8 @@ namespace ClientPoint {
 
                 UIManager.StopSplash();
 
+                //Op.TestBase64();
+
                 UIManager.ShowWindow(Window.Ads);
                 
                 // Pantalla principal / inicial (publicidades)

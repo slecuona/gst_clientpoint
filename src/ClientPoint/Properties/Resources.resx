@@ -259,4 +259,10 @@
   <data name="btn_white_dark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btn_white_dark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="btn_white_round" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btn_white_round.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="crucero" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\crucero.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
