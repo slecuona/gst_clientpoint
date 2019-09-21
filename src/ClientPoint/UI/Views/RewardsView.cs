@@ -136,15 +136,17 @@ namespace ClientPoint.UI.Views
             var lblImg = new RadLabel();
             lblImg.Size = new Size(100, 100);
             lblImg.Location = new Point(20, 20);
-            lblImg.ImageScalingSize = new Size(100, 100);
+            //lblImg.ImageScalingSize = new Size(100, 100);
+            lblImg.AutoSize = false;
+            lblImg.BackgroundImageLayout = ImageLayout.Zoom;
 
             try {
                 // Saco los primero 36 caracteres
                 var base64 = r.ImageData.Substring(36, r.ImageData.Length - 36);
                 if (GraphUtils.TryGetImageFromBase64(base64, out Image img))
-                    lblImg.Image = img;
+                    lblImg.BackgroundImage = img;
                 else
-                    lblImg.Image = Properties.Resources.gift_thumb;
+                    lblImg.BackgroundImage = Properties.Resources.gift_thumb;
             } catch (Exception e) {
                 Logger.Exception(e);
             }

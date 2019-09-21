@@ -85,14 +85,14 @@ namespace ClientPoint.Utils {
             try {
                 var imgData = Convert.FromBase64String(base64);
 
-                MemoryStream ms = new MemoryStream();
-                ms.Write(imgData, 0, imgData.Length);
-                //ms.Seek(0, SeekOrigin.Begin);
-                Bitmap bit = new Bitmap(ms);
+                //MemoryStream ms = new MemoryStream();
+                //ms.Write(imgData, 0, imgData.Length);
+                ////ms.Seek(0, SeekOrigin.Begin);
+                //Bitmap bit = new Bitmap(ms);
 
-                img = bit;
-                return true;
-                img = Image.FromStream(ms);
+                //img = bit;
+                //return true;
+                //img = Image.FromStream(ms);
 
                 //    var bitmap = new Bitmap(100, 100, PixelFormat.Format32bppArgb);
                 //    var bitmap_data = bitmap.LockBits(
@@ -102,8 +102,8 @@ namespace ClientPoint.Utils {
                 //    bitmap.UnlockBits(bitmap_data);
                 //    img = bitmap as Image;
 
-                //ImageConverter imageConverter = new System.Drawing.ImageConverter();
-                //img = imageConverter.ConvertFrom(imgData) as System.Drawing.Image;
+                ImageConverter imageConverter = new System.Drawing.ImageConverter();
+                img = imageConverter.ConvertFrom(imgData) as System.Drawing.Image;
 
 
                 //Bitmap bmp = new Bitmap(ms);
