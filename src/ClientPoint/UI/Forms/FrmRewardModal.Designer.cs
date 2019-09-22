@@ -86,7 +86,7 @@ namespace ClientPoint.UI.Forms
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(186)))), ((int)(((byte)(226)))));
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(12, 540);
+            this.btnCancel.Location = new System.Drawing.Point(12, 510);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(234, 78);
             this.btnCancel.TabIndex = 4;
@@ -101,7 +101,7 @@ namespace ClientPoint.UI.Forms
             this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
             this.btnConfirm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
             this.btnConfirm.Image = ((System.Drawing.Image)(resources.GetObject("btnConfirm.Image")));
-            this.btnConfirm.Location = new System.Drawing.Point(362, 540);
+            this.btnConfirm.Location = new System.Drawing.Point(362, 510);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(234, 78);
             this.btnConfirm.TabIndex = 3;
@@ -114,7 +114,7 @@ namespace ClientPoint.UI.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(186)))), ((int)(((byte)(226)))));
-            this.ClientSize = new System.Drawing.Size(616, 660);
+            this.ClientSize = new System.Drawing.Size(611, 601);
             this.Controls.Add(this.lblImage);
             this.Controls.Add(this.picBox1);
             this.Controls.Add(this.btnCancel);

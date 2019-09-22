@@ -156,6 +156,9 @@
     <Compile Include="UI\Forms\FrmRewardModal.Designer.cs">
       <DependentUpon>FrmRewardModal.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\RewardPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UI\Views\DocInputView.cs">
       <SubType>UserControl</SubType>
     </Compile>

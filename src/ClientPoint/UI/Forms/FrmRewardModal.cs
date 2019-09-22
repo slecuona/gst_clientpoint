@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using ClientPoint.Session;
 using ClientPoint.Utils;
 
 namespace ClientPoint.UI.Forms {
@@ -14,6 +15,10 @@ namespace ClientPoint.UI.Forms {
             btnConfirm.Font = FontUtils.Roboto(16, FontStyle.Bold);
         }
 
+        public void LoadReward(Reward r) {
+            lblTitle.Text = r.Name?.ToUpper();
+            lblImage.BackgroundImage = r.GetImage();
+        }
 
         private void customButton1_Click(object sender, EventArgs e) {
             this.DialogResult = DialogResult.OK;
@@ -26,7 +31,8 @@ namespace ClientPoint.UI.Forms {
         }
 
         private void btnCancel_Click(object sender, EventArgs e) {
-
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
         }
 
         private void OnShown(object sender, EventArgs e) {
