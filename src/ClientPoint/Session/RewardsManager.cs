@@ -13,8 +13,6 @@ namespace ClientPoint.Session {
 
         public RewardsManager(List<Reward> rewards) {
             Rewards = rewards;
-            Rewards.AddRange(rewards);
-            Rewards.AddRange(rewards);
             LoadCategories();
             CurrentCategory = 0;
             CurrentRewards = Rewards;

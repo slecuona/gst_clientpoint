@@ -233,6 +233,16 @@ namespace ClientPoint.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btn_minus {
+            get {
+                object obj = ResourceManager.GetObject("btn_minus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btn_new_client {
             get {
                 object obj = ResourceManager.GetObject("btn_new_client", resourceCulture);
@@ -266,6 +276,16 @@ namespace ClientPoint.Properties {
         internal static System.Drawing.Bitmap btn_next_press {
             get {
                 object obj = ResourceManager.GetObject("btn_next_press", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_plus {
+            get {
+                object obj = ResourceManager.GetObject("btn_plus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

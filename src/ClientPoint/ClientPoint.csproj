@@ -129,6 +129,12 @@
     <Compile Include="UI\Controls\CustomButtonArrow.Designer.cs">
       <DependentUpon>CustomButtonArrow.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Controls\CustomButtonCount.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\CustomButtonCount.Designer.cs">
+      <DependentUpon>CustomButtonCount.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Controls\CustomButtonWhiteRound.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -625,6 +631,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\crucero.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_minus.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

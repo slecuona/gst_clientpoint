@@ -2,13 +2,10 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Threading;
-using System.Windows.Forms;
 using ClientPoint.Api;
 using ClientPoint.Session;
 using ClientPoint.UI.Controls;
 using ClientPoint.Utils;
-using Telerik.WinControls.Primitives;
-using Telerik.WinControls.UI;
 
 namespace ClientPoint.UI.Views
 {
@@ -19,7 +16,8 @@ namespace ClientPoint.UI.Views
 
         public RewardsView() {
             InitializeComponent();
-            headerPanel1.Title = "                                                    Premios";
+            headerPanel1.Title = "                                            Premios";
+            headerPanel1.Label.Font = FontUtils.Roboto(19);
             btnNext.SetRight();
             btnNext.Click += BtnNextOnClick;
             btnPrev.Click += BtnPrevOnClick;
@@ -77,7 +75,7 @@ namespace ClientPoint.UI.Views
 
         private void LoadRewards() {
             _lastBtnCatergoryY = btnAll.Top;
-            var res = ApiService.GetRewards("0010100000123");
+            var res = ApiService.GetRewards(Config.TEST_CARD);
             _rewards = new RewardsManager(res);
             this.InvokeIfRequired(() => {
                 _btns.Add(btnAll);
@@ -123,8 +121,7 @@ namespace ClientPoint.UI.Views
             btnNext.Enabled = _rewards.CurrentPage < _rewards.TotalPages;
             lblPages.Text = $"{_rewards.CurrentPage} / {_rewards.TotalPages}";
         }
-
-
+        
         private void AddCategoryBtn(int id, string name) {
             var btn = new CustomButtonWhite();
             btn.Name = $"btnCategory{id}";
@@ -136,7 +133,6 @@ namespace ClientPoint.UI.Views
             _lastBtnCatergoryY = btn.Top;
             _btns.Add(btn);
         }
-
 
         public override void AfterHide() {
             _rewards = null;

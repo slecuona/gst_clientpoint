@@ -14,6 +14,8 @@ namespace ClientPoint.UI {
             get => lblTitle.Text;
         }
 
+        public RadLabel Label => lblTitle;
+
         public bool Waiting {
             set {
                 if (value) {
