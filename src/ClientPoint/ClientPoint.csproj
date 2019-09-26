@@ -297,12 +297,6 @@
     <Compile Include="UI\FooterPanel.Designer.cs">
       <DependentUpon>FooterPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Forms\FrmUserMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Forms\FrmUserMenu.Designer.cs">
-      <DependentUpon>FrmUserMenu.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Controls\SexField.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -418,9 +412,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FooterPanel.resx">
       <DependentUpon>FooterPanel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Forms\FrmUserMenu.resx">
-      <DependentUpon>FrmUserMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Controls\SexField.resx">
       <DependentUpon>SexField.cs</DependentUpon>
