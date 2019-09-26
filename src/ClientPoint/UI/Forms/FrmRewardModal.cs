@@ -33,6 +33,10 @@ namespace ClientPoint.UI.Forms {
 
             btnPlus.Click += BtnPlusOnClick;
             btnMinus.Click += BtnMinusOnClick;
+
+            lblImage.Parent = picBox1;
+            lblImage.Location = new Point(15, 15);
+            lblImage.Size = new Size(picBox1.Width - 30, picBox1.Height - 30);
         }
 
         private void BtnMinusOnClick(object sender, EventArgs e) {
@@ -55,9 +59,11 @@ namespace ClientPoint.UI.Forms {
             _count = 1;
             _pointsPerUnit = r.PointsRequired;
 
-            var maxByPoints = _totalPoints / _pointsPerUnit;
-            if (maxByPoints < _max)
-                _max = maxByPoints;
+            if (_pointsPerUnit > 0) {
+                var maxByPoints = _totalPoints / _pointsPerUnit;
+                if (maxByPoints < _max)
+                    _max = maxByPoints;
+            }
 
             lblTitle.Text = r.Name?.ToUpper();
             lblCategory.Text = r.CategoryName?.ToUpper();

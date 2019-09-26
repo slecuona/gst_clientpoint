@@ -97,14 +97,12 @@ namespace ClientPoint {
             "http://192.168.10.12/mobile/api/ClientPoint/";
         public static string ApiUrl;
 
-        public const string TEST_CARD = "0010100000100";
+        public const string TEST_CARD = "6000100000006";
 
         public static Image HostLogo;
 
         public static Color LightBlue = 
             Color.FromArgb(80, 186, 226);
-
-
-
+        
     }
 }

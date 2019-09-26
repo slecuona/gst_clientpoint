@@ -83,10 +83,10 @@ namespace ClientPoint.UI.Forms
             // lblImage
             // 
             this.lblImage.AutoSize = false;
-            this.lblImage.BackColor = System.Drawing.Color.White;
+            this.lblImage.BackColor = System.Drawing.Color.Transparent;
             this.lblImage.BackgroundImage = global::ClientPoint.Properties.Resources.bg_rewards;
             this.lblImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.lblImage.Location = new System.Drawing.Point(32, 76);
+            this.lblImage.Location = new System.Drawing.Point(20, 20);
             this.lblImage.Name = "lblImage";
             this.lblImage.Size = new System.Drawing.Size(547, 252);
             this.lblImage.TabIndex = 2;
@@ -219,7 +219,7 @@ namespace ClientPoint.UI.Forms
             // 
             // picBox1
             // 
-            this.picBox1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.picBox1.BackColor = System.Drawing.Color.White;
             this.picBox1.Location = new System.Drawing.Point(18, 62);
             this.picBox1.Name = "picBox1";
             this.picBox1.Size = new System.Drawing.Size(578, 279);
@@ -260,7 +260,7 @@ namespace ClientPoint.UI.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(186)))), ((int)(((byte)(226)))));
-            this.ClientSize = new System.Drawing.Size(615, 580);
+            this.ClientSize = new System.Drawing.Size(614, 574);
             this.Controls.Add(this.lblImage);
             this.Controls.Add(this.lblPointsAfterVal);
             this.Controls.Add(this.lblPointsReqVal);
