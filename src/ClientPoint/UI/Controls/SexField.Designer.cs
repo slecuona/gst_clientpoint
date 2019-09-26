@@ -47,9 +47,9 @@ namespace ClientPoint.UI.Controls {
             // radioM
             // 
             this.btnM.Font = FontUtils.Roboto(15.75F);
-            this.btnM.Location = new System.Drawing.Point(165, 0);
+            this.btnM.Location = new System.Drawing.Point(115, 0);
             this.btnM.Name = "btnM";
-            this.btnM.Size = new System.Drawing.Size(205, 55);
+            this.btnM.Size = new System.Drawing.Size(240, 55);
             this.btnM.TabIndex = 1;
             this.btnM.Text = "";
             this.btnM.ForeColor = Color.White;
@@ -64,9 +64,9 @@ namespace ClientPoint.UI.Controls {
             // radioF
             // 
             this.btnF.Font = FontUtils.Roboto(15.75F);
-            this.btnF.Location = new System.Drawing.Point(385, 0);
+            this.btnF.Location = new System.Drawing.Point(355, 0);
             this.btnF.Name = "btnF";
-            this.btnF.Size = new System.Drawing.Size(205, 55);
+            this.btnF.Size = new System.Drawing.Size(240, 55);
             this.btnF.TabIndex = 2;
             this.btnF.Text = "";
             this.btnF.ForeColor = Color.White;
