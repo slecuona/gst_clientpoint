@@ -20,6 +20,7 @@ namespace ClientPoint.UI.Forms {
 
             lblTitle.Font = FontUtils.Roboto(17, FontStyle.Bold);
             btnConfirm.Font = FontUtils.Roboto(16, FontStyle.Bold);
+            btnCancel.Font = FontUtils.Roboto(16, FontStyle.Bold);
             lblCategory.Font = FontUtils.Roboto(15, FontStyle.Bold);
 
             lblPointsCurr.Font = FontUtils.Roboto(14, FontStyle.Bold);

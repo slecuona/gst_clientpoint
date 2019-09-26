@@ -32,7 +32,7 @@ namespace ClientPoint.UI.Forms
         {
             this.lblMessage = new Telerik.WinControls.UI.RadLabel();
             this.lblIcon = new Telerik.WinControls.UI.RadLabel();
-            this.btnOk = new CustomButtonBlue();
+            this.btnOk = new CustomButtonWhiteRound();
             ((System.ComponentModel.ISupportInitialize)(this.lblMessage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnOk)).BeginInit();
@@ -42,8 +42,7 @@ namespace ClientPoint.UI.Forms
             // lblMessage
             // 
             this.lblMessage.BackColor = System.Drawing.Color.Transparent;
-            this.lblMessage.Font = FontUtils.Roboto(16);
-            this.lblMessage.ForeColor = System.Drawing.Color.Black;
+            this.lblMessage.ForeColor = System.Drawing.Color.White;
             this.lblMessage.Location = new System.Drawing.Point(100, 0);
             this.lblMessage.Name = "lblMessage";
             this.lblMessage.Padding = new System.Windows.Forms.Padding(40, 55, 20, 20);
@@ -68,14 +67,14 @@ namespace ClientPoint.UI.Forms
             this.btnOk.TabStop = false;
             this.btnOk.Text = "ACEPTAR";
             this.btnOk.Click += new System.EventHandler(this.customButton1_Click);
-            this.btnOk.SetSmall();
             // 
             // FrmMessage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::ClientPoint.Properties.Resources.bg_light;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(186)))), ((int)(((byte)(226)))));
+            //this.BackgroundImage = global::ClientPoint.Properties.Resources.bg_light;
+            //this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(516, 220);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.lblIcon);
@@ -103,6 +102,6 @@ namespace ClientPoint.UI.Forms
         
         private Telerik.WinControls.UI.RadLabel lblMessage;
         private Telerik.WinControls.UI.RadLabel lblIcon;
-        private CustomButtonBlue btnOk;
+        private CustomButtonWhiteRound btnOk;
     }
 }

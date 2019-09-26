@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using ClientPoint.Utils;
 
@@ -25,6 +26,12 @@ namespace ClientPoint.UI.Forms
                     lblIcon.Image = Properties.Resources.error;
                     break;
             }
+
+            this.lblMessage.Font = FontUtils.Roboto(18, FontStyle.Bold);
+            this.btnOk.Font = FontUtils.Roboto(16);
+
+            //this.BackColor = Color.FromArgb(63, 63, 77);
+            //this.btnOk.ForeColor = Color.FromArgb(63, 63, 77);
         }
 
         // Dimensiona la ventana segun el contenido del mensaje
