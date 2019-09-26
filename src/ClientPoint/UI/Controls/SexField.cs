@@ -1,30 +1,40 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace ClientPoint.UI.Controls {
     public partial class SexField : UserControl {
+        private bool _male = true;
+
         public SexField() {
             InitializeComponent();
+            Value = "M";
+            btnM.Click += BtnMOnClick;
+            btnF.Click += BtnFOnClick;
+        }
+
+        private void BtnFOnClick(object sender, EventArgs e) {
+            Value = "F";
+        }
+
+        private void BtnMOnClick(object sender, EventArgs e) {
+            Value = "M";
         }
 
         public string Value {
-            get {
-                if (this.radioF.IsChecked)
-                    return "F";
-                if (this.radioM.IsChecked)
-                    return "M";
-                return null;
-            }
+            get { return _male ? "M" : "F"; }
             set {
-                if (value == "F") {
-                    radioF.CheckState = CheckState.Checked;
-                    return;
-                }
                 if (value == "M") {
-                    radioM.CheckState = CheckState.Checked;
+                    btnM.Image = Properties.Resources.btn_male_press;
+                    btnF.Image = Properties.Resources.btn_female;
+                    _male = true;
                     return;
                 }
-                radioF.CheckState = CheckState.Unchecked;
-                radioM.CheckState = CheckState.Unchecked;
+                if (value == "F") {
+                    btnM.Image = Properties.Resources.btn_male;
+                    btnF.Image = Properties.Resources.btn_female_press;
+                    _male = false;
+                    return;
+                }
             }
         }
     }

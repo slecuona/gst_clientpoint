@@ -27,17 +27,17 @@ namespace ClientPoint.UI.Controls {
         /// </summary>
         private void InitializeComponent() {
             this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
-            this.radioM = new Telerik.WinControls.UI.RadRadioButton();
-            this.radioF = new Telerik.WinControls.UI.RadRadioButton();
+            this.btnM = new Telerik.WinControls.UI.RadButton();
+            this.btnF = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radioM)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radioF)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnM)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnF)).BeginInit();
             this.SuspendLayout();
             // 
             // radLabel1
             // 
             this.radLabel1.Font = FontUtils.Roboto(15F);
-            this.radLabel1.Location = new System.Drawing.Point(4, 10);
+            this.radLabel1.Location = new System.Drawing.Point(4, 15);
             this.radLabel1.Name = "radLabel1";
             this.radLabel1.Size = new System.Drawing.Size(59, 34);
             this.radLabel1.TabIndex = 0;
@@ -46,40 +46,50 @@ namespace ClientPoint.UI.Controls {
             // 
             // radioM
             // 
-            this.radioM.Font = FontUtils.Roboto(15.75F);
-            this.radioM.Location = new System.Drawing.Point(290, 8);
-            this.radioM.Name = "radioM";
-            this.radioM.Size = new System.Drawing.Size(121, 34);
-            this.radioM.TabIndex = 1;
-            this.radioM.Text = "Masculino";
-            this.radioM.ForeColor = Color.White;
-            ((Telerik.WinControls.Layouts.ImageAndTextLayoutPanel)(this.radioM.GetChildAt(0).GetChildAt(1).GetChildAt(0))).Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
-            ((Telerik.WinControls.Layouts.ImageAndTextLayoutPanel)(this.radioM.GetChildAt(0).GetChildAt(1).GetChildAt(0))).Margin = new System.Windows.Forms.Padding(0);
+            this.btnM.Font = FontUtils.Roboto(15.75F);
+            this.btnM.Location = new System.Drawing.Point(165, 0);
+            this.btnM.Name = "btnM";
+            this.btnM.Size = new System.Drawing.Size(205, 55);
+            this.btnM.TabIndex = 1;
+            this.btnM.Text = "";
+            this.btnM.ForeColor = Color.White;
+            this.btnM.BackColor = System.Drawing.Color.Transparent;
+            this.btnM.Image = Properties.Resources.btn_male;
+            this.btnM.ImageAlignment = ContentAlignment.MiddleCenter;
+            this.btnM.TabStop = false;
+            this.btnM.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.btnM.ButtonElement.BorderElement.Width = 0;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(btnM.GetChildAt(0).GetChildAt(1).GetChildAt(1))).PositionOffset = new System.Drawing.SizeF(0F, -2F);
             // 
             // radioF
             // 
-            this.radioF.Font = FontUtils.Roboto(15.75F);
-            this.radioF.Location = new System.Drawing.Point(456, 8);
-            this.radioF.Name = "radioF";
-            this.radioF.Size = new System.Drawing.Size(101, 34);
-            this.radioF.TabIndex = 2;
-            this.radioF.Text = "Femenino";
-            this.radioF.ForeColor = Color.White;
-            ((Telerik.WinControls.Layouts.ImageAndTextLayoutPanel)(this.radioF.GetChildAt(0).GetChildAt(1).GetChildAt(0))).Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
-            ((Telerik.WinControls.Layouts.ImageAndTextLayoutPanel)(this.radioF.GetChildAt(0).GetChildAt(1).GetChildAt(0))).Margin = new System.Windows.Forms.Padding(0);
+            this.btnF.Font = FontUtils.Roboto(15.75F);
+            this.btnF.Location = new System.Drawing.Point(385, 0);
+            this.btnF.Name = "btnF";
+            this.btnF.Size = new System.Drawing.Size(205, 55);
+            this.btnF.TabIndex = 2;
+            this.btnF.Text = "";
+            this.btnF.ForeColor = Color.White;
+            this.btnF.BackColor = System.Drawing.Color.Transparent;
+            this.btnF.Image = Properties.Resources.btn_female;
+            this.btnF.ImageAlignment = ContentAlignment.MiddleCenter;
+            this.btnF.TabStop = false;
+            this.btnF.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.btnF.ButtonElement.BorderElement.Width = 0;
+            ((Telerik.WinControls.Primitives.TextPrimitive)(btnF.GetChildAt(0).GetChildAt(1).GetChildAt(1))).PositionOffset = new System.Drawing.SizeF(0F, -2F);
             // 
             // SexField
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.radioF);
-            this.Controls.Add(this.radioM);
+            this.Controls.Add(this.btnF);
+            this.Controls.Add(this.btnM);
             this.Controls.Add(this.radLabel1);
             this.Name = "SexField";
-            this.Size = new System.Drawing.Size(600, 50);
+            this.Size = new System.Drawing.Size(600, 70);
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radioM)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radioF)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnM)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnF)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -88,7 +98,7 @@ namespace ClientPoint.UI.Controls {
         #endregion
 
         private Telerik.WinControls.UI.RadLabel radLabel1;
-        private Telerik.WinControls.UI.RadRadioButton radioM;
-        private Telerik.WinControls.UI.RadRadioButton radioF;
+        private Telerik.WinControls.UI.RadButton btnM;
+        private Telerik.WinControls.UI.RadButton btnF;
     }
 }

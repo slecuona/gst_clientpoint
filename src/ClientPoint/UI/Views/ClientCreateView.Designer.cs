@@ -87,9 +87,9 @@ namespace ClientPoint.UI.Views
             // 
             // fldSex
             // 
-            this.fldSex.Location = new System.Drawing.Point(715, 30);
+            this.fldSex.Location = new System.Drawing.Point(715, 25);
             this.fldSex.Name = "fldSex";
-            this.fldSex.Size = new System.Drawing.Size(600, 50);
+            this.fldSex.Size = new System.Drawing.Size(600, 70);
             this.fldSex.TabIndex = 7;
             this.fldSex.Value = null;
             // 

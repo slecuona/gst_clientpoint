@@ -213,6 +213,26 @@ namespace ClientPoint.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btn_female {
+            get {
+                object obj = ResourceManager.GetObject("btn_female", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_female_press {
+            get {
+                object obj = ResourceManager.GetObject("btn_female_press", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btn_left {
             get {
                 object obj = ResourceManager.GetObject("btn_left", resourceCulture);
@@ -226,6 +246,26 @@ namespace ClientPoint.Properties {
         internal static System.Drawing.Bitmap btn_left_press {
             get {
                 object obj = ResourceManager.GetObject("btn_left_press", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_male {
+            get {
+                object obj = ResourceManager.GetObject("btn_male", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_male_press {
+            get {
+                object obj = ResourceManager.GetObject("btn_male_press", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
