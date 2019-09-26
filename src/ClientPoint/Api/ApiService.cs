@@ -141,5 +141,10 @@ namespace ClientPoint.Api {
                 throw new Exception("Error al obtener premios.", e);
             }
         }
+
+        public static ChangeRewardResponse ChangeReward(ChangeRewardRequest req, out string errMsg) {
+            var res = PrepareAndSendRequest<ChangeRewardResponse>("ChangeReward", req, out errMsg);
+            return (ChangeRewardResponse)res;
+        }
     }
 }

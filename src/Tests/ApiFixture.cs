@@ -121,5 +121,16 @@ namespace Tests {
             var mgr = new RewardsManager(res);
             Assert.IsTrue(mgr.Categories.Count > 0);
         }
+
+        [TestMethod]
+        public void ChangeRewardErr() {
+            //TODO: esto me devuelve An error has occurred.
+            //Habria que ajustar la API para que no cambie el formato de la respuesta.
+            var res = ApiService.ChangeReward(new ChangeRewardRequest() {
+                IdCard = "0010100001234",
+                IdReward = 2
+            }, out string err);
+            Assert.AreEqual(err, "");
+        }
     }
 }

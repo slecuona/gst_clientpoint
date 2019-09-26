@@ -23,4 +23,8 @@
         // (La API devuelve ResponseCode = 1)
         public bool NotExists => ResponseDesc?.Contains("Documento Inexistente") ?? false;
     }
+
+    public class ChangeRewardResponse : BaseResponse {
+        public string VoucherPrinter;
+    }
 }

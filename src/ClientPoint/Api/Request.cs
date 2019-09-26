@@ -38,4 +38,10 @@ namespace ClientPoint.Api {
         public string Password;
         public string IdCard;
     }
+
+    public struct ChangeRewardRequest {
+        public string IdCard;
+        public int IdReward;
+        public string ValidationNo;
+    }
 }
