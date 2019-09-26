@@ -27,11 +27,11 @@ namespace ClientPoint.UI.Forms
                     break;
             }
 
-            this.lblMessage.Font = FontUtils.Roboto(18, FontStyle.Bold);
-            this.btnOk.Font = FontUtils.Roboto(16);
+            this.lblMessage.Font = FontUtils.Roboto(17, FontStyle.Bold);
+            this.btnOk.Font = FontUtils.Roboto(17, FontStyle.Bold);
 
-            //this.BackColor = Color.FromArgb(63, 63, 77);
-            //this.btnOk.ForeColor = Color.FromArgb(63, 63, 77);
+            this.BackColor = Color.FromArgb(63, 63, 77);
+            this.btnOk.ForeColor = Color.FromArgb(63, 63, 77);
         }
 
         // Dimensiona la ventana segun el contenido del mensaje

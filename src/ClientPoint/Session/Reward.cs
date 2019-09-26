@@ -13,6 +13,7 @@ namespace ClientPoint.Session {
         public int PointsRequired;
         public int Stock;
         public int IdCategory;
+        public int Available;
         public string CategoryName;
         public double AmountPromotion;
         public string ImageData;
