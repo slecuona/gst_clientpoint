@@ -50,7 +50,7 @@ namespace ClientPoint.UI.Forms
             this.btnContinue.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Bold);
             this.btnContinue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(77)))));
             this.btnContinue.Image = ((System.Drawing.Image)(resources.GetObject("btnContinue.Image")));
-            this.btnContinue.Location = new System.Drawing.Point(324, 126);
+            this.btnContinue.Location = new System.Drawing.Point(630, 56);
             this.btnContinue.Name = "btnContinue";
             this.btnContinue.Size = new System.Drawing.Size(240, 89);
             this.btnContinue.TabIndex = 0;
@@ -61,7 +61,7 @@ namespace ClientPoint.UI.Forms
             // 
             this.radLabel1.Font = new System.Drawing.Font("Roboto", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radLabel1.ForeColor = System.Drawing.Color.White;
-            this.radLabel1.Location = new System.Drawing.Point(132, 59);
+            this.radLabel1.Location = new System.Drawing.Point(274, 98);
             this.radLabel1.Name = "radLabel1";
             this.radLabel1.Size = new System.Drawing.Size(201, 41);
             this.radLabel1.TabIndex = 1;
@@ -70,7 +70,7 @@ namespace ClientPoint.UI.Forms
             // lblIcon
             // 
             this.lblIcon.Image = global::ClientPoint.Properties.Resources.idle;
-            this.lblIcon.Location = new System.Drawing.Point(18, 18);
+            this.lblIcon.Location = new System.Drawing.Point(57, 39);
             this.lblIcon.Name = "lblIcon";
             this.lblIcon.Size = new System.Drawing.Size(82, 82);
             this.lblIcon.TabIndex = 2;
@@ -79,7 +79,7 @@ namespace ClientPoint.UI.Forms
             // 
             this.radLabel2.Font = new System.Drawing.Font("Roboto", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radLabel2.ForeColor = System.Drawing.Color.White;
-            this.radLabel2.Location = new System.Drawing.Point(132, 18);
+            this.radLabel2.Location = new System.Drawing.Point(186, 61);
             this.radLabel2.Name = "radLabel2";
             this.radLabel2.Size = new System.Drawing.Size(415, 34);
             this.radLabel2.TabIndex = 3;
@@ -90,7 +90,7 @@ namespace ClientPoint.UI.Forms
             this.lblTime.AutoSize = false;
             this.lblTime.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTime.ForeColor = System.Drawing.Color.White;
-            this.lblTime.Location = new System.Drawing.Point(18, 106);
+            this.lblTime.Location = new System.Drawing.Point(57, 127);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(82, 34);
             this.lblTime.TabIndex = 4;
@@ -102,7 +102,7 @@ namespace ClientPoint.UI.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(77)))));
-            this.ClientSize = new System.Drawing.Size(577, 227);
+            this.ClientSize = new System.Drawing.Size(914, 199);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.radLabel2);
             this.Controls.Add(this.lblIcon);

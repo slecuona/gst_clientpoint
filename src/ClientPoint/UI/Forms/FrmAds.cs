@@ -37,6 +37,7 @@ namespace ClientPoint.UI.Forms {
         }
 
         public override void BeforeShow() {
+            IdleTimer.Enabled = false;
             _adsPlayer.PlayRandom();
             _started = true;
             UIManager.SetKeyboard(Keyboard.None);
@@ -49,6 +50,7 @@ namespace ClientPoint.UI.Forms {
         public override void AfterHide() {
             _adsPlayer.Stop();
             Application.RemoveMessageFilter(this);
+            IdleTimer.Enabled = true;
         }
 
         private void OnSwipe(string data) {

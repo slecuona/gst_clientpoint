@@ -42,6 +42,9 @@ namespace ClientPoint {
             CardNameY = GetInt("CardNameY", 400);
             CardNameSize = GetInt("CardNameSize", 28);
 
+            IdleSeconds = GetInt("IdleSeconds", 10);
+            IdleMessageSeconds = GetInt("IdleMessageSeconds", 5);
+
             DebugMode = GetBool("Debug", false);
 
             LoadHostLogo();
@@ -89,6 +92,9 @@ namespace ClientPoint {
         public static int CardNameX = 0;
         public static int CardNameY = 0;
         public static int CardNameSize = 16;
+
+        public static int IdleSeconds = 0;
+        public static int IdleMessageSeconds = 0;
 
         /// <summary>
         /// URL Base de la API.

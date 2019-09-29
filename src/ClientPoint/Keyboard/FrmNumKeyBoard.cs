@@ -8,6 +8,7 @@ using ClientPoint.Keyboard.NoActivate;
 using ClientPoint.UI;
 using ClientPoint.Utils;
 using Telerik.WinControls;
+using NativeMethods = ClientPoint.Keyboard.UserInteraction.NativeMethods;
 
 namespace ClientPoint.Keyboard
 {
@@ -109,6 +110,13 @@ namespace ClientPoint.Keyboard
 
         public void SetPosCenter() {
             this.Location = new Point(530, 310);
+        }
+
+        protected override void WndProc(ref Message m) {
+            if (NativeMethods.IsActiveMsg(m.Msg)) {
+                IdleTimer.OnBusy();
+            }
+            base.WndProc(ref m);
         }
     }
 }

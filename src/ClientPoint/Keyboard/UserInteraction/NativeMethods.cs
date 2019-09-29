@@ -23,6 +23,17 @@ namespace ClientPoint.Keyboard.UserInteraction
 {
     internal static class NativeMethods
     {
+        // Full list: https://wiki.winehq.org/List_Of_Windows_Messages
+        public const int WM_ACTIVATEAPP = 0x001C;
+        public const int WM_NCLBUTTONDOWN = 0x00A1;
+        public const int WM_NCLBUTTONUP = 0x00A2;
+        public const int HWND_BROADCAST = 0xffff;
+        public const int WM_ERASEBKGND = 0x0014;
+        public const int WM_NCACTIVATE = 0x0086;
+        public const int WM_NCMOUSEMOVE = 0x00A0;
+        public const int WM_MOUSEMOVE = 0x0200;
+        public const int WM_MOUSEACTIVATE = 0x0021;
+        public const int WM_KEYDOWN = 0x0100;
 
         // The constants used in the INPUT structure.
         public const int INPUT_MOUSE = 0;
@@ -111,6 +122,19 @@ namespace ClientPoint.Keyboard.UserInteraction
             public int time;
             public IntPtr dwExtraInfo;
         }
+
+        /// <summary>
+        /// Mensajes que indican que el usuario esta activo.
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <returns></returns>
+        public static bool IsActiveMsg(int msg) =>
+            msg == WM_NCLBUTTONDOWN ||
+            msg == WM_NCLBUTTONUP ||
+            msg == WM_MOUSEMOVE ||
+            msg == WM_NCMOUSEMOVE ||
+            msg == WM_MOUSEACTIVATE ||
+            msg == WM_KEYDOWN;
     }
 
 

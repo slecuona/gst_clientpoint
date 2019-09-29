@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using ClientPoint.UI;
 using ClientPoint.Utils;
+using Telerik.WinControls;
 
 namespace ClientPoint {
     static class Program {
@@ -14,10 +15,11 @@ namespace ClientPoint {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            var splash = true;
             try {
                 // Arranco el splash
                 UIManager.StartSplash();
-
+                
                 // Inicializa logs
                 Logger.Init();
 
@@ -33,6 +35,7 @@ namespace ClientPoint {
                 UIManager.Init();
 
                 UIManager.StopSplash();
+                splash = false;
 
                 //Op.TestBase64();
 
@@ -43,7 +46,15 @@ namespace ClientPoint {
             }
             catch (Exception ex) {
                 Logger.Exception(ex);
-                MsgBox.Error($"Error: {ex.Message}");
+                Form owner = splash ? UIManager.Splash : null;
+                if (owner == null && UIManager.CurrWindow != Window.None)
+                    owner = UIManager.GetCurrent();
+                if (owner != null)
+                    owner.InvokeIfRequired(() => 
+                        RadMessageBox.Show(owner, $"Error: {ex.Message}"));
+                else
+                    RadMessageBox.Show(owner, $"Error: {ex.Message}");
+                Application.Exit();
             }
         }
 

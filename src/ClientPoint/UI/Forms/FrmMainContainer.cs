@@ -1,4 +1,8 @@
-﻿namespace ClientPoint.UI.Forms
+﻿using System;
+using System.Windows.Forms;
+using ClientPoint.Keyboard.UserInteraction;
+
+namespace ClientPoint.UI.Forms
 {
     public partial class FrmMainContainer : FrmBase {
         public FrmMainContainer() {
@@ -29,6 +33,14 @@
         public override void BeforeShow() {
             UIManager.SetKeyboard(Keyboard.None);
             base.BeforeShow();
+        }
+
+        protected override void WndProc(ref Message m) {
+            Console.WriteLine($"FrmMain Msg: {m.Msg}");
+            if (NativeMethods.IsActiveMsg(m.Msg)) {
+                IdleTimer.OnBusy();
+            }
+            base.WndProc(ref m);
         }
     }
 }

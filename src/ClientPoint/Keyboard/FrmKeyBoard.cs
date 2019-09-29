@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using ClientPoint.Keyboard.NoActivate;
+using ClientPoint.Keyboard.UserInteraction;
 using ClientPoint.UI;
 
 namespace ClientPoint.Keyboard
@@ -94,6 +95,13 @@ namespace ClientPoint.Keyboard
 
         private void OnActivated(object sender, EventArgs e) {
             this.ActiveControl = null;
+        }
+
+        protected override void WndProc(ref Message m) {
+            if (NativeMethods.IsActiveMsg(m.Msg)) {
+                IdleTimer.OnBusy();
+            }
+            base.WndProc(ref m);
         }
     }
 }

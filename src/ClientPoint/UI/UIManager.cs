@@ -32,7 +32,7 @@ namespace ClientPoint.UI {
         //    }
         //}
 
-        private static FrmSplash Splash;
+        public static FrmSplash Splash;
         public static FrmRewardModal RewardModal;
 
         // Debe ser ejecutado en UI Thread

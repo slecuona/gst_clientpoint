@@ -14,6 +14,12 @@ namespace ClientPoint.UI.Forms
         public FrmIdle()
         {
             InitializeComponent();
+            btnContinue.Click += BtnContinueOnClick;
+        }
+
+        private void BtnContinueOnClick(object sender, EventArgs e) {
+            IdleTimer.Enabled = true;
+            DialogResult = DialogResult.OK;
         }
     }
 }

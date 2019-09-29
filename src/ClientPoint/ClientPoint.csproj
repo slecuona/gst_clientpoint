@@ -87,6 +87,7 @@
     <Compile Include="Espf\Request\SupRequest.cs" />
     <Compile Include="Espf\Response.cs" />
     <Compile Include="Espf\Services.cs" />
+    <Compile Include="IdleTimer.cs" />
     <Compile Include="Keyboard\FrmNumKeyBoard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -650,6 +651,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\btn_male_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\idle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
