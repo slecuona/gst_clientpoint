@@ -42,8 +42,8 @@ namespace ClientPoint {
             CardNameY = GetInt("CardNameY", 400);
             CardNameSize = GetInt("CardNameSize", 28);
 
-            IdleSeconds = GetInt("IdleSeconds", 10);
-            IdleMessageSeconds = GetInt("IdleMessageSeconds", 5);
+            IdleSeconds = GetInt("IdleSeconds", 15);
+            IdleMessageSeconds = GetInt("IdleMessageSeconds", 10);
 
             DebugMode = GetBool("Debug", false);
 
