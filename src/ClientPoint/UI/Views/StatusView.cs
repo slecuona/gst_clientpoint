@@ -31,7 +31,12 @@ namespace ClientPoint.UI.Views
 
         public override void BeforeShow() {
             UIManager.SetKeyboard(Keyboard.None);
+            IdleTimer.Enabled = false;
             base.BeforeShow();
+        }
+
+        public override void AfterHide() {
+            IdleTimer.Enabled = true;
         }
 
         private void BtnBackOnClick(object sender, EventArgs e) {
