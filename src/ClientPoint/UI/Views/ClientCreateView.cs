@@ -121,7 +121,9 @@ namespace ClientPoint.UI.Views {
             fldEmail2.Value = "";
             fldCellphone.Value = "";
             fldPassword.Value = "";
+            fldPassword.ResetViewPass();
             fldPassword2.Value = "";
+            fldPassword2.ResetViewPass();
             fldSex.Value = null;
             fldBirthDate.Value = MaxBirthDate;
 

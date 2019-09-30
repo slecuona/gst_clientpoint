@@ -54,7 +54,7 @@ namespace ClientPoint.UI.Views {
         }
 
         public override void AfterHide() {
-            //UIManager.HideKeyboard();
+            fldPassword.ResetViewPass();
         }
     }
 }

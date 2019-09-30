@@ -20,9 +20,7 @@ namespace ClientPoint.UI.Controls {
 
         private void BtnViewPassOnClick(object sender, EventArgs e) {
             if (_passVisible) {
-                radTextBox1.PasswordChar = '*';
-                btnViewPass.Image = Properties.Resources.eye;
-                _passVisible = false;
+                ResetViewPass();
                 return;
             }
             else {
@@ -107,6 +105,12 @@ namespace ClientPoint.UI.Controls {
                 }
             }
             get => _isPass;
+        }
+
+        public void ResetViewPass() {
+            radTextBox1.PasswordChar = '*';
+            btnViewPass.Image = Properties.Resources.eye;
+            _passVisible = false;
         }
     }
 }
