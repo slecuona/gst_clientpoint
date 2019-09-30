@@ -148,6 +148,12 @@
     <Compile Include="UI\Controls\CustomButtonWhite.Designer.cs">
       <DependentUpon>CustomButtonWhite.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Controls\CellphoneField.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\CellphoneField.Designer.cs">
+      <DependentUpon>CellphoneField.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Controls\PicBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -355,6 +361,9 @@
       <DependentUpon>KeyBoardForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="UI\Controls\CellphoneField.resx">
+      <DependentUpon>CellphoneField.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Controls\DateField.resx">
       <DependentUpon>DateField.cs</DependentUpon>
     </EmbeddedResource>

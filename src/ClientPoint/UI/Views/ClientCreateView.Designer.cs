@@ -33,7 +33,7 @@ namespace ClientPoint.UI.Views
             this.fldDocument = new CustomField();
             this.fldEmail = new CustomField();
             this.fldEmail2 = new CustomField();
-            this.fldCellphone = new CustomField();
+            this.fldCellphone = new CellphoneField();
             this.fldPassword = new CustomField();
             this.fldPassword2 = new CustomField();
             this.fldBirthDate = new DateField();
@@ -128,11 +128,9 @@ namespace ClientPoint.UI.Views
             this.fldCellphone.Label = "Nr. Celular";
             this.fldCellphone.Location = new System.Drawing.Point(35, 195);
             this.fldCellphone.Name = "fldCellphone";
-            this.fldCellphone.Password = false;
             this.fldCellphone.Size = new System.Drawing.Size(615, 53);
             this.fldCellphone.TabIndex = 2;
             this.fldCellphone.Value = "";
-            this.fldCellphone.Keyboard = Keyboard.Num;
             // 
             // fldPassword
             // 
@@ -173,7 +171,7 @@ namespace ClientPoint.UI.Views
         private CustomField fldDocument;
         private CustomField fldEmail;
         private CustomField fldEmail2;
-        private CustomField fldCellphone;
+        private CellphoneField fldCellphone;
         private CustomField fldPassword;
         private CustomField fldPassword2;
         private SexField fldSex;
