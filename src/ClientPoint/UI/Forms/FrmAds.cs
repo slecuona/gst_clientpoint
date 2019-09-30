@@ -41,6 +41,8 @@ namespace ClientPoint.UI.Forms {
             _adsPlayer.PlayRandom();
             _started = true;
             UIManager.SetKeyboard(Keyboard.None);
+            if(UIManager.RewardModal.Visible)
+                UIManager.RewardModal.Close();
             // Si muestro este form es porque ya termino la sesion
             ClientSession.Clear();
             Application.AddMessageFilter(this);
