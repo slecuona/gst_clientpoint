@@ -36,7 +36,7 @@ namespace ClientPoint.UI.Forms
         }
 
         protected override void WndProc(ref Message m) {
-            Console.WriteLine($"FrmMain Msg: {m.Msg}");
+            //Console.WriteLine($"FrmMain Msg: {m.Msg}");
             if (NativeMethods.IsActiveMsg(m.Msg)) {
                 IdleTimer.OnBusy();
             }

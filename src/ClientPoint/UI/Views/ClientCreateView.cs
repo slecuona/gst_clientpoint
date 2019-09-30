@@ -40,7 +40,10 @@ namespace ClientPoint.UI.Views {
             if (_stepNr == 1 && SexValue == null)
                 errors.Add("Debe especificar su sexo.");
 
-            if (_stepNr == 1 && BirthDateValue.Date > MaxBirthDate.Date)
+            if(_stepNr == 1 && !fldBirthDate.IsValid())
+                errors.Add("La fecha de nacimiento ingresada no es válida.");
+
+            if (_stepNr == 1 && fldBirthDate.IsValid() && BirthDateValue.Date > MaxBirthDate.Date)
                 errors.Add("Debe tener mas de 18 años para registrarse.");
 
             if (_stepNr == 2 && string.IsNullOrEmpty(EmailValue) && string.IsNullOrEmpty(CellphoneValue))
