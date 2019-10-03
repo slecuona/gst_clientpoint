@@ -25,12 +25,8 @@ namespace ClientPoint {
 
                 KillEvolisCenter();
 
-                // Estado de servicio Evolis
-                Status.EspfInit();
-
-                // Estado de la conexion con la API
-                Status.Api();
-
+                Status.Init();
+                
                 // Inicializa las ventanas que utiliza la app
                 UIManager.Init();
 

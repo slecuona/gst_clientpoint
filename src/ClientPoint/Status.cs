@@ -10,6 +10,7 @@ namespace ClientPoint {
     // Esta clase chequea el estado los distintos servicios / dispositivos
     public static class Status {
 
+        public static string EspfServiceConn = "";
         public static EspfMayorState EspfMayor = EspfMayorState.NONE;
         public static string EspfMinor;
 
@@ -20,16 +21,30 @@ namespace ClientPoint {
             RadMessageBox.Show(msg);
         }
 
+        public static void Init() {
+            EspfInit();
+            Api();
+        }
+
+        public static void Refresh() {
+            var espfOk = EspfServiceConnStatus(out EspfServiceConn);
+            if (espfOk) {
+                EspfSupDeviceState();
+
+                EspfCmdDeviceStatus(out string status);
+            }
+        }
+
         /// <summary>
         /// Consulta el estado inicial del servicio de Evolis
         /// </summary>
-        public static void EspfInit() {
+        private static void EspfInit() {
             // Busca evitar el error de
             // "An existing connection was forcibly closed by the remote host"
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
-            var espfOk = EspfService(out string espfService);
-            Print($"ESPF Service => {espfService}");
+            var espfOk = EspfServiceConnStatus(out EspfServiceConn);
+            Print($"ESPF Service => {EspfServiceConn}");
 
             if (espfOk) {
                 EspfSupDeviceState();
@@ -52,7 +67,7 @@ namespace ClientPoint {
         }
 
         // Este metodo chequea el estado del servicio ESPF
-        private static bool EspfService(out string state) {
+        private static bool EspfServiceConnStatus(out string state) {
             const string PING = "ping";
             state = "OK";
             try {
@@ -121,6 +136,7 @@ namespace ClientPoint {
             }
         }
 
+        // Estado de la API GST
         public static void Api() {
             string msg = "API Connection =>";
             try {

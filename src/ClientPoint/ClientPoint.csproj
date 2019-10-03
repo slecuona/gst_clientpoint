@@ -175,6 +175,12 @@
     <Compile Include="UI\Forms\FrmIdle.Designer.cs">
       <DependentUpon>FrmIdle.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Forms\FrmControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\FrmControl.Designer.cs">
+      <DependentUpon>FrmControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\RewardPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -373,6 +379,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\FrmMessage.resx">
       <DependentUpon>FrmMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\FrmControl.resx">
+      <DependentUpon>FrmControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Forms\FrmSplash.resx">
       <DependentUpon>FrmSplash.cs</DependentUpon>

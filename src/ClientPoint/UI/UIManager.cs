@@ -32,6 +32,7 @@ namespace ClientPoint.UI {
         //    }
         //}
 
+        public static FrmControl Control;
         public static FrmSplash Splash;
         public static FrmRewardModal RewardModal;
 
@@ -64,6 +65,7 @@ namespace ClientPoint.UI {
                 w.Value.Opacity = 1;
             }
             RewardModal = new FrmRewardModal();
+            Control = new FrmControl();
         }
 
         public static void AddView(View v, BaseView p) {

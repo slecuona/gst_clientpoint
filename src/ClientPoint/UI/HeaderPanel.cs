@@ -29,7 +29,7 @@ namespace ClientPoint.UI {
         }
 
         private void LblHostOnDoubleClick(object sender, EventArgs e) {
-            Application.Exit();
+            UIManager.Control.ShowDialog(UIManager.GetCurrent());
         }
     }
 }
