@@ -178,6 +178,8 @@ namespace ClientPoint.UI {
         }
         
         public static void SplashStatus(string m) {
+            if (Splash == null || !Splash.Visible)
+                return;
             Splash.InvokeIfRequired(()=> Splash?.AppendText(m));
             // Esto es solo para buscar un efecto mas progresivo
             Thread.Sleep(500);

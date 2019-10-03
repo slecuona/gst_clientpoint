@@ -26,7 +26,7 @@ namespace ClientPoint {
                 KillEvolisCenter();
 
                 // Estado de servicio Evolis
-                Status.Espf();
+                Status.EspfInit();
 
                 // Estado de la conexion con la API
                 Status.Api();
