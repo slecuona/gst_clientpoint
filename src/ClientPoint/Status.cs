@@ -28,9 +28,10 @@ namespace ClientPoint {
 
         public static void Refresh() {
             var espfOk = EspfServiceConnStatus(out EspfServiceConn);
+            EspfMayor = EspfMayorState.NONE;
+            EspfMinor = "";
             if (espfOk) {
                 EspfSupDeviceState();
-
                 EspfCmdDeviceStatus(out string status);
             }
         }

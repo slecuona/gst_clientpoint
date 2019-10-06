@@ -29,8 +29,7 @@ namespace ClientPoint.UI {
         }
 
         private void LblHostOnDoubleClick(object sender, EventArgs e) {
-            UIManager.SafeExecOnActiveForm(owner =>
-                UIManager.Control.ShowDialog(owner));
+            UIManager.ShowControl();
         }
     }
 }

@@ -213,6 +213,13 @@ namespace ClientPoint.UI {
             Thread.Sleep(500);
         }
 
+        public static void ShowControl() {
+            IdleTimer.Enabled = false;
+            SafeExecOnActiveForm(owner =>
+                Control.ShowDialog(owner));
+            IdleTimer.Enabled = true;
+        }
+
         public static DocInputView DocInput => 
             (DocInputView)_views[View.DocumentInput];
         public static PassInputView PassInput => 
