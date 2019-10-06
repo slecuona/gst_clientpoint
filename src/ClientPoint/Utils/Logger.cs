@@ -38,10 +38,12 @@ namespace ClientPoint.Utils {
             }
         }
 
+        public static string FullPath => Path.Combine(LogPath, LogFileName);
+
         public static async Task Write(string info, bool time = true) {
             try {
                 lock (_syncRoot) {
-                    var file = Path.Combine(LogPath, LogFileName);
+                    var file = FullPath;
                     using (StreamWriter outputFile = new StreamWriter(file, true)) {
                         outputFile.WriteLineAsync(
                             $"{(time ? $"{Timestamp} " : "")}{info}");

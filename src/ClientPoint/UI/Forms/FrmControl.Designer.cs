@@ -38,12 +38,14 @@ namespace ClientPoint.UI.Forms
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnOk = new Telerik.WinControls.UI.RadButton();
+            this.btnLog = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.radWaitingBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRefresh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnOk)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnLog)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,7 +87,7 @@ namespace ClientPoint.UI.Forms
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(144, 438);
+            this.btnExit.Location = new System.Drawing.Point(149, 438);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(110, 38);
             this.btnExit.TabIndex = 5;
@@ -131,13 +133,23 @@ namespace ClientPoint.UI.Forms
             this.btnOk.Text = "Aceptar";
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
+            // btnLog
+            // 
+            this.btnLog.Location = new System.Drawing.Point(285, 438);
+            this.btnLog.Name = "btnLog";
+            this.btnLog.Size = new System.Drawing.Size(110, 38);
+            this.btnLog.TabIndex = 8;
+            this.btnLog.Text = "Abrir log";
+            this.btnLog.Click += new System.EventHandler(this.btnLog_Click);
+            // 
             // FrmControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ClientPoint.Properties.Resources.bg2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(548, 495);
+            this.ClientSize = new System.Drawing.Size(556, 525);
+            this.Controls.Add(this.btnLog);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.grid);
             this.Controls.Add(this.btnExit);
@@ -160,6 +172,7 @@ namespace ClientPoint.UI.Forms
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnOk)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnLog)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -177,5 +190,6 @@ namespace ClientPoint.UI.Forms
         private DataGridViewTextBoxColumn colName;
         private DataGridViewTextBoxColumn colStatus;
         private Telerik.WinControls.UI.RadButton btnOk;
+        private Telerik.WinControls.UI.RadButton btnLog;
     }
 }

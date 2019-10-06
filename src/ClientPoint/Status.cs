@@ -15,8 +15,7 @@ namespace ClientPoint {
         public static string EspfMinor;
         public static string EspfBinary;
         public static string ApiState;
-
-
+        
         private static void ShowError(string msg) {
             msg = $"ERROR: {msg}";
             Logger.WriteAsync(msg);
@@ -178,6 +177,5 @@ namespace ClientPoint {
         // only when the printing starts.
         WARNING = 4
     }
-
 
 }

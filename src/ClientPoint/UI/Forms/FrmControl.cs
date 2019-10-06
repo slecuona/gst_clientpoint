@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 using ClientPoint.Utils;
 using Telerik.WinControls.UI;
@@ -109,6 +110,10 @@ namespace ClientPoint.UI.Forms
 
         private void btnOk_Click(object sender, EventArgs e) {
             DialogResult = DialogResult.OK;
+        }
+
+        private void btnLog_Click(object sender, EventArgs e) {
+            Process.Start(Logger.FullPath);
         }
     }
 }
