@@ -113,7 +113,7 @@ namespace ClientPoint.UI.Forms
             this.colName.HeaderText = "Nombre";
             this.colName.Name = "colName";
             this.colName.ReadOnly = true;
-            this.colName.Width = 200;
+            this.colName.Width = 250;
             // 
             // colStatus
             // 

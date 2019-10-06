@@ -13,6 +13,9 @@ namespace ClientPoint {
         public static string EspfServiceConn = "";
         public static EspfMayorState EspfMayor = EspfMayorState.NONE;
         public static string EspfMinor;
+        public static string EspfBinary;
+        public static string ApiState;
+
 
         private static void ShowError(string msg) {
             msg = $"ERROR: {msg}";
@@ -23,17 +26,19 @@ namespace ClientPoint {
 
         public static void Init() {
             EspfInit();
-            Api();
+            Api(true);
         }
 
         public static void Refresh() {
             var espfOk = EspfServiceConnStatus(out EspfServiceConn);
             EspfMayor = EspfMayorState.NONE;
             EspfMinor = "";
+            EspfBinary = "";
             if (espfOk) {
                 EspfSupDeviceState();
-                EspfCmdDeviceStatus(out string status);
+                EspfCmdDeviceStatus(out string EspfBinary);
             }
+            Api();
         }
 
         /// <summary>
@@ -50,8 +55,8 @@ namespace ClientPoint {
             if (espfOk) {
                 EspfSupDeviceState();
 
-                EspfCmdDeviceStatus(out string status);
-                Print($"ESPF Device Binary Status => {status}");
+                EspfCmdDeviceStatus(out string EspfBinary);
+                Print($"ESPF Device Binary Status => {EspfBinary}");
             }
             else {
                 ShowError(
@@ -139,14 +144,18 @@ namespace ClientPoint {
         }
 
         // Estado de la API GST
-        public static void Api() {
-            string msg = "API Connection =>";
+        public static void Api(bool print = false) {
             try {
                 ApiService.Ping();
-                Print($"{msg} OK");
-            } catch (Exception e) {
-                Print($"{msg} {e.Message}");
+                ApiState = "OK";
+            }
+            catch (Exception e) {
+                ApiState = e.Message;
                 Logger.Exception(e);
+            }
+            finally {
+                if(print)
+                    Print($"API Connection => {ApiState}");
             }
         }
     }
