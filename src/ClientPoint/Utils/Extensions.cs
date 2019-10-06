@@ -1,11 +1,12 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Globalization;
 using System.Windows.Forms;
 
 namespace ClientPoint.Utils {
     public static class Extensions {
-        public static void InvokeIfRequired(this Control control, MethodInvoker action) {
+        public static void InvokeIfRequired(this Control control, Action action) {
             if (control.InvokeRequired) {
                 control.Invoke(action);
             } else {

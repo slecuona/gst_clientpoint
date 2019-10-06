@@ -70,10 +70,8 @@ namespace ClientPoint {
             Debug.WriteLine("IDLE Tick!");
             _idle = true;
             Enabled = false;
-            var owner = UIManager.CurrKeyboard != UI.Keyboard.None ?
-                UIManager.GetKeyboard(UIManager.CurrKeyboard) :
-                UIManager.GetCurrent();
-            _form.ShowDialog(owner);
+            UIManager.SafeExecOnActiveForm(owner =>
+                _form.ShowDialog(owner));
         }
     }
 }

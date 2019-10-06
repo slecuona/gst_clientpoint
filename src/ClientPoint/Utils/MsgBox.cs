@@ -7,18 +7,10 @@ namespace ClientPoint.Utils {
     public static class MsgBox {
 
         private static void PrepareAndShow(string msg, MsgType type = MsgType.Info) {
-            var owner = UIManager.CurrKeyboard != UI.Keyboard.None ? 
-                UIManager.GetKeyboard(UIManager.CurrKeyboard) : 
-                UIManager.GetCurrent();
-
-            if (owner.InvokeRequired) {
-                owner.Invoke((MethodInvoker)delegate {
-                    PrepareAndShow(msg, type);
-                });
-                return;
-            }
-            var frm = new FrmMessage(msg, type);
-            frm.ShowDialog(owner);
+            UIManager.SafeExecOnActiveForm((owner) => {
+                var frm = new FrmMessage(msg, type);
+                frm.ShowDialog(owner);
+            });
         }
 
         public static void Show(string msg) {

@@ -15,7 +15,6 @@ namespace ClientPoint {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            var splash = true;
             try {
                 // Arranco el splash
                 UIManager.StartSplash();
@@ -31,7 +30,6 @@ namespace ClientPoint {
                 UIManager.Init();
 
                 UIManager.StopSplash();
-                splash = false;
 
                 //Op.TestBase64();
 
@@ -42,14 +40,8 @@ namespace ClientPoint {
             }
             catch (Exception ex) {
                 Logger.Exception(ex);
-                Form owner = splash ? UIManager.Splash : null;
-                if (owner == null && UIManager.CurrWindow != Window.None)
-                    owner = UIManager.GetCurrent();
-                if (owner != null)
-                    owner.InvokeIfRequired(() => 
-                        RadMessageBox.Show(owner, $"Error: {ex.Message}"));
-                else
-                    RadMessageBox.Show(owner, $"Error: {ex.Message}");
+                UIManager.SafeExecOnActiveForm(owner =>
+                    RadMessageBox.Show(owner, $"Error: {ex.Message}"));
                 Application.Exit();
             }
         }

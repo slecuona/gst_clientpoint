@@ -161,7 +161,8 @@ namespace ClientPoint {
 
         public static void ShowReward(Reward reward) {
             UIManager.RewardModal.LoadReward(reward);
-            UIManager.RewardModal.ShowDialog(UIManager.GetCurrent());
+            SafeExecOnActiveForm(owner =>
+                UIManager.RewardModal.ShowDialog(owner));
         }
 
         public static void TestBase64() {

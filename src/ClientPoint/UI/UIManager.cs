@@ -24,7 +24,33 @@ namespace ClientPoint.UI {
         public static Form GetKeyboard(Keyboard k) => 
             k == Keyboard.None ? null : _keyboards[k];
         
-        public static FrmBase GetCurrent() => _windows[CurrWindow];
+        // Devuelve la ventana contenedora actual.
+        public static FrmBase GetCurrentWindow() => _windows[CurrWindow];
+
+        // Devuelve el Form activo.
+        public static Form GetActiveForm() {
+            if (Splash.Visible)
+                return Splash;
+            if (CurrKeyboard != Keyboard.None)
+                return GetKeyboard(CurrKeyboard);
+            if (RewardModal.Visible)
+                return RewardModal;
+            if (Control.Visible)
+                return Control;
+            if (CurrWindow != Window.None)
+                return GetCurrentWindow();
+            return null;
+        }
+
+        public static void SafeExecOnActiveForm(Action<Form> a) {
+            var owner = GetActiveForm();
+            if (owner == null) {
+                a?.Invoke(null);
+                return;
+            }
+            owner.InvokeIfRequired(()=> a?.Invoke(owner));
+        }
+
         //public static void ActivateCurrentControl() {
         //    var w = GetCurrent()?.ActiveControl;
         //    if (w is FrmBaseDialog dlg) {
@@ -116,7 +142,7 @@ namespace ClientPoint.UI {
                             _views[prev].Visible = false;
                             _views[prev].AfterHide();
                         }
-                        GetCurrent().Refresh();
+                        GetCurrentWindow().Refresh();
                         _views[toShow].BeforeShow();
                         _views[toShow].Visible = true;
                         _views[toShow].AfterShow();
@@ -157,7 +183,7 @@ namespace ClientPoint.UI {
         // aparte.)
         public static void ActivateCurrWindow() {
             var curr = UnsafeNativeMethods.GetForegroundWindow();
-            var wdw = GetCurrent().Handle;
+            var wdw = GetCurrentWindow().Handle;
             if (curr != wdw) {
                 UnsafeNativeMethods.SetForegroundWindow(wdw);
             }

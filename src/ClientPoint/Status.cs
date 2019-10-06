@@ -17,8 +17,8 @@ namespace ClientPoint {
         private static void ShowError(string msg) {
             msg = $"ERROR: {msg}";
             Logger.WriteAsync(msg);
-            //TODO: Aca deberia chequear la ventana principal
-            RadMessageBox.Show(msg);
+            UIManager.SafeExecOnActiveForm(owner =>
+                RadMessageBox.Show(owner, msg));
         }
 
         public static void Init() {
@@ -54,9 +54,10 @@ namespace ClientPoint {
             }
             else {
                 ShowError(
-                    "No se ha podido establecer la comunicación con la impresora de tarjetas.\n" +
+                    "No se ha podido establecer la conexión con la impresora de tarjetas.\n" +
                     "Asegurese de que el servicio este funcionando correctamente.\n" +
-                    "(Evolis Print Center Service)");
+                    "(Evolis Print Center Service)\n" +
+                    $"{Config.EspfIp}:{Config.EspfPort}");
             }
         }
 
