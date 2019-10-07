@@ -49,7 +49,11 @@ namespace ClientPoint.Api {
 
         // Para testear conexion con la API
         public static void Ping() {
-            using (var client = new HttpClient()) {
+            using (var client = new HttpClient() {
+                // Para que no se quede mucho tiempo colgado.
+                // La API corre local, no deberia demorar
+                Timeout = TimeSpan.FromSeconds(10)
+            }) {
                 client.BaseAddress = new Uri(Config.ApiUrl);
                 client.PostAsync("", 
                     new StringContent("")).Wait();

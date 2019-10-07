@@ -143,17 +143,21 @@ namespace ClientPoint {
         }
 
         // Estado de la API GST
-        public static void Api(bool print = false) {
+        public static void Api(bool init = false) {
             try {
                 ApiService.Ping();
                 ApiState = "OK";
             }
             catch (Exception e) {
                 ApiState = e.Message;
+                if(init)
+                    ShowError(
+                        "No se ha podido establecer la comunicación con la API.\n" +
+                        $"URL: {Config.ApiUrl}");
                 Logger.Exception(e);
             }
             finally {
-                if(print)
+                if(init)
                     Print($"API Connection => {ApiState}");
             }
         }

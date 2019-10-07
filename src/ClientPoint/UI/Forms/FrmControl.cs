@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Threading;
 using System.Windows.Forms;
 using ClientPoint.Utils;
 using Telerik.WinControls.UI;
@@ -67,10 +68,21 @@ namespace ClientPoint.UI.Forms
         }
 
         private void RefreshStatus() {
+            radWaitingBar1.Visible = true;
             radWaitingBar1.StartWaiting();
 
-            Status.Refresh();
+            var t = new Thread(() => {
+                Status.Refresh();
+                this.InvokeIfRequired(() => {
+                    RefreshGrid();
+                    radWaitingBar1.StopWaiting();
+                    radWaitingBar1.Visible = false;
+                });
+            });
+            t.Start();
+        }
 
+        private void RefreshGrid() {
             debugMode.Value = Config.DebugMode;
 
             espfService.Value = Status.EspfServiceConn;
@@ -91,8 +103,6 @@ namespace ClientPoint.UI.Forms
 
             idleSeconds.Value = Config.IdleSeconds;
             idleMessageSeconds.Value = Config.IdleMessageSeconds;
-
-            radWaitingBar1.StopWaiting();
         }
 
         protected override void OnPaint(PaintEventArgs e) {
