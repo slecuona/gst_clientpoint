@@ -8,6 +8,7 @@ using ClientPoint.Session;
 using ClientPoint.UI;
 using ClientPoint.UI.Views;
 using ClientPoint.Utils;
+using Telerik.WinControls;
 using static ClientPoint.UI.UIManager;
 using static ClientPoint.Utils.ExUtils;
 
@@ -69,7 +70,10 @@ namespace ClientPoint {
             ShowView(View.DocumentInput);
         }
 
+        private static Timer _printCardTimer;
+
         public static void PrintCard() {
+            _printCardTimer = new Timer(CheckEspfStatus, null, 3000, 3000);
             SafeExec(() => {
                 UIManager.StatusMainView.SetState(States.PrintingCard);
                 ShowView(View.StatusMain);
@@ -78,14 +82,21 @@ namespace ClientPoint {
             t.Start();
         }
 
+        private static void CheckEspfStatus(object state) {
+            Status.EspfSupDeviceState();
+            Logger.DebugWriteAsync(
+                $"Printing state: {Status.EspfMayor} | {Status.EspfMinor}");
+
+        }
+
         private static void PrintCardSync() {
             try {
                 var card = ApiService.GetNumberCard();
                 var cl = ClientSession.CurrClient;
                 cl.IdCard = card;
                 var pj = new PrintJob(cl);
-                
                 pj.Start();
+
                 var success = ApiService.CreateCard(new CreateCardRequest() {
                     DocumentNumber = cl.DocumentNumber,
                     Password = cl.Password,
@@ -94,6 +105,7 @@ namespace ClientPoint {
                 DieIf(!success, err);
 
                 SafeExec(() => {
+                    _printCardTimer.Dispose();
                     UIManager.StatusMainView.SetState(States.RemoveCard);
                     ShowView(View.StatusMain);
                 });
@@ -105,34 +117,30 @@ namespace ClientPoint {
             }
         }
 
-        public static void TestPrintAsync() {
-            SafeExec(() => {
-                UIManager.StatusMainView.SetState(States.PrintingCard);
-                ShowView(View.StatusMain);
-            });
-            var t = new Thread(TestPrintSync);
+        public static void TestPrintAsync(Action<bool> onFinish) {
+            //SafeExec(() => {
+            //    UIManager.StatusMainView.SetState(States.PrintingCard);
+            //    ShowView(View.StatusMain);
+            //});
+            var t = new Thread(()=> TestPrintSync(onFinish));
             t.Start();
         }
 
-        public static void TestPrintSync() {
+        public static void TestPrintSync(Action<bool> onFinish) {
             try {
                 var pj = new PrintJob(new Client() {
-                    Name = "PRIMERO",
-                    LastName = "GST",
+                    Name = "TARJETA",
+                    LastName = "DE PRUEBA",
                     IdCard = Config.TEST_CARD
                 });
 
                 pj.Start();
 
-                SafeExec(() => {
-                    MsgBox.Show("OK");
-                    ShowView(View.MainMenu);
-                });
+                onFinish?.Invoke(true);
             }
             catch (Exception ex) {
                 Logger.Exception(ex);
-                MsgBox.Error("Error al imprimir tarjeta.");
-                UIManager.ShowWindow(Window.Ads);
+                onFinish?.Invoke(false);
             }
         }
 

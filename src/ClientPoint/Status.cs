@@ -11,7 +11,9 @@ namespace ClientPoint {
     public static class Status {
 
         public static string EspfServiceConn = "";
+        // The major states provide global information on the device.
         public static EspfMayorState EspfMayor = EspfMayorState.NONE;
+        // The minor states, offers more detailed information of the major states
         public static string EspfMinor;
         public static string EspfBinary;
         public static string ApiState;
@@ -24,52 +26,59 @@ namespace ClientPoint {
         }
 
         public static void Init() {
-            EspfInit();
+            Espf(true);
             Api(true);
         }
 
         public static void Refresh() {
-            var espfOk = EspfServiceConnStatus(out EspfServiceConn);
-            EspfMayor = EspfMayorState.NONE;
-            EspfMinor = "";
-            EspfBinary = "";
-            if (espfOk) {
-                EspfSupDeviceState();
-                EspfCmdDeviceStatus(out string EspfBinary);
-            }
+            Espf();
             Api();
-        }
-
-        /// <summary>
-        /// Consulta el estado inicial del servicio de Evolis
-        /// </summary>
-        private static void EspfInit() {
-            // Busca evitar el error de
-            // "An existing connection was forcibly closed by the remote host"
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-
-            var espfOk = EspfServiceConnStatus(out EspfServiceConn);
-            Print($"ESPF Service => {EspfServiceConn}");
-
-            if (espfOk) {
-                EspfSupDeviceState();
-
-                EspfCmdDeviceStatus(out string EspfBinary);
-                Print($"ESPF Device Binary Status => {EspfBinary}");
-            }
-            else {
-                ShowError(
-                    "No se ha podido establecer la conexión con la impresora de tarjetas.\n" +
-                    "Asegurese de que el servicio este funcionando correctamente.\n" +
-                    "(Evolis Print Center Service)\n" +
-                    $"{Config.EspfIp}:{Config.EspfPort}");
-            }
         }
 
         private static void Print(string msg) {
             Console.WriteLine(msg);
             Logger.WriteAsync(msg);
             UIManager.SplashStatus(msg);
+        }
+
+        /// <summary>
+        /// Consulta el estado inicial del servicio de Evolis
+        /// </summary>
+        private static void Espf(bool init = false) {
+            // Busca evitar el error de
+            // "An existing connection was forcibly closed by the remote host"
+            if(init)
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
+            var espfOk = EspfServiceConnStatus(out EspfServiceConn);
+            
+            if (init)
+                Print($"ESPF Service => {EspfServiceConn}");
+
+            //EspfMayor = EspfMayorState.NONE;
+            //EspfMinor = "";
+            //EspfBinary = "";
+
+            if (espfOk) {
+                EspfSupDeviceState();
+
+                if (init) {
+                    Print($"ESPF Mayor state: {EspfMayor}");
+                    Print($"ESPF Minor state: {EspfMinor}");
+                }
+
+                EspfCmdDeviceStatus(out string EspfBinary);
+                if(init)
+                    Print($"ESPF Device Binary Status => {EspfBinary}");
+            }
+            else {
+                if(init)
+                    ShowError(
+                        "No se ha podido establecer la conexión con la impresora de tarjetas.\n" +
+                        "Asegurese de que el servicio este funcionando correctamente.\n" +
+                        "(Evolis Print Center Service)\n" +
+                        $"{Config.EspfIp}:{Config.EspfPort}");
+            }
         }
 
         // Este metodo chequea el estado del servicio ESPF
@@ -91,7 +100,7 @@ namespace ClientPoint {
         }
 
         // Estado de la impresora. (OFF, ERR, READY)
-        private static bool EspfSupDeviceState() {
+        public static bool EspfSupDeviceState() {
             var mayor = EspfMayorState.NONE;
             string minor = null;
             try {
@@ -114,19 +123,12 @@ namespace ClientPoint {
             }
             catch (Exception e) {
                 Logger.Exception(e);
-                Print($"ERR. EspfSupDeviceState => {e.Message}");
+                //Print($"ERR. EspfSupDeviceState => {e.Message}");
                 return false;
             }
             finally {
-                if (EspfMayor != mayor) {
-                    EspfMayor = mayor;
-                    Print($"ESPF Mayor state: {EspfMayor}");
-                }
-
-                if (EspfMinor != minor) {
-                    EspfMinor = minor;
-                    Print($"ESPF Minor state: {EspfMinor}");
-                }
+                EspfMayor = mayor;
+                EspfMinor = minor;
             }
         }
 

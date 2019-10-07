@@ -3,7 +3,9 @@ using System.Diagnostics;
 using System.Threading;
 using System.Windows.Forms;
 using ClientPoint.Utils;
+using Telerik.WinControls;
 using Telerik.WinControls.UI;
+using Timer = System.Threading.Timer;
 
 namespace ClientPoint.UI.Forms
 {
@@ -67,11 +69,14 @@ namespace ClientPoint.UI.Forms
             RefreshStatus();
         }
 
+        private Thread _refreshThread;
         private void RefreshStatus() {
             radWaitingBar1.Visible = true;
             radWaitingBar1.StartWaiting();
 
-            var t = new Thread(() => {
+            _refreshThread?.Abort();
+
+            _refreshThread = new Thread(() => {
                 Status.Refresh();
                 this.InvokeIfRequired(() => {
                     RefreshGrid();
@@ -79,7 +84,7 @@ namespace ClientPoint.UI.Forms
                     radWaitingBar1.Visible = false;
                 });
             });
-            t.Start();
+            _refreshThread.Start();
         }
 
         private void RefreshGrid() {
@@ -124,6 +129,30 @@ namespace ClientPoint.UI.Forms
 
         private void btnLog_Click(object sender, EventArgs e) {
             Process.Start(Logger.FullPath);
+        }
+
+        private Timer _printCardTimer;
+
+        private void btnPrintCard_Click(object sender, EventArgs e) {
+            _printCardTimer = new Timer(PrintCardStatusCheck, null, 1000, 2000);
+            Op.TestPrintAsync(OnPrintCardFinish);
+        }
+
+        private void PrintCardStatusCheck(object state) {
+            Status.EspfSupDeviceState();
+            this.InvokeIfRequired(() => {
+                espfStateMayor.Value = Status.EspfMayor;
+                espfStateMinor.Value = Status.EspfMinor;
+                espfStateBinary.Value = Status.EspfBinary;
+            });
+        }
+
+        private void OnPrintCardFinish(bool success) {
+            _printCardTimer?.Dispose();
+            this.InvokeIfRequired(()=> 
+                RadMessageBox.Show(this, success ? 
+                    "Impresion de tarjeta de prueba finalizada" : 
+                    "Error al imprimir tarjeta de prueba"));
         }
     }
 }

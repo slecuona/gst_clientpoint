@@ -91,5 +91,12 @@ namespace ClientPoint.Utils {
                 DebugMode)
                 Write(msg).Wait();
         }
+
+        public static void DebugWriteAsync(string msg) {
+            Debug.WriteLine(msg);
+            if (Config.
+                DebugMode)
+                WriteAsync(msg);
+        }
     }
 }

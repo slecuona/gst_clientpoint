@@ -39,6 +39,7 @@ namespace ClientPoint.UI.Forms
             this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnOk = new Telerik.WinControls.UI.RadButton();
             this.btnLog = new Telerik.WinControls.UI.RadButton();
+            this.btnPrintCard = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.radWaitingBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRefresh)).BeginInit();
@@ -46,13 +47,14 @@ namespace ClientPoint.UI.Forms
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnOk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLog)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPrintCard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // radWaitingBar1
             // 
             this.radWaitingBar1.BackColor = System.Drawing.Color.Transparent;
-            this.radWaitingBar1.Location = new System.Drawing.Point(450, 12);
+            this.radWaitingBar1.Location = new System.Drawing.Point(476, 6);
             this.radWaitingBar1.Name = "radWaitingBar1";
             this.radWaitingBar1.Size = new System.Drawing.Size(70, 70);
             this.radWaitingBar1.TabIndex = 0;
@@ -78,18 +80,18 @@ namespace ClientPoint.UI.Forms
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(13, 438);
+            this.btnRefresh.Location = new System.Drawing.Point(13, 425);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(110, 38);
+            this.btnRefresh.Size = new System.Drawing.Size(100, 30);
             this.btnRefresh.TabIndex = 3;
             this.btnRefresh.Text = "Actualizar";
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(149, 438);
+            this.btnExit.Location = new System.Drawing.Point(13, 471);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(110, 38);
+            this.btnExit.Size = new System.Drawing.Size(100, 30);
             this.btnExit.TabIndex = 5;
             this.btnExit.Text = "Cerrar aplicación";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -102,7 +104,7 @@ namespace ClientPoint.UI.Forms
             this.grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colName,
             this.colStatus});
-            this.grid.Location = new System.Drawing.Point(12, 97);
+            this.grid.Location = new System.Drawing.Point(12, 84);
             this.grid.Name = "grid";
             this.grid.ReadOnly = true;
             this.grid.RowHeadersVisible = false;
@@ -115,6 +117,7 @@ namespace ClientPoint.UI.Forms
             this.colName.HeaderText = "Nombre";
             this.colName.Name = "colName";
             this.colName.ReadOnly = true;
+            this.colName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.colName.Width = 250;
             // 
             // colStatus
@@ -123,24 +126,34 @@ namespace ClientPoint.UI.Forms
             this.colStatus.HeaderText = "Estado";
             this.colStatus.Name = "colStatus";
             this.colStatus.ReadOnly = true;
+            this.colStatus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(426, 438);
+            this.btnOk.Location = new System.Drawing.Point(434, 425);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(110, 38);
+            this.btnOk.Size = new System.Drawing.Size(100, 30);
             this.btnOk.TabIndex = 7;
             this.btnOk.Text = "Aceptar";
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // btnLog
             // 
-            this.btnLog.Location = new System.Drawing.Point(285, 438);
+            this.btnLog.Location = new System.Drawing.Point(253, 471);
             this.btnLog.Name = "btnLog";
-            this.btnLog.Size = new System.Drawing.Size(110, 38);
+            this.btnLog.Size = new System.Drawing.Size(100, 30);
             this.btnLog.TabIndex = 8;
             this.btnLog.Text = "Abrir log";
             this.btnLog.Click += new System.EventHandler(this.btnLog_Click);
+            // 
+            // btnPrintCard
+            // 
+            this.btnPrintCard.Location = new System.Drawing.Point(134, 471);
+            this.btnPrintCard.Name = "btnPrintCard";
+            this.btnPrintCard.Size = new System.Drawing.Size(100, 30);
+            this.btnPrintCard.TabIndex = 9;
+            this.btnPrintCard.Text = "Imprimir tarjeta";
+            this.btnPrintCard.Click += new System.EventHandler(this.btnPrintCard_Click);
             // 
             // FrmControl
             // 
@@ -148,7 +161,8 @@ namespace ClientPoint.UI.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ClientPoint.Properties.Resources.bg2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(556, 525);
+            this.ClientSize = new System.Drawing.Size(551, 518);
+            this.Controls.Add(this.btnPrintCard);
             this.Controls.Add(this.btnLog);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.grid);
@@ -173,6 +187,7 @@ namespace ClientPoint.UI.Forms
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnOk)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLog)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPrintCard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -191,5 +206,6 @@ namespace ClientPoint.UI.Forms
         private DataGridViewTextBoxColumn colStatus;
         private Telerik.WinControls.UI.RadButton btnOk;
         private Telerik.WinControls.UI.RadButton btnLog;
+        private Telerik.WinControls.UI.RadButton btnPrintCard;
     }
 }
