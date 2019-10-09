@@ -32,6 +32,7 @@ namespace ClientPoint.UI.Forms
             this.MainMenu = new ClientPoint.UI.Views.MainMenuView();
             this.DocInput = new DocInputView();
             this.PassInput = new PassInputView();
+            this.PinInput = new PinInputView();
             this.ClientCreate = new ClientCreateView();
             this.ClientUpdate = new ClientUpdateView();
             this.Confirm = new ConfirmView();
@@ -54,6 +55,7 @@ namespace ClientPoint.UI.Forms
             this.Controls.Add(this.MainMenu);
             this.Controls.Add(this.DocInput);
             this.Controls.Add(this.PassInput);
+            this.Controls.Add(this.PinInput);
             this.Controls.Add(this.ClientCreate);
             this.Controls.Add(this.ClientUpdate);
             this.Controls.Add(this.Confirm);
@@ -78,6 +80,7 @@ namespace ClientPoint.UI.Forms
         public Views.MainMenuView MainMenu;
         public Views.DocInputView DocInput;
         public Views.PassInputView PassInput;
+        public Views.PinInputView PinInput;
         public Views.ClientCreateView ClientCreate;
         public Views.ClientUpdateView ClientUpdate;
         public Views.ConfirmView Confirm;

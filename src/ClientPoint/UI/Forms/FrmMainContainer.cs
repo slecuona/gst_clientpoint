@@ -11,6 +11,7 @@ namespace ClientPoint.UI.Forms
             UIManager.AddView(View.MainMenu, MainMenu);
             UIManager.AddView(View.DocumentInput, DocInput);
             UIManager.AddView(View.PasswordInput, PassInput);
+            UIManager.AddView(View.PinInput, PinInput);
             UIManager.AddView(View.ClientCreate, ClientCreate);
             UIManager.AddView(View.ClientUpdate, ClientUpdate);
             UIManager.AddView(View.Confirm, Confirm);
@@ -21,6 +22,7 @@ namespace ClientPoint.UI.Forms
             MainMenu.Visible = true;
             DocInput.Visible = false;
             PassInput.Visible = false;
+            PinInput.Visible = false;
             ClientCreate.Visible = false;
             ClientUpdate.Visible = false;
             Confirm.Visible = false;

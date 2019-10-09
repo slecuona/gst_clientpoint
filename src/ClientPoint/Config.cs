@@ -47,6 +47,8 @@ namespace ClientPoint {
 
             DebugMode = GetBool("Debug", false);
 
+            ControlPin = GetSetting("ControlPin", "478"); //GST
+
             LoadHostLogo();
         }
 
@@ -95,6 +97,8 @@ namespace ClientPoint {
 
         public static int IdleSeconds = 0;
         public static int IdleMessageSeconds = 0;
+
+        public static string ControlPin;
 
         /// <summary>
         /// URL Base de la API.

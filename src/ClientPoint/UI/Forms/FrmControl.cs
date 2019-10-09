@@ -160,8 +160,7 @@ namespace ClientPoint.UI.Forms
             Debug.WriteLine(
                 $"EspfStatus: {Status.EspfMayor}|{Status.EspfMinor}");
             this.InvokeIfRequired(() => {
-                if (Status.EspfMinor == EspfMinorState.DEF_CARD_ON_EJECT &&
-                    espfStateMinor.Value.ToString() != EspfMinorState.DEF_CARD_ON_EJECT)
+                if (Status.EspfMinor == EspfMinorState.DEF_CARD_ON_EJECT)
                     lblStatus.Text = "Retire la tarjeta para finalizar la tarea.";
                 espfStateMayor.Value = Status.EspfMayor;
                 espfStateMinor.Value = Status.EspfMinor;

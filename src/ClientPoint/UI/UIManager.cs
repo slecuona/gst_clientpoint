@@ -215,15 +215,21 @@ namespace ClientPoint.UI {
 
         public static void ShowControl() {
             IdleTimer.Enabled = false;
-            SafeExecOnActiveForm(owner =>
-                Control.ShowDialog(owner));
-            IdleTimer.Enabled = true;
+            PinInput.OnConfirm = () => {
+                ShowView(View.MainMenu);
+                SafeExecOnActiveForm(owner =>
+                    Control.ShowDialog(owner));
+                IdleTimer.Enabled = true;
+            };
+            ShowView(View.PinInput);
         }
 
         public static DocInputView DocInput => 
             (DocInputView)_views[View.DocumentInput];
         public static PassInputView PassInput => 
             (PassInputView)_views[View.PasswordInput];
+        public static PinInputView PinInput => 
+            (PinInputView)_views[View.PinInput];
         public static StatusView StatusMainView =>
             (StatusView)_views[View.StatusMain];
     }
@@ -245,7 +251,8 @@ namespace ClientPoint.UI {
         Confirm = 7,
         StatusMain = 8,
         ClientMenu = 9,
-        Rewards = 10
+        Rewards = 10,
+        PinInput = 11
     }
 
     public enum Keyboard {
