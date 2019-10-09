@@ -81,7 +81,7 @@ namespace ClientPoint.Espf {
         public static string SupGetState(string id) {
             var req = new SupRequest(id, "GetState");
             // devuelve string [majorstate, minorstate]
-            return EspfClient.Send(req);
+            return EspfClient.Send(req, false, true);
         }
 
         // CMD.SendCommand
@@ -92,10 +92,10 @@ namespace ClientPoint.Espf {
         }
 
         // CMD.GetStatus
-        public static string CmdGetStatus(string id) {
+        public static string CmdGetStatus(string id, bool locked = true) {
             var req = new CmdRequest(id, CmdMethods.GetStatus);
             // devuelve un string binario (Ver 5.1. Binary status of a printer)
-            return EspfClient.Send(req);
+            return EspfClient.Send(req, locked);
         }
 
         // CMD.ResetCom: reinicia la comunicacion con la impresora

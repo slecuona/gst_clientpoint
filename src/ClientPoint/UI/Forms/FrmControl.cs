@@ -97,7 +97,14 @@ namespace ClientPoint.UI.Forms
             espfIp.Value = Config.EspfIp;
             espfPort.Value = Config.EspfPort;
             espfPrinter.Value = Config.EspfPrinter;
-            espfCommMethod.Value = Config.EspfCommMethod == 0 ? "NamedPipes" : "TCP";
+
+            var commMtd = "No definido";
+            switch (Config.EspfCommMethod) {
+                case 0: commMtd = "TCP"; break;
+                case 1: commMtd = "TCP Alternative"; break;
+                case 2: commMtd = "NamedPipedStream"; break;
+            }
+            espfCommMethod.Value = commMtd;
 
             apiState.Value = Status.ApiState;
             apiUrl.Value = Config.ApiUrl;
@@ -140,6 +147,8 @@ namespace ClientPoint.UI.Forms
 
         private void PrintCardStatusCheck(object state) {
             Status.EspfSupDeviceState();
+            Debug.WriteLine(
+                $"EspfStatus: {Status.EspfMayor}|{Status.EspfMinor}");
             this.InvokeIfRequired(() => {
                 espfStateMayor.Value = Status.EspfMayor;
                 espfStateMinor.Value = Status.EspfMinor;

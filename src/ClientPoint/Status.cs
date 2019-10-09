@@ -67,7 +67,7 @@ namespace ClientPoint {
                     Print($"ESPF Minor state: {EspfMinor}");
                 }
 
-                EspfCmdDeviceStatus(out string EspfBinary);
+                EspfCmdDeviceStatus(out EspfBinary);
                 if(init)
                     Print($"ESPF Device Binary Status => {EspfBinary}");
             }
@@ -104,6 +104,7 @@ namespace ClientPoint {
             var mayor = EspfMayorState.NONE;
             string minor = null;
             try {
+                // Esta llamada debe evitar el lockeo
                 var state = Services.SupGetState("GST1");
                 var states = state.Split(',');
                 if (states.Length >= 1) {
@@ -135,7 +136,9 @@ namespace ClientPoint {
         // Estado de la impresora (binario)
         private static bool EspfCmdDeviceStatus(out string state) {
             try {
-                state = Services.CmdGetStatus("GST2");
+                // Esta llamada no se debe lockear.
+                // Ya que puede ser utilizada durante la impresion.
+                state = Services.CmdGetStatus("GST2", false);
                 return true;
             } catch (Exception e) {
                 Logger.Exception(e);

@@ -78,36 +78,43 @@ namespace ClientPoint.Espf {
 
         private static object _locker = new object();
 
-        public static string Send(Request.BaseRequest req) {
-            lock (_locker) {
-
-                string json = "";
-
-                var reqJson = req.ToJson();
-                Log($"[JSON SEND] => {reqJson}");
-
-                // Metodo default: TcpClient
-                if (Config.EspfCommMethod == 0)
-                    json = GetStream(reqJson);
-
-                // Metodo alternativo 1 (TcpClient)
-                if (Config.EspfCommMethod == 1)
-                    json = SendTcpAlternative(reqJson);
-
-                // Metodo NamedPipedStream
-                if (Config.EspfCommMethod == 2)
-                    json = SendPipe(reqJson);
-                
-                if (string.IsNullOrEmpty(json))
-                    throw new Exception("Se esperaba un json.");
-
-                Log($"[JSON RESPONSE] => {json}");
-                var res = Response.FromJson(json);
-                if (res.error != null)
-                    throw new Exception(
-                        $"Response error: {res.error.code} - {res.error.message}");
-                return res.result;
+        public static string Send(Request.BaseRequest req, bool locked = true, bool forceTcp = false) {
+            if (!locked) {
+                return PerformSend(req, forceTcp);
             }
+
+            // El lock lo utilizamos porque en general las llamadas al
+            // servicio de ESPF se deben realizar de forma secuencial.
+            lock (_locker) {
+                return PerformSend(req, forceTcp);
+            }
+        }
+
+        static string PerformSend(Request.BaseRequest req, bool forceTcp = false) {
+            string json = "";
+
+            var reqJson = req.ToJson();
+            Log($"[JSON SEND] => {reqJson}");
+
+            // Metodo default: TcpClient
+            if (Config.EspfCommMethod == 0 || forceTcp)
+                json = GetStream(reqJson);
+            // Metodo alternativo 1 (TcpClient)
+            else if (Config.EspfCommMethod == 1)
+                json = SendTcpAlternative(reqJson);
+            // Metodo NamedPipedStream
+            else if (Config.EspfCommMethod == 2)
+                json = SendPipe(reqJson);
+
+            if (string.IsNullOrEmpty(json))
+                throw new Exception("Se esperaba un json.");
+
+            Log($"[JSON RESPONSE] => {json}");
+            var res = Response.FromJson(json);
+            if (res.error != null)
+                throw new Exception(
+                    $"Response error: {res.error.code} - {res.error.message}");
+            return res.result;
         }
 
         /// <summary>
