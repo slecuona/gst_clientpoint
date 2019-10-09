@@ -69,10 +69,17 @@ namespace ClientPoint.UI.Forms
             RefreshStatus();
         }
 
+        private void Loading(bool enabled) {
+            radWaitingBar1.Visible = enabled;
+            if(enabled)
+                radWaitingBar1.StartWaiting();
+            else
+                radWaitingBar1.StopWaiting();
+        }
+
         private Thread _refreshThread;
         private void RefreshStatus() {
-            radWaitingBar1.Visible = true;
-            radWaitingBar1.StartWaiting();
+            Loading(true);
 
             _refreshThread?.Abort();
 
@@ -80,8 +87,7 @@ namespace ClientPoint.UI.Forms
                 Status.Refresh();
                 this.InvokeIfRequired(() => {
                     RefreshGrid();
-                    radWaitingBar1.StopWaiting();
-                    radWaitingBar1.Visible = false;
+                    Loading(false);
                 });
             });
             _refreshThread.Start();
@@ -141,6 +147,10 @@ namespace ClientPoint.UI.Forms
         private Timer _printCardTimer;
 
         private void btnPrintCard_Click(object sender, EventArgs e) {
+            lblStatus.Text = "Imprimiendo tarjeta de prueba...";
+            Loading(true);
+            btnPrintCard.Enabled = false;
+            btnRefresh.Enabled = false;
             _printCardTimer = new Timer(PrintCardStatusCheck, null, 1000, 2000);
             Op.TestPrintAsync(OnPrintCardFinish);
         }
@@ -150,6 +160,9 @@ namespace ClientPoint.UI.Forms
             Debug.WriteLine(
                 $"EspfStatus: {Status.EspfMayor}|{Status.EspfMinor}");
             this.InvokeIfRequired(() => {
+                if (Status.EspfMinor == EspfMinorState.DEF_CARD_ON_EJECT &&
+                    espfStateMinor.Value.ToString() != EspfMinorState.DEF_CARD_ON_EJECT)
+                    lblStatus.Text = "Retire la tarjeta para finalizar la tarea.";
                 espfStateMayor.Value = Status.EspfMayor;
                 espfStateMinor.Value = Status.EspfMinor;
                 espfStateBinary.Value = Status.EspfBinary;
@@ -158,10 +171,15 @@ namespace ClientPoint.UI.Forms
 
         private void OnPrintCardFinish(bool success) {
             _printCardTimer?.Dispose();
-            this.InvokeIfRequired(()=> 
-                RadMessageBox.Show(this, success ? 
-                    "Impresion de tarjeta de prueba finalizada" : 
-                    "Error al imprimir tarjeta de prueba"));
+            this.InvokeIfRequired(() => {
+                Loading(false);
+                lblStatus.Text = "";
+                btnPrintCard.Enabled = true;
+                btnRefresh.Enabled = true;
+                RadMessageBox.Show(this,
+                    success ? "Impresion de tarjeta de prueba finalizada" : 
+                        "Error al imprimir tarjeta de prueba");
+            });
         }
     }
 }

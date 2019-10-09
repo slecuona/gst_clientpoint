@@ -40,6 +40,7 @@ namespace ClientPoint.UI.Forms
             this.btnOk = new Telerik.WinControls.UI.RadButton();
             this.btnLog = new Telerik.WinControls.UI.RadButton();
             this.btnPrintCard = new Telerik.WinControls.UI.RadButton();
+            this.lblStatus = new Telerik.WinControls.UI.RadLabel();
             ((System.ComponentModel.ISupportInitialize)(this.radWaitingBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRefresh)).BeginInit();
@@ -48,6 +49,7 @@ namespace ClientPoint.UI.Forms
             ((System.ComponentModel.ISupportInitialize)(this.btnOk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLog)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPrintCard)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,7 +82,7 @@ namespace ClientPoint.UI.Forms
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(13, 425);
+            this.btnRefresh.Location = new System.Drawing.Point(13, 458);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(100, 30);
             this.btnRefresh.TabIndex = 3;
@@ -89,7 +91,7 @@ namespace ClientPoint.UI.Forms
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(13, 471);
+            this.btnExit.Location = new System.Drawing.Point(13, 504);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(100, 30);
             this.btnExit.TabIndex = 5;
@@ -130,7 +132,7 @@ namespace ClientPoint.UI.Forms
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(434, 425);
+            this.btnOk.Location = new System.Drawing.Point(434, 458);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(100, 30);
             this.btnOk.TabIndex = 7;
@@ -139,7 +141,7 @@ namespace ClientPoint.UI.Forms
             // 
             // btnLog
             // 
-            this.btnLog.Location = new System.Drawing.Point(253, 471);
+            this.btnLog.Location = new System.Drawing.Point(253, 504);
             this.btnLog.Name = "btnLog";
             this.btnLog.Size = new System.Drawing.Size(100, 30);
             this.btnLog.TabIndex = 8;
@@ -148,12 +150,21 @@ namespace ClientPoint.UI.Forms
             // 
             // btnPrintCard
             // 
-            this.btnPrintCard.Location = new System.Drawing.Point(134, 471);
+            this.btnPrintCard.Location = new System.Drawing.Point(134, 504);
             this.btnPrintCard.Name = "btnPrintCard";
             this.btnPrintCard.Size = new System.Drawing.Size(100, 30);
             this.btnPrintCard.TabIndex = 9;
             this.btnPrintCard.Text = "Imprimir tarjeta";
             this.btnPrintCard.Click += new System.EventHandler(this.btnPrintCard_Click);
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.BackColor = System.Drawing.Color.Transparent;
+            this.lblStatus.ForeColor = System.Drawing.Color.White;
+            this.lblStatus.Location = new System.Drawing.Point(13, 425);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(55, 18);
+            this.lblStatus.TabIndex = 10;
             // 
             // FrmControl
             // 
@@ -161,7 +172,8 @@ namespace ClientPoint.UI.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ClientPoint.Properties.Resources.bg2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(551, 518);
+            this.ClientSize = new System.Drawing.Size(559, 548);
+            this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.btnPrintCard);
             this.Controls.Add(this.btnLog);
             this.Controls.Add(this.btnOk);
@@ -188,6 +200,7 @@ namespace ClientPoint.UI.Forms
             ((System.ComponentModel.ISupportInitialize)(this.btnOk)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLog)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPrintCard)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -207,5 +220,6 @@ namespace ClientPoint.UI.Forms
         private Telerik.WinControls.UI.RadButton btnOk;
         private Telerik.WinControls.UI.RadButton btnLog;
         private Telerik.WinControls.UI.RadButton btnPrintCard;
+        private Telerik.WinControls.UI.RadLabel lblStatus;
     }
 }

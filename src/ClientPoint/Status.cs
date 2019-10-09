@@ -187,4 +187,12 @@ namespace ClientPoint {
         WARNING = 4
     }
 
+    // Solo son algunos...
+    public class EspfMinorState {
+        public const string ERR_MECHANICAL = "ERR_MECHANICAL";
+        public const string ERR_WRITE_MAGNETIC = "ERR_WRITE_MAGNETIC";
+        public const string FEEDER_EMPTY = "FEEDER_EMPTY";
+        public const string DEF_CARD_ON_EJECT = "DEF_CARD_ON_EJECT";
+    }
+
 }

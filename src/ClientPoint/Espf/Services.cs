@@ -81,7 +81,7 @@ namespace ClientPoint.Espf {
         public static string SupGetState(string id) {
             var req = new SupRequest(id, "GetState");
             // devuelve string [majorstate, minorstate]
-            return EspfClient.Send(req, false, true);
+            return EspfClient.Send(req, false, false);
         }
 
         // CMD.SendCommand
