@@ -9,6 +9,7 @@ namespace ClientPoint.UI.Controls {
         private bool _passVisible = false;
 
         public Keyboard Keyboard = Keyboard.None;
+        public bool NumKeyboardCenter = false;
 
         public CustomField() {
             InitializeComponent();
@@ -80,11 +81,12 @@ namespace ClientPoint.UI.Controls {
             // En este caso, no forzamos el ocultamiento de los teclados.
             if (Keyboard == Keyboard.None)
                 return;
-            UIManager.SetNumKeyboardCenter(false);
+            UIManager.SetNumKeyboardCenter(NumKeyboardCenter);
             UIManager.SetKeyboard(Keyboard);
         }
 
         public RadTextBox Control => radTextBox1;
+        public RadLabel LabelControl => radLabel1;
 
         public string Label {
             get => radLabel1.Text;

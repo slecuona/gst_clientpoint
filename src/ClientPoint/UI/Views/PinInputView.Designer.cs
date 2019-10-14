@@ -38,13 +38,17 @@ namespace ClientPoint.UI.Views
             // fldPassword
             // 
             this.fldPin.Label = "PIN";
-            this.fldPin.Location = new System.Drawing.Point(350, 100);
+            this.fldPin.Location = new System.Drawing.Point(450, 100);
             this.fldPin.Name = "fldPin";
             this.fldPin.Password = true;
             this.fldPin.Size = new System.Drawing.Size(615, 53);
             this.fldPin.TabIndex = 0;
             this.fldPin.Value = "";
             this.fldPin.Keyboard = Keyboard.Num;
+            this.fldPin.NumKeyboardCenter = true;
+            this.fldPin.Control.Width = 150;
+            this.fldPin.Control.Left = 200;
+            this.fldPin.LabelControl.Left = 130;
 
             this.Name = "PinInputView";
             // 

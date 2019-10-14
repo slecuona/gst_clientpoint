@@ -28,10 +28,6 @@ namespace ClientPoint.UI.Views {
             return false;
         }
 
-        //protected override void AfterError() {
-        //    UIManager.Show(Window.NewClientMenu);
-        //}
-        
         protected override void OnBack(object sender, EventArgs e) {
             UIManager.ShowWindow(Window.Ads);
         }
@@ -42,13 +38,20 @@ namespace ClientPoint.UI.Views {
         }
 
         public override void AfterShow() {
-            UIManager.SetKeyboard(Keyboard.Num);
+            //UIManager.SetNumKeyboardCenter(true);
+            //UIManager.SetKeyboard(Keyboard.Num);
             fldPin.Control.Select();
             this.Select();
         }
 
         public override void AfterHide() {
             fldPin.ResetViewPass();
+        }
+
+        protected override void AfterError() {
+            fldPin.ResetViewPass();
+            fldPin.Value = "";
+            fldPin.Control.Select();
         }
     }
 }
