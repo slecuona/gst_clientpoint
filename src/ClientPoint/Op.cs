@@ -117,32 +117,32 @@ namespace ClientPoint {
             }
         }
 
-        public static void TestPrintAsync(Action<bool> onFinish) {
-            //SafeExec(() => {
-            //    UIManager.StatusMainView.SetState(States.PrintingCard);
-            //    ShowView(View.StatusMain);
-            //});
-            var t = new Thread(()=> TestPrintSync(onFinish));
-            t.Start();
-        }
+        //public static void TestPrintAsync(Action<bool> onFinish) {
+        //    //SafeExec(() => {
+        //    //    UIManager.StatusMainView.SetState(States.PrintingCard);
+        //    //    ShowView(View.StatusMain);
+        //    //});
+        //    var t = new Thread(()=> TestPrintSync(onFinish));
+        //    t.Start();
+        //}
 
-        public static void TestPrintSync(Action<bool> onFinish) {
-            try {
-                var pj = new PrintJob(new Client() {
-                    Name = "TARJETA",
-                    LastName = "DE PRUEBA",
-                    IdCard = Config.TEST_CARD
-                });
+        //public static void TestPrintSync(Action<bool> onFinish) {
+        //    try {
+        //        var pj = new PrintJob(new Client() {
+        //            Name = "TARJETA",
+        //            LastName = "DE PRUEBA",
+        //            IdCard = Config.TEST_CARD
+        //        });
 
-                pj.Start();
+        //        pj.Start();
 
-                onFinish?.Invoke(true);
-            }
-            catch (Exception ex) {
-                Logger.Exception(ex);
-                onFinish?.Invoke(false);
-            }
-        }
+        //        onFinish?.Invoke(true);
+        //    }
+        //    catch (Exception ex) {
+        //        Logger.Exception(ex);
+        //        onFinish?.Invoke(false);
+        //    }
+        //}
 
         public static void Client() {
             ShowView(View.SwipeCard);

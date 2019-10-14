@@ -2,6 +2,8 @@
 using System.Diagnostics;
 using System.Threading;
 using System.Windows.Forms;
+using ClientPoint.Espf;
+using ClientPoint.Session;
 using ClientPoint.Utils;
 using Telerik.WinControls;
 using Telerik.WinControls.UI;
@@ -144,23 +146,33 @@ namespace ClientPoint.UI.Forms
             Process.Start(Logger.FullPath);
         }
 
-        private Timer _printCardTimer;
+        //private Timer _printCardTimer;
 
         private void btnPrintCard_Click(object sender, EventArgs e) {
             lblStatus.Text = "Imprimiendo tarjeta de prueba...";
             Loading(true);
             btnPrintCard.Enabled = false;
             btnRefresh.Enabled = false;
-            _printCardTimer = new Timer(PrintCardStatusCheck, null, 1000, 2000);
-            Op.TestPrintAsync(OnPrintCardFinish);
+            //_printCardTimer = new Timer(PrintCardStatusCheck, null, 1000, 2000);
+            //Op.TestPrintAsync(OnPrintCardFinish);
+
+            try {
+                var pj = new PrintJob(new Client() {
+                    Name = "TARJETA",
+                    LastName = "DE PRUEBA",
+                    IdCard = Config.TEST_CARD
+                });
+                pj.OnFinish = OnPrintCardFinish;
+                pj.OnStateChanged = OnStateChanged;
+                pj.StartAsync();
+            } catch (Exception ex) {
+                Logger.Exception(ex);
+            }
         }
 
-        private void PrintCardStatusCheck(object state) {
-            Status.EspfSupDeviceState();
-            Debug.WriteLine(
-                $"EspfStatus: {Status.EspfMayor}|{Status.EspfMinor}");
+        private void OnStateChanged(PrintState state) {
             this.InvokeIfRequired(() => {
-                if (Status.EspfMinor == EspfMinorState.DEF_CARD_ON_EJECT)
+                if (state == PrintState.CardEjected)
                     lblStatus.Text = "Retire la tarjeta para finalizar la tarea.";
                 espfStateMayor.Value = Status.EspfMayor;
                 espfStateMinor.Value = Status.EspfMinor;
@@ -168,8 +180,21 @@ namespace ClientPoint.UI.Forms
             });
         }
 
+        //private void PrintCardStatusCheck(object state) {
+        //    Status.EspfSupDeviceState();
+        //    Debug.WriteLine(
+        //        $"EspfStatus: {Status.EspfMayor}|{Status.EspfMinor}");
+        //    this.InvokeIfRequired(() => {
+        //        if (Status.EspfMinor == EspfMinorState.DEF_CARD_ON_EJECT)
+        //            lblStatus.Text = "Retire la tarjeta para finalizar la tarea.";
+        //        espfStateMayor.Value = Status.EspfMayor;
+        //        espfStateMinor.Value = Status.EspfMinor;
+        //        espfStateBinary.Value = Status.EspfBinary;
+        //    });
+        //}
+
         private void OnPrintCardFinish(bool success) {
-            _printCardTimer?.Dispose();
+            //_printCardTimer?.Dispose();
             this.InvokeIfRequired(() => {
                 Loading(false);
                 lblStatus.Text = "";
