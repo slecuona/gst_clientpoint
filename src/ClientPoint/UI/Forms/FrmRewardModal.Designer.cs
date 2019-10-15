@@ -253,7 +253,7 @@ namespace ClientPoint.UI.Forms
             this.btnConfirm.TabIndex = 3;
             this.btnConfirm.TabStop = false;
             this.btnConfirm.Text = "CONFIRMAR";
-            this.btnConfirm.Click += new System.EventHandler(this.customButton1_Click);
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfim_Click);
             // 
             // FrmRewardModal
             // 

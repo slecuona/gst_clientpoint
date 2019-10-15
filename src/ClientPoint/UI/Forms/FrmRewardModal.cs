@@ -12,6 +12,7 @@ namespace ClientPoint.UI.Forms {
         private int _pointsPerUnit = 0;
         private int _totalPoints = 0;
         private int _pointsReq = 0;
+        private Reward _reward;
 
         public FrmRewardModal() {
             InitializeComponent();
@@ -56,6 +57,7 @@ namespace ClientPoint.UI.Forms {
         }
 
         public void LoadReward(Reward r) {
+            _reward = r;
             _totalPoints = ClientSession.CurrClient.Points;
             _max = r.Stock;
             _count = 1;
@@ -82,9 +84,12 @@ namespace ClientPoint.UI.Forms {
             lblPointsAfterVal.Text = (_totalPoints - _pointsReq).ToString();
         }
 
-        private void customButton1_Click(object sender, EventArgs e) {
+        private void btnConfim_Click(object sender, EventArgs e) {
             this.DialogResult = DialogResult.OK;
             this.Close();
+            if (_reward.IdCategory == 2)
+                return;
+            Op.ExchangeRewardAsync(_reward);
         }
 
         protected override void OnPaint(PaintEventArgs e) {

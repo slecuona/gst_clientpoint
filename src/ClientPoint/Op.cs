@@ -208,6 +208,41 @@ namespace ClientPoint {
                 UIManager.RewardModal.ShowDialog(owner));
         }
 
+        public static void ExchangeRewardAsync(Reward r) {
+            SafeExec(() => {
+                StatusMainView.SetState(States.PrintingCard);
+                ShowView(View.StatusMain);
+            });
+            var t = new Thread(() => ExchangeRewardSync(r));
+            t.Start();
+        }
+
+        private static void ExchangeRewardSync(Reward r) {
+            try {
+                var cl = ClientSession.CurrClient;
+                var res = ApiService.ChangeReward(new ChangeRewardRequest() {
+                    IdCard = cl.IdCard,
+                    IdReward = r.IdReward
+                }, out string errMsg);
+                DieIf(!string.IsNullOrEmpty(errMsg), errMsg);
+
+                var voucher = res.VoucherPrinter;
+                DieIf(string.IsNullOrEmpty(voucher), "Voucher vacio.");
+                
+                Debug.WriteLine(voucher);
+                //TODO: Print Voucher
+                Thread.Sleep(2000);
+
+                // Vuelvo a cargar el cliente y lo llevo a la pantalla principal.
+                ClientLoadSync(cl.IdCard);
+            }
+            catch (Exception e) {
+                Logger.Exception(e);
+                MsgBox.Error("Error al canjear premio.");
+                ShowWindow(Window.Ads);
+            }
+        }
+
         public static void TestBase64() {
             using (MemoryStream m = new MemoryStream()) {
                 var image = Properties.Resources.crucero;
