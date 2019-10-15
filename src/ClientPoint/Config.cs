@@ -107,7 +107,7 @@ namespace ClientPoint {
             "http://192.168.10.12/mobile/api/ClientPoint/";
         public static string ApiUrl;
 
-        public const string TEST_CARD = "6000100000006";
+        public const string TEST_CARD = "0010100000999";
 
         public static Image HostLogo;
 

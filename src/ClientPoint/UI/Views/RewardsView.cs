@@ -6,6 +6,7 @@ using ClientPoint.Api;
 using ClientPoint.Session;
 using ClientPoint.UI.Controls;
 using ClientPoint.Utils;
+using static ClientPoint.Utils.ExUtils;
 
 namespace ClientPoint.UI.Views
 {
@@ -74,18 +75,29 @@ namespace ClientPoint.UI.Views
         }
 
         private void LoadRewards() {
-            _lastBtnCatergoryY = btnAll.Top;
-            var res = ApiService.GetRewards(Config.TEST_CARD);
-            _rewards = new RewardsManager(res);
-            this.InvokeIfRequired(() => {
-                _btns.Add(btnAll);
-                categoryPanel.Controls.Add(btnAll);
-                foreach (var c in _rewards.Categories) {
-                    AddCategoryBtn(c.Key, c.Value);
-                }
-            });
-            btnAll.Checked = true;
-            FillRewards();
+            try {
+                _lastBtnCatergoryY = btnAll.Top;
+                var cl = ClientSession.CurrClient;
+                DieIf(cl == null, "No se pudo recuperar el cliente.");
+
+                var res = ApiService.GetRewards(cl.IdCard);
+                _rewards = new RewardsManager(res);
+
+                this.InvokeIfRequired(() => {
+                    _btns.Add(btnAll);
+                    categoryPanel.Controls.Add(btnAll);
+                    foreach (var c in _rewards.Categories) {
+                        AddCategoryBtn(c.Key, c.Value);
+                    }
+                });
+                btnAll.Checked = true;
+                FillRewards();
+            }
+            catch (Exception e) {
+                Logger.Exception(e);
+                MsgBox.Error("Error al mostrar premios.");
+                UIManager.ShowWindow(Window.Ads);
+            }
         }
 
         private void FillRewards() {

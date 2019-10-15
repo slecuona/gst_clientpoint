@@ -102,7 +102,7 @@ namespace Tests {
 
         [TestMethod]
         public void GetRewardsEmpty() {
-            var res = ApiService.GetRewards("0010100001234");
+            var res = ApiService.GetRewards("0010100000999");
             Assert.IsTrue(res.Count == 0);
         }
 
