@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using ClientPoint.Keyboard.UserInteraction;
 using ClientPoint.Session;
 using ClientPoint.Utils;
 
@@ -98,6 +99,13 @@ namespace ClientPoint.UI.Forms {
 
         private void OnShown(object sender, EventArgs e) {
             this.CenterToScreen();
+        }
+
+        protected override void WndProc(ref Message m) {
+            if (NativeMethods.IsActiveMsg(m.Msg)) {
+                IdleTimer.OnBusy();
+            }
+            base.WndProc(ref m);
         }
     }
 }
