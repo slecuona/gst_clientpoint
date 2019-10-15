@@ -215,13 +215,20 @@ namespace ClientPoint.UI {
 
         public static void ShowControl() {
             IdleTimer.Enabled = false;
-            PinInput.OnConfirm = () => {
-                ShowView(View.MainMenu);
-                SafeExecOnActiveForm(owner =>
-                    Control.ShowDialog(owner));
-                IdleTimer.Enabled = true;
-            };
+            if (Config.DebugMode) {
+                // En debug mode no pido PIN
+                ShowControlOnConfirm();
+                return;
+            }
+            PinInput.OnConfirm = ShowControlOnConfirm;
             ShowView(View.PinInput);
+        }
+
+        private static void ShowControlOnConfirm() {
+            ShowView(View.MainMenu);
+            SafeExecOnActiveForm(owner =>
+                Control.ShowDialog(owner));
+            IdleTimer.Enabled = true;
         }
 
         public static DocInputView DocInput => 
