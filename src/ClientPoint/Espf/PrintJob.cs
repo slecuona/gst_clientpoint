@@ -104,6 +104,7 @@ namespace ClientPoint.Espf {
                     () => Services.PrintSetBitmap("PRINT3", _sessionId, GetImageBase64()),
                     "PrintSetBitmap");
 
+                // Arranco el timer para ir chequeando el estado de la impresion.
                 _stateMonitorTimer = new Timer(CheckStatus, null, 1000, 2000);
 
                 State = PrintState.Printing;

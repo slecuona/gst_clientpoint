@@ -70,52 +70,87 @@ namespace ClientPoint {
             ShowView(View.DocumentInput);
         }
 
-        private static Timer _printCardTimer;
+        //private static Timer _printCardTimer;
 
         public static void PrintCard() {
-            _printCardTimer = new Timer(CheckEspfStatus, null, 3000, 3000);
-            SafeExec(() => {
-                UIManager.StatusMainView.SetState(States.PrintingCard);
-                ShowView(View.StatusMain);
-            });
-            var t = new Thread(PrintCardSync);
-            t.Start();
-        }
-
-        private static void CheckEspfStatus(object state) {
-            Status.EspfSupDeviceState();
-            Logger.DebugWriteAsync(
-                $"Printing state: {Status.EspfMayor} | {Status.EspfMinor}");
-
-        }
-
-        private static void PrintCardSync() {
             try {
+                SafeExec(() => {
+                    StatusMainView.SetState(States.PrintingCard);
+                    ShowView(View.StatusMain);
+                });
                 var card = ApiService.GetNumberCard();
                 var cl = ClientSession.CurrClient;
                 cl.IdCard = card;
                 var pj = new PrintJob(cl);
-                pj.Start();
+                pj.OnStateChanged = OnPrintStateChanged;
+                //pj.OnFinish = OnPrintCardFinish;
+                pj.StartAsync();
+            } catch (Exception ex) {
+                Logger.Exception(ex);
+                MsgBox.Error("Error al imprimir tarjeta.");
+                ShowWindow(Window.Ads);
+            }
+        }
 
-                var success = ApiService.CreateCard(new CreateCardRequest() {
-                    DocumentNumber = cl.DocumentNumber,
-                    Password = cl.Password,
-                    IdCard = card
-                }, out string err);
-                DieIf(!success, err);
+        //private static void OnPrintCardFinish(bool success) {
+        //    if (!success)
+        //        return;
+        //}
 
+        private static void OnPrintStateChanged(PrintState s) {
+            if (s == PrintState.CardEjected) {
                 SafeExec(() => {
-                    _printCardTimer.Dispose();
-                    UIManager.StatusMainView.SetState(States.RemoveCard);
+                    StatusMainView.SetState(States.RemoveCard);
                     ShowView(View.StatusMain);
                 });
             }
-            catch (Exception ex) {
-                Logger.Exception(ex);
-                MsgBox.Error("Error al imprimir tarjeta.");
-                UIManager.ShowWindow(Window.Ads);
+
+            if (s == PrintState.Success) {
+                var cl = ClientSession.CurrClient;
+                var cardCreated = ApiService.CreateCard(new CreateCardRequest() {
+                    DocumentNumber = cl.DocumentNumber,
+                    Password = cl.Password,
+                    IdCard = cl.IdCard
+                }, out string err);
+                DieIf(!cardCreated, err);
+                ShowWindow(Window.Ads);
             }
         }
+
+        //private static void CheckEspfStatus(object state) {
+        //    Status.EspfSupDeviceState();
+        //    Logger.DebugWriteAsync(
+        //        $"Printing state: {Status.EspfMayor} | {Status.EspfMinor}");
+
+        //}
+
+        //private static void PrintCardSync() {
+        //    try {
+        //        var card = ApiService.GetNumberCard();
+        //        var cl = ClientSession.CurrClient;
+        //        cl.IdCard = card;
+        //        var pj = new PrintJob(cl);
+        //        pj.Start();
+
+        //        var success = ApiService.CreateCard(new CreateCardRequest() {
+        //            DocumentNumber = cl.DocumentNumber,
+        //            Password = cl.Password,
+        //            IdCard = card
+        //        }, out string err);
+        //        DieIf(!success, err);
+
+        //        SafeExec(() => {
+        //            _printCardTimer.Dispose();
+        //            UIManager.StatusMainView.SetState(States.RemoveCard);
+        //            ShowView(View.StatusMain);
+        //        });
+        //    }
+        //    catch (Exception ex) {
+        //        Logger.Exception(ex);
+        //        MsgBox.Error("Error al imprimir tarjeta.");
+        //        UIManager.ShowWindow(Window.Ads);
+        //    }
+        //}
 
         //public static void TestPrintAsync(Action<bool> onFinish) {
         //    //SafeExec(() => {
