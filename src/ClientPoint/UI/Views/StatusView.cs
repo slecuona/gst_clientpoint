@@ -16,6 +16,7 @@ namespace ClientPoint.UI.Views
 
         public void SetState(States st) {
             btnBack.Visible = false;
+            //TODO: Faltan los GIFS
             if (st == States.PrintingCard) {
                 imgBox.Image = Properties.Resources.print;
                 headerPanel1.Title = "Imprimiendo tarjeta...";
@@ -24,6 +25,16 @@ namespace ClientPoint.UI.Views
             if (st == States.RemoveCard) {
                 imgBox.Image = Properties.Resources.card;
                 headerPanel1.Title = "Tarjeta lista! retírela por favor.";
+                return;
+            }
+            if (st == States.PrintingVoucher) {
+                imgBox.Image = Properties.Resources.print;
+                headerPanel1.Title = "Imprimiendo voucher...";
+                return;
+            }
+            if (st == States.PrintingTicket) {
+                imgBox.Image = Properties.Resources.print;
+                headerPanel1.Title = "Imprimiendo ticket de promoción...";
                 return;
             }
         }
@@ -46,5 +57,7 @@ namespace ClientPoint.UI.Views
     public enum States {
         PrintingCard = 0,
         RemoveCard = 1,
+        PrintingVoucher = 2,
+        PrintingTicket = 3
     }
 }

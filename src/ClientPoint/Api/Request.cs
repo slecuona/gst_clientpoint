@@ -41,11 +41,15 @@ namespace ClientPoint.Api {
 
     public struct ChangeRewardRequest {
         public string IdCard;
-        public int IdReward;
+        public string IdReward;
         //public string ValidationNo;
     }
 
     public struct ExchangeTPPRequest {
         public double Amount;
+    }
+
+    public struct CancelTPPRequest {
+        public string ValidationNo;
     }
 }

@@ -29,13 +29,13 @@ namespace ClientPoint.UI {
 
         // Devuelve el Form activo.
         public static Form GetActiveForm() {
-            if (Splash.Visible)
+            if (Splash.Visible && !Splash.IsDisposed)
                 return Splash;
             if (CurrKeyboard != Keyboard.None)
                 return GetKeyboard(CurrKeyboard);
-            if (RewardModal.Visible)
+            if (RewardModal.Visible && !RewardModal.IsDisposed)
                 return RewardModal;
-            if (Control.Visible)
+            if (Control.Visible && !Control.IsDisposed)
                 return Control;
             if (CurrWindow != Window.None)
                 return GetCurrentWindow();

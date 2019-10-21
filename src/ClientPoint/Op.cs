@@ -210,7 +210,8 @@ namespace ClientPoint {
 
         public static void ExchangeRewardAsync(Reward r) {
             SafeExec(() => {
-                StatusMainView.SetState(States.PrintingCard);
+                StatusMainView.SetState(
+                    r.IsTicket ? States.PrintingTicket : States.PrintingVoucher);
                 ShowView(View.StatusMain);
             });
             var t = new Thread(() => ExchangeRewardSync(r));
@@ -220,18 +221,7 @@ namespace ClientPoint {
         private static void ExchangeRewardSync(Reward r) {
             try {
                 var cl = ClientSession.CurrClient;
-                var res = ApiService.ChangeReward(new ChangeRewardRequest() {
-                    IdCard = cl.IdCard,
-                    IdReward = r.IdReward
-                }, out string errMsg);
-                DieIf(!string.IsNullOrEmpty(errMsg), errMsg);
-
-                var voucher = res.VoucherPrinter;
-                DieIf(string.IsNullOrEmpty(voucher), "Voucher vacio.");
-                
-                Debug.WriteLine(voucher);
-                //TODO: Print Voucher
-                Thread.Sleep(2000);
+                r.Exchange();
 
                 // Vuelvo a cargar el cliente y lo llevo a la pantalla principal.
                 ClientLoadSync(cl.IdCard);

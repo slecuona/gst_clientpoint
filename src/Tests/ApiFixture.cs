@@ -130,7 +130,7 @@ namespace Tests {
             //Habria que ajustar la API para que no cambie el formato de la respuesta.
             var res = ApiService.ChangeReward(new ChangeRewardRequest() {
                 IdCard = "0010100001234",
-                IdReward = 2
+                IdReward = "2"
             }, out string err);
             Assert.AreEqual(err, "");
         }
@@ -139,7 +139,7 @@ namespace Tests {
         public void ChangeRewardVoucher() {
             var res = ApiService.ChangeReward(new ChangeRewardRequest() {
                 IdCard = Config.TEST_CARD,
-                IdReward = 1
+                IdReward = "2"
             }, out string err);
             Assert.AreEqual(err, "");
         }
@@ -149,6 +149,13 @@ namespace Tests {
             var res = ApiService.ExchangeTicketPromoPending(10d, out string err);
             Assert.IsNotNull(res.TicketToPrinter);
             Assert.IsNotNull(res.ValidationNo);
+        }
+
+        [TestMethod]
+        public void CancelTPP() {
+            var res = ApiService.CancelTicketPromoPending("123", out string err);
+            Assert.IsFalse(res);
+            Assert.IsTrue(err.Contains("No se encontró"));
         }
     }
 }

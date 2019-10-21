@@ -159,5 +159,15 @@ namespace ClientPoint.Api {
                 "ExchangeTicketPromoPending", req, out errMsg);
             return (ExchangeTPPResponse)res;
         }
+
+
+        public static bool CancelTicketPromoPending(string validationNo, out string errMsg) {
+            var req = new CancelTPPRequest() {
+                ValidationNo = validationNo
+            };
+            var res = PrepareAndSendRequest<BaseResponse>(
+                "CancelTicketPromoPending", req, out errMsg);
+            return res.ResponseCode == 0;
+        }
     }
 }

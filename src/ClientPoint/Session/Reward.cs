@@ -1,10 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using ClientPoint.Api;
 using ClientPoint.Utils;
+
+using static ClientPoint.Utils.ExUtils;
 
 namespace ClientPoint.Session {
     public class Reward {
@@ -28,6 +33,36 @@ namespace ClientPoint.Session {
                 Logger.Exception(e);
             }
             return Properties.Resources.gift;
+        }
+
+        public bool IsTicket => IdCategory == 2;
+
+        public void Exchange() {
+            if (IsTicket)
+                ExchangeTicket();
+            else
+                ExchangeVoucher();
+        }
+
+        private void ExchangeVoucher() {
+            var cl = ClientSession.CurrClient;
+            var res = ApiService.ChangeReward(new ChangeRewardRequest() {
+                IdCard = cl.IdCard,
+                IdReward = IdReward.ToString()
+            }, out string errMsg);
+            DieIf(!string.IsNullOrEmpty(errMsg), errMsg);
+
+            var voucher = res.VoucherPrinter;
+            DieIf(string.IsNullOrEmpty(voucher), "Voucher vacio.");
+
+
+            Debug.WriteLine(voucher);
+            //TODO: Print Voucher
+            Thread.Sleep(2000);
+        }
+
+        private void ExchangeTicket() {
+            throw new NotImplementedException();
         }
     }
 }
