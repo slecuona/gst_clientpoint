@@ -1,4 +1,5 @@
 ﻿using System;
+using ClientPoint;
 using ClientPoint.Api;
 using ClientPoint.Session;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -6,6 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Tests {
     [TestClass]
     public class ApiFixture {
+
         [TestMethod]
         public void LoadAdvertising() {
             var res = ApiService.LoadAdvertising();
@@ -102,7 +104,7 @@ namespace Tests {
 
         [TestMethod]
         public void GetRewardsEmpty() {
-            var res = ApiService.GetRewards("0010100000999");
+            var res = ApiService.GetRewards(Config.TEST_CARD);
             Assert.IsTrue(res.Count == 0);
         }
 
@@ -131,6 +133,22 @@ namespace Tests {
                 IdReward = 2
             }, out string err);
             Assert.AreEqual(err, "");
+        }
+
+        [TestMethod]
+        public void ChangeRewardVoucher() {
+            var res = ApiService.ChangeReward(new ChangeRewardRequest() {
+                IdCard = Config.TEST_CARD,
+                IdReward = 1
+            }, out string err);
+            Assert.AreEqual(err, "");
+        }
+
+        [TestMethod]
+        public void ExchangeTPP() {
+            var res = ApiService.ExchangeTicketPromoPending(10d, out string err);
+            Assert.IsNotNull(res.TicketToPrinter);
+            Assert.IsNotNull(res.ValidationNo);
         }
     }
 }

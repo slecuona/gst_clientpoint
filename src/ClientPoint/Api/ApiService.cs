@@ -150,5 +150,14 @@ namespace ClientPoint.Api {
             var res = PrepareAndSendRequest<ChangeRewardResponse>("ChangeReward", req, out errMsg);
             return (ChangeRewardResponse)res;
         }
+
+        public static ExchangeTPPResponse ExchangeTicketPromoPending(double amount, out string errMsg) {
+            var req = new ExchangeTPPRequest() {
+                Amount = amount
+            };
+            var res = PrepareAndSendRequest<ExchangeTPPResponse>(
+                "ExchangeTicketPromoPending", req, out errMsg);
+            return (ExchangeTPPResponse)res;
+        }
     }
 }

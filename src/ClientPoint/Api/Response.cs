@@ -27,4 +27,10 @@
     public class ChangeRewardResponse : BaseResponse {
         public string VoucherPrinter;
     }
+
+    // ExchangeTicketPromoPendingResponse
+    public class ExchangeTPPResponse : BaseResponse {
+        public string TicketToPrinter;
+        public string ValidationNo;
+    }
 }
