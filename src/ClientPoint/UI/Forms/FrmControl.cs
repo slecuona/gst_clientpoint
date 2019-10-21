@@ -205,5 +205,17 @@ namespace ClientPoint.UI.Forms
                         "Error al imprimir tarjeta de prueba");
             });
         }
+
+        private void btnVoucher_Click(object sender, EventArgs e) {
+            lblStatus.Text = "Imprimiendo voucher";
+            VoucherPrinter.Print(Config.TEST_VOUCHER);
+            lblStatus.Text = "Voucher listo!";
+        }
+
+        private void btnTicket_Click(object sender, EventArgs e) {
+            lblStatus.Text = "Imprimiendo ticket...";
+            TicketPrinter.Print(Config.TEST_TICKET);
+            lblStatus.Text = "Ticket listo!";
+        }
     }
 }

@@ -46,7 +46,7 @@ namespace ClientPoint.Api {
     }
 
     public struct ExchangeTPPRequest {
-        public double Amount;
+        public string Amount;
     }
 
     public struct CancelTPPRequest {

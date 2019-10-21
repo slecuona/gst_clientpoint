@@ -153,7 +153,7 @@ namespace ClientPoint.Api {
 
         public static ExchangeTPPResponse ExchangeTicketPromoPending(double amount, out string errMsg) {
             var req = new ExchangeTPPRequest() {
-                Amount = amount
+                Amount = amount.ToString()
             };
             var res = PrepareAndSendRequest<ExchangeTPPResponse>(
                 "ExchangeTicketPromoPending", req, out errMsg);
