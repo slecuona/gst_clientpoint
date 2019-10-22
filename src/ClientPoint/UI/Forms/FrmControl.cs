@@ -226,7 +226,12 @@ namespace ClientPoint.UI.Forms
         private void radButton1_Click(object sender, EventArgs e) {
             lblStatus.Text = "";
             var p = new TicketPrinter();
-            p.GetStatus(s => { lblStatus.Text = s; });
+            if (p.GetStatus(out string status)) {
+                lblStatus.Text = status;
+            }
+            else {
+                lblStatus.Text = "No se pudo obtener el estado.";
+            }
         }
     }
 }

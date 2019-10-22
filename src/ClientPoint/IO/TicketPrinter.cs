@@ -1,14 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO.Ports;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using ClientPoint.Utils;
-using Telerik.WinControls.UI;
 
 namespace ClientPoint.IO {
+
+    // Utiliza protocolo TCL
+    // https://stackoverflow.com/questions/5903331/tcl-thermal-control-language-printer-protocol-references
+
     public class TicketPrinter {
         private SerialPort _serial;
 
@@ -41,33 +40,25 @@ namespace ClientPoint.IO {
                 return false;
             }
         }
-
-        private Action<string> _statusHandle;
-        public void GetStatus(Action<string> a) {
+        
+        public bool GetStatus(out string status) {
+            status = null;
             try {
-                _statusHandle = a;
                 _serial.Open();
-                //_serial.DataReceived += SerialOnDataReceived;
                 _serial.Write("^S|^");
-                var tries = 10;
-                while (tries < 10) {
+                var tries = 0;
+                while (tries < 5) {
+                    tries++;
                     Thread.Sleep(200);
+                    status = _serial.ReadExisting();
+                    if (!string.IsNullOrEmpty(status))
+                        break;
                 }
-
-                
-                _statusHandle.Invoke(_serial.ReadExisting());
                 _serial.Close();
+                return !string.IsNullOrEmpty(status);
             } catch (Exception e) {
                 Logger.Exception(e);
-                a.Invoke(e.Message);
-            }
-        }
-
-        private void SerialOnDataReceived(object sender, SerialDataReceivedEventArgs e) {
-            var res = _serial.ReadExisting();
-            if (!string.IsNullOrEmpty(res)) {
-                _statusHandle.Invoke(res);
-                _serial.Close();
+                return false;
             }
         }
     }
