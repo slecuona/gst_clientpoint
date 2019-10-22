@@ -209,7 +209,7 @@ namespace ClientPoint.UI.Forms
 
         private void btnVoucher_Click(object sender, EventArgs e) {
             lblStatus.Text = "Imprimiendo voucher";
-            VoucherPrinter.Print(Config.TEST_VOUCHER);
+            VoucherPrinter.PrintRaw(Config.TEST_VOUCHER);
             lblStatus.Text = "Voucher listo!";
         }
 

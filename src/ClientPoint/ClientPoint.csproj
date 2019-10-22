@@ -88,6 +88,7 @@
     <Compile Include="Espf\Response.cs" />
     <Compile Include="Espf\Services.cs" />
     <Compile Include="IdleTimer.cs" />
+    <Compile Include="IO\RawPrinterHelper.cs" />
     <Compile Include="IO\TicketPrinter.cs" />
     <Compile Include="Keyboard\FrmNumKeyBoard.cs">
       <SubType>Form</SubType>
