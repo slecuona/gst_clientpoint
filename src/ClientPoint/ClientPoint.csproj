@@ -88,6 +88,7 @@
     <Compile Include="Espf\Response.cs" />
     <Compile Include="Espf\Services.cs" />
     <Compile Include="IdleTimer.cs" />
+    <Compile Include="IO\TicketPrinter.cs" />
     <Compile Include="Keyboard\FrmNumKeyBoard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,7 +125,6 @@
     <Compile Include="Session\Client.cs" />
     <Compile Include="Session\ClientSession.cs" />
     <Compile Include="Session\Reward.cs" />
-    <Compile Include="TicketPrinter.cs" />
     <Compile Include="UI\Controls\CustomButtonArrow.cs">
       <SubType>Component</SubType>
     </Compile>

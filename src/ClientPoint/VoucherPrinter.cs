@@ -31,6 +31,7 @@ namespace ClientPoint {
             }
         }
 
+        // http://monroecs.com/posfordotnet/opos_dotnet.htm
         public static void PrintPOS(string t) {
             //var p = new OPOS
         }

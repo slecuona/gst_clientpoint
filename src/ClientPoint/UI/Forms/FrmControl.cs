@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Threading;
 using System.Windows.Forms;
 using ClientPoint.Espf;
+using ClientPoint.IO;
 using ClientPoint.Session;
 using ClientPoint.Utils;
 using Telerik.WinControls;
@@ -214,8 +215,18 @@ namespace ClientPoint.UI.Forms
 
         private void btnTicket_Click(object sender, EventArgs e) {
             lblStatus.Text = "Imprimiendo ticket...";
-            TicketPrinter.Print(Config.TEST_TICKET);
-            lblStatus.Text = "Ticket listo!";
+            var p = new TicketPrinter();
+            if (p.Print(Config.TEST_TICKET, out string err)) {
+                lblStatus.Text = "Ticket listo!";
+            } else {
+                lblStatus.Text = $"ERROR: {err}";
+            }
+        }
+
+        private void radButton1_Click(object sender, EventArgs e) {
+            lblStatus.Text = "";
+            var p = new TicketPrinter();
+            p.GetStatus(s => { lblStatus.Text = s; });
         }
     }
 }
