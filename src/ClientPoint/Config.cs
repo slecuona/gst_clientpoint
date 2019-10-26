@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Drawing;
 using System.IO;
 using ClientPoint.Properties;
+using System.IO.Ports;
 
 namespace ClientPoint {
     public static class Config {
@@ -35,6 +36,18 @@ namespace ClientPoint {
             EspfPrinter = GetSetting("EspfPrinter", "Evolis KC200");
             EspfSettingsX = GetSetting("EspfSettingsX", null);
             EspfCommMethod = GetInt("EspfCommMethod", 0);
+
+            VoucherPrinterName = GetSetting("VoucherPrinterName", "Custom GT");
+
+            TicketPrinterPort = GetSetting("TicketPrinterPort", "Com3");
+            TicketPrinterBaud = GetInt("TicketPrinterBaud", 38400);
+            TicketPrinterDataBits = GetInt("TicketPrinterDataBits", 8);
+            TicketPrinterParity = (Parity)GetInt("TicketPrinterParity", 
+                (int)Parity.None);
+            TicketPrinterStopBits = (StopBits)GetInt("TicketPrinterStopBits", 
+                (int)StopBits.One);
+            TicketPrinterHandshake = (Handshake)GetInt("TicketPrinterHandshake", 
+                (int)Handshake.XOnXOff);
 
             ApiUrl = GetSetting("ApiUrl", API_URL_DEF);
 
@@ -89,6 +102,15 @@ namespace ClientPoint {
 
         public static int EspfCommMethod = 0;
 
+        public static string VoucherPrinterName;
+
+        public static string TicketPrinterPort;
+        public static int TicketPrinterBaud;
+        public static int TicketPrinterDataBits;
+        public static Parity TicketPrinterParity;
+        public static StopBits TicketPrinterStopBits;
+        public static Handshake TicketPrinterHandshake;
+
         public static bool DebugMode;
 
         public static int CardNameX = 0;
@@ -110,7 +132,7 @@ namespace ClientPoint {
         public const string TEST_CARD = "0010100000999";
 
         public const string TEST_VOUCHER =
-            " ************************************* \n        CASINO DE GST INTERNATIONAL \n           CANJE DE PREMIO \nN#TICKET:                      45\nCAJA#:                         26\nUSUARIO:              CajaCliente\nFECHA:                 21/10/2019\nHORA:                    11:22:37\nFECHA APLICACION:      21/10/2019\nPremio                Cable Plano\nPuntos Canjeados                1\n\u001ba\u0001\u001dhZ\u001dk\u000525183\0\n\u001ba\u000125183\n  \n  \n  \n ____________________________________ \n Firma Cliente \n  \n  \n  \n ___________________________________ \n Firma Supervisor \n  \n *************************************   \n\n\n\n\n\n\n\n\u001bi";
+            " ************************************* \n        CASINO DE GST INTERNATIONAL \n           CANJE DE PREMIO \nN#TICKET:                      45\nCAJA#:                         26\nUSUARIO:              CajaCliente\nFECHA:                 21/10/2019\nHORA:                    11:22:37\nFECHA APLICACION:      21/10/2019\nPremio                Sorpres\nPuntos Canjeados                20\n\u001ba\u0001\u001dhZ\u001dk\u000525183\0\n\u001ba\u000125183\n  \n  \n  \n ____________________________________ \n Firma Cliente \n  \n  \n  \n ___________________________________ \n Firma Supervisor \n  \n *************************************   \n\n\n\n\n\n\n\n\u001bi";
 
         public const string TEST_TICKET =
             "^C|^^P|9|1|00-4631-5728-6704-5160|Casino GST|DIRECCION GST DIRECCION|ESTADO GST ESTADO|TICKET PROMOCIONAL|Validacion|00-4631-5728-6704-5160|Fecha:10/21/2019|Hora:12:51| TITULO TICKET|diez pesos con cero centavos||$10.00|Expiracion en  1 Dias|CAJA# 26|004631572867045160|^";

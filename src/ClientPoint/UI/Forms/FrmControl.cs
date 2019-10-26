@@ -209,14 +209,14 @@ namespace ClientPoint.UI.Forms
 
         private void btnVoucher_Click(object sender, EventArgs e) {
             lblStatus.Text = "Imprimiendo voucher";
-            VoucherPrinter.PrintRaw(Config.TEST_VOUCHER);
+            VoucherPrinter.TryPrintRaw(Config.TEST_VOUCHER);
             lblStatus.Text = "Voucher listo!";
         }
 
         private void btnTicket_Click(object sender, EventArgs e) {
             lblStatus.Text = "Imprimiendo ticket...";
             var p = new TicketPrinter();
-            if (p.Print(Config.TEST_TICKET, out string err)) {
+            if (p.TryPrint(Config.TEST_TICKET, out string err)) {
                 lblStatus.Text = "Ticket listo!";
             } else {
                 lblStatus.Text = $"ERROR: {err}";
@@ -226,7 +226,7 @@ namespace ClientPoint.UI.Forms
         private void radButton1_Click(object sender, EventArgs e) {
             lblStatus.Text = "";
             var p = new TicketPrinter();
-            if (p.GetStatus(out string status)) {
+            if (p.TryGetStatus(out string status)) {
                 lblStatus.Text = status;
             }
             else {

@@ -17,17 +17,17 @@ namespace ClientPoint.IO {
 
         private static SerialPort GetSerialPort() {
             var serial = new SerialPort {
-                PortName = "Com3",
-                BaudRate = 38400,
-                DataBits = 8,
-                Parity = Parity.None,
-                StopBits = StopBits.One,
-                Handshake = Handshake.XOnXOff
+                PortName = Config.TicketPrinterPort,
+                BaudRate = Config.TicketPrinterBaud,
+                DataBits = Config.TicketPrinterDataBits,
+                Parity = Config.TicketPrinterParity,
+                StopBits = Config.TicketPrinterStopBits,
+                Handshake = Config.TicketPrinterHandshake
             };
             return serial;
         }
 
-        public bool Print(string t, out string errMsg) {
+        public bool TryPrint(string t, out string errMsg) {
             try {
                 errMsg = null;
                 _serial.Open();
@@ -41,7 +41,7 @@ namespace ClientPoint.IO {
             }
         }
         
-        public bool GetStatus(out string status) {
+        public bool TryGetStatus(out string status) {
             status = null;
             try {
                 _serial.Open();
@@ -57,6 +57,7 @@ namespace ClientPoint.IO {
                 _serial.Close();
                 return !string.IsNullOrEmpty(status);
             } catch (Exception e) {
+                status = "ERROR";
                 Logger.Exception(e);
                 return false;
             }
