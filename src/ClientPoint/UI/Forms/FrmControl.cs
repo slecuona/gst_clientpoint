@@ -7,8 +7,6 @@ using ClientPoint.IO;
 using ClientPoint.Session;
 using ClientPoint.Utils;
 using Telerik.WinControls;
-using Telerik.WinControls.UI;
-using Timer = System.Threading.Timer;
 
 namespace ClientPoint.UI.Forms
 {
@@ -23,6 +21,9 @@ namespace ClientPoint.UI.Forms
         private DataGridViewCell espfPort;
         private DataGridViewCell espfPrinter;
         private DataGridViewCell espfCommMethod;
+
+        private DataGridViewCell ticketState;
+        private DataGridViewCell ticketStr;
 
         private DataGridViewCell apiState;
         private DataGridViewCell apiUrl;
@@ -49,6 +50,9 @@ namespace ClientPoint.UI.Forms
             espfPort = AddRow("ESPF - Puerto");
             espfPrinter = AddRow("ESPF - Nombre de impresora");
             espfCommMethod = AddRow("ESPF - Metodo de comunicación");
+
+            ticketState = AddRow("Impresora Ticket - Estado");
+            ticketStr = AddRow("Impresora Ticket - Estado (str)");
 
             apiState = AddRow("API - Estado de conexión");
             apiUrl = AddRow("API - Dirección URL");
@@ -114,6 +118,9 @@ namespace ClientPoint.UI.Forms
                 case 2: commMtd = "NamedPipedStream"; break;
             }
             espfCommMethod.Value = commMtd;
+
+            ticketState.Value = Status.TicketPrinter;
+            ticketStr.Value = Status.TicketPrinterString;
 
             apiState.Value = Status.ApiState;
             apiUrl.Value = Config.ApiUrl;
@@ -209,8 +216,10 @@ namespace ClientPoint.UI.Forms
 
         private void btnVoucher_Click(object sender, EventArgs e) {
             lblStatus.Text = "Imprimiendo voucher";
-            VoucherPrinter.TryPrintRaw(Config.TEST_VOUCHER);
-            lblStatus.Text = "Voucher listo!";
+            if(VoucherPrinter.TryPrintRaw(Config.TEST_VOUCHER))
+                lblStatus.Text = "Voucher listo!";
+            else
+                lblStatus.Text = "Error al imprimir voucher!";
         }
 
         private void btnTicket_Click(object sender, EventArgs e) {
@@ -219,18 +228,7 @@ namespace ClientPoint.UI.Forms
             if (p.TryPrint(Config.TEST_TICKET, out string err)) {
                 lblStatus.Text = "Ticket listo!";
             } else {
-                lblStatus.Text = $"ERROR: {err}";
-            }
-        }
-
-        private void radButton1_Click(object sender, EventArgs e) {
-            lblStatus.Text = "";
-            var p = new TicketPrinter();
-            if (p.TryGetStatus(out string status)) {
-                lblStatus.Text = status;
-            }
-            else {
-                lblStatus.Text = "No se pudo obtener el estado.";
+                lblStatus.Text = $"Error al imprimir ticket: {err}";
             }
         }
     }

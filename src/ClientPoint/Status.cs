@@ -2,6 +2,7 @@
 using System.Net;
 using ClientPoint.Api;
 using ClientPoint.Espf;
+using ClientPoint.IO;
 using ClientPoint.UI;
 using ClientPoint.Utils;
 using Telerik.WinControls;
@@ -17,6 +18,9 @@ namespace ClientPoint {
         public static string EspfMinor;
         public static string EspfBinary;
         public static string ApiState;
+
+        public static TicketPrinterState TicketPrinter;
+        public static string TicketPrinterString;
         
         private static void ShowError(string msg) {
             msg = $"ERROR: {msg}";
@@ -28,11 +32,13 @@ namespace ClientPoint {
         public static void Init() {
             Espf(true);
             Api(true);
+            CheckTicketPrinter(true);
         }
 
         public static void Refresh() {
             Espf();
             Api();
+            CheckTicketPrinter();
         }
 
         private static void Print(string msg) {
@@ -166,6 +172,39 @@ namespace ClientPoint {
                     Print($"API Connection => {ApiState}");
             }
         }
+
+        public static void CheckTicketPrinter(bool init = false) {
+            TicketPrinter = TicketPrinterState.ERROR;
+            TicketPrinterString = "";
+            try {
+                var t = new TicketPrinter();
+                if (t.TryGetStatus(out string status)) {
+                    TicketPrinterString = status;
+                    // Ejemplo: "S|0|GRUSA4100|@|@|@|@|@|P0|"
+                    var items = status.Split('|');
+                    if (items.Length < 8)
+                        return; // Algo anda mal...
+
+                    if (items[3][0] == 0x4) {
+                        TicketPrinter = TicketPrinterState.EMPTY;
+                        return;
+                    }
+
+                    if (items[6][0] == 0x1) {
+                        TicketPrinter = TicketPrinterState.ALMOSTEMPTY;
+                        return;
+                    }
+                    TicketPrinter = items[7][0] == 0x10 ? 
+                        TicketPrinterState.OK : 
+                        TicketPrinterState.NOTOK;
+                }
+            } catch (Exception e) {
+                Logger.Exception(e);
+            } finally {
+                if(init)
+                    Print($"Ticket Printer => {TicketPrinter}");
+            }
+        }
     }
 
     // Estados "mayores" reportados por el servicio de Evolis.
@@ -193,6 +232,14 @@ namespace ClientPoint {
         public const string ERR_WRITE_MAGNETIC = "ERR_WRITE_MAGNETIC";
         public const string FEEDER_EMPTY = "FEEDER_EMPTY";
         public const string DEF_CARD_ON_EJECT = "DEF_CARD_ON_EJECT";
+    }
+
+    public enum TicketPrinterState {
+        OK = 0,
+        NOTOK = 1,
+        ERROR = 2,
+        EMPTY = 3,
+        ALMOSTEMPTY = 4
     }
 
 }

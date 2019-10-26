@@ -2,6 +2,7 @@
 using System.IO.Ports;
 using System.Threading;
 using ClientPoint.Utils;
+using static ClientPoint.Utils.ExUtils;
 
 namespace ClientPoint.IO {
 
@@ -29,21 +30,28 @@ namespace ClientPoint.IO {
 
         public bool TryPrint(string t, out string errMsg) {
             try {
+                DieIf(_serial == null, $"SerialPort Disposed");
                 errMsg = null;
                 _serial.Open();
                 _serial.Write(t);
                 _serial.Close();
                 return true;
-            } catch (Exception e) {
+            }
+            catch (Exception e) {
                 Logger.Exception(e);
                 errMsg = e.Message;
                 return false;
+            }
+            finally {
+                _serial.Dispose();
+                _serial = null;
             }
         }
         
         public bool TryGetStatus(out string status) {
             status = null;
             try {
+                DieIf(_serial == null, $"SerialPort Disposed");
                 _serial.Open();
                 _serial.Write("^S|^");
                 var tries = 0;
@@ -60,6 +68,9 @@ namespace ClientPoint.IO {
                 status = "ERROR";
                 Logger.Exception(e);
                 return false;
+            } finally {
+                _serial.Dispose();
+                _serial = null;
             }
         }
     }
