@@ -21,6 +21,8 @@ namespace ClientPoint {
 
         public static TicketPrinterState TicketPrinter;
         public static string TicketPrinterString;
+
+        public static VoucherPrinterState VoucherPrinter;
         
         private static void ShowError(string msg) {
             msg = $"ERROR: {msg}";
@@ -33,12 +35,15 @@ namespace ClientPoint {
             Espf(true);
             Api(true);
             CheckTicketPrinter(true);
+            VoucherPrinter = ClientPoint.VoucherPrinter.GetState();
+            Print($"Voucher Printer => {VoucherPrinter}");
         }
 
         public static void Refresh() {
             Espf();
             Api();
             CheckTicketPrinter();
+            VoucherPrinter = ClientPoint.VoucherPrinter.GetState();
         }
 
         private static void Print(string msg) {

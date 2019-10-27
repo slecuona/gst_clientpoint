@@ -25,6 +25,8 @@ namespace ClientPoint.UI.Forms
         private DataGridViewCell ticketState;
         private DataGridViewCell ticketStr;
 
+        private DataGridViewCell voucherState;
+
         private DataGridViewCell apiState;
         private DataGridViewCell apiUrl;
 
@@ -53,6 +55,8 @@ namespace ClientPoint.UI.Forms
 
             ticketState = AddRow("Impresora Ticket - Estado");
             ticketStr = AddRow("Impresora Ticket - Estado (str)");
+
+            voucherState = AddRow("Impresora Voucher - Estado");
 
             apiState = AddRow("API - Estado de conexión");
             apiUrl = AddRow("API - Dirección URL");
@@ -121,6 +125,8 @@ namespace ClientPoint.UI.Forms
 
             ticketState.Value = Status.TicketPrinter;
             ticketStr.Value = Status.TicketPrinterString;
+
+            voucherState.Value = Status.VoucherPrinter;
 
             apiState.Value = Status.ApiState;
             apiUrl.Value = Config.ApiUrl;
@@ -216,10 +222,10 @@ namespace ClientPoint.UI.Forms
 
         private void btnVoucher_Click(object sender, EventArgs e) {
             lblStatus.Text = "Imprimiendo voucher";
-            if(VoucherPrinter.TryPrintRaw(Config.TEST_VOUCHER))
+            if(VoucherPrinter.TryPrintRaw(Config.TEST_VOUCHER, out string err))
                 lblStatus.Text = "Voucher listo!";
             else
-                lblStatus.Text = "Error al imprimir voucher!";
+                lblStatus.Text = $"Error al imprimir voucher: {err}";
         }
 
         private void btnTicket_Click(object sender, EventArgs e) {

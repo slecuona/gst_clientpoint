@@ -101,9 +101,9 @@ namespace ClientPoint.IO {
             // the string to ANSI text.
             pBytes = Marshal.StringToCoTaskMemAnsi(szString);
             // Send the converted ANSI string to the printer.
-            SendBytesToPrinter(szPrinterName, pBytes, dwCount);
+            var res = SendBytesToPrinter(szPrinterName, pBytes, dwCount);
             Marshal.FreeCoTaskMem(pBytes);
-            return true;
+            return res;
         }
     }
 }
