@@ -7,8 +7,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using ClientPoint.Api;
+using ClientPoint.IO;
 using ClientPoint.Utils;
-
+using Telerik.WinControls;
 using static ClientPoint.Utils.ExUtils;
 
 namespace ClientPoint.Session {
@@ -55,14 +56,40 @@ namespace ClientPoint.Session {
             var voucher = res.VoucherPrinter;
             DieIf(string.IsNullOrEmpty(voucher), "Voucher vacio.");
 
-
-            Debug.WriteLine(voucher);
-            //TODO: Print Voucher
+            var success = VoucherPrinter.TryPrintRaw(voucher, out string err);
+            DieIf(!success, err);
             Thread.Sleep(2000);
         }
 
         private void ExchangeTicket() {
-            throw new NotImplementedException();
+            var cl = ClientSession.CurrClient;
+            var res = ApiService.ExchangeTicketPromoPending(
+                AmountPromotion, out string err);
+            DieIf(!string.IsNullOrEmpty(err), err);
+
+            DieIf(string.IsNullOrEmpty(res.TicketToPrinter),
+                "Ticket vacio.");
+
+            DieIf(string.IsNullOrEmpty(res.ValidationNo),
+                "ValidationNo vacio.");
+
+            var tp = new TicketPrinter();
+            if(tp.TryPrint(res.TicketToPrinter, out string pErr)){
+                var resExc = ApiService.ChangeReward(new ChangeRewardRequest() {
+                    IdCard = cl.IdCard,
+                    IdReward = IdReward.ToString(),
+                    ValidationNo = res.ValidationNo
+                    
+                }, out string errMsg);
+                // TODO: Ticket invalido??
+                DieIf(!string.IsNullOrEmpty(errMsg), errMsg);
+            }
+            else {
+                var resCancel = ApiService.CancelTicketPromoPending(
+                    res.ValidationNo, out string errCancel);
+                // TODO: que pasa si no se pudo cancelar el ticket?
+                Die("Error al imprimir ticket");
+            }
         }
     }
 }

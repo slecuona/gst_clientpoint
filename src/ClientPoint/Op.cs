@@ -83,7 +83,7 @@ namespace ClientPoint {
                 cl.IdCard = card;
                 var pj = new PrintJob(cl);
                 pj.OnStateChanged = OnPrintStateChanged;
-                //pj.OnFinish = OnPrintCardFinish;
+                pj.OnFinish = OnPrintCardFinish;
                 pj.StartAsync();
             } catch (Exception ex) {
                 Logger.Exception(ex);
@@ -92,10 +92,14 @@ namespace ClientPoint {
             }
         }
 
-        //private static void OnPrintCardFinish(bool success) {
-        //    if (!success)
-        //        return;
-        //}
+        private static void OnPrintCardFinish(bool success) {
+            if (!success) {
+                SafeExec(() => {
+                    MsgBox.Error("Error al imprimir tarjeta.");
+                    ShowWindow(Window.Ads);
+                });
+            }
+        }
 
         private static void OnPrintStateChanged(PrintState s) {
             if (s == PrintState.CardEjected) {

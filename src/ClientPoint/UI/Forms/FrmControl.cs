@@ -211,12 +211,10 @@ namespace ClientPoint.UI.Forms
             //_printCardTimer?.Dispose();
             this.InvokeIfRequired(() => {
                 Loading(false);
-                lblStatus.Text = "";
+                lblStatus.Text = success ? "Impresion de tarjeta de prueba finalizada" :
+                    "Error al imprimir tarjeta de prueba";
                 btnPrintCard.Enabled = true;
                 btnRefresh.Enabled = true;
-                RadMessageBox.Show(this,
-                    success ? "Impresion de tarjeta de prueba finalizada" : 
-                        "Error al imprimir tarjeta de prueba");
             });
         }
 

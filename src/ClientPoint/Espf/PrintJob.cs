@@ -76,7 +76,8 @@ namespace ClientPoint.Espf {
                 Print();
             }
             catch (Exception e) {
-                Die("Error PrintJob.", e);
+                Logger.Exception(e);
+                OnFinish?.Invoke(false);
             }
             finally {
                 // En modo debug, escribo el log despues de finalizar
