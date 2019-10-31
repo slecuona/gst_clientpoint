@@ -38,6 +38,7 @@ namespace ClientPoint {
             EspfCommMethod = GetInt("EspfCommMethod", 0);
 
             VoucherPrinterName = GetSetting("VoucherPrinterName", "Custom GT");
+            VoucherPrinterTimeout = GetInt("VoucherPrinterTimeout", 5);
 
             TicketPrinterPort = GetSetting("TicketPrinterPort", "Com3");
             TicketPrinterBaud = GetInt("TicketPrinterBaud", 38400);
@@ -103,6 +104,7 @@ namespace ClientPoint {
         public static int EspfCommMethod = 0;
 
         public static string VoucherPrinterName;
+        public static int VoucherPrinterTimeout;
 
         public static string TicketPrinterPort;
         public static int TicketPrinterBaud;
@@ -132,7 +134,7 @@ namespace ClientPoint {
         public const string TEST_CARD = "0010100000999";
 
         public const string TEST_VOUCHER =
-            " ************************************* \n        CASINO DE GST INTERNATIONAL \n           CANJE DE PREMIO \nN#TICKET:                      45\nCAJA#:                         26\nUSUARIO:              CajaCliente\nFECHA:                 21/10/2019\nHORA:                    11:22:37\nFECHA APLICACION:      21/10/2019\nPremio                Sorpres\nPuntos Canjeados                20\n\u001ba\u0001\u001dhZ\u001dk\u000525183\0\n\u001ba\u000125183\n  \n  \n  \n ____________________________________ \n Firma Cliente \n  \n  \n  \n ___________________________________ \n Firma Supervisor \n  \n *************************************   \n\n\n\n\n\n\n\n\u001bi";
+            " ************************************* \n        CASINO DE GST INTERNATIONAL \n           CANJE DE PREMIO \nN#TICKET:                      45\nCAJA#:                         26\nUSUARIO:              CajaCliente\nFECHA:                 21/10/2019\nHORA:                    11:22:37\nFECHA APLICACION:      21/10/2019\nPremio                 Sorpresa\nPuntos Canjeados                20\n\u001ba\u0001\u001dhZ\u001dk\u000525183\0\n\u001ba\u000125183\n  \n  \n  \n ____________________________________ \n Firma Cliente \n  \n  \n  \n ___________________________________ \n Firma Supervisor \n  \n *************************************   \n\n\n\n\n\n\n\n\u001bi";
 
         public const string TEST_TICKET =
             "^C|^^P|9|1|00-4631-5728-6704-5160|Casino GST|DIRECCION GST DIRECCION|ESTADO GST ESTADO|TICKET PROMOCIONAL|Validacion|00-4631-5728-6704-5160|Fecha:10/21/2019|Hora:12:51| TITULO TICKET|diez pesos con cero centavos||$10.00|Expiracion en  1 Dias|CAJA# 26|004631572867045160|^";

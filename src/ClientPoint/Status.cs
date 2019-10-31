@@ -79,8 +79,8 @@ namespace ClientPoint {
                 }
 
                 EspfCmdDeviceStatus(out EspfBinary);
-                if(init)
-                    Print($"ESPF Device Binary Status => {EspfBinary}");
+                //if(init)
+                //    Print($"ESPF Device Binary Status => {EspfBinary}");
             }
             else {
                 if(init)

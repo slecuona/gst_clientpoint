@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using ClientPoint.Api;
@@ -53,7 +54,9 @@ namespace ClientPoint.Session {
             }, out string errMsg);
             DieIf(!string.IsNullOrEmpty(errMsg), errMsg);
 
-            var voucher = res.VoucherPrinter;
+            // El string viene "escapado"
+            var voucher = Regex.Unescape(res.VoucherPrinter);
+
             DieIf(string.IsNullOrEmpty(voucher), "Voucher vacio.");
 
             var success = VoucherPrinter.TryPrintRaw(voucher, out string err);

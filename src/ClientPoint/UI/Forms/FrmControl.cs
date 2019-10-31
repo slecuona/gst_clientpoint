@@ -6,10 +6,8 @@ using ClientPoint.Espf;
 using ClientPoint.IO;
 using ClientPoint.Session;
 using ClientPoint.Utils;
-using Telerik.WinControls;
 
-namespace ClientPoint.UI.Forms
-{
+namespace ClientPoint.UI.Forms {
     public partial class FrmControl : Telerik.WinControls.UI.RadForm {
         private DataGridViewCell debugMode;
 
@@ -26,6 +24,7 @@ namespace ClientPoint.UI.Forms
         private DataGridViewCell ticketStr;
 
         private DataGridViewCell voucherState;
+        private DataGridViewCell voucherLastFailed;
 
         private DataGridViewCell apiState;
         private DataGridViewCell apiUrl;
@@ -57,6 +56,7 @@ namespace ClientPoint.UI.Forms
             ticketStr = AddRow("Impresora Ticket - Estado (str)");
 
             voucherState = AddRow("Impresora Voucher - Estado");
+            voucherLastFailed = AddRow("Impresora Voucher - Falló última");
 
             apiState = AddRow("API - Estado de conexión");
             apiUrl = AddRow("API - Dirección URL");
@@ -127,6 +127,7 @@ namespace ClientPoint.UI.Forms
             ticketStr.Value = Status.TicketPrinterString;
 
             voucherState.Value = Status.VoucherPrinter;
+            voucherLastFailed.Value = VoucherPrinter.LastFailed;
 
             apiState.Value = Status.ApiState;
             apiUrl.Value = Config.ApiUrl;
@@ -159,16 +160,12 @@ namespace ClientPoint.UI.Forms
         private void btnLog_Click(object sender, EventArgs e) {
             Process.Start(Logger.FullPath);
         }
-
-        //private Timer _printCardTimer;
-
+        
         private void btnPrintCard_Click(object sender, EventArgs e) {
             lblStatus.Text = "Imprimiendo tarjeta de prueba...";
             Loading(true);
             btnPrintCard.Enabled = false;
             btnRefresh.Enabled = false;
-            //_printCardTimer = new Timer(PrintCardStatusCheck, null, 1000, 2000);
-            //Op.TestPrintAsync(OnPrintCardFinish);
 
             try {
                 var pj = new PrintJob(new Client() {
@@ -194,21 +191,7 @@ namespace ClientPoint.UI.Forms
             });
         }
 
-        //private void PrintCardStatusCheck(object state) {
-        //    Status.EspfSupDeviceState();
-        //    Debug.WriteLine(
-        //        $"EspfStatus: {Status.EspfMayor}|{Status.EspfMinor}");
-        //    this.InvokeIfRequired(() => {
-        //        if (Status.EspfMinor == EspfMinorState.DEF_CARD_ON_EJECT)
-        //            lblStatus.Text = "Retire la tarjeta para finalizar la tarea.";
-        //        espfStateMayor.Value = Status.EspfMayor;
-        //        espfStateMinor.Value = Status.EspfMinor;
-        //        espfStateBinary.Value = Status.EspfBinary;
-        //    });
-        //}
-
         private void OnPrintCardFinish(bool success) {
-            //_printCardTimer?.Dispose();
             this.InvokeIfRequired(() => {
                 Loading(false);
                 lblStatus.Text = success ? "Impresion de tarjeta de prueba finalizada" :

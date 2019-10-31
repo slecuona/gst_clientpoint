@@ -53,7 +53,8 @@ namespace ClientPoint.IO {
                     if (StartPagePrinter(hPrinter)) {
                         // Write your bytes.
                         bSuccess = WritePrinter(hPrinter, pBytes, dwCount, out dwWritten);
-                        EndPagePrinter(hPrinter);
+                        var end = EndPagePrinter(hPrinter);
+                        //Console.WriteLine($"END => {end}");
                     }
                     EndDocPrinter(hPrinter);
                 }
