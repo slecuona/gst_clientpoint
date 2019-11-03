@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
 using ClientPoint.Espf;
@@ -104,11 +105,34 @@ namespace ClientPoint.UI.Forms {
             _refreshThread.Start();
         }
 
+        private Color ColorOk => Color.DarkSeaGreen;
+        private Color ColorWarning => Color.Goldenrod;
+        private Color ColorError => Color.LightPink;
+
+        private Color EspfStateMayorColor(EspfMayorState s) {
+            if (s == EspfMayorState.READY)
+                return ColorOk;
+            if (s == EspfMayorState.WARNING)
+                return ColorWarning;
+            return ColorError;
+        }
+
+        private Color TicketPrinterStateColor(TicketPrinterState s) {
+            if (s == TicketPrinterState.OK)
+                return ColorOk;
+            if (s == TicketPrinterState.ALMOSTEMPTY)
+                return ColorWarning;
+            return ColorError;
+        }
+
         private void RefreshGrid() {
             debugMode.Value = Config.DebugMode;
 
             espfService.Value = Status.EspfServiceConn;
+
             espfStateMayor.Value = Status.EspfMayor;
+            espfStateMayor.Style.BackColor = EspfStateMayorColor(Status.EspfMayor);
+
             espfStateMinor.Value = Status.EspfMinor;
             espfStateBinary.Value = Status.EspfBinary;
             espfIp.Value = Config.EspfIp;
@@ -124,6 +148,8 @@ namespace ClientPoint.UI.Forms {
             espfCommMethod.Value = commMtd;
 
             ticketState.Value = Status.TicketPrinter;
+            ticketState.Style.BackColor = TicketPrinterStateColor(Status.TicketPrinter);
+
             ticketStr.Value = Status.TicketPrinterString;
 
             voucherState.Value = Status.VoucherPrinter;

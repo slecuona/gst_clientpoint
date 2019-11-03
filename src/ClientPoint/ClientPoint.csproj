@@ -53,21 +53,13 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Telerik.WinControls">
-      <HintPath>D:\gst\Telerik\Telerik UI for WinForms R2 2019\Bin\Telerik.WinControls.dll</HintPath>
+      <HintPath>..\..\lib\telerik\Telerik.WinControls.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.WinControls.Themes.Fluent, Version=2019.2.618.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\gst\Telerik\Telerik UI for WinForms R2 2019\Bin\Telerik.WinControls.Themes.Fluent.dll</HintPath>
+    <Reference Include="Telerik.WinControls.Themes.Fluent">
+      <HintPath>..\..\lib\telerik\Telerik.WinControls.Themes.Fluent.dll</HintPath>
     </Reference>
     <Reference Include="Telerik.WinControls.UI">
-      <HintPath>D:\gst\Telerik\Telerik UI for WinForms R2 2019\Bin\Telerik.WinControls.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.WinControls.UI.Design">
-      <HintPath>D:\gst\Telerik\Telerik UI for WinForms R2 2019\Bin\Telerik.WinControls.UI.Design.dll</HintPath>
-    </Reference>
-    <Reference Include="TelerikCommon">
-      <HintPath>D:\gst\Telerik\Telerik UI for WinForms R2 2019\Bin\TelerikCommon.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\..\lib\telerik\Telerik.WinControls.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
