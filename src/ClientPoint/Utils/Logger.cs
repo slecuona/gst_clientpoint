@@ -23,8 +23,11 @@ namespace ClientPoint.Utils {
         private static string Timestamp =>
             $"[{DateTime.Now:HH:mm:ss:fff}]";
 
+        public static int ExceptionCount;
+
         public static void Init() {
             try {
+                ExceptionCount = 0;
                 LogPath = Path.GetFullPath("./log");
                 if (!Directory.Exists(LogPath))
                     Directory.CreateDirectory(LogPath);
@@ -83,6 +86,9 @@ namespace ClientPoint.Utils {
             
             if(ex.InnerException != null)
                 Exception(ex.InnerException);
+            else {
+                ExceptionCount++;
+            }
         }
 
         public static void DebugWrite(string msg) {

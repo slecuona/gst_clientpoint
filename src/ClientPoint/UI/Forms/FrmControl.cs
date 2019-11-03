@@ -11,6 +11,7 @@ using ClientPoint.Utils;
 namespace ClientPoint.UI.Forms {
     public partial class FrmControl : Telerik.WinControls.UI.RadForm {
         private DataGridViewCell debugMode;
+        private DataGridViewCell errors;
 
         private DataGridViewCell espfService;
         private DataGridViewCell espfStateMayor;
@@ -43,6 +44,8 @@ namespace ClientPoint.UI.Forms {
             InitializeComponent();
 
             debugMode = AddRow("APP - Modo debug");
+
+            errors = AddRow("APP - Errores / Excepciones");
 
             espfService = AddRow("ESPF - Estado de conexión al servicio");
             espfStateMayor = AddRow("ESPF - Estado de supervición mayor");
@@ -139,6 +142,9 @@ namespace ClientPoint.UI.Forms {
 
         private void RefreshGrid() {
             debugMode.Value = Config.DebugMode;
+            var errC = Logger.ExceptionCount;
+            errors.Value = errC;
+            errors.Style.BackColor = errC > 0 ? ColorWarning : ColorOk;
 
             espfService.Value = Status.EspfServiceConn;
 
