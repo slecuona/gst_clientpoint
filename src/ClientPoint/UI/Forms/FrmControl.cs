@@ -109,21 +109,33 @@ namespace ClientPoint.UI.Forms {
         private Color ColorWarning => Color.Goldenrod;
         private Color ColorError => Color.LightPink;
 
-        private Color EspfStateMayorColor(EspfMayorState s) {
-            if (s == EspfMayorState.READY)
-                return ColorOk;
-            if (s == EspfMayorState.WARNING)
-                return ColorWarning;
-            return ColorError;
+        private void SetStatusColor(DataGridViewCell cell, object ok, object warn) {
+            if (cell.Value?.ToString() == ok?.ToString()) {
+                cell.Style.BackColor = ColorOk;
+                return;
+            }
+            if (cell.Value?.ToString() == warn?.ToString()) {
+                cell.Style.BackColor = ColorWarning;
+                return;
+            }
+            cell.Style.BackColor = ColorError;
         }
 
-        private Color TicketPrinterStateColor(TicketPrinterState s) {
-            if (s == TicketPrinterState.OK)
-                return ColorOk;
-            if (s == TicketPrinterState.ALMOSTEMPTY)
-                return ColorWarning;
-            return ColorError;
-        }
+        //private Color EspfStateMayorColor(EspfMayorState s) {
+        //    if (s == EspfMayorState.READY)
+        //        return ColorOk;
+        //    if (s == EspfMayorState.WARNING)
+        //        return ColorWarning;
+        //    return ColorError;
+        //}
+
+        //private Color TicketPrinterStateColor(TicketPrinterState s) {
+        //    if (s == TicketPrinterState.OK)
+        //        return ColorOk;
+        //    if (s == TicketPrinterState.ALMOSTEMPTY)
+        //        return ColorWarning;
+        //    return ColorError;
+        //}
 
         private void RefreshGrid() {
             debugMode.Value = Config.DebugMode;
@@ -131,7 +143,9 @@ namespace ClientPoint.UI.Forms {
             espfService.Value = Status.EspfServiceConn;
 
             espfStateMayor.Value = Status.EspfMayor;
-            espfStateMayor.Style.BackColor = EspfStateMayorColor(Status.EspfMayor);
+            SetStatusColor(espfStateMayor, 
+                EspfMayorState.READY, 
+                EspfMayorState.WARNING);
 
             espfStateMinor.Value = Status.EspfMinor;
             espfStateBinary.Value = Status.EspfBinary;
@@ -148,14 +162,20 @@ namespace ClientPoint.UI.Forms {
             espfCommMethod.Value = commMtd;
 
             ticketState.Value = Status.TicketPrinter;
-            ticketState.Style.BackColor = TicketPrinterStateColor(Status.TicketPrinter);
+            SetStatusColor(ticketState,
+                TicketPrinterState.OK,
+                TicketPrinterState.ALMOSTEMPTY);
 
             ticketStr.Value = Status.TicketPrinterString;
 
             voucherState.Value = Status.VoucherPrinter;
+            SetStatusColor(voucherState,
+                VoucherPrinterState.OK,
+                VoucherPrinterState.BUSY);
             voucherLastFailed.Value = VoucherPrinterOld.LastFailed;
 
             apiState.Value = Status.ApiState;
+            SetStatusColor(apiState, "OK", null);
             apiUrl.Value = Config.ApiUrl;
 
             cardNameX.Value = Config.CardNameX;
