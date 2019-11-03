@@ -10,6 +10,8 @@ namespace ClientPoint.UI.Views
 
             btnConfirm.Click += BtnConfirmOnClick;
             btnClient.Click += BtnClientOnClick;
+
+            //this.panelContainer.Controls.SetChildIndex(this.headerPanel, 6);
         }
 
         private void BtnClientOnClick(object sender, EventArgs e) {

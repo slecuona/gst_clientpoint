@@ -121,6 +121,7 @@ namespace ClientPoint.UI {
                         _windows[prev].AfterHide();
                     }
                     _windows[toShow].AfterShow();
+                    //_windows[toShow].Select();
                 }
                 catch (Exception e) {
                     Logger.Exception(e);

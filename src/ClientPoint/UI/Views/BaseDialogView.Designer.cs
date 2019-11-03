@@ -27,18 +27,15 @@
         {
             this.footerPanel = new ClientPoint.UI.FooterPanel();
             this.dialogPanel = new Telerik.WinControls.UI.RadScrollablePanel();
-            this.headerPanel = new ClientPoint.UI.HeaderPanel();
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).BeginInit();
             this.panelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.footerPanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dialogPanel)).BeginInit();
             this.dialogPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.headerPanel)).BeginInit();
             this.SuspendLayout();
             // 
             // panelContainer
             // 
-            this.panelContainer.Controls.Add(this.headerPanel);
             this.panelContainer.Controls.Add(this.dialogPanel);
             this.panelContainer.Controls.Add(this.footerPanel);
             this.panelContainer.Size = new System.Drawing.Size(1366, 567);
@@ -69,17 +66,6 @@
             ((Telerik.WinControls.UI.RadScrollablePanelElement)(this.dialogPanel.GetChildAt(0))).Padding = new System.Windows.Forms.Padding(0);
             ((Telerik.WinControls.Primitives.BorderPrimitive)(this.dialogPanel.GetChildAt(0).GetChildAt(1))).Width = 0F;
             // 
-            // headerPanel
-            // 
-            this.headerPanel.BackColor = System.Drawing.Color.Transparent;
-            this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.headerPanel.Location = new System.Drawing.Point(0, 0);
-            this.headerPanel.Name = "headerPanel";
-            this.headerPanel.Padding = new System.Windows.Forms.Padding(20, 40, 20, 0);
-            this.headerPanel.Size = new System.Drawing.Size(1366, 80);
-            this.headerPanel.TabIndex = 0;
-            this.headerPanel.Title = "";
-            // 
             // PanelBaseDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -91,7 +77,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.footerPanel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dialogPanel)).EndInit();
             this.dialogPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.headerPanel)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -102,6 +87,6 @@
 
         protected FooterPanel footerPanel;
         protected Telerik.WinControls.UI.RadScrollablePanel dialogPanel;
-        protected HeaderPanel headerPanel;
+        
     }
 }

@@ -118,7 +118,7 @@ namespace ClientPoint.UI.Views
             // 
             this.lblWelcome.AutoSize = false;
             this.lblWelcome.BackColor = System.Drawing.Color.Transparent;
-            this.lblWelcome.Dock = System.Windows.Forms.DockStyle.Top;
+            //this.lblWelcome.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Bold);
             this.lblWelcome.ForeColor = System.Drawing.Color.White;
             this.lblWelcome.Location = new System.Drawing.Point(0, 0);
@@ -131,11 +131,11 @@ namespace ClientPoint.UI.Views
             // 
             // imgHost
             // 
-            this.imgHost.Dock = System.Windows.Forms.DockStyle.Top;
+            //this.imgHost.Dock = System.Windows.Forms.DockStyle.Top;
             this.imgHost.Image = Config.HostLogo;
             this.imgHost.Location = new System.Drawing.Point(0, 143);
             this.imgHost.Name = "imgHost";
-            this.imgHost.Size = new System.Drawing.Size(500, 303);
+            this.imgHost.Size = new System.Drawing.Size(1366, 303);
             this.imgHost.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.imgHost.TabIndex = 0;
             this.imgHost.TabStop = false;

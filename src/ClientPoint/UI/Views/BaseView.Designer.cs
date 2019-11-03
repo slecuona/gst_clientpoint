@@ -27,11 +27,14 @@ namespace ClientPoint.UI.Views {
         /// </summary>
         private void InitializeComponent() {
             this.panelContainer = new Telerik.WinControls.UI.RadPanel();
+            this.headerPanel = new ClientPoint.UI.HeaderPanel();
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.headerPanel)).BeginInit();
             this.SuspendLayout();
             // 
             // radPanel1
-            // 
+            //
+            this.panelContainer.Controls.Add(this.headerPanel);
             this.panelContainer.Location = new System.Drawing.Point(0, 0);
             this.panelContainer.Name = "panelContainer";
             //this.radPanel1.Size = new System.Drawing.Size(200, 100);
@@ -39,6 +42,17 @@ namespace ClientPoint.UI.Views {
             this.panelContainer.BackColor = Color.Transparent;
             this.panelContainer.Dock = DockStyle.Fill;
             ((Telerik.WinControls.Primitives.BorderPrimitive)(this.panelContainer.GetChildAt(0).GetChildAt(1))).Width = 0F;
+            // 
+            // headerPanel
+            // 
+            this.headerPanel.BackColor = System.Drawing.Color.Transparent;
+            this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.headerPanel.Location = new System.Drawing.Point(0, 0);
+            this.headerPanel.Name = "headerPanel";
+            this.headerPanel.Padding = new System.Windows.Forms.Padding(20, 40, 20, 0);
+            this.headerPanel.Size = new System.Drawing.Size(1366, 80);
+            this.headerPanel.TabIndex = 0;
+            this.headerPanel.Title = "";
             // 
             // PanelBase
             // 
@@ -50,11 +64,13 @@ namespace ClientPoint.UI.Views {
             this.BackColor = Color.Transparent;
             this.Dock = DockStyle.Fill;
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.headerPanel)).EndInit();
             this.ResumeLayout(false);
         }
 
         #endregion
 
         protected Telerik.WinControls.UI.RadPanel panelContainer;
+        protected HeaderPanel headerPanel;
     }
 }
