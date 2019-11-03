@@ -91,7 +91,9 @@
     <Compile Include="Espf\Services.cs" />
     <Compile Include="IdleTimer.cs" />
     <Compile Include="IO\RawPrinterHelper.cs" />
+    <Compile Include="IO\SerialPrinter.cs" />
     <Compile Include="IO\TicketPrinter.cs" />
+    <Compile Include="IO\VoucherPrinter.cs" />
     <Compile Include="Keyboard\FrmNumKeyBoard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -367,7 +369,7 @@
     <Compile Include="Utils\GraphUtils.cs" />
     <Compile Include="Utils\Logger.cs" />
     <Compile Include="Utils\MsgBox.cs" />
-    <Compile Include="VoucherPrinter.cs" />
+    <Compile Include="IO\VoucherPrinterOld.cs" />
     <EmbeddedResource Include="Keyboard\FrmNumKeyBoard.resx">
       <DependentUpon>FrmNumKeyBoard.cs</DependentUpon>
     </EmbeddedResource>

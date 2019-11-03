@@ -35,7 +35,7 @@ namespace ClientPoint {
             Espf(true);
             Api(true);
             CheckTicketPrinter(true);
-            VoucherPrinter = ClientPoint.VoucherPrinter.GetState();
+            //VoucherPrinter = VoucherPrinterOld.GetState();
             Print($"Voucher Printer => {VoucherPrinter}");
         }
 
@@ -43,7 +43,7 @@ namespace ClientPoint {
             Espf();
             Api();
             CheckTicketPrinter();
-            VoucherPrinter = ClientPoint.VoucherPrinter.GetState();
+            //VoucherPrinter = VoucherPrinterOld.GetState();
         }
 
         private static void Print(string msg) {

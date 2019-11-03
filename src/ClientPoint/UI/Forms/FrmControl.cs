@@ -127,7 +127,7 @@ namespace ClientPoint.UI.Forms {
             ticketStr.Value = Status.TicketPrinterString;
 
             voucherState.Value = Status.VoucherPrinter;
-            voucherLastFailed.Value = VoucherPrinter.LastFailed;
+            voucherLastFailed.Value = VoucherPrinterOld.LastFailed;
 
             apiState.Value = Status.ApiState;
             apiUrl.Value = Config.ApiUrl;
@@ -202,11 +202,23 @@ namespace ClientPoint.UI.Forms {
         }
 
         private void btnVoucher_Click(object sender, EventArgs e) {
-            lblStatus.Text = "Imprimiendo voucher";
-            if(VoucherPrinter.TryPrintRaw(Config.TEST_VOUCHER, out string err))
-                lblStatus.Text = "Voucher listo!";
+            //lblStatus.Text = "Imprimiendo voucher";
+            //if (VoucherPrinter.TryPrintRaw(Config.TEST_VOUCHER, out string err))
+            //    lblStatus.Text = "Voucher listo!";
+            //else
+            //    lblStatus.Text = $"Error al imprimir voucher: {err}";
+
+            //var p = new VoucherPrinterSerial();
+            //if (p.TryPrint(Config.TEST_VOUCHER, out string err))
+            //    lblStatus.Text = "Voucher listo!";
+            //else
+            //    lblStatus.Text = $"Error al imprimir voucher: {err}";
+
+            var p = new VoucherPrinter();
+            if (p.TryGetSerialStatus(out string st))
+                lblStatus.Text = $"Estado: {st}";
             else
-                lblStatus.Text = $"Error al imprimir voucher: {err}";
+                lblStatus.Text = $"Err GetStatus";
         }
 
         private void btnTicket_Click(object sender, EventArgs e) {

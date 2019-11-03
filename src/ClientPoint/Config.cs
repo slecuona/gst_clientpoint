@@ -49,6 +49,16 @@ namespace ClientPoint {
                 (int)StopBits.One);
             TicketPrinterHandshake = (Handshake)GetInt("TicketPrinterHandshake", 
                 (int)Handshake.XOnXOff);
+            
+            VoucherPrinterPort = GetSetting("VoucherPrinterPort", "Com1");
+            VoucherPrinterBaud = GetInt("VoucherPrinterBaud", 9600);
+            VoucherPrinterDataBits = GetInt("VoucherPrinterDataBits", 8);
+            VoucherPrinterParity = (Parity)GetInt("VoucherPrinterParity",
+                (int)Parity.None);
+            VoucherPrinterStopBits = (StopBits)GetInt("VoucherPrinterStopBits",
+                (int)StopBits.One);
+            VoucherPrinterHandshake = (Handshake)GetInt("VoucherPrinterHandshake",
+                (int)Handshake.None);
 
             ApiUrl = GetSetting("ApiUrl", API_URL_DEF);
 
@@ -112,6 +122,13 @@ namespace ClientPoint {
         public static Parity TicketPrinterParity;
         public static StopBits TicketPrinterStopBits;
         public static Handshake TicketPrinterHandshake;
+        
+        public static string VoucherPrinterPort;
+        public static int VoucherPrinterBaud;
+        public static int VoucherPrinterDataBits;
+        public static Parity VoucherPrinterParity;
+        public static StopBits VoucherPrinterStopBits;
+        public static Handshake VoucherPrinterHandshake;
 
         public static bool DebugMode;
 

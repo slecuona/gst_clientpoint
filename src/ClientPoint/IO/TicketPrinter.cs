@@ -1,77 +1,34 @@
-﻿using System;
-using System.IO.Ports;
-using System.Threading;
-using ClientPoint.Utils;
-using static ClientPoint.Utils.ExUtils;
+﻿using System.IO.Ports;
 
 namespace ClientPoint.IO {
 
+    // GEN2
     // Utiliza protocolo TCL
     // https://stackoverflow.com/questions/5903331/tcl-thermal-control-language-printer-protocol-references
 
-    public class TicketPrinter {
-        private SerialPort _serial;
+    public class TicketPrinter : SerialPrinter {
+        protected override string PortName => 
+            Config.TicketPrinterPort;
+        protected override int BaudRate => 
+            Config.TicketPrinterBaud;
+        protected override int DataBits => 
+            Config.TicketPrinterDataBits;
+        protected override Parity Parity => 
+            Config.TicketPrinterParity;
+        protected override StopBits StopBits => 
+            Config.TicketPrinterStopBits;
+        protected override Handshake Handshake => 
+            Config.TicketPrinterHandshake;
 
-        public TicketPrinter() {
-            _serial = GetSerialPort();
-        }
-
-        private static SerialPort GetSerialPort() {
-            var serial = new SerialPort {
-                PortName = Config.TicketPrinterPort,
-                BaudRate = Config.TicketPrinterBaud,
-                DataBits = Config.TicketPrinterDataBits,
-                Parity = Config.TicketPrinterParity,
-                StopBits = Config.TicketPrinterStopBits,
-                Handshake = Config.TicketPrinterHandshake
-            };
-            return serial;
-        }
-
+        public TicketPrinter() { }
+        
+        // Mando a imprimir tal cual viene de la API
         public bool TryPrint(string t, out string errMsg) {
-            try {
-                DieIf(_serial == null, $"SerialPort Disposed");
-                errMsg = null;
-                _serial.Open();
-                _serial.Write(t);
-                _serial.Close();
-                return true;
-            }
-            catch (Exception e) {
-                Logger.Exception(e);
-                errMsg = e.Message;
-                return false;
-            }
-            finally {
-                _serial.Dispose();
-                _serial = null;
-            }
+            return base.TryWrite(t, out errMsg);
         }
         
         public bool TryGetStatus(out string status) {
-            status = null;
-            try {
-                DieIf(_serial == null, $"SerialPort Disposed");
-                _serial.Open();
-                _serial.Write("^S|^");
-                var tries = 0;
-                while (tries < 5) {
-                    tries++;
-                    Thread.Sleep(200);
-                    status = _serial.ReadExisting();
-                    if (!string.IsNullOrEmpty(status))
-                        break;
-                }
-                _serial.Close();
-                return !string.IsNullOrEmpty(status);
-            } catch (Exception e) {
-                status = "ERROR";
-                Logger.Exception(e);
-                return false;
-            } finally {
-                _serial.Dispose();
-                _serial = null;
-            }
+            return TrySendCmd("^S|^", out status);
         }
     }
 }

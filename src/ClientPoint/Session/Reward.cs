@@ -59,7 +59,7 @@ namespace ClientPoint.Session {
 
             DieIf(string.IsNullOrEmpty(voucher), "Voucher vacio.");
 
-            var success = VoucherPrinter.TryPrintRaw(voucher, out string err);
+            var success = VoucherPrinterOld.TryPrintRaw(voucher, out string err);
             DieIf(!success, err);
             Thread.Sleep(2000);
         }
