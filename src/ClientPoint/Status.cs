@@ -183,26 +183,7 @@ namespace ClientPoint {
             TicketPrinterString = "";
             try {
                 var t = new TicketPrinter();
-                if (t.TryGetStatus(out string status)) {
-                    TicketPrinterString = status;
-                    // Ejemplo: "S|0|GRUSA4100|@|@|@|@|@|P0|"
-                    var items = status.Split('|');
-                    if (items.Length < 8)
-                        return; // Algo anda mal...
-
-                    if (items[3][0] == 0x4) {
-                        TicketPrinter = TicketPrinterState.EMPTY;
-                        return;
-                    }
-
-                    if (items[6][0] == 0x1) {
-                        TicketPrinter = TicketPrinterState.ALMOSTEMPTY;
-                        return;
-                    }
-                    TicketPrinter = items[7][0] == 0x10 ? 
-                        TicketPrinterState.OK : 
-                        TicketPrinterState.NOTOK;
-                }
+                TicketPrinter = t.GetStatus(out TicketPrinterString);
             } catch (Exception e) {
                 Logger.Exception(e);
             } finally {
@@ -238,13 +219,4 @@ namespace ClientPoint {
         public const string FEEDER_EMPTY = "FEEDER_EMPTY";
         public const string DEF_CARD_ON_EJECT = "DEF_CARD_ON_EJECT";
     }
-
-    public enum TicketPrinterState {
-        OK = 0,
-        NOTOK = 1,
-        ERROR = 2,
-        EMPTY = 3,
-        ALMOSTEMPTY = 4
-    }
-
 }

@@ -27,8 +27,39 @@ namespace ClientPoint.IO {
             return base.TryWrite(t, out errMsg);
         }
         
-        public bool TryGetStatus(out string status) {
+        private bool TryGetStatus(out string status) {
             return TrySendCmd("^S|^", out status);
         }
+
+        public TicketPrinterState GetStatus(out string statusStr) {
+            if (!TryGetStatus(out statusStr))
+                return TicketPrinterState.ERROR;
+
+            // Ejemplo: "S|0|GRUSA4100|@|@|@|@|@|P0|"
+
+            var items = statusStr.Split('|');
+            if (items.Length < 8)
+                return TicketPrinterState.ERROR; // Algo anda mal...
+
+            if (items[3][0] == 0x4) {
+                return TicketPrinterState.EMPTY;
+            }
+
+            if (items[6][0] == 0x1) {
+                return TicketPrinterState.ALMOSTEMPTY;
+            }
+            return items[7][0] == 0x10 ?
+                TicketPrinterState.OK :
+                TicketPrinterState.NOTOK;
+        }
+
+    }
+
+    public enum TicketPrinterState {
+        OK = 0,
+        NOTOK = 1,
+        ERROR = 2,
+        EMPTY = 3,
+        ALMOSTEMPTY = 4
     }
 }
