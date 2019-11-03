@@ -23,7 +23,8 @@ namespace ClientPoint {
         public static string TicketPrinterString;
 
         public static VoucherPrinterState VoucherPrinter;
-        
+        public static bool HasErrors { get; set; }
+
         private static void ShowError(string msg) {
             msg = $"ERROR: {msg}";
             Logger.WriteAsync(msg);
@@ -37,6 +38,7 @@ namespace ClientPoint {
             CheckTicketPrinter(true);
             //VoucherPrinter = VoucherPrinterOld.GetState();
             Print($"Voucher Printer => {VoucherPrinter}");
+            CheckErrors();
         }
 
         public static void Refresh() {
@@ -44,6 +46,15 @@ namespace ClientPoint {
             Api();
             CheckTicketPrinter();
             //VoucherPrinter = VoucherPrinterOld.GetState();
+            CheckErrors();
+        }
+
+        private static void CheckErrors() {
+            HasErrors =
+                EspfMayor != EspfMayorState.READY ||
+                TicketPrinter != TicketPrinterState.OK ||
+                VoucherPrinter != VoucherPrinterState.OK ||
+                ApiState != "OK";
         }
 
         private static void Print(string msg) {

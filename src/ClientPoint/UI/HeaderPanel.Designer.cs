@@ -28,10 +28,12 @@ namespace ClientPoint.UI {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.lblError = new Telerik.WinControls.UI.RadLabel();
             this.lblHost = new Telerik.WinControls.UI.RadLabel();
             this.lblGst = new Telerik.WinControls.UI.RadLabel();
             this.lblTitle = new Telerik.WinControls.UI.RadLabel();
             this.waitingBar = new Telerik.WinControls.UI.RadWaitingBar();
+            ((System.ComponentModel.ISupportInitialize)(this.lblError)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblHost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblGst)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblTitle)).BeginInit();
@@ -39,6 +41,18 @@ namespace ClientPoint.UI {
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
+            // lblError
+            // 
+            this.lblError.Location = new System.Drawing.Point(140, 35);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(20, 20);
+            this.lblError.TabIndex = 0;
+            this.lblError.Text = "";
+            this.lblError.AutoSize = false;
+            this.lblError.Dock = DockStyle.None;
+            this.lblError.BackgroundImage = Properties.Resources.error;
+            this.lblError.BackgroundImageLayout = ImageLayout.Stretch;
+            //
             // lblImg
             // 
             this.lblHost.Location = new System.Drawing.Point(20, 20);
@@ -90,6 +104,7 @@ namespace ClientPoint.UI {
             // 
             // HeaderPanel
             // 
+            this.Controls.Add(lblError);
             this.Controls.Add(lblHost);
             this.Controls.Add(lblGst);
             this.Controls.Add(this.waitingBar);
@@ -103,6 +118,7 @@ namespace ClientPoint.UI {
             ((Telerik.WinControls.Primitives.BorderPrimitive)(this.GetChildAt(0).GetChildAt(1))).Width = 0F;
             ((System.ComponentModel.ISupportInitialize)(this.lblTitle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblHost)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblError)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblGst)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.waitingBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
@@ -115,6 +131,7 @@ namespace ClientPoint.UI {
         private Telerik.WinControls.UI.RadLabel lblTitle;
         public Telerik.WinControls.UI.RadLabel lblHost;
         public Telerik.WinControls.UI.RadLabel lblGst;
+        public Telerik.WinControls.UI.RadLabel lblError;
         private Telerik.WinControls.UI.RadWaitingBar waitingBar;
     }
 }

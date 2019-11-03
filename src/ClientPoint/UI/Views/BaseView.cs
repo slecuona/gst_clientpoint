@@ -16,6 +16,9 @@ namespace ClientPoint.UI.Views {
         public virtual void AfterShow() { }
 
         public virtual void BeforeHide() { }
-        public virtual void BeforeShow() { }
+
+        public virtual void BeforeShow() {
+            headerPanel.lblError.Visible = Status.HasErrors;
+        }
     }
 }
