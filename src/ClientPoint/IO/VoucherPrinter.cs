@@ -56,8 +56,6 @@ namespace ClientPoint.IO {
             TrySendCmd(CMD_ST_FULL, out string st_full);
             return true;
         }
-
-
-
+        
     }
 }
