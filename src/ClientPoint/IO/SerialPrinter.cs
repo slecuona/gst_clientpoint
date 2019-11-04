@@ -61,22 +61,32 @@ namespace ClientPoint.IO {
         protected bool TrySendCmd(string cmd, out string res) {
             res = null;
             try {
-                if (_serial == null) {
+                var writeTries = 0;
+                while (writeTries < 5) {
+                    writeTries++;
                     _serial = GetSerialPort();
-                }
-                _serial.Open();
-                _serial.Write(cmd);
-                PrintBytes("SerialWrite", cmd);
-                var tries = 0;
-                while (tries < 5) {
-                    tries++;
-                    Thread.Sleep(200);
-                    res = _serial.ReadExisting();
+                    _serial.Open();
+                    _serial.Write(cmd);
+                    PrintBytes("SerialWrite", cmd);
+                    var readTries = 0;
+                    while (readTries < 5) {
+                        readTries++;
+                        Thread.Sleep(100);
+                        res = _serial.ReadExisting();
+                        if (!string.IsNullOrEmpty(res))
+                            break;
+                    }
                     if (!string.IsNullOrEmpty(res))
                         break;
+                    _serial.DiscardInBuffer();
+                    _serial.DiscardOutBuffer();
+                    _serial.Close();
+                    _serial.Dispose();
+                    Thread.Sleep(200);
                 }
                 PrintBytes("SerialRead", res);
-                _serial.Close();
+                if(_serial.IsOpen)
+                    _serial.Close();
                 return !string.IsNullOrEmpty(res);
             } catch (Exception e) {
                 res = $"ERR. {e.Message}";

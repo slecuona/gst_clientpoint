@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Threading;
 using ClientPoint;
 using ClientPoint.Espf;
 using ClientPoint.IO;
@@ -25,7 +28,10 @@ namespace Tests {
         [TestMethod]
         public void VoucherPrinterStatus() {
             var p = new VoucherPrinter();
-            p.TryGetSerialStatus(out string st);
+            var res = p.GetStatus();
+            Debug.WriteLine(string.Join("|", res));
+            Assert.IsTrue(res.Contains(VoucherPrinterState.OK),
+                $"get status not OK");
         }
     }
 }

@@ -30,8 +30,7 @@ namespace ClientPoint.IO {
             Config.VoucherPrinterHandshake;
 
         public VoucherPrinter() { }
-
-
+        
         // Mando a imprimir tal cual viene de la API
         public bool TryPrint(string t, out string errMsg) {
             return base.TryWrite(t, out errMsg);
@@ -43,19 +42,119 @@ namespace ClientPoint.IO {
         private const string CMD_ST_PRINTER_OFF = "\x10\x04\x02";
         private const string CMD_ST_ERROR = "\x10\x04\x03";
         private const string CMD_ST_PAPPER_ROLL = "\x10\x04\x04";
+        // Estos comandos no funcionan con esta impresora.
         private const string CMD_ST_PRINTER2 = "\x10\x04\x17";
         private const string CMD_ST_FULL = "\x10\x04\x20";
-        
-        public bool TryGetSerialStatus(out string status) {
-            status = "ok";
-            TrySendCmd(CMD_ST_PRINTER, out string st_p);
-            TrySendCmd(CMD_ST_PRINTER_OFF, out string st_off);
-            TrySendCmd(CMD_ST_ERROR, out string st_err);
-            TrySendCmd(CMD_ST_PAPPER_ROLL, out string st_pr);
-            TrySendCmd(CMD_ST_PRINTER2, out string st_p2);
-            TrySendCmd(CMD_ST_FULL, out string st_full);
+
+        public List<VoucherPrinterState> GetStatus() {
+            var success = false;
+            var tries = 0;
+            while (tries < 10) {
+                tries++;
+                success = TryGetSerialStatus(out var res);
+                if (success)
+                    return res;
+                Thread.Sleep(500);
+            }
+            return new List<VoucherPrinterState>() {VoucherPrinterState.NORESPONSE};
+        }
+
+        private bool TryGetSerialStatus(out List<VoucherPrinterState> res) {
+            res = new List<VoucherPrinterState>();
+            if (TrySendCmd(CMD_ST_PRINTER, out string st_p)) {
+                var b = (byte)st_p[0];
+                var online = !IsBitSet(b, 3);
+                Debug.WriteLine(online ? "ONLINE" : "OFFLINE");
+                if(!online)
+                    res.Add(VoucherPrinterState.OFFLINE);
+            }
+            else {
+                Debug.WriteLine("=== ERROR ST");
+                return false;
+            }
+
+            if (TrySendCmd(CMD_ST_PRINTER_OFF, out string st_off)) {
+                var b = (byte)st_off[0];
+                var cover_open = IsBitSet(b, 2);
+                Debug.WriteLine(cover_open ? 
+                    "COVER OPEN" : "COVER CLOSED");
+                if(cover_open)
+                    res.Add(VoucherPrinterState.COVER_OPEN);
+                var feed_button = IsBitSet(b, 3);
+                Debug.WriteLine(feed_button ? 
+                    "FEED BUTTON" : "NOT FEED BUTTON");
+                var print_stopped = IsBitSet(b, 5);
+                Debug.WriteLine(print_stopped ? 
+                    "PRINT STOPPED" : "NO PAPPER END STOP");
+                if(print_stopped)
+                    res.Add(VoucherPrinterState.PRINT_STOPPED);
+                var with_errors = IsBitSet(b, 6);
+                Debug.WriteLine(with_errors ? 
+                    "ERRORS OCCURS" : "NO ERROR");
+                if(with_errors)
+                    res.Add(VoucherPrinterState.ERR_OCCUR);
+            } else {
+                Debug.WriteLine("=== ERROR ST OFF");
+                return false;
+            }
+
+            if (TrySendCmd(CMD_ST_ERROR, out string st_err)) {
+                var b = (byte)st_err[0];
+                var autocutter_err = IsBitSet(b, 3);
+                Debug.WriteLine(autocutter_err ? 
+                    "ERROR AUTOCUTTER" : "-");
+                if(autocutter_err)
+                    res.Add(VoucherPrinterState.ERR_AUTO_CUTTER);
+                var unrecoverable_err = IsBitSet(b, 5);
+                Debug.WriteLine(unrecoverable_err ? 
+                    "ERROR UNRECOVERABLE" : "-");
+                if(unrecoverable_err)
+                    res.Add(VoucherPrinterState.ERR_UNRECOVERABLE);
+                var auto_recoverable_err = IsBitSet(b, 6);
+                Debug.WriteLine(auto_recoverable_err ? 
+                    "ERROR AUTO-RECOVERABLE" : "-");
+                if(auto_recoverable_err)
+                    res.Add(VoucherPrinterState.ERR_AUTO_RECOVERABLE);
+            } else {
+                Debug.WriteLine("=== ERROR ST ERR");
+                return false;
+            }
+
+            if (TrySendCmd(CMD_ST_PAPPER_ROLL, out string st_pr)) {
+                var b = (byte)st_pr[0];
+                var almost_empty = IsBitSet(b, 3);
+                Debug.WriteLine(almost_empty ? 
+                    "ALMOST EMPTY" : "-");
+                if(almost_empty)
+                    res.Add(VoucherPrinterState.ALMOSTEMPTY);
+                var empty = IsBitSet(b, 6);
+                Debug.WriteLine(empty ? 
+                    "EMPTY" : "-");
+                if(empty)
+                    res.Add(VoucherPrinterState.EMPTY);
+            } else {
+                Debug.WriteLine("=== ERROR ST PR");
+                return false;
+            }
             return true;
         }
-        
+
+        bool IsBitSet(byte b, int pos) {
+            return (b & (1 << pos)) != 0;
+        }
+    }
+
+    public enum VoucherPrinterState {
+        OK = 0,
+        NORESPONSE = 1,
+        OFFLINE = 2,
+        COVER_OPEN = 3,
+        PRINT_STOPPED = 4,
+        ERR_OCCUR = 5,
+        ERR_AUTO_CUTTER = 6,
+        ERR_UNRECOVERABLE = 7,
+        ERR_AUTO_RECOVERABLE = 8,
+        EMPTY = 9,
+        ALMOSTEMPTY = 10
     }
 }
