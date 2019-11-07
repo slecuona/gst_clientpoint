@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using ClientPoint.Api;
 using ClientPoint.Espf;
@@ -22,7 +23,7 @@ namespace ClientPoint {
         public static TicketPrinterState TicketPrinter;
         public static string TicketPrinterString;
 
-        public static VoucherPrinterState VoucherPrinter;
+        public static List<VoucherPrinterState> VoucherPrinter;
         public static bool HasErrors { get; set; }
 
         private static void ShowError(string msg) {
@@ -36,8 +37,7 @@ namespace ClientPoint {
             Espf(true);
             Api(true);
             CheckTicketPrinter(true);
-            //VoucherPrinter = VoucherPrinterOld.GetState();
-            Print($"Voucher Printer => {VoucherPrinter}");
+            CheckVoucherPrinter(true);
             CheckErrors();
         }
 
@@ -45,7 +45,7 @@ namespace ClientPoint {
             Espf();
             Api();
             CheckTicketPrinter();
-            //VoucherPrinter = VoucherPrinterOld.GetState();
+            CheckVoucherPrinter();
             CheckErrors();
         }
 
@@ -53,7 +53,7 @@ namespace ClientPoint {
             HasErrors =
                 EspfMayor != EspfMayorState.READY ||
                 TicketPrinter != TicketPrinterState.OK ||
-                VoucherPrinter != VoucherPrinterState.OK ||
+                VoucherPrinter.Contains(VoucherPrinterState.OK) ||
                 ApiState != "OK";
         }
 
@@ -200,6 +200,21 @@ namespace ClientPoint {
             } finally {
                 if(init)
                     Print($"Ticket Printer => {TicketPrinter}");
+            }
+        }
+
+
+        public static void CheckVoucherPrinter(bool init = false) {
+            VoucherPrinter = new List<VoucherPrinterState>();
+            try {
+                var v = new VoucherPrinter();
+                VoucherPrinter = v.GetStatus();
+            } catch (Exception e) {
+                Logger.Exception(e);
+                VoucherPrinter.Add(VoucherPrinterState.NO_RESPONSE);
+            } finally {
+                if (init)
+                    Print($"Voucher Printer => {string.Join("|", VoucherPrinter.ToArray())}");
             }
         }
     }

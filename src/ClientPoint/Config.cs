@@ -40,7 +40,7 @@ namespace ClientPoint {
             VoucherPrinterName = GetSetting("VoucherPrinterName", "Custom GT");
             VoucherPrinterTimeout = GetInt("VoucherPrinterTimeout", 5);
 
-            TicketPrinterPort = GetSetting("TicketPrinterPort", "Com3");
+            TicketPrinterPort = GetSetting("TicketPrinterPort", "COM3");
             TicketPrinterBaud = GetInt("TicketPrinterBaud", 38400);
             TicketPrinterDataBits = GetInt("TicketPrinterDataBits", 8);
             TicketPrinterParity = (Parity)GetInt("TicketPrinterParity", 

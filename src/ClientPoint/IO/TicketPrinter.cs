@@ -32,6 +32,11 @@ namespace ClientPoint.IO {
         }
 
         public TicketPrinterState GetStatus(out string statusStr) {
+            if (!PortExists()) {
+                statusStr = "-";
+                return TicketPrinterState.PORT_NOT_EXISTS;
+            }
+
             if (!TryGetStatus(out statusStr))
                 return TicketPrinterState.ERROR;
 
@@ -46,20 +51,21 @@ namespace ClientPoint.IO {
             }
 
             if (items[6][0] == 0x1) {
-                return TicketPrinterState.ALMOSTEMPTY;
+                return TicketPrinterState.ALMOST_EMPTY;
             }
             return items[7][0] == 0x10 ?
                 TicketPrinterState.OK :
-                TicketPrinterState.NOTOK;
+                TicketPrinterState.NOT_OK;
         }
 
     }
 
     public enum TicketPrinterState {
         OK = 0,
-        NOTOK = 1,
-        ERROR = 2,
-        EMPTY = 3,
-        ALMOSTEMPTY = 4
+        NOT_OK = 1,
+        PORT_NOT_EXISTS = 2,
+        ERROR = 3,
+        EMPTY = 4,
+        ALMOST_EMPTY = 5
     }
 }

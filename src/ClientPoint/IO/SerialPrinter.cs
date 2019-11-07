@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO.Ports;
+using System.Linq;
 using System.Threading;
 using ClientPoint.Utils;
 using static ClientPoint.Utils.ExUtils;
@@ -97,9 +98,12 @@ namespace ClientPoint.IO {
                 _serial = null;
             }
         }
-        
+
+        protected bool PortExists() =>
+            SerialPort.GetPortNames().Any(x => x.ToLower() == PortName?.ToLower());
+
         [Conditional("DEBUG")]
-        private void PrintBytes(string m, string r) {
+        private static void PrintBytes(string m, string r) {
             if (r != null) {
                 var i = 0;
                 foreach (var b in r) {

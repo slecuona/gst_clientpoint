@@ -47,16 +47,21 @@ namespace ClientPoint.IO {
         private const string CMD_ST_FULL = "\x10\x04\x20";
 
         public List<VoucherPrinterState> GetStatus() {
+            if (!PortExists()) {
+                return new List<VoucherPrinterState>() 
+                    {VoucherPrinterState.PORT_NOT_EXISTS};
+            }
+
             var success = false;
             var tries = 0;
-            while (tries < 10) {
+            while (tries < 5) {
                 tries++;
                 success = TryGetSerialStatus(out var res);
                 if (success)
                     return res;
-                Thread.Sleep(500);
+                Thread.Sleep(200);
             }
-            return new List<VoucherPrinterState>() {VoucherPrinterState.NORESPONSE};
+            return new List<VoucherPrinterState>() {VoucherPrinterState.NO_RESPONSE};
         }
 
         private bool TryGetSerialStatus(out List<VoucherPrinterState> res) {
@@ -126,7 +131,7 @@ namespace ClientPoint.IO {
                 Debug.WriteLine(almost_empty ? 
                     "ALMOST EMPTY" : "-");
                 if(almost_empty)
-                    res.Add(VoucherPrinterState.ALMOSTEMPTY);
+                    res.Add(VoucherPrinterState.ALMOST_EMPTY);
                 var empty = IsBitSet(b, 6);
                 Debug.WriteLine(empty ? 
                     "EMPTY" : "-");
@@ -146,15 +151,16 @@ namespace ClientPoint.IO {
 
     public enum VoucherPrinterState {
         OK = 0,
-        NORESPONSE = 1,
-        OFFLINE = 2,
-        COVER_OPEN = 3,
-        PRINT_STOPPED = 4,
-        ERR_OCCUR = 5,
-        ERR_AUTO_CUTTER = 6,
-        ERR_UNRECOVERABLE = 7,
-        ERR_AUTO_RECOVERABLE = 8,
-        EMPTY = 9,
-        ALMOSTEMPTY = 10
+        PORT_NOT_EXISTS = 1,
+        NO_RESPONSE = 2,
+        OFFLINE = 3,
+        COVER_OPEN = 4,
+        PRINT_STOPPED = 5,
+        ERR_OCCUR = 6,
+        ERR_AUTO_CUTTER = 7,
+        ERR_UNRECOVERABLE = 8,
+        ERR_AUTO_RECOVERABLE = 9,
+        EMPTY = 10,
+        ALMOST_EMPTY = 11
     }
 }

@@ -24,9 +24,12 @@ namespace ClientPoint.UI.Forms {
 
         private DataGridViewCell ticketState;
         private DataGridViewCell ticketStr;
+        private DataGridViewCell ticketPort;
+        private DataGridViewCell ticketBaud;
 
         private DataGridViewCell voucherState;
-        private DataGridViewCell voucherLastFailed;
+        private DataGridViewCell voucherPort;
+        private DataGridViewCell voucherBaud;
 
         private DataGridViewCell apiState;
         private DataGridViewCell apiUrl;
@@ -58,9 +61,12 @@ namespace ClientPoint.UI.Forms {
 
             ticketState = AddRow("Impresora Ticket - Estado");
             ticketStr = AddRow("Impresora Ticket - Estado (str)");
+            ticketPort = AddRow("Impresora Ticket - Puerto");
+            ticketBaud = AddRow("Impresora Ticket - Baud rate");
 
             voucherState = AddRow("Impresora Voucher - Estado");
-            voucherLastFailed = AddRow("Impresora Voucher - Falló última");
+            voucherPort = AddRow("Impresora Voucher - Puerto");
+            voucherBaud = AddRow("Impresora Voucher - Baud rate");
 
             apiState = AddRow("API - Estado de conexión");
             apiUrl = AddRow("API - Dirección URL");
@@ -170,15 +176,17 @@ namespace ClientPoint.UI.Forms {
             ticketState.Value = Status.TicketPrinter;
             SetStatusColor(ticketState,
                 TicketPrinterState.OK,
-                TicketPrinterState.ALMOSTEMPTY);
-
+                TicketPrinterState.ALMOST_EMPTY);
             ticketStr.Value = Status.TicketPrinterString;
-
-            voucherState.Value = Status.VoucherPrinter;
+            ticketPort.Value = Config.TicketPrinterPort;
+            ticketBaud.Value = Config.TicketPrinterBaud;
+            
+            voucherState.Value = string.Join("|", Status.VoucherPrinter);
             SetStatusColor(voucherState,
                 VoucherPrinterState.OK,
-                VoucherPrinterState.ALMOSTEMPTY);
-            voucherLastFailed.Value = null;
+                VoucherPrinterState.ALMOST_EMPTY);
+            voucherPort.Value = Config.VoucherPrinterPort;
+            voucherBaud.Value = Config.VoucherPrinterBaud;
 
             apiState.Value = Status.ApiState;
             SetStatusColor(apiState, "OK", null);
