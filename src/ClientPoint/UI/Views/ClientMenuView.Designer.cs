@@ -95,13 +95,13 @@ namespace ClientPoint.UI.Views
             // 
             this.lblWelcome.AutoSize = false;
             this.lblWelcome.BackColor = System.Drawing.Color.Transparent;
-            this.lblWelcome.Dock = System.Windows.Forms.DockStyle.Top;
+            //this.lblWelcome.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Bold);
             this.lblWelcome.ForeColor = System.Drawing.Color.White;
             this.lblWelcome.Location = new System.Drawing.Point(0, 0);
             this.lblWelcome.Name = "lblWelcome";
             this.lblWelcome.Padding = new System.Windows.Forms.Padding(0, 80, 0, 0);
-            this.lblWelcome.Size = new System.Drawing.Size(1586, 143);
+            this.lblWelcome.Size = new System.Drawing.Size(1366, 143);
             this.lblWelcome.TabIndex = 4;
             this.lblWelcome.Text = "BIENVENIDO";
             this.lblWelcome.TextAlignment = System.Drawing.ContentAlignment.TopCenter;

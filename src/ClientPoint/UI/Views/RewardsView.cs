@@ -17,8 +17,8 @@ namespace ClientPoint.UI.Views
 
         public RewardsView() {
             InitializeComponent();
-            headerPanel1.Title = "                                            Premios";
-            headerPanel1.Label.Font = FontUtils.Roboto(19);
+            headerPanel.Title = "                                            Premios";
+            headerPanel.Label.Font = FontUtils.Roboto(19);
             btnNext.SetRight();
             btnNext.Click += BtnNextOnClick;
             btnPrev.Click += BtnPrevOnClick;
@@ -69,7 +69,7 @@ namespace ClientPoint.UI.Views
         }
 
         private void LoadRewardsAsync() {
-            headerPanel1.Waiting = true;
+            headerPanel.Waiting = true;
             var t = new Thread(LoadRewards);
             t.Start();
         }
@@ -117,12 +117,12 @@ namespace ClientPoint.UI.Views
             this.InvokeIfRequired(() => {
                 container.Controls.AddRange(controls: panels?.ToArray());
                 RefreshPageInfo();
-                headerPanel1.Waiting = false;
+                headerPanel.Waiting = false;
             });
         }
         
         private void FillRewardsAsync() {
-            headerPanel1.Waiting = true;
+            headerPanel.Waiting = true;
             container.Controls.Clear();
             var t = new Thread(FillRewards);
             t.Start();

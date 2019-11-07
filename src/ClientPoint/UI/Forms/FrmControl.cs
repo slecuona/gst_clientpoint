@@ -40,7 +40,6 @@ namespace ClientPoint.UI.Forms {
 
         private DataGridViewCell idleSeconds;
         private DataGridViewCell idleMessageSeconds;
-
         
         public FrmControl()
         {
@@ -206,7 +205,7 @@ namespace ClientPoint.UI.Forms {
         }
 
         private void btnExit_Click(object sender, EventArgs e) {
-            Application.Exit();
+            Environment.Exit(0);
         }
 
         private void btnRefresh_Click(object sender, EventArgs e) {

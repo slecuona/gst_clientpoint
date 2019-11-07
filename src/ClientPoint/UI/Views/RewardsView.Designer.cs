@@ -34,7 +34,6 @@ namespace ClientPoint.UI.Views
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RewardsView));
-            this.headerPanel1 = new ClientPoint.UI.HeaderPanel();
             this.btnBack = new ClientPoint.UI.Controls.CustomButton();
             this.btnAll = new ClientPoint.UI.Controls.CustomButtonWhite();
             this.btnPrev = new ClientPoint.UI.Controls.CustomButtonArrow();
@@ -44,7 +43,6 @@ namespace ClientPoint.UI.Views
             this.categoryPanel = new Telerik.WinControls.UI.RadPanel();
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).BeginInit();
             this.panelContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.headerPanel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAll)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryPanel)).BeginInit();
@@ -60,20 +58,9 @@ namespace ClientPoint.UI.Views
             this.panelContainer.Controls.Add(this.container);
             this.panelContainer.Controls.Add(this.btnPrev);
             this.panelContainer.Controls.Add(this.btnNext);
-            this.panelContainer.Controls.Add(this.headerPanel1);
             this.panelContainer.Controls.Add(this.btnBack);
             this.panelContainer.Controls.Add(this.categoryPanel);
             this.panelContainer.Size = new System.Drawing.Size(1352, 661);
-            // 
-            // headerPanel1
-            // 
-            this.headerPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.headerPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.headerPanel1.Location = new System.Drawing.Point(0, 0);
-            this.headerPanel1.Name = "headerPanel1";
-            this.headerPanel1.Size = new System.Drawing.Size(1352, 80);
-            this.headerPanel1.TabIndex = 4;
-            this.headerPanel1.Title = "";
             // 
             // btnBack
             // 
@@ -154,7 +141,6 @@ namespace ClientPoint.UI.Views
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).EndInit();
             this.panelContainer.ResumeLayout(false);
             this.panelContainer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.headerPanel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryPanel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAll)).EndInit();
@@ -168,7 +154,6 @@ namespace ClientPoint.UI.Views
 
         #endregion
         
-        private HeaderPanel headerPanel1;
         private CustomButton btnBack;
         private Telerik.WinControls.UI.RadPanel categoryPanel;
         private CustomButtonWhite btnAll;
