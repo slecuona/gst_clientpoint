@@ -114,5 +114,9 @@ namespace ClientPoint.IO {
             } else
                 Debug.WriteLine($"{m} => null");
         }
+
+        protected static bool IsBitSet(byte b, int pos) {
+            return (b & (1 << pos)) != 0;
+        }
     }
 }

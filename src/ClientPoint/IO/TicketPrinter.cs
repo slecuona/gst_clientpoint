@@ -1,4 +1,5 @@
-﻿using System.IO.Ports;
+﻿using System.Collections.Generic;
+using System.IO.Ports;
 
 namespace ClientPoint.IO {
 
@@ -31,41 +32,73 @@ namespace ClientPoint.IO {
             return TrySendCmd("^S|^", out status);
         }
 
-        public TicketPrinterState GetStatus(out string statusStr) {
+        public List<TicketPrinterState> GetStatus(out string statusStr) {
             if (!PortExists()) {
                 statusStr = "-";
-                return TicketPrinterState.PORT_NOT_EXISTS;
+                return new List<TicketPrinterState>() {
+                    TicketPrinterState.PORT_NOT_EXISTS
+                };
             }
 
             if (!TryGetStatus(out statusStr))
-                return TicketPrinterState.ERROR;
+                return new List<TicketPrinterState>() {
+                    TicketPrinterState.ERROR
+                };
 
             // Ejemplo: "S|0|GRUSA4100|@|@|@|@|@|P0|"
 
-            var items = statusStr.Split('|');
-            if (items.Length < 8)
-                return TicketPrinterState.ERROR; // Algo anda mal...
+            var res = new List<TicketPrinterState>();
+            ParseStatus(statusStr, ref res);
+            return res;
+        }
 
-            if (items[3][0] == 0x4) {
-                return TicketPrinterState.EMPTY;
+        public static void ParseStatus(string s, ref List<TicketPrinterState> states) {
+            var items = s.Split('|');
+            if (items.Length < 8) {
+                // Algo anda mal, no llegaron todos los bytes
+                states.Add(TicketPrinterState.ERROR);
+                return;
             }
 
-            if (items[6][0] == 0x1) {
-                return TicketPrinterState.ALMOST_EMPTY;
+            var flag1 = items[3][0];
+
+            if (flag1 == '@' || flag1 == 'P') {
+                // No hay flag de error
+                // Segun las pruebas, aveces luego de imprimir el byte queda como 'P'.
+                // que seria System Error | Library reference error | Al top of Form.
+                // (Quizas es un tema de compatibilidad de firmware con la doc.)
+                states.Add(TicketPrinterState.OK);
             }
-            return items[7][0] == 0x10 ?
-                TicketPrinterState.OK :
-                TicketPrinterState.NOT_OK;
+            else {
+                if (IsBitSet((byte)flag1, 0))
+                    states.Add(TicketPrinterState.VOLTAGE_ERROR);
+                if (IsBitSet((byte)flag1, 2))
+                    states.Add(TicketPrinterState.EMPTY);
+                if (IsBitSet((byte)flag1, 3))
+                    states.Add(TicketPrinterState.COVER_OPEN);
+                if (IsBitSet((byte)flag1, 4))
+                    states.Add(TicketPrinterState.SYS_ERROR);
+            }
+
+            var flag3 = items[5][0];
+            if (IsBitSet((byte)flag3, 3))
+                states.Add(TicketPrinterState.PAPER_IN_CHUTE);
         }
 
     }
 
     public enum TicketPrinterState {
         OK = 0,
-        NOT_OK = 1,
+        //NOT_OK = 1,
         PORT_NOT_EXISTS = 2,
         ERROR = 3,
         EMPTY = 4,
-        ALMOST_EMPTY = 5
+        ALMOST_EMPTY = 5,
+        COVER_OPEN = 6,
+        VOLTAGE_ERROR = 7,
+        SYS_ERROR = 8,
+        BUSY = 9,
+        PAPER_IN_CHUTE = 10
+
     }
 }

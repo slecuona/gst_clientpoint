@@ -118,14 +118,29 @@ namespace ClientPoint.UI.Forms {
         private Color ColorError => Color.LightPink;
 
         private void SetStatusColor(DataGridViewCell cell, object ok, object warn) {
-            if (cell.Value?.ToString() == ok?.ToString()) {
-                cell.Style.BackColor = ColorOk;
+            if (cell.Value == null) {
+                if (ok == null) {
+                    cell.Style.BackColor = ColorOk;
+                    return;
+                }
+                if (warn == null) {
+                    cell.Style.BackColor = ColorWarning;
+                    return;
+                }
+                cell.Style.BackColor = ColorError;
                 return;
             }
-            if (cell.Value?.ToString() == warn?.ToString()) {
+
+            if (warn != null && cell.Value.ToString().Contains(warn.ToString())) {
                 cell.Style.BackColor = ColorWarning;
                 return;
             }
+
+            if (ok != null && cell.Value.ToString().Contains(ok.ToString())) {
+                cell.Style.BackColor = ColorOk;
+                return;
+            }
+            
             cell.Style.BackColor = ColorError;
         }
 
@@ -172,7 +187,7 @@ namespace ClientPoint.UI.Forms {
             }
             espfCommMethod.Value = commMtd;
 
-            ticketState.Value = Status.TicketPrinter;
+            ticketState.Value = string.Join("|", Status.TicketPrinter);
             SetStatusColor(ticketState,
                 TicketPrinterState.OK,
                 TicketPrinterState.ALMOST_EMPTY);

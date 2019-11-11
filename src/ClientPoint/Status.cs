@@ -20,7 +20,7 @@ namespace ClientPoint {
         public static string EspfBinary;
         public static string ApiState;
 
-        public static TicketPrinterState TicketPrinter;
+        public static List<TicketPrinterState> TicketPrinter;
         public static string TicketPrinterString;
 
         public static List<VoucherPrinterState> VoucherPrinter;
@@ -52,8 +52,8 @@ namespace ClientPoint {
         private static void CheckErrors() {
             HasErrors =
                 EspfMayor != EspfMayorState.READY ||
-                TicketPrinter != TicketPrinterState.OK ||
-                VoucherPrinter.Contains(VoucherPrinterState.OK) ||
+                !TicketPrinter.Contains(TicketPrinterState.OK) ||
+                !VoucherPrinter.Contains(VoucherPrinterState.OK) ||
                 ApiState != "OK";
         }
 
@@ -190,7 +190,7 @@ namespace ClientPoint {
         }
 
         public static void CheckTicketPrinter(bool init = false) {
-            TicketPrinter = TicketPrinterState.ERROR;
+            TicketPrinter = new List<TicketPrinterState>();
             TicketPrinterString = "";
             try {
                 var t = new TicketPrinter();
@@ -198,8 +198,10 @@ namespace ClientPoint {
             } catch (Exception e) {
                 Logger.Exception(e);
             } finally {
-                if(init)
-                    Print($"Ticket Printer => {TicketPrinter}");
+                if (init) {
+                    Print($"Ticket Printer => {string.Join(" | ", TicketPrinter)}");
+                    Print($"Ticket Printer Str => {TicketPrinterString}");
+                }
             }
         }
 

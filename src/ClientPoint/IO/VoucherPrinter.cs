@@ -141,11 +141,13 @@ namespace ClientPoint.IO {
                 Debug.WriteLine("=== ERROR ST PR");
                 return false;
             }
-            return true;
-        }
 
-        bool IsBitSet(byte b, int pos) {
-            return (b & (1 << pos)) != 0;
+            if (res.Count == 0 || 
+                (res.Count == 1 && res.Contains(VoucherPrinterState.ALMOST_EMPTY))) {
+                res.Add(VoucherPrinterState.OK);
+            }
+
+            return true;
         }
     }
 
