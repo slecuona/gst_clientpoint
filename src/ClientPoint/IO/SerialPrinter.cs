@@ -43,7 +43,8 @@ namespace ClientPoint.IO {
 
                 errMsg = null;
                 _serial.Open();
-                _serial.Write(t);
+                _serial.WriteLine(t);
+                Thread.Sleep(1000);
                 _serial.Close();
                 return true;
             }
