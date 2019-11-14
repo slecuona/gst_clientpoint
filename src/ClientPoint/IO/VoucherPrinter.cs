@@ -29,23 +29,22 @@ namespace ClientPoint.IO {
         protected override Handshake Handshake =>
             Config.VoucherPrinterHandshake;
 
-
         public Action<bool, string> OnFinish;
 
-        private string Ticket;
+        // Mando a imprimir tal cual viene de la API
+        private string Voucher;
 
         public VoucherPrinter() { }
 
-        public void PrintAsync(string tkt) {
-            DieIf(string.IsNullOrEmpty(tkt), $"Ticket null or empty.");
-            // Mando a imprimir tal cual viene de la API
-            Ticket = tkt;
+        public void PrintAsync(string voucher) {
+            DieIf(string.IsNullOrEmpty(voucher), $"Voucher null or empty.");
+            Voucher = voucher;
             var t = new Thread(Print);
             t.Start();
         }
 
         private void Print() {
-            var success = base.TryWrite(Ticket, out string errMsg);
+            var success = base.TryWrite(Voucher, out string errMsg);
             if (!success) {
                 OnFinish?.Invoke(false, errMsg);
                 return;

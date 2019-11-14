@@ -293,13 +293,20 @@ namespace ClientPoint.UI.Forms {
         }
 
         private void btnTicket_Click(object sender, EventArgs e) {
-            lblStatus.Text = "Imprimiendo ticket...";
+            lblStatus.Text = "Imprimiendo ticket de prueba...";
+            Loading(true);
             var p = new TicketPrinter();
-            if (p.TryPrint(Config.TEST_TICKET, out string err)) {
-                lblStatus.Text = "Ticket listo!";
-            } else {
-                lblStatus.Text = $"Error al imprimir ticket: {err}";
-            }
+            p.OnFinish += OnPrintTicketFinish;
+            p.PrintAsync(Config.TEST_TICKET);
+        }
+
+        private void OnPrintTicketFinish(bool success, string err) {
+            this.InvokeIfRequired(() => {
+                Loading(false);
+                lblStatus.Text = success ?
+                    "Impresion de ticket de prueba finalizada correctamente." :
+                    $"Error: {err}";
+            });
         }
     }
 }

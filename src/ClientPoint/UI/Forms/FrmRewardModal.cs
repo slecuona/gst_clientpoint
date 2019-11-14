@@ -87,8 +87,6 @@ namespace ClientPoint.UI.Forms {
         private void btnConfim_Click(object sender, EventArgs e) {
             this.DialogResult = DialogResult.OK;
             this.Close();
-            if (_reward.IdCategory == 2)
-                return;
             Op.ExchangeRewardAsync(_reward);
         }
 

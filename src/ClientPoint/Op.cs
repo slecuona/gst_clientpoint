@@ -225,9 +225,9 @@ namespace ClientPoint {
         private static void ExchangeRewardSync(Reward r) {
             try {
                 if(r.IsTicket)
-                    r.ExchangeTicket(OnTicketPrintFinish);
+                    r.ExchangeTicket(OnRewardExchangeFinish);
                 else
-                    r.ExchangeVoucher(OnVoucherPrintFinish);
+                    r.ExchangeVoucher(OnRewardExchangeFinish);
             }
             catch (Exception e) {
                 Logger.Exception(e);
@@ -238,7 +238,7 @@ namespace ClientPoint {
             }
         }
 
-        private static void OnVoucherPrintFinish(bool success, string arg2) {
+        private static void OnRewardExchangeFinish(bool success, string arg2) {
             if (!success) {
                 SafeExec(() => {
                     MsgBox.Error("Error al canjear premio.");
@@ -253,13 +253,7 @@ namespace ClientPoint {
                 ClientLoadSync(cl.IdCard);
             });
         }
-
-        private static void OnTicketPrintFinish(bool arg1, string arg2) {
-            var cl = ClientSession.CurrClient;
-            // Vuelvo a cargar el cliente y lo llevo a la pantalla principal.
-            ClientLoadSync(cl.IdCard);
-        }
-
+        
         public static void TestBase64() {
             using (MemoryStream m = new MemoryStream()) {
                 var image = Properties.Resources.crucero;

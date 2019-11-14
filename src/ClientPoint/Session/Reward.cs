@@ -78,23 +78,27 @@ namespace ClientPoint.Session {
             DieIf(string.IsNullOrEmpty(res.ValidationNo),
                 "ValidationNo vacio.");
 
-            var tp = new TicketPrinter();
-            if(tp.TryPrint(res.TicketToPrinter, out string pErr)){
-                var resExc = ApiService.ChangeReward(new ChangeRewardRequest() {
-                    IdCard = cl.IdCard,
-                    IdReward = IdReward.ToString(),
-                    ValidationNo = res.ValidationNo
-                    
-                }, out string errMsg);
-                // TODO: Ticket invalido??
-                DieIf(!string.IsNullOrEmpty(errMsg), errMsg);
-            }
-            else {
-                var resCancel = ApiService.CancelTicketPromoPending(
-                    res.ValidationNo, out string errCancel);
-                // TODO: que pasa si no se pudo cancelar el ticket?
-                Die("Error al imprimir ticket");
-            }
+            var p = new TicketPrinter();
+            p.OnFinish = (success, errMsg) => {
+                if (success) {
+                    var resExc = ApiService.ChangeReward(new ChangeRewardRequest() {
+                        IdCard = cl.IdCard,
+                        IdReward = IdReward.ToString(),
+                        ValidationNo = res.ValidationNo
+
+                    }, out string err2);
+                    // TODO: Ticket invalido??
+                    DieIf(!string.IsNullOrEmpty(err2), err2);
+                    onFinish?.Invoke(true, null);
+                }
+                else {
+                    var resCancel = ApiService.CancelTicketPromoPending(
+                        res.ValidationNo, out string errCancel);
+                    // TODO: que pasa si no se pudo cancelar el ticket?
+                    onFinish?.Invoke(false, "No se pudo imprimir el Ticket.");
+                }
+            };
+            p.PrintAsync(res.TicketToPrinter);
         }
     }
 }

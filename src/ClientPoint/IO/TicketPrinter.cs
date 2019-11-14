@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO.Ports;
+using System.Threading;
+using static ClientPoint.Utils.ExUtils;
 
 namespace ClientPoint.IO {
 
@@ -20,14 +23,52 @@ namespace ClientPoint.IO {
             Config.TicketPrinterStopBits;
         protected override Handshake Handshake => 
             Config.TicketPrinterHandshake;
+        
+        public Action<bool, string> OnFinish;
+
+        // Mando a imprimir tal cual viene de la API
+        private string Ticket;
 
         public TicketPrinter() { }
-        
-        // Mando a imprimir tal cual viene de la API
-        public bool TryPrint(string t, out string errMsg) {
-            return base.TryWrite(t, out errMsg);
+
+        public void PrintAsync(string ticket) {
+            DieIf(string.IsNullOrEmpty(ticket), $"Ticket null or empty.");
+            Ticket = ticket;
+            var t = new Thread(Print);
+            t.Start();
         }
-        
+
+        private void Print() {
+            var success = base.TryWrite(Ticket, out string errMsg);
+            if (!success) {
+                OnFinish?.Invoke(false, errMsg);
+                return;
+            }
+
+            string s = null;
+            while (true) {
+                var status = GetStatus(out s);
+                if (status.Contains(TicketPrinterState.PAPER_IN_CHUTE)) {
+                    Thread.Sleep(1000);
+                    continue;
+                }
+
+                if (status.Contains(TicketPrinterState.SYS_ERROR)) {
+                    OnFinish?.Invoke(false, 
+                        "Error impresion de ticket. (sys_error)");
+                    return;
+                }
+
+                if (status.Contains(TicketPrinterState.OK) ||
+                    // Si esta vacio, asumimos que dio error, pero imprimio OK.
+                    status.Contains(TicketPrinterState.EMPTY)) {
+                    break;
+                }
+            }
+
+            OnFinish?.Invoke(true, null);
+        }
+
         private bool TryGetStatus(out string status) {
             return TrySendCmd("^Se|^", out status);
         }
