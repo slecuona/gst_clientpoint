@@ -53,11 +53,16 @@ namespace Tests {
             TicketPrinter.ParseStatus(standBy, ref s3);
             Assert.IsTrue(s3.Contains(TicketPrinterState.OK));
 
-            const string afterPrint = "*S|0|GRUSA4100|T|P|@|P9|*";
+            const string afterPrint = "*S|0|GRUSA4100|@|@|H|A|Q|P |*";
             var s4 = new List<TicketPrinterState>();
             TicketPrinter.ParseStatus(afterPrint, ref s4);
             Assert.IsTrue(s4.Contains(TicketPrinterState.PAPER_IN_CHUTE));
-            
+
+
+            const string paperLow = "*S|0|GRUSA4100|@|@|@|A|A|P |*";
+            var s5 = new List<TicketPrinterState>();
+            TicketPrinter.ParseStatus(paperLow, ref s5);
+            Assert.IsTrue(s5.Contains(TicketPrinterState.ALMOST_EMPTY));
         }
     }
 }

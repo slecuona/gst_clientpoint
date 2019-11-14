@@ -29,7 +29,7 @@ namespace ClientPoint.IO {
         }
         
         private bool TryGetStatus(out string status) {
-            return TrySendCmd("^S|^", out status);
+            return TrySendCmd("^Se|^", out status);
         }
 
         public List<TicketPrinterState> GetStatus(out string statusStr) {
@@ -83,6 +83,11 @@ namespace ClientPoint.IO {
             var flag3 = items[5][0];
             if (IsBitSet((byte)flag3, 3))
                 states.Add(TicketPrinterState.PAPER_IN_CHUTE);
+
+
+            var flag4 = items[6][0];
+            if (IsBitSet((byte)flag4, 0))
+                states.Add(TicketPrinterState.ALMOST_EMPTY);
         }
 
     }
