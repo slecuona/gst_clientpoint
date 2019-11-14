@@ -276,23 +276,20 @@ namespace ClientPoint.UI.Forms {
         }
 
         private void btnVoucher_Click(object sender, EventArgs e) {
-            //lblStatus.Text = "Imprimiendo voucher";
-            //if (VoucherPrinter.TryPrintRaw(Config.TEST_VOUCHER, out string err))
-            //    lblStatus.Text = "Voucher listo!";
-            //else
-            //    lblStatus.Text = $"Error al imprimir voucher: {err}";
-
+            lblStatus.Text = "Imprimiendo voucher de prueba...";
+            Loading(true);
             var p = new VoucherPrinter();
-            if (p.TryPrint(Config.TEST_VOUCHER, out string err))
-                lblStatus.Text = "Voucher listo!";
-            else
-                lblStatus.Text = $"Error al imprimir voucher: {err}";
+            p.OnFinish += OnPrintVoucherFinish;
+            p.PrintAsync(Config.TEST_VOUCHER);
+        }
 
-            //var p = new VoucherPrinter();
-            //if (p.TryGetSerialStatus(out string st))
-            //    lblStatus.Text = $"Estado: {st}";
-            //else
-            //    lblStatus.Text = $"Err GetStatus";
+        private void OnPrintVoucherFinish(bool success, string err) {
+            this.InvokeIfRequired(() => {
+                Loading(false);
+                lblStatus.Text = success ? 
+                    "Impresion de voucher de prueba finalizada correctamente." :
+                    $"Error: {err}";
+            });
         }
 
         private void btnTicket_Click(object sender, EventArgs e) {

@@ -39,14 +39,15 @@ namespace ClientPoint.Session {
 
         public bool IsTicket => IdCategory == 2;
 
-        public void Exchange() {
-            if (IsTicket)
-                ExchangeTicket();
-            else
-                ExchangeVoucher();
-        }
+        //public void Exchange() {
+        //    if (IsTicket)
+        //        ExchangeTicket();
+        //    else
+        //        ExchangeVoucher();
+        //}
 
-        private void ExchangeVoucher() {
+        public void ExchangeVoucher(Action<bool, string> onFinish) {
+            DieIf(IsTicket, "Reward debe ser tipo voucher.");
             var cl = ClientSession.CurrClient;
             var res = ApiService.ChangeReward(new ChangeRewardRequest() {
                 IdCard = cl.IdCard,
@@ -59,12 +60,13 @@ namespace ClientPoint.Session {
 
             DieIf(string.IsNullOrEmpty(voucher), "Voucher vacio.");
 
-            //var success = VoucherPrinterOld.TryPrintRaw(voucher, out string err);
-            //DieIf(!success, err);
-            //Thread.Sleep(2000);
+            var p = new VoucherPrinter();
+            p.OnFinish = onFinish;
+            p.PrintAsync(voucher);
         }
 
-        private void ExchangeTicket() {
+        public void ExchangeTicket(Action<bool, string> onFinish) {
+            DieIf(!IsTicket, "Reward debe ser ticket promocional.");
             var cl = ClientSession.CurrClient;
             var res = ApiService.ExchangeTicketPromoPending(
                 AmountPromotion, out string err);

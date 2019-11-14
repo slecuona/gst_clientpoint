@@ -29,12 +29,37 @@ namespace ClientPoint.IO {
         protected override Handshake Handshake =>
             Config.VoucherPrinterHandshake;
 
+
+        public Action<bool, string> OnFinish;
+
+        private string Ticket;
+
         public VoucherPrinter() { }
-        
-        // Mando a imprimir tal cual viene de la API
-        public bool TryPrint(string t, out string errMsg) {
-            return base.TryWrite(t, out errMsg);
+
+        public void PrintAsync(string tkt) {
+            DieIf(string.IsNullOrEmpty(tkt), $"Ticket null or empty.");
+            // Mando a imprimir tal cual viene de la API
+            Ticket = tkt;
+            var t = new Thread(Print);
+            t.Start();
         }
+
+        private void Print() {
+            var success = base.TryWrite(Ticket, out string errMsg);
+            if (!success) {
+                OnFinish?.Invoke(false, errMsg);
+                return;
+            }
+
+            var status = GetStatus();
+            if (status.Contains(VoucherPrinterState.PRINT_STOPPED)) {
+                OnFinish?.Invoke(false, "La impresora no pudo imprimir el voucher.");
+                return;
+            }
+
+            OnFinish?.Invoke(true, null);
+        }
+
         
         // https://reliance-escpos-commands.readthedocs.io/en/latest/realtime_status.html
 

@@ -224,17 +224,40 @@ namespace ClientPoint {
 
         private static void ExchangeRewardSync(Reward r) {
             try {
-                var cl = ClientSession.CurrClient;
-                r.Exchange();
-
-                // Vuelvo a cargar el cliente y lo llevo a la pantalla principal.
-                ClientLoadSync(cl.IdCard);
+                if(r.IsTicket)
+                    r.ExchangeTicket(OnTicketPrintFinish);
+                else
+                    r.ExchangeVoucher(OnVoucherPrintFinish);
             }
             catch (Exception e) {
                 Logger.Exception(e);
-                MsgBox.Error("Error al canjear premio.");
-                ShowWindow(Window.Ads);
+                SafeExec(() => {
+                    MsgBox.Error("Error al canjear premio.");
+                    ShowWindow(Window.Ads);
+                });
             }
+        }
+
+        private static void OnVoucherPrintFinish(bool success, string arg2) {
+            if (!success) {
+                SafeExec(() => {
+                    MsgBox.Error("Error al canjear premio.");
+                    ShowWindow(Window.Ads);
+                });
+                return;
+            }
+
+            var cl = ClientSession.CurrClient;
+            // Vuelvo a cargar el cliente y lo llevo a la pantalla principal.
+            SafeExec(() => {
+                ClientLoadSync(cl.IdCard);
+            });
+        }
+
+        private static void OnTicketPrintFinish(bool arg1, string arg2) {
+            var cl = ClientSession.CurrClient;
+            // Vuelvo a cargar el cliente y lo llevo a la pantalla principal.
+            ClientLoadSync(cl.IdCard);
         }
 
         public static void TestBase64() {
