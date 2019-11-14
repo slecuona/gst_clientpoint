@@ -66,7 +66,7 @@ namespace ClientPoint.UI.Views
             // imgHost
             // 
             this.imgHost.Location = new System.Drawing.Point(300, 200);
-            this.imgHost.Size = new Size(500, 300);
+            this.imgHost.Size = new Size(480, 300);
             this.imgHost.Name = "imgHost";
             this.imgHost.TabIndex = 1;
             this.imgHost.TabStop = false;

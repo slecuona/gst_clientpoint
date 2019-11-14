@@ -31,10 +31,10 @@ namespace ClientPoint.UI.Views
         private void InitializeComponent()
         {
             this.imgBox = new System.Windows.Forms.PictureBox();
-            this.headerPanel1 = new ClientPoint.UI.HeaderPanel();
+            //this.headerPanel1 = new ClientPoint.UI.HeaderPanel();
             this.btnBack = new CustomButton();
             ((System.ComponentModel.ISupportInitialize)(this.imgBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.headerPanel1)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.headerPanel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,16 +50,16 @@ namespace ClientPoint.UI.Views
             this.imgBox.TabIndex = 3;
             this.imgBox.TabStop = false;
             imgBox.SizeMode = PictureBoxSizeMode.CenterImage;
-            // 
-            // headerPanel1
-            // 
-            this.headerPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.headerPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.headerPanel1.Location = new System.Drawing.Point(0, 0);
-            this.headerPanel1.Name = "headerPanel1";
-            this.headerPanel1.Size = new System.Drawing.Size(1366, 80);
-            this.headerPanel1.TabIndex = 4;
-            this.headerPanel1.Title = "";
+            //// 
+            //// headerPanel1
+            //// 
+            //this.headerPanel1.BackColor = System.Drawing.Color.Transparent;
+            //this.headerPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            //this.headerPanel1.Location = new System.Drawing.Point(0, 0);
+            //this.headerPanel1.Name = "headerPanel1";
+            //this.headerPanel1.Size = new System.Drawing.Size(1366, 80);
+            //this.headerPanel1.TabIndex = 4;
+            //this.headerPanel1.Title = "";
             // 
             // btnBack
             // 
@@ -73,7 +73,7 @@ namespace ClientPoint.UI.Views
             // 
             // 
             // 
-            this.panelContainer.Controls.Add(this.headerPanel1);
+            //this.panelContainer.Controls.Add(this.headerPanel1);
             this.panelContainer.Controls.Add(this.btnBack);
             this.panelContainer.Controls.Add(this.imgBox);
             this.Name = "StatusView";
@@ -82,7 +82,7 @@ namespace ClientPoint.UI.Views
             // 
             this.Text = "StatusView";
             ((System.ComponentModel.ISupportInitialize)(this.imgBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.headerPanel1)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.headerPanel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).EndInit();
             this.ResumeLayout(false);
 
@@ -91,7 +91,7 @@ namespace ClientPoint.UI.Views
         #endregion
 
         private PictureBox imgBox;
-        private HeaderPanel headerPanel1;
+        //private HeaderPanel headerPanel1;
         private CustomButton btnBack;
     }
 }

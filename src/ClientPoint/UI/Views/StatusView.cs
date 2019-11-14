@@ -19,22 +19,22 @@ namespace ClientPoint.UI.Views
             //TODO: Faltan los GIFS
             if (st == States.PrintingCard) {
                 imgBox.Image = Properties.Resources.print;
-                headerPanel1.Title = "Imprimiendo tarjeta...";
+                headerPanel.Title = "Imprimiendo tarjeta...";
                 return;
             }
             if (st == States.RemoveCard) {
                 imgBox.Image = Properties.Resources.card;
-                headerPanel1.Title = "Tarjeta lista! retírela por favor.";
+                headerPanel.Title = "Tarjeta lista! retírela por favor.";
                 return;
             }
             if (st == States.PrintingVoucher) {
                 imgBox.Image = Properties.Resources.print;
-                headerPanel1.Title = "Imprimiendo voucher...";
+                headerPanel.Title = "Imprimiendo voucher...";
                 return;
             }
             if (st == States.PrintingTicket) {
                 imgBox.Image = Properties.Resources.print;
-                headerPanel1.Title = "Imprimiendo ticket de promoción...";
+                headerPanel.Title = "Imprimiendo ticket de promoción...";
                 return;
             }
         }
