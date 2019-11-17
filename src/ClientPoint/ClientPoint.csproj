@@ -683,5 +683,8 @@
   <ItemGroup>
     <None Include="Resources\idle.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -46,17 +46,18 @@ namespace ClientPoint.IO {
             }
 
             string s = null;
+            var tries = 0;
             while (true) {
+                tries++;
+                Thread.Sleep(500);
                 var status = GetStatus(out s);
                 if (status.Contains(TicketPrinterState.PAPER_IN_CHUTE)) {
-                    Thread.Sleep(1000);
                     continue;
                 }
 
-                if (status.Contains(TicketPrinterState.SYS_ERROR)) {
-                    OnFinish?.Invoke(false, 
-                        "Error impresion de ticket. (sys_error)");
-                    return;
+                if (tries > 20) {
+                    // Quiere decir que paso al menos 10 segundos sin respuesta valida.
+                    OnFinish?.Invoke(false, "No se pudo imprimir el ticket. (timeout)");
                 }
 
                 if (status.Contains(TicketPrinterState.OK) ||
@@ -64,6 +65,12 @@ namespace ClientPoint.IO {
                     status.Contains(TicketPrinterState.EMPTY)) {
                     break;
                 }
+
+                //if (status.Contains(TicketPrinterState.SYS_ERROR)) {
+                //    OnFinish?.Invoke(false, 
+                //        "Error impresion de ticket. (sys_error)");
+                //    return;
+                //}
             }
 
             OnFinish?.Invoke(true, null);

@@ -16,24 +16,25 @@ namespace ClientPoint.UI.Views
 
         public void SetState(States st) {
             btnBack.Visible = false;
-            //TODO: Faltan los GIFS
             if (st == States.PrintingCard) {
+                //TODO: Falta este GIF...
                 imgBox.Image = Properties.Resources.print;
                 headerPanel.Title = "Imprimiendo tarjeta...";
                 return;
             }
             if (st == States.RemoveCard) {
-                imgBox.Image = Properties.Resources.card;
+                imgBox.Image = Properties.Resources.remove_card;
                 headerPanel.Title = "Tarjeta lista! retírela por favor.";
                 return;
             }
             if (st == States.PrintingVoucher) {
-                imgBox.Image = Properties.Resources.print;
+                //TODO: por ahora queda el mismo que ticket
+                imgBox.Image = Properties.Resources.remove_ticket;
                 headerPanel.Title = "Imprimiendo voucher...";
                 return;
             }
             if (st == States.PrintingTicket) {
-                imgBox.Image = Properties.Resources.print;
+                imgBox.Image = Properties.Resources.remove_ticket;
                 headerPanel.Title = "Imprimiendo ticket de promoción...";
                 return;
             }

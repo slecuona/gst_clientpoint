@@ -45,7 +45,7 @@ namespace ClientPoint.UI.Views
             //this.imgBox.Dock = DockStyle.Fill;
             this.imgBox.BackColor = System.Drawing.Color.Transparent;
             this.imgBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.imgBox.Image = global::ClientPoint.Properties.Resources.swipe_card;
+            this.imgBox.Image = global::ClientPoint.Properties.Resources.printer;
             this.imgBox.Location = new System.Drawing.Point(1050, 180);
             this.imgBox.Name = "imgBox";
             this.imgBox.Size = new System.Drawing.Size(250, 400);
