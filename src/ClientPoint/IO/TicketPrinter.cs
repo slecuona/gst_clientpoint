@@ -47,6 +47,7 @@ namespace ClientPoint.IO {
 
             string s = null;
             var tries = 0;
+            var maxTries = Config.DebugMode ? 10 : 20;
             while (true) {
                 tries++;
                 Thread.Sleep(500);
@@ -55,7 +56,7 @@ namespace ClientPoint.IO {
                     continue;
                 }
 
-                if (tries > 20) {
+                if (tries > maxTries) {
                     // Quiere decir que paso al menos 10 segundos sin respuesta valida.
                     OnFinish?.Invoke(false, "No se pudo imprimir el ticket. (timeout)");
                 }

@@ -78,7 +78,8 @@ namespace ClientPoint.IO {
 
             var success = false;
             var tries = 0;
-            while (tries < 5) {
+            var maxTries = Config.DebugMode ? 2 : 5;
+            while (tries < maxTries) {
                 tries++;
                 success = TryGetSerialStatus(out var res);
                 if (success)
