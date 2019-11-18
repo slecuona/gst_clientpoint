@@ -7,7 +7,9 @@ namespace ClientPoint.UI.Forms
 {
     public enum MsgType {
         Info = 0,
-        Error = 1
+        Error = 1,
+        Sms = 2,
+        Email = 3
     }
 
     public partial class FrmMessage : Telerik.WinControls.UI.RadForm
@@ -24,6 +26,12 @@ namespace ClientPoint.UI.Forms
                     break;
                 case MsgType.Error:
                     lblIcon.Image = Properties.Resources.error;
+                    break;
+                case MsgType.Sms:
+                    lblIcon.Image = Properties.Resources.sms;
+                    break;
+                case MsgType.Email:
+                    lblIcon.Image = Properties.Resources.email;
                     break;
             }
 

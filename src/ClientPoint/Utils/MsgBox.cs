@@ -22,6 +22,14 @@ namespace ClientPoint.Utils {
             PrepareAndShow(msg, MsgType.Error);
         }
 
+        public static void Sms(string msg) {
+            PrepareAndShow(msg, MsgType.Sms);
+        }
+
+        public static void Email(string msg) {
+            PrepareAndShow(msg, MsgType.Email);
+        }
+
         public static bool Confirm(Form owner, string msg, string title = "") {
             // Safe thread
             if (owner != null && owner.InvokeRequired) {

@@ -43,7 +43,7 @@ namespace ClientPoint.UI.Forms
             // 
             this.lblMessage.BackColor = System.Drawing.Color.Transparent;
             this.lblMessage.ForeColor = System.Drawing.Color.White;
-            this.lblMessage.Location = new System.Drawing.Point(100, 0);
+            this.lblMessage.Location = new System.Drawing.Point(120, 0);
             this.lblMessage.Name = "lblMessage";
             this.lblMessage.Padding = new System.Windows.Forms.Padding(40, 55, 20, 20);
             this.lblMessage.Size = new System.Drawing.Size(62, 77);
@@ -54,14 +54,14 @@ namespace ClientPoint.UI.Forms
             // 
             this.lblIcon.BackColor = System.Drawing.Color.Transparent;
             this.lblIcon.Image = global::ClientPoint.Properties.Resources.info;
-            this.lblIcon.Location = new System.Drawing.Point(20, 20);
+            this.lblIcon.Location = new System.Drawing.Point(30, 25);
             this.lblIcon.Name = "lblIcon";
             this.lblIcon.Size = new System.Drawing.Size(82, 82);
             this.lblIcon.TabIndex = 2;
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(150, 120);
+            this.btnOk.Location = new System.Drawing.Point(150, 140);
             this.btnOk.Name = "btnOk";
             this.btnOk.TabIndex = 3;
             this.btnOk.TabStop = false;
@@ -75,7 +75,7 @@ namespace ClientPoint.UI.Forms
             //this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(186)))), ((int)(((byte)(226)))));
             //this.BackgroundImage = global::ClientPoint.Properties.Resources.bg_light;
             //this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(516, 220);
+            this.ClientSize = new System.Drawing.Size(550, 250);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.lblIcon);
             this.Controls.Add(this.lblMessage);

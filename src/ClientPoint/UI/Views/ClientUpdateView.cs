@@ -33,9 +33,17 @@ namespace ClientPoint.UI.Views {
             var sucess = ApiService.ClientUpdate(CreateRequest, out errMsg);
             if (!sucess) return false;
 
-            MsgBox.Show(
-                "Datos actualizados correctamente. " +
-                "Se ha enviado el código de confirmación.");
+            var byMail = !string.IsNullOrEmpty(EmailValue);
+            if (byMail) {
+                MsgBox.Email(
+                    "Datos actualizados correctamente.\n" +
+                    "Se ha enviado el código de confirmación a su casilla de correo.");
+            }
+            else {
+                MsgBox.Sms(
+                    "Datos actualizados correctamente.\n" +
+                    "Se ha enviado el código de confirmación por SMS a su celular.");
+            }
             //UIManager.ShowWindow(Window.Confirm);
             UIManager.ShowView(View.Confirm);
             return true;
