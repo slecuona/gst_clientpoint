@@ -28,7 +28,7 @@ namespace ClientPoint.UI.Views
         private void InitializeComponent()
         {
             this.fldEmail = new CustomField();
-            this.fldCellphone = new CustomField();
+            this.fldCellphone = new CellphoneField();
             this.SuspendLayout();
             this.dialogPanel.Controls.Add(this.fldEmail);
             this.dialogPanel.Controls.Add(this.fldCellphone);
@@ -47,11 +47,9 @@ namespace ClientPoint.UI.Views
             this.fldCellphone.Label = "Nr. Celular";
             this.fldCellphone.Location = new System.Drawing.Point(350, 175);
             this.fldCellphone.Name = "fldCellphone";
-            this.fldCellphone.Password = false;
             this.fldCellphone.Size = new System.Drawing.Size(615, 53);
             this.fldCellphone.TabIndex = 2;
             this.fldCellphone.Value = "";
-            this.fldCellphone.Keyboard = Keyboard.Num;
 
             this.Name = "ClientUpdateView";
             // 
@@ -64,6 +62,6 @@ namespace ClientPoint.UI.Views
         #endregion
         
         private CustomField fldEmail;
-        private CustomField fldCellphone;
+        private CellphoneField fldCellphone;
     }
 }
