@@ -18,7 +18,7 @@ namespace ClientPoint.UI.Views
             btnBack.Visible = false;
             if (st == States.PrintingCard) {
                 //TODO: Falta este GIF...
-                imgBox.Image = Properties.Resources.print;
+                imgBox.Image = Properties.Resources.printing_card;
                 headerPanel.Title = "Imprimiendo tarjeta...";
                 return;
             }

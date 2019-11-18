@@ -686,5 +686,14 @@
   <ItemGroup>
     <None Include="Resources\printer.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove_ticket.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove_card.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printing_card.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

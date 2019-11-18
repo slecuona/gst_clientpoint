@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using AxWMPLib;
 using ClientPoint.Ads;
 using ClientPoint.Session;
+using ClientPoint.UI.Views;
 
 namespace ClientPoint.UI.Forms {
     public partial class FrmAds : FrmBase, IMessageFilter {
