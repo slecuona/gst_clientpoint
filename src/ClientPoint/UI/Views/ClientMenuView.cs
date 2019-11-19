@@ -24,12 +24,13 @@ namespace ClientPoint.UI.Views
         }
         
         private void btnBack_Click(object sender, EventArgs e) {
+            ClientSession.Clear();
             UIManager.ShowWindow(Window.Ads);
         }
 
         public override void BeforeShow() {
             UIManager.SetKeyboard(Keyboard.None);
-
+            
             var cl = ClientSession.CurrClient;
 
             lblName.Text = $"{cl?.Name} {cl?.LastName}".ToCamelCase();
@@ -37,6 +38,12 @@ namespace ClientPoint.UI.Views
             lblCard.Text = cl?.IdCard;
 
             base.BeforeShow();
+        }
+
+        public override void AfterHide() {
+            lblName.Text = "-";
+            lblPoints.Text = "-";
+            lblCard.Text = "-";
         }
 
         private void LblWelcomeOnDoubleClick(object sender, EventArgs e) {

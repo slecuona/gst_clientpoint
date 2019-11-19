@@ -188,12 +188,13 @@ namespace ClientPoint {
         }
 
         public static void ClientLoadAsync(string idCard) {
-            Debug.WriteLine($"Card Swiped: {idCard}");
+            Logger.DebugWrite($"Card Swiped: {idCard}");
             var t = new Thread(() => ClientLoadSync(idCard));
             t.Start();
         }
 
         private static void ClientLoadSync(string idCard) {
+            ClientSession.Clear();
             var res = ApiService.ClientLoad(new ClientLoadRequest() {
                 IdCard = idCard
             }, out string errMsg);

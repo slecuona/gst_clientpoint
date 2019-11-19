@@ -130,8 +130,10 @@ namespace ClientPoint.UI {
         }
 
         public static void ShowView(View toShow) {
-            var w = _views[toShow].GetParentWindow();
-            ShowWindow(w);
+            if (toShow != View.None) {
+                var w = _views[toShow].GetParentWindow();
+                ShowWindow(w);
+            }
 
             var prev = CurrView;
             if (prev != toShow) {
@@ -144,9 +146,11 @@ namespace ClientPoint.UI {
                             _views[prev].AfterHide();
                         }
                         GetCurrentWindow().Refresh();
-                        _views[toShow].BeforeShow();
-                        _views[toShow].Visible = true;
-                        _views[toShow].AfterShow();
+                        if (toShow != View.None) {
+                            _views[toShow].BeforeShow();
+                            _views[toShow].Visible = true;
+                            _views[toShow].AfterShow();
+                        }
                     } catch (Exception e) {
                         Logger.Exception(e);
                     }

@@ -36,6 +36,7 @@ namespace ClientPoint {
             _data = _buff;
             _buff = "";
             _onSwipe?.Invoke(_data);
+            _data = "";
         }
     }
 }

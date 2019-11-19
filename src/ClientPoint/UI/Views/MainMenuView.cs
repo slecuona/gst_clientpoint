@@ -1,4 +1,5 @@
 ﻿using System;
+using ClientPoint.Session;
 using ClientPoint.Utils;
 
 namespace ClientPoint.UI.Views
@@ -36,6 +37,7 @@ namespace ClientPoint.UI.Views
         }
 
         public override void BeforeShow() {
+            ClientSession.Clear();
             UIManager.SetKeyboard(Keyboard.None);
             base.BeforeShow();
         }

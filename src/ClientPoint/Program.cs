@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Threading;
 using System.Windows.Forms;
 using ClientPoint.UI;
 using ClientPoint.Utils;
@@ -34,6 +35,8 @@ namespace ClientPoint {
                 //Op.TestBase64();
 
                 UIManager.ShowWindow(Window.Ads);
+                Thread.Sleep(1000);
+                UIManager.GetActiveForm().Activate();
                 
                 // Pantalla principal / inicial (publicidades)
                 Application.Run(UIManager.Get(Window.Ads));

@@ -37,6 +37,10 @@ namespace ClientPoint.UI.Forms
             base.BeforeShow();
         }
 
+        public override void AfterHide() {
+            UIManager.ShowView(View.None);
+        }
+
         protected override void WndProc(ref Message m) {
             //Console.WriteLine($"FrmMain Msg: {m.Msg}");
             if (NativeMethods.IsActiveMsg(m.Msg)) {
