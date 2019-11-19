@@ -17,7 +17,6 @@ namespace ClientPoint.UI.Views
         public void SetState(States st) {
             btnBack.Visible = false;
             if (st == States.PrintingCard) {
-                //TODO: Falta este GIF...
                 imgBox.Image = Properties.Resources.printing_card;
                 headerPanel.Title = "Imprimiendo tarjeta...";
                 return;
@@ -28,8 +27,7 @@ namespace ClientPoint.UI.Views
                 return;
             }
             if (st == States.PrintingVoucher) {
-                //TODO: por ahora queda el mismo que ticket
-                imgBox.Image = Properties.Resources.remove_ticket;
+                imgBox.Image = Properties.Resources.remove_coupon;
                 headerPanel.Title = "Imprimiendo voucher...";
                 return;
             }

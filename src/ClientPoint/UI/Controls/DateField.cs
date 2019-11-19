@@ -3,15 +3,20 @@ using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
 using ClientPoint.Utils;
+using Telerik.WinControls.UI;
 
 namespace ClientPoint.UI.Controls {
     public partial class DateField : UserControl {
         public DateField() {
             InitializeComponent();
-
+            
             txtDay.GotFocus += TxtOnGotFocus;
             txtMonth.GotFocus += TxtOnGotFocus;
             txtYear.GotFocus += TxtOnGotFocus;
+
+            txtDay.LostFocus += TxtOnLostFocus;
+            txtMonth.LostFocus += TxtOnLostFocus;
+            txtYear.LostFocus += TxtOnLostFocus;
 
             txtDay.Click += TxtOnClick;
             txtMonth.Click += TxtOnClick;
@@ -24,6 +29,12 @@ namespace ClientPoint.UI.Controls {
             txtDay.Validated += TxtDayOnValidated;
             txtMonth.Validated += TxtMonthOnValidated;
             txtYear.Validated += TxtYearOnValidated;
+        }
+
+        private void TxtOnLostFocus(object sender, EventArgs e) {
+            if (sender is RadTextBox txt) {
+                txt.BackColor = Color.White;
+            }
         }
 
         private void TxtYearOnValidated(object sender, EventArgs e) {
@@ -88,6 +99,10 @@ namespace ClientPoint.UI.Controls {
         }
 
         private void TxtOnGotFocus(object sender, EventArgs e) {
+            if (sender is RadTextBox txt) {
+                txt.BackColor = Config.FocusColor;
+            }
+
             UIManager.SetNumKeyboardCenter(false);
             UIManager.SetKeyboard(Keyboard.Num);
         }

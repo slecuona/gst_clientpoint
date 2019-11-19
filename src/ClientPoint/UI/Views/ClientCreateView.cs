@@ -79,10 +79,17 @@ namespace ClientPoint.UI.Views {
 
             var sucess = ApiService.ClientCreate(CreateRequest, out errMsg);
             if (!sucess) return false;
-            
-            MsgBox.Show(
-                "Cliente creado correctamente. " +
-                "Se ha enviado el código de confirmación.");
+
+            var byMail = !string.IsNullOrEmpty(EmailValue);
+            if (byMail) {
+                MsgBox.Email(
+                    "Cliente creado correctamente.\n" +
+                    "Se ha enviado el código de confirmación a su casilla de correo.");
+            } else {
+                MsgBox.Sms(
+                    "Cliente creado correctamente.\n" +
+                    "Se ha enviado el código de confirmación por SMS a su celular.");
+            }
 
             // Cargo la password ingresada para enviar en el request
             // de confirmacion
@@ -130,6 +137,8 @@ namespace ClientPoint.UI.Views {
             InitStepOne();
 
             UIManager.SetKeyboard(Keyboard.None);
+
+            base.BeforeShow();
         }
 
         public override void AfterShow() {

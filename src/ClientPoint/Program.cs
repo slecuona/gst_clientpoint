@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using ClientPoint.UI;
 using ClientPoint.Utils;
 using Telerik.WinControls;
+using View = ClientPoint.UI.View;
 
 namespace ClientPoint {
     static class Program {
@@ -34,12 +35,13 @@ namespace ClientPoint {
 
                 //Op.TestBase64();
 
-                UIManager.ShowWindow(Window.Ads);
-                Thread.Sleep(1000);
-                UIManager.GetActiveForm().Activate();
-                
+                UIManager.ShowView(View.MainMenu);
+                //Thread.Sleep(1000);
+                var frm = UIManager.GetActiveForm();
+                frm?.Activate();
+
                 // Pantalla principal / inicial (publicidades)
-                Application.Run(UIManager.Get(Window.Ads));
+                Application.Run(frm);
             }
             catch (Exception ex) {
                 Logger.Exception(ex);

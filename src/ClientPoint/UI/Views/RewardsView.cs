@@ -66,6 +66,7 @@ namespace ClientPoint.UI.Views
             _rewards = null;
             _lastBtnCatergoryY = 0;
             container.Controls.Clear();
+            base.BeforeShow();
         }
 
         private void LoadRewardsAsync() {

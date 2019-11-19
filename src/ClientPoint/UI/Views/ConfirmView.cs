@@ -50,6 +50,8 @@ namespace ClientPoint.UI.Views {
         public override void BeforeShow() {
             // Reset del form
             fldCode.Value = null;
+
+            base.BeforeShow();
         }
 
         public override void AfterShow() {

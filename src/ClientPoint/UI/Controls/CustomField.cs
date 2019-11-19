@@ -14,9 +14,14 @@ namespace ClientPoint.UI.Controls {
         public CustomField() {
             InitializeComponent();
             radTextBox1.GotFocus += RadTextBox1OnGotFocus;
+            radTextBox1.LostFocus += RadTextBox1OnLostFocus;
             radTextBox1.TextChanged += RadTextBox1OnTextChanged;
             btnClear.Click += BtnClearOnClick;
             btnViewPass.Click += BtnViewPassOnClick;
+        }
+
+        private void RadTextBox1OnLostFocus(object sender, EventArgs e) {
+            this.radTextBox1.BackColor = Color.White;
         }
 
         private void BtnViewPassOnClick(object sender, EventArgs e) {
@@ -78,6 +83,8 @@ namespace ClientPoint.UI.Controls {
         private void RadTextBox1OnGotFocus(object sender, EventArgs e) {
             RefreshBtnClear();
             RefreshBtnViewPass();
+            if(!radTextBox1.ReadOnly)
+                this.radTextBox1.BackColor = Config.FocusColor;
             // En este caso, no forzamos el ocultamiento de los teclados.
             if (Keyboard == Keyboard.None)
                 return;

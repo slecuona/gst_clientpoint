@@ -42,6 +42,11 @@ namespace ClientPoint.UI.Views
             base.BeforeShow();
         }
 
+        public override void AfterShow() {
+            IdleTimer.Enabled = true;
+            base.AfterShow();
+        }
+
         private void LblWelcomeOnDoubleClick(object sender, EventArgs e) {
             UIManager.ShowWindow(Window.Ads);
         }

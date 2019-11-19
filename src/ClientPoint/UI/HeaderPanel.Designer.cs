@@ -52,6 +52,7 @@ namespace ClientPoint.UI {
             this.lblError.Dock = DockStyle.None;
             this.lblError.BackgroundImage = Properties.Resources.error;
             this.lblError.BackgroundImageLayout = ImageLayout.Stretch;
+            this.lblError.Visible = false;
             //
             // lblImg
             // 

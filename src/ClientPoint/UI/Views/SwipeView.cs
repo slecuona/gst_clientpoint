@@ -23,6 +23,8 @@ namespace ClientPoint.UI.Views
         public override void BeforeShow() {
             imgBox.Visible = true;
             this.ParentForm.KeyDown += ParentFormOnKeyDown;
+
+            base.BeforeShow();
         }
 
         private void ParentFormOnKeyDown(object sender, KeyEventArgs e) {

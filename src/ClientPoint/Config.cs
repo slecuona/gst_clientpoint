@@ -160,6 +160,9 @@ namespace ClientPoint {
 
         public static Color LightBlue = 
             Color.FromArgb(80, 186, 226);
-        
+
+
+        public static Color FocusColor =
+            Color.FromArgb(246, 239, 121);
     }
 }

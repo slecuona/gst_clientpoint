@@ -701,5 +701,8 @@
   <ItemGroup>
     <None Include="Resources\sms.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove_coupon.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

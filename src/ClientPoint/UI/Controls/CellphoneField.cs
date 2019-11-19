@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using ClientPoint.Utils;
+using Telerik.WinControls.UI;
 
 namespace ClientPoint.UI.Controls {
     public partial class CellphoneField : UserControl {
@@ -10,6 +11,9 @@ namespace ClientPoint.UI.Controls {
 
             txtCod.GotFocus += TxtOnGotFocus;
             txtNum.GotFocus += TxtOnGotFocus;
+            
+            txtCod.LostFocus += TxtOnLostFocus;
+            txtNum.LostFocus += TxtOnLostFocus;
 
             txtCod.Click += TxtOnClick;
             txtNum.Click += TxtOnClick;
@@ -19,6 +23,12 @@ namespace ClientPoint.UI.Controls {
 
             txtCod.Validated += TxtCodOnValidated;
             txtNum.Validated += TxtNumOnValidated;
+        }
+        
+        private void TxtOnLostFocus(object sender, EventArgs e) {
+            if (sender is RadTextBox txt) {
+                txt.BackColor = Color.White;
+            }
         }
         
 
@@ -63,6 +73,9 @@ namespace ClientPoint.UI.Controls {
         }
 
         private void TxtOnGotFocus(object sender, EventArgs e) {
+            if (sender is RadTextBox txt) {
+                txt.BackColor = Config.FocusColor;
+            }
             UIManager.SetNumKeyboardCenter(false);
             UIManager.SetKeyboard(Keyboard.Num);
         }

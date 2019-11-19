@@ -45,6 +45,8 @@ namespace ClientPoint.UI.Views {
         public override void BeforeShow() {
             // Reset del form
             fldPassword.Value = "";
+
+            base.BeforeShow();
         }
 
         public override void AfterShow() {

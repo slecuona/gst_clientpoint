@@ -61,6 +61,8 @@ namespace ClientPoint.UI.Views {
         public override void BeforeShow() {
             fldEmail.Value = ClientSession.CurrClient.Email;
             fldCellphone.Value = ClientSession.CurrClient.CellPhone;
+
+            base.BeforeShow();
         }
 
         public override void AfterShow() {
