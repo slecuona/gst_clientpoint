@@ -72,7 +72,7 @@ namespace ClientPoint.UI.Views
             this.imgHost.TabStop = false;
             this.imgHost.AutoSize = false;
             this.imgHost.BackgroundImage = Config.HostLogo;
-            this.imgHost.BackgroundImageLayout = ImageLayout.Stretch;
+            this.imgHost.BackgroundImageLayout = ImageLayout.Center;
             // 
             // 
             // 
