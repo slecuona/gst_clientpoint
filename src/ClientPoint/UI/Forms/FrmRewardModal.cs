@@ -32,7 +32,7 @@ namespace ClientPoint.UI.Forms {
             lblPointsAfter.Font = FontUtils.Roboto(14, FontStyle.Bold);
             lblPointsAfterVal.Font = FontUtils.Roboto(14, FontStyle.Bold);
 
-            lblCount.Font = FontUtils.Roboto(18, FontStyle.Bold);
+            lblQuantity.Font = FontUtils.Roboto(18, FontStyle.Bold);
 
             btnPlus.Click += BtnPlusOnClick;
             btnMinus.Click += BtnMinusOnClick;
@@ -40,6 +40,12 @@ namespace ClientPoint.UI.Forms {
             lblImage.Parent = picBox1;
             lblImage.Location = new Point(15, 15);
             lblImage.Size = new Size(picBox1.Width - 30, picBox1.Height - 30);
+
+            if (!PointsEnabled) {
+                btnMinus.Left = 185;
+                btnPlus.Left = 330;
+                lblQuantity.Left = 218;
+            }
         }
 
         private void BtnMinusOnClick(object sender, EventArgs e) {
@@ -79,14 +85,16 @@ namespace ClientPoint.UI.Forms {
             LoadCountPanel(!r.IsTicket);
         }
 
+        private static bool PointsEnabled => Config.PointsEnabled;
+
         private void LoadCountPanel(bool visible) {
-            lblPointsAfter.Visible = visible;
-            lblPointsAfterVal.Visible = visible;
-            lblPointsCurr.Visible = visible;
-            lblPointsCurrVal.Visible = visible;
-            lblPointsReq.Visible = visible;
-            lblPointsReqVal.Visible = visible;
-            lblCount.Visible = visible;
+            lblPointsAfter.Visible = visible && PointsEnabled;
+            lblPointsAfterVal.Visible = visible && PointsEnabled;
+            lblPointsCurr.Visible = visible && PointsEnabled;
+            lblPointsCurrVal.Visible = visible && PointsEnabled;
+            lblPointsReq.Visible = visible && PointsEnabled;
+            lblPointsReqVal.Visible = visible && PointsEnabled;
+            lblQuantity.Visible = visible;
             btnMinus.Visible = visible;
             btnPlus.Visible = visible;
             btnCancel.Top = visible ? 485 : 400;
@@ -95,7 +103,7 @@ namespace ClientPoint.UI.Forms {
         }
 
         private void Recalc() {
-            lblCount.Text = _quantity.ToString();
+            lblQuantity.Text = _quantity.ToString();
             _pointsReq = _pointsPerUnit * _quantity;
             lblPointsReqVal.Text = $"{_pointsReq}";
             lblPointsAfterVal.Text = (_totalPoints - _pointsReq).ToString();

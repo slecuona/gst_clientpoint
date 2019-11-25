@@ -40,7 +40,7 @@ namespace ClientPoint.UI.Forms
             this.lblPointsReq = new Telerik.WinControls.UI.RadLabel();
             this.lblPointsAfter = new Telerik.WinControls.UI.RadLabel();
             this.lblPointsCurrVal = new Telerik.WinControls.UI.RadLabel();
-            this.lblCount = new Telerik.WinControls.UI.RadLabel();
+            this.lblQuantity = new Telerik.WinControls.UI.RadLabel();
             this.lblPointsReqVal = new Telerik.WinControls.UI.RadLabel();
             this.lblPointsAfterVal = new Telerik.WinControls.UI.RadLabel();
             this.btnPlus = new ClientPoint.UI.Controls.CustomButtonCount();
@@ -55,7 +55,7 @@ namespace ClientPoint.UI.Forms
             ((System.ComponentModel.ISupportInitialize)(this.lblPointsReq)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblPointsAfter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblPointsCurrVal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblCount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblPointsReqVal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblPointsAfterVal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPlus)).BeginInit();
@@ -156,16 +156,16 @@ namespace ClientPoint.UI.Forms
             // 
             // lblCount
             // 
-            this.lblCount.AutoSize = false;
-            this.lblCount.BackColor = System.Drawing.Color.Transparent;
-            this.lblCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCount.ForeColor = System.Drawing.Color.White;
-            this.lblCount.Location = new System.Drawing.Point(391, 397);
-            this.lblCount.Name = "lblCount";
-            this.lblCount.Size = new System.Drawing.Size(175, 66);
-            this.lblCount.TabIndex = 8;
-            this.lblCount.Text = "1";
-            this.lblCount.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblQuantity.AutoSize = false;
+            this.lblQuantity.BackColor = System.Drawing.Color.Transparent;
+            this.lblQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuantity.ForeColor = System.Drawing.Color.White;
+            this.lblQuantity.Location = new System.Drawing.Point(391, 397);
+            this.lblQuantity.Name = "lblQuantity";
+            this.lblQuantity.Size = new System.Drawing.Size(175, 66);
+            this.lblQuantity.TabIndex = 8;
+            this.lblQuantity.Text = "1";
+            this.lblQuantity.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblPointsReqVal
             // 
@@ -260,7 +260,7 @@ namespace ClientPoint.UI.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(186)))), ((int)(((byte)(226)))));
-            this.ClientSize = new System.Drawing.Size(614, 574);
+            this.ClientSize = new System.Drawing.Size(600, 574);
             this.Controls.Add(this.lblImage);
             this.Controls.Add(this.lblPointsAfterVal);
             this.Controls.Add(this.lblPointsReqVal);
@@ -275,7 +275,7 @@ namespace ClientPoint.UI.Forms
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lblCategory);
-            this.Controls.Add(this.lblCount);
+            this.Controls.Add(this.lblQuantity);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmRewardModal";
             // 
@@ -293,7 +293,7 @@ namespace ClientPoint.UI.Forms
             ((System.ComponentModel.ISupportInitialize)(this.lblPointsReq)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblPointsAfter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblPointsCurrVal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblCount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblQuantity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblPointsReqVal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblPointsAfterVal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPlus)).EndInit();
@@ -320,7 +320,7 @@ namespace ClientPoint.UI.Forms
         private Telerik.WinControls.UI.RadLabel lblPointsCurrVal;
         private CustomButtonCount btnMinus;
         private CustomButtonCount btnPlus;
-        private Telerik.WinControls.UI.RadLabel lblCount;
+        private Telerik.WinControls.UI.RadLabel lblQuantity;
         private Telerik.WinControls.UI.RadLabel lblPointsReqVal;
         private Telerik.WinControls.UI.RadLabel lblPointsAfterVal;
     }

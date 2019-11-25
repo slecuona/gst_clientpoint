@@ -73,6 +73,8 @@ namespace ClientPoint {
 
             ControlPin = GetSetting("ControlPin", "478"); //GST
 
+            PointsEnabled = GetBool("PointsEnabled", true);
+
             LoadHostLogo();
         }
 
@@ -140,6 +142,8 @@ namespace ClientPoint {
         public static int IdleMessageSeconds = 0;
 
         public static string ControlPin;
+
+        public static bool PointsEnabled = true;
 
         /// <summary>
         /// URL Base de la API.

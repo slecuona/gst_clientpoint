@@ -17,6 +17,13 @@ namespace ClientPoint.UI.Views
             lblCardT.Font = FontUtils.Roboto(13);
             lblPoints.Font = FontUtils.Roboto(15);
             lblCard.Font = FontUtils.Roboto(14);
+
+            if (!Config.PointsEnabled) {
+                lblPointsT.Visible = false;
+                lblPoints.Visible = false;
+                lblCardT.Left = 635;
+                lblCard.Left = 600;
+            }
         }
 
         private void BtnPricesOnClick(object sender, EventArgs e) {

@@ -57,6 +57,9 @@ namespace ClientPoint.UI {
 
             this.Controls.Add(lblName);
 
+            if (!Config.PointsEnabled)
+                return;
+
             var lblPoints = new RadLabel();
             lblPoints.Text = $"PUNTOS: {_reward?.PointsRequired}";
             lblPoints.Size = new Size(380, 20);

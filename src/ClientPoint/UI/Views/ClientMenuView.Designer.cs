@@ -175,7 +175,7 @@ namespace ClientPoint.UI.Views
             this.lblCard.Name = "lblCard";
             this.lblCard.Size = new System.Drawing.Size(55, 18);
             this.lblCard.TabIndex = 8;
-            this.lblCard.Text = "0010100001234";
+            this.lblCard.Text = "-------------";
             this.lblCard.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             // 
             // ClientMenuView
