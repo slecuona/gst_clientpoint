@@ -112,6 +112,7 @@ namespace ClientPoint.UI.Views
             this.fldEmail.TabIndex = 3;
             this.fldEmail.Value = "";
             this.fldEmail.Keyboard = Keyboard.AlphaNum;
+            this.fldEmail.ForMail = true;
             // 
             // fldEmail2
             // 
@@ -122,6 +123,7 @@ namespace ClientPoint.UI.Views
             this.fldEmail2.TabIndex = 3;
             this.fldEmail2.Value = "";
             this.fldEmail2.Keyboard = Keyboard.AlphaNum;
+            this.fldEmail2.ForMail = true;
             // 
             // fldCellphone
             // 

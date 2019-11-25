@@ -85,6 +85,7 @@ namespace ClientPoint.UI.Controls {
             RefreshBtnViewPass();
             if(!radTextBox1.ReadOnly)
                 this.radTextBox1.BackColor = Config.FocusColor;
+            UIManager.SetKeyboardForMail(ForMail);
             // En este caso, no forzamos el ocultamiento de los teclados.
             if (Keyboard == Keyboard.None)
                 return;
@@ -115,6 +116,8 @@ namespace ClientPoint.UI.Controls {
             }
             get => _isPass;
         }
+
+        public bool ForMail = false;
 
         public void ResetViewPass() {
             radTextBox1.PasswordChar = '*';

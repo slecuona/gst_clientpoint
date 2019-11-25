@@ -41,6 +41,7 @@ namespace ClientPoint.UI.Views
             this.fldEmail.Size = new System.Drawing.Size(650, 53);
             this.fldEmail.TabIndex = 3;
             this.fldEmail.Keyboard = Keyboard.AlphaNum;
+            this.fldEmail.ForMail = true;
             // 
             // fldCellphone
             // 

@@ -30,6 +30,7 @@ namespace ClientPoint.Keyboard {
             this.keyButtonD0 = new ClientPoint.Keyboard.KeyButton();
             this.keyButtonRight = new ClientPoint.Keyboard.KeyButton();
             this.keyButtonBack = new ClientPoint.Keyboard.KeyButton();
+            this.keyButtonDotCom = new ClientPoint.Keyboard.KeyButton();
             this.keyButtonLeft = new ClientPoint.Keyboard.KeyButton();
             this.keyButtonMinus = new ClientPoint.Keyboard.KeyButton();
             this.keyButtonTilde = new ClientPoint.Keyboard.KeyButton();
@@ -78,6 +79,7 @@ namespace ClientPoint.Keyboard {
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonD0)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonRight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonBack)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.keyButtonDotCom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonLeft)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonMinus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonTilde)).BeginInit();
@@ -176,6 +178,24 @@ namespace ClientPoint.Keyboard {
             this.keyButtonBack.UnNumLockKeyCode = 0;
             this.keyButtonBack.UnNumLockText = null;
             this.keyButtonBack.UseMnemonic = false;
+            // 
+            // keyButtonDotCom
+            // 
+            this.tableLayoutPanelKeyButtons.SetColumnSpan(this.keyButtonDotCom, 2);
+            this.keyButtonDotCom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keyButtonDotCom.IsPressed = false;
+            this.keyButtonDotCom.KeyCode = -1;
+            this.keyButtonDotCom.Location = new System.Drawing.Point(603, 3);
+            this.keyButtonDotCom.Name = "keyButtonDotCom";
+            this.keyButtonDotCom.NormalText = null;
+            this.keyButtonDotCom.Padding = new System.Windows.Forms.Padding(2);
+            this.keyButtonDotCom.ShiftText = null;
+            this.keyButtonDotCom.Size = new System.Drawing.Size(114, 60);
+            this.keyButtonDotCom.TabIndex = 0;
+            this.keyButtonDotCom.Text = ".COM";
+            this.keyButtonDotCom.UnNumLockKeyCode = 0;
+            this.keyButtonDotCom.UnNumLockText = null;
+            this.keyButtonDotCom.UseMnemonic = false;
             // 
             // keyButtonLeft
             // 
@@ -936,11 +956,12 @@ namespace ClientPoint.Keyboard {
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonG, 5, 2);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonF, 4, 2);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonBack, 11, 0);
+            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonDotCom, 11, 2);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonD, 3, 2);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonS, 2, 2);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonA, 1, 2);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonEnie, 10, 2);
-            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonArroba, 11, 2);
+            this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonArroba, 12, 1);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonUnderscore, 11, 3);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonD1, 1, 0);
             this.tableLayoutPanelKeyButtons.Controls.Add(this.keyButtonMinus, 10, 3);
@@ -1006,6 +1027,7 @@ namespace ClientPoint.Keyboard {
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonD0)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonRight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonBack)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.keyButtonDotCom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonLeft)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonMinus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyButtonTilde)).EndInit();
@@ -1072,6 +1094,7 @@ namespace ClientPoint.Keyboard {
         private KeyButton keyButtonD0;
         private KeyButton keyButtonMinus;
         private KeyButton keyButtonBack;
+        private KeyButton keyButtonDotCom;
         private KeyButton keyButtonQ;
         private KeyButton keyButtonW;
         private KeyButton keyButtonE;

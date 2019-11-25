@@ -89,9 +89,21 @@ namespace ClientPoint.Keyboard
                 return;
             }
 
+            if (btn.Text == ".COM") {
+                UserInteraction.KeyboardInput.SendKey(null, 190);
+                UserInteraction.KeyboardInput.SendKey(null, 67);
+                UserInteraction.KeyboardInput.SendKey(null, 79);
+                UserInteraction.KeyboardInput.SendKey(null, 77);
+                return;
+            }
+
             UserInteraction.KeyboardInput.SendKey(PressedModifierKeyCodes, btn.KeyCode);
         }
 
+        public void ForEmail(bool val) {
+            keyButtonDotCom.Visible = val;
+            keyButtonArroba.Visible = val;
+        }
 
         private void OnActivated(object sender, EventArgs e) {
             this.ActiveControl = null;

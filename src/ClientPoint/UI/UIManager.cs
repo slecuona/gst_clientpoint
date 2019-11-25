@@ -159,6 +159,10 @@ namespace ClientPoint.UI {
             
         }
 
+        public static void SetKeyboardForMail(bool val) {
+            ((FrmKeyBoard)_keyboards[Keyboard.AlphaNum]).ForEmail(val);
+        }
+
         public static void SetKeyboard(Keyboard k) {
             if (CurrKeyboard == k)
                 return;
@@ -166,6 +170,7 @@ namespace ClientPoint.UI {
             CurrKeyboard = k;
             if (k == Keyboard.None) {
                 _keyboards[prev]?.Hide();
+                SetKeyboardForMail(false);
                 return;
             }
             SafeExec(() => {
