@@ -48,20 +48,17 @@ namespace ClientPoint.Session {
 
         public void ExchangeVoucher(Action<bool, string> onFinish, int quantity) {
             DieIf(IsTicket, "Reward debe ser tipo voucher.");
-            var cl = ClientSession.CurrClient;
 
+            // Antes de llamar a la API chequeo el estado...
+            Status.CheckVoucherPrinter();
+            if (!Status.VoucherPrinter.Contains(VoucherPrinterState.OK)) {
+                Die("La impresora de voucher no esta disponible.");
+            }
+            
+            var toPrint = new StringBuilder();
+            var cl = ClientSession.CurrClient;
             var idx = 1;
-            Action<bool, string> onFinishSingle = (success, msg) => {
-                if (!success) {
-                    onFinish?.Invoke(false, msg);
-                    return;
-                }
-                if(idx == quantity)
-                    onFinish?.Invoke(true, msg);
-            };
             for (idx = 1; idx <= quantity; idx++) {
-                if(idx > 1)
-                    Thread.Sleep(500);
                 var res = ApiService.ChangeReward(new ChangeRewardRequest() {
                     IdCard = cl.IdCard,
                     IdReward = IdReward.ToString()
@@ -70,15 +67,13 @@ namespace ClientPoint.Session {
 
                 // El string viene "escapado"
                 var voucher = Regex.Unescape(res.VoucherPrinter);
-
                 DieIf(string.IsNullOrEmpty(voucher), "Voucher vacio.");
 
-                var p = new VoucherPrinter();
-                p.OnFinish = onFinishSingle;
-                var success = p.Print(voucher);
-                if (!success)
-                    break;
+                toPrint.AppendLine(voucher);
             }
+            var p = new VoucherPrinter();
+            p.OnFinish = onFinish;
+            p.PrintAsync(toPrint.ToString());
         }
 
         public void ExchangeTicket(Action<bool, string> onFinish) {
