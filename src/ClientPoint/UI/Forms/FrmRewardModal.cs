@@ -75,6 +75,23 @@ namespace ClientPoint.UI.Forms {
             
             lblPointsCurrVal.Text = _totalPoints.ToString();
             Recalc();
+            
+            LoadCountPanel(!r.IsTicket);
+        }
+
+        private void LoadCountPanel(bool visible) {
+            lblPointsAfter.Visible = visible;
+            lblPointsAfterVal.Visible = visible;
+            lblPointsCurr.Visible = visible;
+            lblPointsCurrVal.Visible = visible;
+            lblPointsReq.Visible = visible;
+            lblPointsReqVal.Visible = visible;
+            lblCount.Visible = visible;
+            btnMinus.Visible = visible;
+            btnPlus.Visible = visible;
+            btnCancel.Top = visible ? 485 : 400;
+            btnConfirm.Top = visible ? 485 : 400;
+            this.Height = visible ? 575 : 490;
         }
 
         private void Recalc() {
