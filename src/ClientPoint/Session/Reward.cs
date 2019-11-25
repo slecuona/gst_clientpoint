@@ -46,23 +46,39 @@ namespace ClientPoint.Session {
         //        ExchangeVoucher();
         //}
 
-        public void ExchangeVoucher(Action<bool, string> onFinish) {
+        public void ExchangeVoucher(Action<bool, string> onFinish, int quantity) {
             DieIf(IsTicket, "Reward debe ser tipo voucher.");
             var cl = ClientSession.CurrClient;
-            var res = ApiService.ChangeReward(new ChangeRewardRequest() {
-                IdCard = cl.IdCard,
-                IdReward = IdReward.ToString()
-            }, out string errMsg);
-            DieIf(!string.IsNullOrEmpty(errMsg), errMsg);
 
-            // El string viene "escapado"
-            var voucher = Regex.Unescape(res.VoucherPrinter);
+            var idx = 1;
+            Action<bool, string> onFinishSingle = (success, msg) => {
+                if (!success) {
+                    onFinish?.Invoke(false, msg);
+                    return;
+                }
+                if(idx == quantity)
+                    onFinish?.Invoke(true, msg);
+            };
+            for (idx = 1; idx <= quantity; idx++) {
+                if(idx > 1)
+                    Thread.Sleep(500);
+                var res = ApiService.ChangeReward(new ChangeRewardRequest() {
+                    IdCard = cl.IdCard,
+                    IdReward = IdReward.ToString()
+                }, out string errMsg);
+                DieIf(!string.IsNullOrEmpty(errMsg), errMsg);
 
-            DieIf(string.IsNullOrEmpty(voucher), "Voucher vacio.");
+                // El string viene "escapado"
+                var voucher = Regex.Unescape(res.VoucherPrinter);
 
-            var p = new VoucherPrinter();
-            p.OnFinish = onFinish;
-            p.PrintAsync(voucher);
+                DieIf(string.IsNullOrEmpty(voucher), "Voucher vacio.");
+
+                var p = new VoucherPrinter();
+                p.OnFinish = onFinishSingle;
+                var success = p.Print(voucher);
+                if (!success)
+                    break;
+            }
         }
 
         public void ExchangeTicket(Action<bool, string> onFinish) {

@@ -213,22 +213,22 @@ namespace ClientPoint {
                 UIManager.RewardModal.ShowDialog(owner));
         }
 
-        public static void ExchangeRewardAsync(Reward r) {
+        public static void ExchangeRewardAsync(Reward r, int quantity = 1) {
             SafeExec(() => {
                 StatusMainView.SetState(
                     r.IsTicket ? States.PrintingTicket : States.PrintingVoucher);
                 ShowView(View.StatusMain);
             });
-            var t = new Thread(() => ExchangeRewardSync(r));
+            var t = new Thread(() => ExchangeRewardSync(r, quantity));
             t.Start();
         }
 
-        private static void ExchangeRewardSync(Reward r) {
+        private static void ExchangeRewardSync(Reward r, int quantity) {
             try {
                 if(r.IsTicket)
                     r.ExchangeTicket(OnRewardExchangeFinish);
                 else
-                    r.ExchangeVoucher(OnRewardExchangeFinish);
+                    r.ExchangeVoucher(OnRewardExchangeFinish, quantity);
             }
             catch (Exception e) {
                 Logger.Exception(e);

@@ -37,26 +37,27 @@ namespace ClientPoint.IO {
         public VoucherPrinter() { }
 
         public void PrintAsync(string voucher) {
-            DieIf(string.IsNullOrEmpty(voucher), $"Voucher null or empty.");
-            Voucher = voucher;
-            var t = new Thread(Print);
+            var t = new Thread(()=>Print(voucher));
             t.Start();
         }
 
-        private void Print() {
+        public bool Print(string voucher) {
+            DieIf(string.IsNullOrEmpty(voucher), $"Voucher null or empty.");
+            Voucher = voucher;
             var success = base.TryWrite(Voucher, out string errMsg);
             if (!success) {
                 OnFinish?.Invoke(false, errMsg);
-                return;
+                return false;
             }
 
             var status = GetStatus();
             if (status.Contains(VoucherPrinterState.PRINT_STOPPED)) {
                 OnFinish?.Invoke(false, "La impresora no pudo imprimir el voucher.");
-                return;
+                return false;
             }
 
             OnFinish?.Invoke(true, null);
+            return true;
         }
 
         

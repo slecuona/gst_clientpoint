@@ -7,7 +7,7 @@ using ClientPoint.Utils;
 
 namespace ClientPoint.UI.Forms {
     public partial class FrmRewardModal : Telerik.WinControls.UI.RadForm {
-        private int _count = 1;
+        private int _quantity = 1;
         private int _max = 1;
         private int _pointsPerUnit = 0;
         private int _totalPoints = 0;
@@ -43,16 +43,16 @@ namespace ClientPoint.UI.Forms {
         }
 
         private void BtnMinusOnClick(object sender, EventArgs e) {
-            if (_count == 1)
+            if (_quantity == 1)
                 return;
-            _count--;
+            _quantity--;
             Recalc();
         }
 
         private void BtnPlusOnClick(object sender, EventArgs e) {
-            if (_count == _max)
+            if (_quantity == _max)
                 return;
-            _count++;
+            _quantity++;
             Recalc();
         }
 
@@ -60,7 +60,7 @@ namespace ClientPoint.UI.Forms {
             _reward = r;
             _totalPoints = ClientSession.CurrClient.Points;
             _max = r.Stock;
-            _count = 1;
+            _quantity = 1;
             _pointsPerUnit = r.PointsRequired;
 
             if (_pointsPerUnit > 0) {
@@ -95,8 +95,8 @@ namespace ClientPoint.UI.Forms {
         }
 
         private void Recalc() {
-            lblCount.Text = _count.ToString();
-            _pointsReq = _pointsPerUnit * _count;
+            lblCount.Text = _quantity.ToString();
+            _pointsReq = _pointsPerUnit * _quantity;
             lblPointsReqVal.Text = $"{_pointsReq}";
             lblPointsAfterVal.Text = (_totalPoints - _pointsReq).ToString();
         }
@@ -104,7 +104,7 @@ namespace ClientPoint.UI.Forms {
         private void btnConfim_Click(object sender, EventArgs e) {
             this.DialogResult = DialogResult.OK;
             this.Close();
-            Op.ExchangeRewardAsync(_reward);
+            Op.ExchangeRewardAsync(_reward, _quantity);
         }
 
         protected override void OnPaint(PaintEventArgs e) {
