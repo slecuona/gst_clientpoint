@@ -120,69 +120,7 @@ namespace ClientPoint {
                 ShowWindow(Window.Ads);
             }
         }
-
-        //private static void CheckEspfStatus(object state) {
-        //    Status.EspfSupDeviceState();
-        //    Logger.DebugWriteAsync(
-        //        $"Printing state: {Status.EspfMayor} | {Status.EspfMinor}");
-
-        //}
-
-        //private static void PrintCardSync() {
-        //    try {
-        //        var card = ApiService.GetNumberCard();
-        //        var cl = ClientSession.CurrClient;
-        //        cl.IdCard = card;
-        //        var pj = new PrintJob(cl);
-        //        pj.Start();
-
-        //        var success = ApiService.CreateCard(new CreateCardRequest() {
-        //            DocumentNumber = cl.DocumentNumber,
-        //            Password = cl.Password,
-        //            IdCard = card
-        //        }, out string err);
-        //        DieIf(!success, err);
-
-        //        SafeExec(() => {
-        //            _printCardTimer.Dispose();
-        //            UIManager.StatusMainView.SetState(States.RemoveCard);
-        //            ShowView(View.StatusMain);
-        //        });
-        //    }
-        //    catch (Exception ex) {
-        //        Logger.Exception(ex);
-        //        MsgBox.Error("Error al imprimir tarjeta.");
-        //        UIManager.ShowWindow(Window.Ads);
-        //    }
-        //}
-
-        //public static void TestPrintAsync(Action<bool> onFinish) {
-        //    //SafeExec(() => {
-        //    //    UIManager.StatusMainView.SetState(States.PrintingCard);
-        //    //    ShowView(View.StatusMain);
-        //    //});
-        //    var t = new Thread(()=> TestPrintSync(onFinish));
-        //    t.Start();
-        //}
-
-        //public static void TestPrintSync(Action<bool> onFinish) {
-        //    try {
-        //        var pj = new PrintJob(new Client() {
-        //            Name = "TARJETA",
-        //            LastName = "DE PRUEBA",
-        //            IdCard = Config.TEST_CARD
-        //        });
-
-        //        pj.Start();
-
-        //        onFinish?.Invoke(true);
-        //    }
-        //    catch (Exception ex) {
-        //        Logger.Exception(ex);
-        //        onFinish?.Invoke(false);
-        //    }
-        //}
-
+        
         public static void Client() {
             ShowView(View.SwipeCard);
         }
@@ -206,6 +144,27 @@ namespace ClientPoint {
             ClientSession.Load(res, null);
             UIManager.ShowView(View.ClientMenu);
         }
+
+        public static void ClientLogin() {
+            DocInput.OnConfirm = OnConfirmDocInputLogin;
+            
+            PassInput.OnConfirm = () => { ShowView(View.ClientMenu); };
+            
+            ShowView(View.DocumentInput);
+        }
+
+        private static string OnConfirmDocInputLogin(ClientStatusResponse res) {
+            if (res.NotExists) {
+                return "No existe un usuario con el numero de documento ingresado.";
+            } else {
+                var cl = ClientSession.CurrClient;
+                if (cl.Status != ClientStatus.Activo)
+                    return "El usuario no se encuentra activo.";
+                ShowView(View.PasswordInput);
+                return null;
+            }
+        }
+
 
         public static void ShowReward(Reward reward) {
             UIManager.RewardModal.LoadReward(reward);

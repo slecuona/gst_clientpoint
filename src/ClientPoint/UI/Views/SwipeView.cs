@@ -16,6 +16,12 @@ namespace ClientPoint.UI.Views
 
             lblMsg.Text = "Por favor, deslice su tarjeta por el lector.";
             lblMsg.Text = lblMsg.Text.ToUpper();
+
+            btnLogin.Click += BtnLoginOnClick;
+        }
+
+        private void BtnLoginOnClick(object sender, EventArgs e) {
+            Op.ClientLogin();
         }
 
         private void ImgBoxOnClick(object sender, EventArgs e) {
