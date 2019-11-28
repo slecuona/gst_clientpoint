@@ -49,6 +49,11 @@ namespace ClientPoint.UI.Views {
             if (_stepNr == 2 && string.IsNullOrEmpty(EmailValue) && string.IsNullOrEmpty(CellphoneValue))
                 errors.Add("Debe ingresar una dirección de correo electrónico o un número de celular.");
 
+            if (_stepNr == 2 && 
+                (!string.IsNullOrEmpty(EmailValue) || !string.IsNullOrEmpty(Email2Value)) && 
+                EmailValue != Email2Value)
+                errors.Add("Las direcciones de correo electrónico ingresadas no son iguales.");
+
             if (_stepNr == 2 && (string.IsNullOrEmpty(PasswordValue) || string.IsNullOrEmpty(Password2Value)))
                 errors.Add("Debe ingresar una contraseña y su repetición.");
 

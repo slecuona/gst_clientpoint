@@ -28,25 +28,37 @@ namespace ClientPoint.UI.Views
         private void InitializeComponent()
         {
             this.fldEmail = new CustomField();
+            this.fldEmail2 = new CustomField();
             this.fldCellphone = new CellphoneField();
             this.SuspendLayout();
             this.dialogPanel.Controls.Add(this.fldEmail);
+            this.dialogPanel.Controls.Add(this.fldEmail2);
             this.dialogPanel.Controls.Add(this.fldCellphone);
             // 
             // fldEmail
             // 
             this.fldEmail.Label = "Correo Electrónico";
-            this.fldEmail.Location = new System.Drawing.Point(350, 90);
+            this.fldEmail.Location = new System.Drawing.Point(350, 30);
             this.fldEmail.Name = "fldEmail";
             this.fldEmail.Size = new System.Drawing.Size(650, 53);
             this.fldEmail.TabIndex = 3;
             this.fldEmail.Keyboard = Keyboard.AlphaNum;
             this.fldEmail.ForMail = true;
             // 
+            // fldEmail2
+            // 
+            this.fldEmail2.Label = "Repita Correo E.:";
+            this.fldEmail2.Location = new System.Drawing.Point(350, 115);
+            this.fldEmail2.Name = "fldEmail2";
+            this.fldEmail2.Size = new System.Drawing.Size(650, 53);
+            this.fldEmail2.TabIndex = 3;
+            this.fldEmail2.Keyboard = Keyboard.AlphaNum;
+            this.fldEmail2.ForMail = true;
+            // 
             // fldCellphone
             // 
             this.fldCellphone.Label = "Nr. Celular";
-            this.fldCellphone.Location = new System.Drawing.Point(350, 175);
+            this.fldCellphone.Location = new System.Drawing.Point(350, 200);
             this.fldCellphone.Name = "fldCellphone";
             this.fldCellphone.Size = new System.Drawing.Size(615, 53);
             this.fldCellphone.TabIndex = 2;
@@ -63,6 +75,7 @@ namespace ClientPoint.UI.Views
         #endregion
         
         private CustomField fldEmail;
+        private CustomField fldEmail2;
         private CellphoneField fldCellphone;
     }
 }

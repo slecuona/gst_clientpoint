@@ -14,11 +14,15 @@ namespace ClientPoint.UI.Views {
         }
 
         private string EmailValue => fldEmail.Value;
+        private string Email2Value => fldEmail2.Value;
         private string CellphoneValue => fldCellphone.Value;
 
         protected override void PerformValidation(ref List<string> errors) {
             if (string.IsNullOrEmpty(EmailValue) && string.IsNullOrEmpty(CellphoneValue))
                 errors.Add("Debe ingresar una dirección de correo electrónico o un número de celular.");
+            if ((!string.IsNullOrEmpty(EmailValue) || !string.IsNullOrEmpty(Email2Value)) && 
+                EmailValue != Email2Value)
+                errors.Add("Las direcciones de correo electrónico ingresadas no son iguales.");
         }
         
         private ClientUpdateRequest CreateRequest => 
@@ -60,6 +64,7 @@ namespace ClientPoint.UI.Views {
 
         public override void BeforeShow() {
             fldEmail.Value = ClientSession.CurrClient.Email;
+            fldEmail2.Value = ClientSession.CurrClient.Email;
             fldCellphone.Value = ClientSession.CurrClient.CellPhone;
 
             base.BeforeShow();
