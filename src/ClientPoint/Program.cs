@@ -9,6 +9,9 @@ using View = ClientPoint.UI.View;
 
 namespace ClientPoint {
     static class Program {
+        static readonly Mutex _mutex =
+            new Mutex(true, "{6A6A0AC4-F9A5-45fd-A1CF-63D04E6BDE7C}");
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -18,6 +21,13 @@ namespace ClientPoint {
             Application.SetCompatibleTextRenderingDefault(false);
 
             try {
+                if (!_mutex.WaitOne(TimeSpan.Zero, true)) {
+                    MessageBox.Show(
+                        "Ya existe un proceso activo de ClientPoint.exe. " +
+                        "Debe finalizar el proceso antes de iniciar otro.");
+                    return;
+                }
+
                 // Arranco el splash
                 UIManager.StartSplash();
                 
@@ -42,6 +52,8 @@ namespace ClientPoint {
 
                 // Pantalla principal / inicial (publicidades)
                 Application.Run(frm);
+                // Libero mutex
+                _mutex.ReleaseMutex();
             }
             catch (Exception ex) {
                 Logger.Exception(ex);
