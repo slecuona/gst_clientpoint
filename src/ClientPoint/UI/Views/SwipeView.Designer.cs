@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 using ClientPoint.UI.Controls;
+using ClientPoint.Utils;
 using Telerik.WinControls.UI;
 
 namespace ClientPoint.UI.Views
@@ -35,9 +36,13 @@ namespace ClientPoint.UI.Views
             this.imgBox = new System.Windows.Forms.PictureBox();
             this.btnBack = new CustomButton();
             this.imgHost = new RadLabel();
+            this.btnLogin = new CustomButtonBlue();
+            this.lblMsg = new RadLabel();
+            ((System.ComponentModel.ISupportInitialize)(this.lblMsg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgHost)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnLogin)).BeginInit();
             this.SuspendLayout();
             // 
             // imgBox
@@ -46,7 +51,7 @@ namespace ClientPoint.UI.Views
             this.imgBox.BackColor = System.Drawing.Color.Transparent;
             this.imgBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.imgBox.Image = global::ClientPoint.Properties.Resources.swipe_card;
-            this.imgBox.Location = new System.Drawing.Point(1050, 180);
+            this.imgBox.Location = new System.Drawing.Point(1050, 130);
             this.imgBox.Name = "imgBox";
             this.imgBox.Size = new System.Drawing.Size(250, 400);
             this.imgBox.TabIndex = 3;
@@ -56,7 +61,7 @@ namespace ClientPoint.UI.Views
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(550, 650);
+            this.btnBack.Location = new System.Drawing.Point(50, 650);
             this.btnBack.Name = "btnBack";
             this.btnBack.TabIndex = 1;
             this.btnBack.TabStop = false;
@@ -74,16 +79,44 @@ namespace ClientPoint.UI.Views
             this.imgHost.BackgroundImage = Config.HostLogo;
             this.imgHost.BackgroundImageLayout = ImageLayout.Center;
             // 
+            // btnLogin
+            // 
+            this.btnLogin.BackColor = System.Drawing.Color.Transparent;
+            this.btnLogin.ForeColor = System.Drawing.Color.White;
+            this.btnLogin.Location = new System.Drawing.Point(880, 650);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.btnLogin.Size = new System.Drawing.Size(421, 87);
+            this.btnLogin.TabIndex = 3;
+            this.btnLogin.TabStop = false;
+            this.btnLogin.Text = "INGRESE CON CONTRASEÑA";
+            // 
+            // lblMsg
+            // 
+            this.lblMsg.Name = "lblMsg";
+            this.lblMsg.Size = new System.Drawing.Size(800, 100);
+            this.lblMsg.Location = new Point(150, 100);
+            this.lblMsg.TabIndex = 0;
+            this.lblMsg.Text = "";
+            this.lblMsg.Font = FontUtils.Roboto(20);
+            this.lblMsg.AutoSize = false;
+            this.lblMsg.TextAlignment = ContentAlignment.MiddleCenter;
+            this.lblMsg.ForeColor = Color.White;
+            // 
             // 
             // 
             this.panelContainer.Controls.Add(this.btnBack);
+            this.panelContainer.Controls.Add(this.btnLogin);
             this.panelContainer.Controls.Add(this.imgBox);
             this.panelContainer.Controls.Add(this.imgHost);
+            this.panelContainer.Controls.Add(this.lblMsg);
             this.Name = "StatusView";
             // 
             // 
             // 
             this.Text = "StatusView";
+            ((System.ComponentModel.ISupportInitialize)(this.lblMsg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnLogin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgHost)).EndInit();
@@ -96,5 +129,7 @@ namespace ClientPoint.UI.Views
         private PictureBox imgBox;
         private CustomButton btnBack;
         private RadLabel imgHost;
+        private CustomButtonBlue btnLogin;
+        private Telerik.WinControls.UI.RadLabel lblMsg;
     }
 }
