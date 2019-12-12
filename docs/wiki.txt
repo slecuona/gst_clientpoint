@@ -3,7 +3,7 @@
 * .NET Framework >=4.6.1
 * Evolis Premium Suite
 * CUSTOM VComService (>=3.0.5) 
-* JCM Virtual driver
+* CP210x Universal Windows Driver
 
 # Requerimientos de hardware
 
@@ -14,8 +14,8 @@
 # Dispositivos
 
 |Impresora de tarjeta|Evolis KC200|
-|Impresora de tickets|GEN2 (FutureLogic)|
-|Impresora de vocuhers|TG2480H (Custom GT)|
+|Impresora de tickets|GEN2 PSA-66-ST2RU (RS232/USB) [FutureLogic]|
+|Impresora de vouchers|TG2480H [Custom GT]|
 |Lector tarjeta||
 |Touch screen||
 
@@ -27,13 +27,15 @@
 * Impresion de tarjeta
 * Canje de premios (voucher o ticket)
 
-# Instalación
+# Instalación y configuración
 
 ## Microsoft .NET Framework
 
 La aplicación ClientPoint esta desarrollada sobre .NET framework 4.6.2.
 
 Descargar desde: https://www.microsoft.com/es-es/download/details.aspx?id=53344
+
+NOTA: El sistema operativo ya suele incluir este paquete.
 
 ## Evolis Premium Suite
 
@@ -43,28 +45,6 @@ Descargar desde https://es.evolis.com/controladores-asistencia/controladores-imp
 
 O en el paquete de entrega:
 (soft/setup_evolis_premium_suite.exe)
-
-## VComService
-
-Driver de puerto serial virtual para la comunicación con la impresora de voucher CUSTOM.
-
-Descargar desde https://es.evolis.com/controladores-asistencia/controladores-impresora-tarjetas-primacy
-
-En el paquete de entrega:
-(soft/VcomService_3.0.5.exe)
-
-## JCM Virtual driver
-
-Driver de puerto serial virtual para la comunicación con la impresora de tickets GEN2.
-
-Descargar desde https://es.evolis.com/controladores-asistencia/controladores-impresora-tarjetas-primacy
-
-En el paquete de entrega:
-(soft/VcomService_3.0.5.exe)
-
-# Configuración
-
-## Evolis Premium Suite
 
 Luego de la instalación, es necesario configurar la impresion de tarjetas.
 
@@ -77,21 +57,39 @@ Iniciar el programa **Evolis Print Center**.
 
 ## VComService
 
+Driver de puerto serial virtual para la comunicación con la impresora de voucher CUSTOM.
+
+En el paquete de entrega:
+(soft/VcomService_3.0.5.exe)
+
+Antes de la configuración, asegúrese que la impresora de voucher CUSTOM este conectada mediante el puerto USB.
+
 Luego de la instalacion abrir el programa **Vcom Settings**
 
 [Captura]
 
 Ir al dialogo **Settings**.
 Presionar **Add**
-Ingresar puerto **COM3**
-Ir a la solapa **COM3**
-Seleccionar USB, actualizar.
+Ingresar puerto **COM5**
+Ir a la solapa **COM5**
+Seleccionar USB y actualizar.
 
 Asegurarse de que el check **Start automatically al the boot** este activo.
 
 Presionar OK. La ventana deberia mostrar que la conexion fue exitosa:
 
 [Captura]
+
+NOTA: Por default la aplicación ClientPoint utiliza el puerto COM5, pero se puede utilizar otro, ya que es parametrizable con el tag **VoucherPrinterPort**.
+
+## CP210x Universal Windows Driver
+
+Driver de puerto serial virtual que permite la comunicación con la impresora de tickets GEN2.
+
+En el paquete de entrega:
+(soft/CP210x_Universal_Windows_Driver.zip)
+
+Antes de la instalación, asegúrese que la impresora de tickets GEN2 este conectada mediante el puerto USB.
 
 ## ClientPoint
 

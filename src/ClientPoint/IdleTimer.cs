@@ -15,6 +15,10 @@ namespace ClientPoint {
         private static FrmIdle _form;
         private static bool _enabled;
 
+        // Si no muestra el mensaje, vuelve a la 
+        // publicidad directamente
+        public static bool ShowMessage = true;
+
         static IdleTimer() {
             _timer = new Timer();
             _timer.Interval = Config.IdleSeconds * 1000;
@@ -70,8 +74,11 @@ namespace ClientPoint {
             Debug.WriteLine("IDLE Tick!");
             _idle = true;
             Enabled = false;
-            UIManager.SafeExecOnActiveForm(owner =>
-                _form.ShowDialog(owner));
+            if(ShowMessage)
+                UIManager.SafeExecOnActiveForm(owner =>
+                    _form.ShowDialog(owner));
+            else 
+                UIManager.ShowWindow(Window.Ads);
         }
     }
 }

@@ -35,10 +35,10 @@ namespace ClientPoint {
             EspfPort = GetSetting("EspfPort", "18000");
             EspfPrinter = GetSetting("EspfPrinter", "Evolis KC200");
             EspfSettingsX = GetSetting("EspfSettingsX", null);
-            EspfCommMethod = GetInt("EspfCommMethod", 0);
+            EspfCommMethod = GetInt("EspfCommMethod", 2);
 
-            VoucherPrinterName = GetSetting("VoucherPrinterName", "Custom GT");
-            VoucherPrinterTimeout = GetInt("VoucherPrinterTimeout", 5);
+            //VoucherPrinterName = GetSetting("VoucherPrinterName", "Custom GT");
+            //VoucherPrinterTimeout = GetInt("VoucherPrinterTimeout", 5);
 
             TicketPrinterPort = GetSetting("TicketPrinterPort", "COM3");
             TicketPrinterBaud = GetInt("TicketPrinterBaud", 38400);
@@ -50,7 +50,7 @@ namespace ClientPoint {
             TicketPrinterHandshake = (Handshake)GetInt("TicketPrinterHandshake", 
                 (int)Handshake.XOnXOff);
             
-            VoucherPrinterPort = GetSetting("VoucherPrinterPort", "Com1");
+            VoucherPrinterPort = GetSetting("VoucherPrinterPort", "COM5");
             VoucherPrinterBaud = GetInt("VoucherPrinterBaud", 9600);
             VoucherPrinterDataBits = GetInt("VoucherPrinterDataBits", 8);
             VoucherPrinterParity = (Parity)GetInt("VoucherPrinterParity",
@@ -115,8 +115,8 @@ namespace ClientPoint {
 
         public static int EspfCommMethod = 0;
 
-        public static string VoucherPrinterName;
-        public static int VoucherPrinterTimeout;
+        //public static string VoucherPrinterName;
+        //public static int VoucherPrinterTimeout;
 
         public static string TicketPrinterPort;
         public static int TicketPrinterBaud;

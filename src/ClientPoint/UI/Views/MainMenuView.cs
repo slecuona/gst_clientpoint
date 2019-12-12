@@ -44,7 +44,14 @@ namespace ClientPoint.UI.Views
 
         public override void AfterShow() {
             IdleTimer.Enabled = true;
+            // En esta pantalla, no mostramos el mensaje.
+            IdleTimer.ShowMessage = false;
             base.AfterShow();
+        }
+
+        public override void AfterHide() {
+            IdleTimer.ShowMessage = true;
+            base.AfterHide();
         }
 
         private void LblWelcomeOnDoubleClick(object sender, EventArgs e) {
