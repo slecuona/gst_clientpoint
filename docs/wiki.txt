@@ -1,0 +1,129 @@
+# Requerimientos Software
+
+* .NET Framework >=4.6.1
+* Evolis Premium Suite
+* CUSTOM VComService (>=3.0.5) 
+* JCM Virtual driver
+
+# Requerimientos de hardware
+
+* RAM >= 4 GB
+* CPU >= 1.6Ghz
+* Conexion red a la API
+
+# Dispositivos
+
+|Impresora de tarjeta|Evolis KC200|
+|Impresora de tickets|GEN2 (FutureLogic)|
+|Impresora de vocuhers|TG2480H (Custom GT)|
+|Lector tarjeta||
+|Touch screen||
+
+# Principales funcionalidades
+
+* Alta de usuario
+* Modificacion de usuario
+* Confirmación de usuario
+* Impresion de tarjeta
+* Canje de premios (voucher o ticket)
+
+# Instalación
+
+## Microsoft .NET Framework
+
+La aplicación ClientPoint esta desarrollada sobre .NET framework 4.6.2.
+
+Descargar desde: https://www.microsoft.com/es-es/download/details.aspx?id=53344
+
+## Evolis Premium Suite
+
+Conjunto de herramientas para administrar la impresora Evolis KC200.
+
+Descargar desde https://es.evolis.com/controladores-asistencia/controladores-impresora-tarjetas-primacy
+
+O en el paquete de entrega:
+(soft/setup_evolis_premium_suite.exe)
+
+## VComService
+
+Driver de puerto serial virtual para la comunicación con la impresora de voucher CUSTOM.
+
+Descargar desde https://es.evolis.com/controladores-asistencia/controladores-impresora-tarjetas-primacy
+
+En el paquete de entrega:
+(soft/VcomService_3.0.5.exe)
+
+## JCM Virtual driver
+
+Driver de puerto serial virtual para la comunicación con la impresora de tickets GEN2.
+
+Descargar desde https://es.evolis.com/controladores-asistencia/controladores-impresora-tarjetas-primacy
+
+En el paquete de entrega:
+(soft/VcomService_3.0.5.exe)
+
+# Configuración
+
+## Evolis Premium Suite
+
+Luego de la instalación, es necesario configurar la impresion de tarjetas.
+
+Iniciar el programa **Evolis Print Center**.
+
+* RibbonType
+* Coevercity Low
+* Write encoding ISO 2
+* Habilitar TCP (Reiniciar servicios)
+
+## VComService
+
+Luego de la instalacion abrir el programa **Vcom Settings**
+
+[Captura]
+
+Ir al dialogo **Settings**.
+Presionar **Add**
+Ingresar puerto **COM3**
+Ir a la solapa **COM3**
+Seleccionar USB, actualizar.
+
+Asegurarse de que el check **Start automatically al the boot** este activo.
+
+Presionar OK. La ventana deberia mostrar que la conexion fue exitosa:
+
+[Captura]
+
+## ClientPoint
+
+La aplicación se configura desde el archivo **ClientPoint.exe.config**.
+Es un archivo xml donde se puede parametrizar distintos aspectos de la aplicación mediante **tags**.
+
+### Tags disponibles:
+
+
+### Ejemplo de config (minimo necesario)
+
+Teniendo en cuenta que todos los servicios fueron configurados con sus valores default, lo minimo que deberia tener el config para que la aplicación funcione correctamente es:
+
+´´´´
+
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <startup> 
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
+    </startup>
+    <appSettings>
+      <add key="HostLogo" value="casino_logo.png"/>
+      <add key="ApiUrl" value="http://server:90/mobile/api/ClientPoint/"/>
+    </appSettings>
+</configuration>
+
+´´´´
+
+# Mantenimiento
+
+## Evolis
+
+### Periodico
+
+### 

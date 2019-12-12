@@ -50,6 +50,7 @@ namespace ClientPoint.UI.Views
         }
 
         private void OnSwipe(string data) {
+            IdleTimer.OnBusy();
             Op.ClientLoadAsync(data);
         }
     }
