@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO.Ports;
 using System.Threading;
+using ClientPoint.Utils;
 using static ClientPoint.Utils.ExUtils;
 
 namespace ClientPoint.IO {
@@ -39,42 +40,51 @@ namespace ClientPoint.IO {
         }
 
         private void Print() {
-            var success = base.TryWrite(Ticket, out string errMsg);
-            if (!success) {
-                OnFinish?.Invoke(false, errMsg);
-                return;
+            var onFinishCalled = false;
+            try {
+                var success = base.TryWrite(Ticket, out string errMsg);
+                if (!success) {
+                    OnFinish?.Invoke(false, errMsg);
+                    return;
+                }
+
+                string s = null;
+                var tries = 0;
+                var maxTries = Config.DebugMode ? 10 : 20;
+                while (true) {
+                    tries++;
+                    Thread.Sleep(500);
+                    var status = GetStatus(out s);
+                    if (status.Contains(TicketPrinterState.PAPER_IN_CHUTE)) {
+                        continue;
+                    }
+
+                    if (tries > maxTries) {
+                        // Quiere decir que paso al menos 10 segundos sin respuesta valida.
+                        OnFinish?.Invoke(false, "No se pudo imprimir el ticket. (timeout)");
+                    }
+
+                    if (status.Contains(TicketPrinterState.OK) ||
+                        // Si esta vacio, asumimos que dio error, pero imprimio OK.
+                        status.Contains(TicketPrinterState.EMPTY)) {
+                        break;
+                    }
+
+                    //if (status.Contains(TicketPrinterState.SYS_ERROR)) {
+                    //    OnFinish?.Invoke(false, 
+                    //        "Error impresion de ticket. (sys_error)");
+                    //    return;
+                    //}
+                }
+                onFinishCalled = true;
+                OnFinish?.Invoke(true, null);
             }
-
-            string s = null;
-            var tries = 0;
-            var maxTries = Config.DebugMode ? 10 : 20;
-            while (true) {
-                tries++;
-                Thread.Sleep(500);
-                var status = GetStatus(out s);
-                if (status.Contains(TicketPrinterState.PAPER_IN_CHUTE)) {
-                    continue;
-                }
-
-                if (tries > maxTries) {
-                    // Quiere decir que paso al menos 10 segundos sin respuesta valida.
-                    OnFinish?.Invoke(false, "No se pudo imprimir el ticket. (timeout)");
-                }
-
-                if (status.Contains(TicketPrinterState.OK) ||
-                    // Si esta vacio, asumimos que dio error, pero imprimio OK.
-                    status.Contains(TicketPrinterState.EMPTY)) {
-                    break;
-                }
-
-                //if (status.Contains(TicketPrinterState.SYS_ERROR)) {
-                //    OnFinish?.Invoke(false, 
-                //        "Error impresion de ticket. (sys_error)");
-                //    return;
-                //}
+            catch (Exception e) {
+                Logger.Exception(e);
+                if(!onFinishCalled)
+                    OnFinish?.Invoke(false, 
+                        "Error al imprimir ticket.");
             }
-
-            OnFinish?.Invoke(true, null);
         }
 
         private bool TryGetStatus(out string status) {

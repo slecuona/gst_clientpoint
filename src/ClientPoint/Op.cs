@@ -69,10 +69,12 @@ namespace ClientPoint {
             Status.Api();
             if (Status.ApiState == "OK")
                 return true;
-            MsgBox.Show(
-                $"En este momento hay problemas de conexión." +
-                Environment.NewLine +
-                $"Disculpe las molestias.");
+            SafeExec(() => {
+                MsgBox.Show(
+                    $"En este momento hay problemas de conexión." +
+                    Environment.NewLine +
+                    $"Disculpe las molestias.");
+            });
             return false;
         }
 
@@ -164,23 +166,36 @@ namespace ClientPoint {
         }
 
         public static void ClientLoadAsync(string idCard) {
+            if (!IsApiConnected())
+                return;
             Logger.DebugWrite($"Card Swiped: {idCard}");
             var t = new Thread(() => ClientLoadSync(idCard));
             t.Start();
         }
 
         private static void ClientLoadSync(string idCard) {
-            ClientSession.Clear();
-            var res = ApiService.ClientLoad(new ClientLoadRequest() {
-                IdCard = idCard
-            }, out string errMsg);
-            if (res == null) {
-                MsgBox.Error(errMsg);
-                return;
+            try {
+                ClientSession.Clear();
+                var res = ApiService.ClientLoad(new ClientLoadRequest() {
+                    IdCard = idCard
+                }, out string errMsg);
+                if (res == null) {
+                    MsgBox.Error(errMsg);
+                    return;
+                }
+                // Cargo todos los datos del usuario
+                ClientSession.Load(res, null);
+                ShowView(View.ClientMenu);
             }
-            // Cargo todos los datos del usuario
-            ClientSession.Load(res, null);
-            UIManager.ShowView(View.ClientMenu);
+            catch (Exception e) {
+                Logger.Exception(e);
+                SafeExec(() => {
+                    MsgBox.Error(
+                        "Hubo un error al recuperar los datos del cliente." +
+                        Environment.NewLine +
+                        "Disculpe las molestias.");
+                });
+            }
         }
 
         public static void ClientLogin() {

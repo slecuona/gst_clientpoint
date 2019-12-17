@@ -102,24 +102,33 @@ namespace ClientPoint.UI.Views
         }
 
         private void FillRewards() {
-            var rewards = _rewards.CurrentRewards;
-            var panels = new List<RewardPanel>();
-            var left = true;
-            var top = 0;
-            foreach (var r in rewards) {
-                var pnl = new RewardPanel(r);
-                pnl.Location = new Point(left ? 0 : (pnl.Width + 10), top);
-                if (!left)
-                    top += pnl.Height;
-                left = !left;
-                panels.Add(pnl);
-            }
+            try {
+                var rewards = _rewards.CurrentRewards;
+                var panels = new List<RewardPanel>();
+                var left = true;
+                var top = 0;
+                foreach (var r in rewards) {
+                    var pnl = new RewardPanel(r);
+                    pnl.Location = new Point(left ? 0 : (pnl.Width + 10), top);
+                    if (!left)
+                        top += pnl.Height;
+                    left = !left;
+                    panels.Add(pnl);
+                }
 
-            this.InvokeIfRequired(() => {
-                container.Controls.AddRange(controls: panels?.ToArray());
-                RefreshPageInfo();
-                headerPanel.Waiting = false;
-            });
+                this.InvokeIfRequired(() => {
+                    container.Controls.AddRange(controls: panels?.ToArray());
+                    RefreshPageInfo();
+                    headerPanel.Waiting = false;
+                });
+            }
+            catch (Exception e) {
+                Logger.Exception(e);
+                MsgBox.Error(
+                    "Hubo un error al obtener los premios disponibles." + 
+                    Environment.NewLine + 
+                    "Disculpe las molestias.");
+            }
         }
         
         private void FillRewardsAsync() {

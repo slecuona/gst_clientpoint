@@ -42,30 +42,41 @@ namespace ClientPoint.IO {
         }
 
         public bool Print(string voucher) {
-            DieIf(string.IsNullOrEmpty(voucher), $"Voucher null or empty.");
-            Voucher = voucher;
+            var onFinishCalled = false;
+            try {
+                DieIf(string.IsNullOrEmpty(voucher), $"Voucher null or empty.");
+                Voucher = voucher;
 
-            var status = GetStatus();
-            if (!status.Contains(VoucherPrinterState.OK)) {
-                OnFinish?.Invoke(false, 
-                    "La impresora no está disponible para imprimir el voucher.");
+                var status = GetStatus();
+                if (!status.Contains(VoucherPrinterState.OK)) {
+                    OnFinish?.Invoke(false, 
+                        "La impresora no está disponible para imprimir el voucher.");
+                    return false;
+                }
+
+                var success = base.TryWrite(Voucher, out string errMsg);
+                if (!success) {
+                    OnFinish?.Invoke(false, errMsg);
+                    return false;
+                }
+
+                status = GetStatus();
+                if (status.Contains(VoucherPrinterState.PRINT_STOPPED)) {
+                    OnFinish?.Invoke(false, "La impresora no pudo imprimir el voucher.");
+                    return false;
+                }
+
+                onFinishCalled = true;
+                OnFinish?.Invoke(true, null);
+                return true;
+            }
+            catch (Exception e) {
+                Logger.Exception(e);
+                if (!onFinishCalled)
+                    OnFinish?.Invoke(false,
+                        "Error al imprimir voucher.");
                 return false;
             }
-
-            var success = base.TryWrite(Voucher, out string errMsg);
-            if (!success) {
-                OnFinish?.Invoke(false, errMsg);
-                return false;
-            }
-
-            status = GetStatus();
-            if (status.Contains(VoucherPrinterState.PRINT_STOPPED)) {
-                OnFinish?.Invoke(false, "La impresora no pudo imprimir el voucher.");
-                return false;
-            }
-
-            OnFinish?.Invoke(true, null);
-            return true;
         }
         
         // https://reliance-escpos-commands.readthedocs.io/en/latest/realtime_status.html

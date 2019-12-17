@@ -13,7 +13,7 @@ namespace ClientPoint.UI.Forms {
         private DataGridViewCell debugMode;
         private DataGridViewCell errors;
         private DataGridViewCell points;
-
+        
         private DataGridViewCell espfService;
         private DataGridViewCell espfStateMayor;
         private DataGridViewCell espfStateMinor;

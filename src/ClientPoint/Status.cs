@@ -38,7 +38,6 @@ namespace ClientPoint {
             Api(true);
             CheckTicketPrinter(true);
             CheckVoucherPrinter(true);
-            CheckErrors();
         }
 
         public static void Refresh() {
@@ -46,15 +45,15 @@ namespace ClientPoint {
             Api();
             CheckTicketPrinter();
             CheckVoucherPrinter();
-            CheckErrors();
         }
 
         private static void CheckErrors() {
             HasErrors =
                 EspfMayor != EspfMayorState.READY ||
-                !TicketPrinter.Contains(TicketPrinterState.OK) ||
-                !VoucherPrinter.Contains(VoucherPrinterState.OK) ||
+                (TicketPrinter != null && !TicketPrinter.Contains(TicketPrinterState.OK)) ||
+                (VoucherPrinter != null && !VoucherPrinter.Contains(VoucherPrinterState.OK)) ||
                 ApiState != "OK";
+            UIManager.RefreshErrorIcon();
         }
 
         private static void Print(string msg) {
@@ -152,6 +151,7 @@ namespace ClientPoint {
             finally {
                 EspfMayor = mayor;
                 EspfMinor = minor;
+                CheckErrors();
             }
         }
 
@@ -184,8 +184,9 @@ namespace ClientPoint {
                 Logger.Exception(e);
             }
             finally {
-                if(init)
+                if (init)
                     Print($"API Connection => {ApiState}");
+                CheckErrors();
             }
         }
 
@@ -202,9 +203,9 @@ namespace ClientPoint {
                     Print($"Ticket Printer => {string.Join(" | ", TicketPrinter)}");
                     Print($"Ticket Printer Str => {TicketPrinterString}");
                 }
+                CheckErrors();
             }
         }
-
 
         public static void CheckVoucherPrinter(bool init = false) {
             VoucherPrinter = new List<VoucherPrinterState>();
@@ -217,6 +218,7 @@ namespace ClientPoint {
             } finally {
                 if (init)
                     Print($"Voucher Printer => {string.Join("|", VoucherPrinter.ToArray())}");
+                CheckErrors();
             }
         }
     }

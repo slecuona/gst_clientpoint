@@ -242,6 +242,19 @@ namespace ClientPoint.UI {
             IdleTimer.Enabled = true;
         }
 
+        public static void RefreshErrorIcon() {
+            if (CurrWindow != Window.Main)
+                return;
+            if (CurrView == View.None)
+                return;
+
+            var header = _views[CurrView].headerPanel;
+            if (header == null)
+                return;
+            SafeExec(()=> 
+                header.lblError.Visible = Status.HasErrors);
+        }
+
         public static DocInputView DocInput => 
             (DocInputView)_views[View.DocumentInput];
         public static PassInputView PassInput => 

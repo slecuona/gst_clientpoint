@@ -71,6 +71,6 @@ namespace ClientPoint.UI.Views {
         #endregion
 
         protected Telerik.WinControls.UI.RadPanel panelContainer;
-        protected HeaderPanel headerPanel;
+        public HeaderPanel headerPanel;
     }
 }
