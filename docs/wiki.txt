@@ -4,6 +4,7 @@
 * Evolis Premium Suite
 * CUSTOM VComService (>=3.0.5) 
 * CP210x Universal Windows Driver
+* ELO Multi-touch driver 6.8.2
 
 # Requerimientos de hardware
 
@@ -13,19 +14,14 @@
 
 # Dispositivos
 
-|Impresora de tarjeta|Evolis KC200|
-|Impresora de tickets|GEN2 PSA-66-ST2RU (RS232/USB) [FutureLogic]|
-|Impresora de vouchers|TG2480H [Custom GT]|
-|Lector tarjeta||
-|Touch screen||
+|Dispositivo|Fabricante|Modelo|
+|---|---|---|
+|Impresora de tarjeta|Evolis|KC200 (10000644552)|
+|Impresora de tickets|FutureLogic|GEN2 PSA-66-ST2RU (RS232/USB)|
+|Impresora de vouchers|Custom GT|TG2480H|
+|Lector tarjeta|||
+|Touch screen|Elo||
 
-# Principales funcionalidades
-
-* Alta de usuario
-* Modificacion de usuario
-* Confirmación de usuario
-* Impresion de tarjeta
-* Canje de premios (voucher o ticket)
 
 # Instalación y configuración
 
@@ -50,10 +46,21 @@ Luego de la instalación, es necesario configurar la impresion de tarjetas.
 
 Iniciar el programa **Evolis Print Center**.
 
-* RibbonType
-* Coevercity Low
-* Write encoding ISO 2
-* Habilitar TCP (Reiniciar servicios)
+[Captura]
+
+Es necesario que la impresora este conectada y el estado sea **Ready**.
+
+Hace doble click en el nombre de la impresora y aparecerá el siguiente dialogo:
+
+[Captura
+
+Acá es necesario configurar lo siguiente:
+
+* Printing -> Card orientation: **Landscape**
+* Printing -> Ribbon -> Duplex mode: **Disabled**
+* Enconding -> Magnetic -> Track 2: **ISO2** (El resto en **None**)
+* Enconding -> Magnetic -> Coercivity: **Low coercivity**
+* Administration -> Standby settings -> Activar **Standby not allowed**
 
 ## VComService
 
@@ -68,15 +75,15 @@ Luego de la instalacion abrir el programa **Vcom Settings**
 
 [Captura]
 
-Ir al dialogo **Settings**.
-Presionar **Add**
-Ingresar puerto **COM5**
-Ir a la solapa **COM5**
-Seleccionar USB y actualizar.
+* Ir al dialogo **Settings**.
+* Presionar **Add**
+* Ingresar puerto **COM5**
+* Ir a la solapa **COM5**
+* Seleccionar USB y actualizar.
+* Asegurarse de que el check **Start automatically al the boot** este activo.
+* Presionar OK. 
 
-Asegurarse de que el check **Start automatically al the boot** este activo.
-
-Presionar OK. La ventana deberia mostrar que la conexion fue exitosa:
+La ventana deberia mostrar que la conexion fue exitosa:
 
 [Captura]
 
@@ -91,6 +98,19 @@ En el paquete de entrega:
 
 Antes de la instalación, asegúrese que la impresora de tickets GEN2 este conectada mediante el puerto USB.
 
+El proceso de instalación se realiza de forma automatica.
+
+
+## ELO Multi-touch driver 6.8.2
+
+Driver y aplicación de configuración para el monitor multi-touch ELO.
+
+Se puede descargar desde:
+https://www.elotouch.com/support/downloads#/category/346LYmeuAUEI4Qa0sSyiSa/os/4WCN3bObdCSi4yK0eeaGiA
+
+En el paquete de entrega:
+(soft/SW985031_EloMultiTouch_6.8.2.exe)
+
 ## ClientPoint
 
 La aplicación se configura desde el archivo **ClientPoint.exe.config**.
@@ -98,13 +118,40 @@ Es un archivo xml donde se puede parametrizar distintos aspectos de la aplicaci�
 
 ### Tags disponibles:
 
+|Tag|Descripcion|Default|
+|---|---|---|
+|ApiUrl|URL de la API|http://192.168.10.12/mobile/api/ClientPoint/|
+|CardNameX|Eje X donde imprime el nombre/apellido en la tarjeta|40|
+|CardNameY|Eje Y donde imprime el nombre/apellido en la tarjeta|400|
+|CardNameSize|Tamaño de la fuente del nombre/apellido en la tarjeta|28|
+|IdleSeconds|Cantidad de segundos que deben transcurrir para mostrar mensaje de inactividad|15|
+|IdleMessageSeconds|Cantidad de segundos que se muestra el mensaje de inactividad|10|
+|DebugMode|Modo debug. (Graba más log, no pide PIN, etc)|false|
+|ControlPin|PIN numerico para ingresar al panel de control de la aplicación|478 (GST)|
+|HostLogo|Ruta de la imagen/logo del casino (host)|Logo de GST|
+|EspfIp|IP donde se encuentra instalado el servicio ESPF (Evolis)|127.0.0.1|
+|EspfPort|Puerto del servicio ESPF|18000|
+|EspfPrinter|Nombre de la impresora Evolis|Evolis KC200|
+|EspfSettingsX|Extension de los settings de impresion de tarjeta|-|
+|EspfCommMethod|Metodo de comunicación con el servicio ESPF. (0:TCP, 1:TCP Alternativo, 2:NamedPipedStream)|0|
+|TicketPrinterPort|Puerto serie de impresora de tickets. (GEN2)|COM3|
+|TicketPrinterBaud|Baud. Impresora de tickets (GEN2)|38400|
+|TicketPrinterDataBits|DataBits. Impresora de tickets (GEN2)|8|
+|TicketPrinterParity|Parity. Impresora de tickets (GEN2)|None|
+|TicketPrinterStopBits|StopBits. Impresora de tickets (GEN2)|One|
+|TicketPrinterHandshake|Handshake. Impresora de tickets (GEN2)|XOnXOff|
+|VoucherPrinterPort|Puerto serie de impresora de voucher. (Custom GT)|COM1|
+|VoucherPrinterBaud|Baud. Impresora de voucher (Custom GT)|9600|
+|VoucherPrinterDataBits|DataBits. Impresora de voucher (Custom GT)|8|
+|VoucherPrinterParity|Parity. Impresora de voucher (Custom GT)|None|
+|VoucherPrinterStopBits|StopBits. Impresora de voucher (Custom GT)|One|
+|VoucherPrinterHandshake|Handshake. Impresora de voucher (Custom GT)|None|
 
 ### Ejemplo de config (minimo necesario)
 
 Teniendo en cuenta que todos los servicios fueron configurados con sus valores default, lo minimo que deberia tener el config para que la aplicación funcione correctamente es:
 
-´´´´
-
+```
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
     <startup> 
@@ -115,13 +162,92 @@ Teniendo en cuenta que todos los servicios fueron configurados con sus valores d
       <add key="ApiUrl" value="http://server:90/mobile/api/ClientPoint/"/>
     </appSettings>
 </configuration>
+```
 
-´´´´
+# Mantenimiento Impresora de tarjetas
 
-# Mantenimiento
+## Limpieza de rutina/regular
 
-## Evolis
+Esta limpieza requiere una "Tarjeta adhesiva de limpieza".
 
-### Periodico
+Se debe realizar luego de 1000 impresiones o cuando se reemplaza la cinta ribbon.
 
-### 
+La aplicación **Evolis Center** lanza una notificación informando cuando es requerida.
+
+Esta advertencia tambien se puede visualizar desde el panel de control de ClientPoint como "ESPF Estado de supervision menor" con valor **INF_CLEANING_REQUIRED**.
+
+A partir de las 1000 impresiones, permite imprimir 200 tarjetas más antes que la garantía se invalide.
+
+En caso de llegar al limite, el estado es **INF_CLEANING_LAST_OUTWARRANTY**.
+
+Se puede encontrar más información sobre el procedimiento en el documento **evolis-kc200-user-guide.pdf** página 21.
+
+Esta rutina se puede iniciar manualmente como indica el documento, o desde la aplicación Evolis Center:
+
+Cleaning -> Proceed with cleaning -> Regular cleaning -> Start cleaning:
+
+[Caputra]
+
+
+## Limpieza avanzada
+
+Se recomienda una limpieza avanzada luego de 5 limpiezas regulares. (Luego de 5000 impresiones aprox.)
+
+Esta limpieza requiere un kit especial (Evolis High Trust® maintenance kit).
+
+Se puede encontrar más información sobre el procedimiento en el documento **evolis-kc200-user-guide.pdf** página 25.
+
+Esta rutina se puede iniciar manualmente como indica el documento, o desde la aplicación Evolis Center:
+
+Cleaning -> Proceed with cleaning -> Advanced cleaning -> Start cleaning:
+
+[Caputra]
+
+
+# Funcionalidades
+
+
+* Publicidades
+* Menu principal
+* Acceso de cliente
+* Menu de cliente
+* Menu de canje de premios
+* Alta de cliente
+* Actualización de datos de cliente
+* Confirmación de cliente
+
+## Publicidades
+
+En estado **Stand by**, la aplicación reproduce los videos obtenidos desde la API de forma aleatoria.
+
+Tocando la pantalla se puede acceder al menu principal.
+
+Si se desliza la tarjeta, se accede al menu de cliente.
+
+## Menu principal
+
+[Captura]
+
+Desde este menú se puede acceder a: 
+
+* Alta de cliente
+* Acceso de cliente
+* Actualización de datos de cliente
+* Confirmación de cliente
+
+En este menu no se muestra el mensaje de inactividad. Cuando se cumple el tiempo establecido, se muestra directamente las publicidades.
+
+La imagen principal corresponde a la indicada en el tag **HostLogo** del config.
+
+## Acceso de cliente
+
+[Captura]
+
+Al igual que en la pantalla de publicidades, acá se permite deslizar la tarjeta para acceder al menú de usuario.
+
+También se puede ingresar con NrDocumento y Contraseña.
+
+La imagen principal corresponde a la indicada en el tag **HostLogo** del config.
+
+## Alta Cliente
+
