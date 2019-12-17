@@ -132,7 +132,7 @@ namespace ClientPoint.Espf {
         }
 
         private void CheckStatus(object state) {
-            Status.EspfSupDeviceState();
+            Status.EspfSupDeviceState(false);
             if (Status.EspfMinor == EspfMinorState.DEF_CARD_ON_EJECT) {
                 State = PrintState.CardEjected;
                 return;

@@ -121,7 +121,7 @@ namespace ClientPoint {
         }
 
         // Estado de la impresora. (OFF, ERR, READY)
-        public static bool EspfSupDeviceState() {
+        public static bool EspfSupDeviceState(bool checkErrors = true) {
             var mayor = EspfMayorState.NONE;
             string minor = null;
             try {
@@ -151,7 +151,8 @@ namespace ClientPoint {
             finally {
                 EspfMayor = mayor;
                 EspfMinor = minor;
-                CheckErrors();
+                if(checkErrors)
+                    CheckErrors();
             }
         }
 
