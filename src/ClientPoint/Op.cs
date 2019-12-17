@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
 using System.Threading;
 using ClientPoint.Api;
@@ -8,7 +7,6 @@ using ClientPoint.Session;
 using ClientPoint.UI;
 using ClientPoint.UI.Views;
 using ClientPoint.Utils;
-using Telerik.WinControls;
 using static ClientPoint.UI.UIManager;
 using static ClientPoint.Utils.ExUtils;
 
@@ -18,6 +16,11 @@ namespace ClientPoint {
     public static class Op {
 
         public static void ClientCreate() {
+            if (!IsApiConnected())
+                return;
+            if (!IsEspfReady())
+                return;
+
             DocInput.OnConfirm = res => {
                 if (res.NotExists) {
                     //ShowWindow(Window.ClientCreate);
@@ -50,7 +53,35 @@ namespace ClientPoint {
             }
         }
 
+        // Varias acciones, envia el codigo para la confirmacion automaticamente.
+        // Si no puede imprimir tarjeta, no tiene sentido permitir realizar estas acciones.
+        private static bool IsEspfReady() {
+            Status.EspfSupDeviceState();
+            if (Status.EspfMayor == EspfMayorState.READY) return true;
+            MsgBox.Show(
+                $"En este momento no funciona la impresion de tarjetas." +
+                Environment.NewLine +
+                $"Disculpe las molestias.");
+            return false;
+        }
+
+        private static bool IsApiConnected() {
+            Status.Api();
+            if (Status.ApiState == "OK")
+                return true;
+            MsgBox.Show(
+                $"En este momento hay problemas de conexión." +
+                Environment.NewLine +
+                $"Disculpe las molestias.");
+            return false;
+        }
+
         public static void ClientConfirm() {
+            if (!IsApiConnected())
+                return;
+            if (!IsEspfReady())
+                return;
+
             DocInput.OnConfirm = OnConfirmDocInputExistingUsr;
 
             //PasswordInput.OnConfirm = () => { ShowWindow(Window.Confirm); };
@@ -61,6 +92,11 @@ namespace ClientPoint {
         }
 
         public static void ClientUpdate() {
+            if (!IsApiConnected())
+                return;
+            if (!IsEspfReady())
+                return;
+
             DocInput.OnConfirm = OnConfirmDocInputExistingUsr;
 
             //PasswordInput.OnConfirm = () => { ShowWindow(Window.ClientUpdate); };
@@ -122,6 +158,8 @@ namespace ClientPoint {
         }
         
         public static void Client() {
+            if (!IsApiConnected())
+                return;
             ShowView(View.SwipeCard);
         }
 
@@ -165,7 +203,6 @@ namespace ClientPoint {
             }
         }
 
-
         public static void ShowReward(Reward reward) {
             UIManager.RewardModal.LoadReward(reward);
             SafeExecOnActiveForm(owner =>
@@ -192,7 +229,9 @@ namespace ClientPoint {
             catch (Exception e) {
                 Logger.Exception(e);
                 SafeExec(() => {
-                    MsgBox.Error("Error al canjear premio.");
+                    MsgBox.Error(
+                        $"Hubo un error al canjear premio.{Environment.NewLine}" +
+                        $"Disculpe las molestias.");
                     ShowWindow(Window.Ads);
                 });
             }

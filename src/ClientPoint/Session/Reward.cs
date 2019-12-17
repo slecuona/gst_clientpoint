@@ -78,6 +78,13 @@ namespace ClientPoint.Session {
 
         public void ExchangeTicket(Action<bool, string> onFinish) {
             DieIf(!IsTicket, "Reward debe ser ticket promocional.");
+
+            // Antes de llamar a la API chequeo el estado...
+            Status.CheckTicketPrinter();
+            if (!Status.TicketPrinter.Contains(TicketPrinterState.OK)) {
+                Die("La impresora de tickets no esta disponible.");
+            }
+
             var cl = ClientSession.CurrClient;
             var res = ApiService.ExchangeTicketPromoPending(
                 AmountPromotion, out string err);

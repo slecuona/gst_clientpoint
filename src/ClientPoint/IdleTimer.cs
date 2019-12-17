@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClientPoint.UI;
 using ClientPoint.UI.Forms;
@@ -73,6 +69,8 @@ namespace ClientPoint {
                 return;
             Debug.WriteLine("IDLE Tick!");
             _idle = true;
+            if (!_enabled)
+                return;
             Enabled = false;
             if(ShowMessage)
                 UIManager.SafeExecOnActiveForm(owner =>

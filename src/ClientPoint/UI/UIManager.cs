@@ -235,6 +235,7 @@ namespace ClientPoint.UI {
         }
 
         private static void ShowControlOnConfirm() {
+            IdleTimer.Enabled = false;
             ShowView(View.MainMenu);
             SafeExecOnActiveForm(owner =>
                 Control.ShowDialog(owner));
