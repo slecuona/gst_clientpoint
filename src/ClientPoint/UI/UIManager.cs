@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 using ClientPoint.Keyboard;
@@ -105,9 +106,15 @@ namespace ClientPoint.UI {
                 action.Invoke();
         }
 
+        private static void CloseControlForm() {
+            if (Application.OpenForms.OfType<FrmControl>().Count() == 1)
+                Control?.Close();
+        }
+
         public static void ShowWindow(Window toShow) {
             if (toShow == CurrWindow)
                 return;
+            CloseControlForm();
             var prev = CurrWindow;
             CurrWindow = toShow;
             SafeExec(() => {
@@ -238,7 +245,7 @@ namespace ClientPoint.UI {
             IdleTimer.Enabled = false;
             ShowView(View.MainMenu);
             SafeExecOnActiveForm(owner =>
-                Control.ShowDialog(owner));
+                Control.ShowDialog(owner == Control ? null : owner));
             IdleTimer.Enabled = true;
         }
 

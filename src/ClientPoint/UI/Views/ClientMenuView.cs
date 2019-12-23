@@ -36,6 +36,7 @@ namespace ClientPoint.UI.Views
         }
 
         public override void BeforeShow() {
+            IdleTimer.Enabled = true;
             UIManager.SetKeyboard(Keyboard.None);
             
             var cl = ClientSession.CurrClient;
