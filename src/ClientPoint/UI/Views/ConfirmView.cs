@@ -1,15 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using ClientPoint.Api;
 using ClientPoint.Session;
+using ClientPoint.Utils;
 
 namespace ClientPoint.UI.Views {
     public partial class ConfirmView : BaseViewDialogView {
         public ConfirmView() {
             InitializeComponent();
             ConfigureCurrentControlHandle();
+            fldCode.Control.Width = 180;
+            fldCode.Control.Left = 150;
             headerPanel.Title = 
-                "Ingrese el código de confirmación enviado por SMS o a su casilla de correo.";
+                "           Ingrese el código de confirmación enviado por SMS o a su casilla de correo.";
+            headerPanel.Label.Font = FontUtils.Roboto(18, FontStyle.Bold);
         }
         
         private string CodeValue => fldCode?.Value?.ToUpper();

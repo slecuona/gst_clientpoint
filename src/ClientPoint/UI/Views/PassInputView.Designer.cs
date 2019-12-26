@@ -41,7 +41,7 @@ namespace ClientPoint.UI.Views
             this.fldPassword.Location = new System.Drawing.Point(350, 100);
             this.fldPassword.Name = "fldPassword";
             this.fldPassword.Password = false;
-            this.fldPassword.Size = new System.Drawing.Size(615, 53);
+            this.fldPassword.Size = new System.Drawing.Size(650, 53);
             this.fldPassword.TabIndex = 0;
             this.fldPassword.Value = "";
 

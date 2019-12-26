@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using ClientPoint.Session;
 using ClientPoint.Utils;
 
@@ -14,6 +15,8 @@ namespace ClientPoint.UI.Views
             btnClient.Click += BtnClientOnClick;
 
             //this.panelContainer.Controls.SetChildIndex(this.headerPanel, 6);
+
+            lblWelcome.Font = FontUtils.Roboto(40, FontStyle.Bold);
         }
 
         private void BtnClientOnClick(object sender, EventArgs e) {

@@ -82,7 +82,7 @@ namespace ClientPoint.UI.Controls {
 
         public string Label {
             get => lblField.Text;
-            set => lblField.Text = value;
+            set => lblField.Text = value?.ToUpper();
         }
         
         public string Value {

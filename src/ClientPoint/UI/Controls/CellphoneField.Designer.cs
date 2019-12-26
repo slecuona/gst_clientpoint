@@ -53,7 +53,7 @@ namespace ClientPoint.UI.Controls {
             // lblSlash
             // 
             this.lblCod.Font = FontUtils.Roboto(18, FontStyle.Bold);
-            this.lblCod.Location = new System.Drawing.Point(210, 8);
+            this.lblCod.Location = new System.Drawing.Point(235, 8);
             this.lblCod.Name = "lblCod";
             this.lblCod.Size = new System.Drawing.Size(50, 34);
             this.lblCod.TabIndex = 0;
@@ -63,7 +63,7 @@ namespace ClientPoint.UI.Controls {
             // lblSlash2
             // 
             this.lbl15.Font = FontUtils.Roboto(18, FontStyle.Bold);
-            this.lbl15.Location = new System.Drawing.Point(385, 8);
+            this.lbl15.Location = new System.Drawing.Point(410, 8);
             this.lbl15.Name = "lbl15";
             this.lbl15.Size = new System.Drawing.Size(40, 34);
             this.lbl15.TabIndex = 0;
@@ -73,7 +73,7 @@ namespace ClientPoint.UI.Controls {
             // txtDay
             // 
             this.txtCod.Font = FontUtils.Roboto(15.75F);
-            this.txtCod.Location = new System.Drawing.Point(290, 0);
+            this.txtCod.Location = new System.Drawing.Point(315, 0);
             this.txtCod.Name = "txtCod";
             this.txtCod.Padding = new System.Windows.Forms.Padding(10);
             this.txtCod.Size = new System.Drawing.Size(90, 50);
@@ -84,10 +84,10 @@ namespace ClientPoint.UI.Controls {
             // txtMonth
             // 
             this.txtNum.Font = FontUtils.Roboto(15.75F);
-            this.txtNum.Location = new System.Drawing.Point(430, 0);
+            this.txtNum.Location = new System.Drawing.Point(459, 0);
             this.txtNum.Name = "txtNum";
             this.txtNum.Padding = new System.Windows.Forms.Padding(10);
-            this.txtNum.Size = new System.Drawing.Size(180, 50);
+            this.txtNum.Size = new System.Drawing.Size(165, 50);
             this.txtNum.TabIndex = 1;
             this.txtNum.MaxLength = 10;
             this.txtNum.TextAlign = HorizontalAlignment.Center;

@@ -46,7 +46,7 @@ namespace ClientPoint.UI.Views
             this.fldDocument.Location = new System.Drawing.Point(480, 110);
             this.fldDocument.Name = "fldDocument";
             this.fldDocument.Password = false;
-            this.fldDocument.Size = new System.Drawing.Size(460, 53);
+            this.fldDocument.Size = new System.Drawing.Size(650, 53);
             this.fldDocument.TabIndex = 0;
             this.fldDocument.Value = "";
             this.fldDocument.Control.Width = 200;

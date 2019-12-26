@@ -34,9 +34,9 @@ namespace ClientPoint.UI.Views
             // fldCode
             // 
             this.fldCode.Label = "Código";
-            this.fldCode.Location = new System.Drawing.Point(350, 100);
+            this.fldCode.Location = new System.Drawing.Point(500, 100);
             this.fldCode.Name = "fldCode";
-            this.fldCode.Size = new System.Drawing.Size(615, 53);
+            this.fldCode.Size = new System.Drawing.Size(650, 53);
             this.fldCode.TabIndex = 2;
             // 
             this.Name = "ConfirmView";

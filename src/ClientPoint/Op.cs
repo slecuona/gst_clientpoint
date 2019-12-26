@@ -18,7 +18,7 @@ namespace ClientPoint {
         public static void ClientCreate() {
             if (!IsApiConnected())
                 return;
-            if (!IsEspfReady())
+            if (!Config.DebugMode && !IsEspfReady())
                 return;
 
             DocInput.OnConfirm = res => {
@@ -81,7 +81,7 @@ namespace ClientPoint {
         public static void ClientConfirm() {
             if (!IsApiConnected())
                 return;
-            if (!IsEspfReady())
+            if (!Config.DebugMode && !IsEspfReady())
                 return;
 
             DocInput.OnConfirm = OnConfirmDocInputExistingUsr;
@@ -96,7 +96,7 @@ namespace ClientPoint {
         public static void ClientUpdate() {
             if (!IsApiConnected())
                 return;
-            if (!IsEspfReady())
+            if (!Config.DebugMode && !IsEspfReady())
                 return;
 
             DocInput.OnConfirm = OnConfirmDocInputExistingUsr;

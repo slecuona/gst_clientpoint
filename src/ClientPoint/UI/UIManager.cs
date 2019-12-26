@@ -259,7 +259,7 @@ namespace ClientPoint.UI {
             if (header == null)
                 return;
             SafeExec(()=> 
-                header.lblError.Visible = Status.HasErrors);
+                header.lblError.Visible = Status.HasErrors && !Config.DebugMode);
         }
 
         public static DocInputView DocInput => 

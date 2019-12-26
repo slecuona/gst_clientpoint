@@ -60,7 +60,7 @@ namespace ClientPoint.UI.Views
             this.fldCellphone.Label = "Nr. Celular";
             this.fldCellphone.Location = new System.Drawing.Point(350, 200);
             this.fldCellphone.Name = "fldCellphone";
-            this.fldCellphone.Size = new System.Drawing.Size(615, 53);
+            this.fldCellphone.Size = new System.Drawing.Size(650, 53);
             this.fldCellphone.TabIndex = 2;
             this.fldCellphone.Value = "";
 

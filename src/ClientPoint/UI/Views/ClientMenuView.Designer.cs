@@ -160,12 +160,13 @@ namespace ClientPoint.UI.Views
             // 
             this.lblPoints.BackColor = System.Drawing.Color.Transparent;
             this.lblPoints.ForeColor = System.Drawing.Color.Black;
-            this.lblPoints.Location = new System.Drawing.Point(540, 205);
+            this.lblPoints.Location = new System.Drawing.Point(530, 205);
             this.lblPoints.Name = "lblPoints";
-            this.lblPoints.Size = new System.Drawing.Size(41, 18);
+            this.lblPoints.AutoSize = false;
+            this.lblPoints.Size = new System.Drawing.Size(85, 25);
             this.lblPoints.TabIndex = 8;
             this.lblPoints.Text = "0";
-            this.lblPoints.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lblPoints.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblCard
             // 

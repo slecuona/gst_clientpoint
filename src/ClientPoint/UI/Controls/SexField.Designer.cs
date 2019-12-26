@@ -41,7 +41,7 @@ namespace ClientPoint.UI.Controls {
             this.radLabel1.Name = "radLabel1";
             this.radLabel1.Size = new System.Drawing.Size(59, 34);
             this.radLabel1.TabIndex = 0;
-            this.radLabel1.Text = "Sexo";
+            this.radLabel1.Text = "SEXO";
             this.radLabel1.ForeColor = Color.White;
             // 
             // radioM

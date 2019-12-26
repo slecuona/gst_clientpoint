@@ -41,7 +41,7 @@ namespace ClientPoint.UI.Controls {
             // 
             this.radLabel1.Font = FontUtils.Roboto(15.75F);
             this.radLabel1.ForeColor = System.Drawing.Color.White;
-            this.radLabel1.Location = new System.Drawing.Point(4, 10);
+            this.radLabel1.Location = new System.Drawing.Point(0, 10);
             this.radLabel1.Name = "radLabel1";
             this.radLabel1.Size = new System.Drawing.Size(106, 34);
             this.radLabel1.TabIndex = 0;
@@ -50,10 +50,10 @@ namespace ClientPoint.UI.Controls {
             // radTextBox1
             // 
             this.radTextBox1.Font = FontUtils.Roboto(15.75F);
-            this.radTextBox1.Location = new System.Drawing.Point(212, 0);
+            this.radTextBox1.Location = new System.Drawing.Point(245, 0);
             this.radTextBox1.Name = "radTextBox1";
             this.radTextBox1.Padding = new System.Windows.Forms.Padding(10);
-            this.radTextBox1.Size = new System.Drawing.Size(400, 51);
+            this.radTextBox1.Size = new System.Drawing.Size(380, 51);
             this.radTextBox1.TabIndex = 1;
             this.radTextBox1.CharacterCasing = CharacterCasing.Upper;
             // 

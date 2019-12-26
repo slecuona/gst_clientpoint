@@ -49,13 +49,13 @@ namespace ClientPoint.UI.Controls {
             this.lblField.Name = "lblField";
             this.lblField.Size = new System.Drawing.Size(106, 34);
             this.lblField.TabIndex = 0;
-            this.lblField.Text = "radLabel1";
+            this.lblField.Text = "";
             this.lblField.ForeColor = Color.White;
             // 
             // lblSlash
             // 
             this.lblSlash.Font = FontUtils.Roboto(18, FontStyle.Bold);
-            this.lblSlash.Location = new System.Drawing.Point(275, 8);
+            this.lblSlash.Location = new System.Drawing.Point(300, 8);
             this.lblSlash.Name = "lblSlash";
             this.lblSlash.Size = new System.Drawing.Size(20, 34);
             this.lblSlash.TabIndex = 0;
@@ -65,7 +65,7 @@ namespace ClientPoint.UI.Controls {
             // lblSlash2
             // 
             this.lblSlash2.Font = FontUtils.Roboto(18, FontStyle.Bold);
-            this.lblSlash2.Location = new System.Drawing.Point(365, 8);
+            this.lblSlash2.Location = new System.Drawing.Point(390, 8);
             this.lblSlash2.Name = "lblSlash2";
             this.lblSlash2.Size = new System.Drawing.Size(20, 34);
             this.lblSlash2.TabIndex = 0;
@@ -75,7 +75,7 @@ namespace ClientPoint.UI.Controls {
             // txtDay
             // 
             this.txtDay.Font = FontUtils.Roboto(15.75F);
-            this.txtDay.Location = new System.Drawing.Point(210, 0);
+            this.txtDay.Location = new System.Drawing.Point(235, 0);
             this.txtDay.Name = "txtDay";
             this.txtDay.Padding = new System.Windows.Forms.Padding(10);
             this.txtDay.Size = new System.Drawing.Size(60, 50);
@@ -86,7 +86,7 @@ namespace ClientPoint.UI.Controls {
             // txtMonth
             // 
             this.txtMonth.Font = FontUtils.Roboto(15.75F);
-            this.txtMonth.Location = new System.Drawing.Point(300, 0);
+            this.txtMonth.Location = new System.Drawing.Point(325, 0);
             this.txtMonth.Name = "txtMonth";
             this.txtMonth.Padding = new System.Windows.Forms.Padding(10);
             this.txtMonth.Size = new System.Drawing.Size(60, 50);
@@ -97,7 +97,7 @@ namespace ClientPoint.UI.Controls {
             // txtYear
             // 
             this.txtYear.Font = FontUtils.Roboto(15.75F);
-            this.txtYear.Location = new System.Drawing.Point(390, 0);
+            this.txtYear.Location = new System.Drawing.Point(415, 0);
             this.txtYear.Name = "txtYear";
             this.txtYear.Padding = new System.Windows.Forms.Padding(10);
             this.txtYear.Size = new System.Drawing.Size(80, 50);

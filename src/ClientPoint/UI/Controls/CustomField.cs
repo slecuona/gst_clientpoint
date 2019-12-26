@@ -98,7 +98,7 @@ namespace ClientPoint.UI.Controls {
 
         public string Label {
             get => radLabel1.Text;
-            set => radLabel1.Text = value;
+            set => radLabel1.Text = value?.ToUpper();
         }
 
         public string Value {
