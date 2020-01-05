@@ -704,5 +704,11 @@
   <ItemGroup>
     <None Include="Resources\remove_coupon.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_glow.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_glow2.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

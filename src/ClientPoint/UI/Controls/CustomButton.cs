@@ -18,6 +18,13 @@ namespace ClientPoint.UI.Controls {
             InitializeComponent();
             this.MouseDown += OnMouseDown;
             this.MouseUp += OnMouseUp;
+
+            this.Controls.Add(new PictureBox() {
+                Name = "glow",
+                Size = this.Size,
+                BackColor = Color.Transparent,
+                Image = global::ClientPoint.Properties.Resources.btn_glow2
+        });
         }
 
         private void OnMouseUp(object sender, MouseEventArgs e) {
