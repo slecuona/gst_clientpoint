@@ -23,7 +23,7 @@ namespace ClientPoint.UI.Controls {
                 Name = "glow",
                 Size = this.Size,
                 BackColor = Color.Transparent,
-                Image = global::ClientPoint.Properties.Resources.btn_glow2
+                Image = global::ClientPoint.Properties.Resources.btn_glow
         });
         }
 

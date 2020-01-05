@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using ClientPoint.Session;
+using ClientPoint.UI.Controls;
 using ClientPoint.Utils;
 
 namespace ClientPoint.UI.Views
@@ -17,6 +18,15 @@ namespace ClientPoint.UI.Views
             //this.panelContainer.Controls.SetChildIndex(this.headerPanel, 6);
 
             lblWelcome.Font = FontUtils.Roboto(40, FontStyle.Bold);
+
+            var btn = new CustomAniButton() {
+                Location = new Point(744, 452),
+                Size = new System.Drawing.Size(240, 89),
+                BackColor = Color.Transparent
+            };
+            btnNewlient.Visible = false;
+            btnClient.Visible = false;
+            panelContainer.Controls.Add(btn);
         }
 
         private void BtnClientOnClick(object sender, EventArgs e) {

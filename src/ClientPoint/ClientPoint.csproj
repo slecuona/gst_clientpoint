@@ -122,6 +122,12 @@
     <Compile Include="Session\Client.cs" />
     <Compile Include="Session\ClientSession.cs" />
     <Compile Include="Session\Reward.cs" />
+    <Compile Include="UI\Controls\CustomAniButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\CustomAniButton.Designer.cs">
+      <DependentUpon>CustomAniButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Controls\CustomButtonArrow.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -709,6 +715,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\btn_glow2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_white_ani.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
