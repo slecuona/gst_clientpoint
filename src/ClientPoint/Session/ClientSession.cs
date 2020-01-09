@@ -6,6 +6,8 @@ namespace ClientPoint.Session {
         public static Client CurrClient;
         // Nos indica si el cliente accedió por Tarjeta (o #Doc)
         public static bool AccessByCard;
+        // Premio opcional pendiente (se muestra como popup en ClientMenuView)
+        public static bool RewardPending = true;
 
         public static void Clear() {
             CurrClient = null;

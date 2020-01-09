@@ -179,6 +179,9 @@
     <Compile Include="UI\Forms\FrmControl.Designer.cs">
       <DependentUpon>FrmControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Panels\RewardPopupPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UI\RewardPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -709,6 +712,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\btn_glow2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg_reward_popup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_view_reward.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

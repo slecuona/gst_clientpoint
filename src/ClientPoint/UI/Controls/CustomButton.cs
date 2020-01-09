@@ -19,12 +19,12 @@ namespace ClientPoint.UI.Controls {
             this.MouseDown += OnMouseDown;
             this.MouseUp += OnMouseUp;
 
-            this.Controls.Add(new PictureBox() {
-                Name = "glow",
-                Size = this.Size,
-                BackColor = Color.Transparent,
-                Image = global::ClientPoint.Properties.Resources.btn_glow2
-        });
+            //this.Controls.Add(new PictureBox() {
+            //    Name = "glow",
+            //    Size = this.Size,
+            //    BackColor = Color.Transparent,
+            //    Image = global::ClientPoint.Properties.Resources.btn_glow2
+            //});
         }
 
         private void OnMouseUp(object sender, MouseEventArgs e) {
@@ -80,6 +80,16 @@ namespace ClientPoint.UI.Controls {
                 Size = new Size(240, 89);
                 return;
             }
+            if (_type == Type.Cancel) {
+                Image = Properties.Resources.btn_cancel;
+                Size = new Size(121, 41);
+                return;
+            }
+            if (_type == Type.ViewReward) {
+                Image = Properties.Resources.btn_view_reward;
+                Size = new Size(121, 41);
+                return;
+            }
         }
 
     }
@@ -89,6 +99,8 @@ namespace ClientPoint.UI.Controls {
         Client = 1,
         Next = 2,
         Back = 3,
-        Price = 4
+        Price = 4,
+        Cancel = 5,
+        ViewReward = 6
     }
 }

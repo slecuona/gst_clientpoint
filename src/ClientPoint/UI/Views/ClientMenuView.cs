@@ -24,6 +24,12 @@ namespace ClientPoint.UI.Views
                 lblCardT.Left = 635;
                 lblCard.Left = 600;
             }
+
+            pnlRewardPopup.OnCancel = OnCancelRewardPopup;
+        }
+
+        private void OnCancelRewardPopup() {
+            LoadRewardPopup(false);
         }
 
         private void BtnPricesOnClick(object sender, EventArgs e) {
@@ -36,16 +42,33 @@ namespace ClientPoint.UI.Views
         }
 
         public override void BeforeShow() {
-            IdleTimer.Enabled = true;
             UIManager.SetKeyboard(Keyboard.None);
+            IdleTimer.Enabled = true;
             
+            LoadData();
+
+            base.BeforeShow();
+        }
+
+        private void LoadData() {
             var cl = ClientSession.CurrClient;
 
             lblName.Text = $"{cl?.Name} {cl?.LastName}".ToCamelCase();
             lblPoints.Text = cl?.Points.ToString() ?? "0";
             lblCard.Text = cl?.IdCard;
 
-            base.BeforeShow();
+            LoadRewardPopup(ClientSession.RewardPending);
+
+        }
+
+        private void LoadRewardPopup(bool show) {
+            //if (show)
+            //    pnlRewardPopup.LoadData(null);
+
+            pnlRewardPopup.Visible = show;
+            btnBack.Top = show ? 660 : 600;
+            btnPrices.Top = show ? 660 : 600;
+            userInfo.Top = show ? 180 : 200;
         }
 
         public override void AfterHide() {

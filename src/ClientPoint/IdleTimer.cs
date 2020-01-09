@@ -71,6 +71,8 @@ namespace ClientPoint {
             _idle = true;
             if (!_enabled)
                 return;
+            if (UIManager.Control.Visible)
+                return;
             Enabled = false;
             if(ShowMessage)
                 UIManager.SafeExecOnActiveForm(owner =>

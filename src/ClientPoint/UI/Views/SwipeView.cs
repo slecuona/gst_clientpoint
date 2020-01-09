@@ -30,6 +30,7 @@ namespace ClientPoint.UI.Views
         }
         
         public override void BeforeShow() {
+            UIManager.SetKeyboard(Keyboard.None);
             imgBox.Visible = true;
             this.ParentForm.KeyDown += ParentFormOnKeyDown;
 

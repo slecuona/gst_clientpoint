@@ -42,6 +42,7 @@ namespace ClientPoint.UI.Views
             this.lblCardT = new Telerik.WinControls.UI.RadLabel();
             this.lblPoints = new Telerik.WinControls.UI.RadLabel();
             this.lblCard = new Telerik.WinControls.UI.RadLabel();
+            this.pnlRewardPopup = new RewardPopupPanel();
             ((System.ComponentModel.ISupportInitialize)(this.panelContainer)).BeginInit();
             this.panelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnBack)).BeginInit();
@@ -54,6 +55,7 @@ namespace ClientPoint.UI.Views
             ((System.ComponentModel.ISupportInitialize)(this.lblCardT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblPoints)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblCard)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlRewardPopup)).BeginInit();
             this.SuspendLayout();
             // 
             // panelContainer
@@ -62,6 +64,7 @@ namespace ClientPoint.UI.Views
             this.panelContainer.Controls.Add(this.lblWelcome);
             this.panelContainer.Controls.Add(this.btnPrices);
             this.panelContainer.Controls.Add(this.btnBack);
+            this.panelContainer.Controls.Add(this.pnlRewardPopup);
             this.panelContainer.Size = new System.Drawing.Size(1586, 832);
             // 
             // btnBack
@@ -84,7 +87,7 @@ namespace ClientPoint.UI.Views
             this.btnPrices.ForeColor = System.Drawing.Color.White;
             this.btnPrices.Image = ((System.Drawing.Image)(resources.GetObject("btnPrices.Image")));
             this.btnPrices.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnPrices.Location = new System.Drawing.Point(744, 600);
+            this.btnPrices.Location = new System.Drawing.Point(774, 600);
             this.btnPrices.Name = "btnPrices";
             this.btnPrices.Size = new System.Drawing.Size(240, 89);
             this.btnPrices.TabIndex = 7;
@@ -114,7 +117,7 @@ namespace ClientPoint.UI.Views
             this.userInfo.Controls.Add(this.lblPoints);
             this.userInfo.Controls.Add(this.lblCard);
             this.userInfo.Image = global::ClientPoint.Properties.Resources.user_box;
-            this.userInfo.Location = new System.Drawing.Point(0, 200);
+            this.userInfo.Location = new System.Drawing.Point(7, 205);
             this.userInfo.Name = "userInfo";
             this.userInfo.Size = new System.Drawing.Size(1352, 303);
             this.userInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -178,6 +181,11 @@ namespace ClientPoint.UI.Views
             this.lblCard.TabIndex = 8;
             this.lblCard.Text = "-------------";
             this.lblCard.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            //
+            // pnlRewardPopup
+            //
+            this.pnlRewardPopup.Location = new Point(315, 495);
+            this.pnlRewardPopup.Visible = false;
             // 
             // ClientMenuView
             // 
@@ -197,6 +205,7 @@ namespace ClientPoint.UI.Views
             ((System.ComponentModel.ISupportInitialize)(this.lblCardT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblPoints)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblCard)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlRewardPopup)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -212,5 +221,6 @@ namespace ClientPoint.UI.Views
         private RadLabel lblCardT;
         private RadLabel lblPoints;
         private RadLabel lblCard;
+        private RewardPopupPanel pnlRewardPopup;
     }
 }
