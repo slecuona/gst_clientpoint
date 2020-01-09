@@ -722,5 +722,8 @@
   <ItemGroup>
     <None Include="Resources\btn_view_reward.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\idle_ani.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
