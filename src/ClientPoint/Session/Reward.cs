@@ -25,14 +25,27 @@ namespace ClientPoint.Session {
         public double AmountPromotion;
         public string ImageData;
 
-        public Image GetImage() {
+        public Image GetImage(bool trunc = true) {
             try {
-                // Saco los primero 36 caracteres
-                var base64 = ImageData.Substring(36, ImageData.Length - 36);
-                if (GraphUtils.TryGetImageFromBase64(base64, out Image img))
-                    return img;
+                string base64;
+                if (trunc) {
+                    // Por default, saco los primero 36 caracteres.
+                    // Por alguna razon, trae esos caracteres de más,
+                    // sin embargo aveces tampoco puede hacer conversion 
+                    // correctamente.
+                    base64 = ImageData.Substring(36, ImageData.Length - 36);
+                }
+                else
+                    base64 = ImageData;
+                
+                var img = GraphUtils.TryGetImageFromBase64(base64);
+                return img;
             } catch (Exception e) {
+                Logger.WriteAsync($"Err. convert base64 trunc: {trunc}");
                 Logger.Exception(e);
+                // Fallback, intento sin truncar.
+                if (trunc)
+                    return GetImage(false);
             }
             return Properties.Resources.gift;
         }
