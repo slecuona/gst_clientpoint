@@ -29,7 +29,7 @@ namespace ClientPoint.UI.Views
         }
 
         private void OnCancelRewardPopup() {
-            LoadRewardPopup(false);
+            LoadRewardPopup(null);
         }
 
         private void BtnPricesOnClick(object sender, EventArgs e) {
@@ -56,14 +56,15 @@ namespace ClientPoint.UI.Views
             lblName.Text = $"{cl?.Name} {cl?.LastName}".ToCamelCase();
             lblPoints.Text = cl?.Points.ToString() ?? "0";
             lblCard.Text = cl?.IdCard;
-
-            LoadRewardPopup(ClientSession.RewardPending);
+            
+            LoadRewardPopup(ClientSession.CampaignReward);
 
         }
 
-        private void LoadRewardPopup(bool show) {
-            //if (show)
-            //    pnlRewardPopup.LoadData(null);
+        private void LoadRewardPopup(Reward r) {
+            var show = r != null;
+            if (show)
+                pnlRewardPopup.LoadData(r);
 
             pnlRewardPopup.Visible = show;
             btnBack.Top = show ? 660 : 600;

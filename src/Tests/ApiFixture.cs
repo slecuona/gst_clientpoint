@@ -103,9 +103,9 @@ namespace Tests {
         }
 
         [TestMethod]
-        public void GetRewardsEmpty() {
+        public void GetRewardsNotEmpty() {
             var res = ApiService.GetRewards(Config.TEST_CARD);
-            Assert.IsTrue(res.Count == 0);
+            Assert.IsTrue(res.Count > 0);
         }
 
         [TestMethod]
@@ -156,6 +156,12 @@ namespace Tests {
             var res = ApiService.CancelTicketPromoPending("123", out string err);
             Assert.IsFalse(res);
             Assert.IsTrue(err.Contains("No se encontró"));
+        }
+
+        [TestMethod]
+        public void GetRewardsCampaign() {
+            var res = ApiService.GetRewardsCampaign(Config.TEST_CARD);
+            Assert.IsTrue(res != null);
         }
     }
 }

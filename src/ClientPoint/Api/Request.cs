@@ -1,5 +1,6 @@
 ﻿// Este archivo contiene la estructura de todos los request
 // que realiza la API
+
 namespace ClientPoint.Api {
     public struct ClientCreateRequest {
         public string DocumentNumber;
@@ -33,6 +34,10 @@ namespace ClientPoint.Api {
         public string IdCard;
     }
 
+    public struct CancelRewardCampaignRequest {
+        public string NrMvt;
+    }
+
     public struct CreateCardRequest {
         public string DocumentNumber;
         public string Password;
@@ -43,6 +48,7 @@ namespace ClientPoint.Api {
         public string IdCard;
         public string IdReward;
         public string ValidationNo;
+        public string NroMvt;
     }
 
     public struct ExchangeTPPRequest {

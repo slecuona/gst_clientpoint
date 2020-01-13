@@ -24,6 +24,7 @@ namespace ClientPoint.Session {
         public string CategoryName;
         public double AmountPromotion;
         public string ImageData;
+        public Int64 NroMvt;
 
         public Image GetImage(bool trunc = true) {
             try {

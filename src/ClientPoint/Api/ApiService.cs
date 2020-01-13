@@ -146,8 +146,40 @@ namespace ClientPoint.Api {
             }
         }
 
+        public static Reward GetRewardsCampaign(string idCard) {
+            try {
+                var json = SendRequest("GetRewardsCampaign", ToJson(new ClientLoadRequest() {
+                    IdCard = idCard
+                }));
+                var res = (Reward[])JsonUtils.Deserialize(typeof(Reward[]), json);
+                if (res.Length == 0)
+                    return null;
+                return res[0];
+            } catch (Exception e) {
+                throw new Exception("Error al obtener premios.", e);
+            }
+        }
+
+        public static bool CancelRewardCampaign(Int64 nroMvt, out string errMsg) {
+            try {
+                var res = PrepareAndSendRequest<BaseResponse>(
+                    "CancelRewardCampaign", new CancelRewardCampaignRequest() {
+                        NrMvt = nroMvt.ToString()
+                    }, out errMsg);
+                return res.ResponseCode == 0;
+            } catch (Exception e) {
+                throw new Exception("Error al cancelar premio de capaña.", e);
+            }
+        }
+
         public static ChangeRewardResponse ChangeReward(ChangeRewardRequest req, out string errMsg) {
             var res = PrepareAndSendRequest<ChangeRewardResponse>("ChangeReward", req, out errMsg);
+            return (ChangeRewardResponse)res;
+        }
+        
+        public static ChangeRewardResponse ChangeRewardCampaign(ChangeRewardRequest req, out string errMsg) {
+            var res = PrepareAndSendRequest<ChangeRewardResponse>(
+                "ChangeRewardCampaign", req, out errMsg);
             return (ChangeRewardResponse)res;
         }
 

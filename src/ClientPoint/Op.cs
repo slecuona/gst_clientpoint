@@ -176,19 +176,25 @@ namespace ClientPoint {
         private static void ClientLoadSync(string idCard) {
             try {
                 ClientSession.Clear();
-                var res = ApiService.ClientLoad(new ClientLoadRequest() {
+                var clientData = ApiService.ClientLoad(new ClientLoadRequest() {
                     IdCard = idCard
                 }, out string errMsg);
-                if (res == null) {
+                if (clientData == null) {
                     MsgBox.Error(errMsg);
                     return;
                 }
                 // Cargo todos los datos del usuario
-                ClientSession.Load(res, null);
+                ClientSession.Load(clientData, null);
+                // Busco si tiene un premio pendiente de campaña
+                var reward = ApiService.GetRewardsCampaign(idCard);
+                if (reward != null) {
+                    ClientSession.CampaignReward = reward;
+                }
                 ShowView(View.ClientMenu);
             }
             catch (Exception e) {
                 Logger.Exception(e);
+                ClientSession.Clear();
                 SafeExec(() => {
                     MsgBox.Error(
                         "Hubo un error al recuperar los datos del cliente." +

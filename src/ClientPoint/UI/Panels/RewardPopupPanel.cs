@@ -39,7 +39,6 @@ namespace ClientPoint.UI {
             _lblImg.AutoSize = false;
             _lblImg.BackgroundImageLayout = ImageLayout.Zoom;
             _lblImg.BackgroundImage = Properties.Resources.gift_thumb;
-            _lblImg.Click += OnClick;
 
             this.Controls.Add(_lblImg);
 
@@ -49,7 +48,6 @@ namespace ClientPoint.UI {
             lbl.Font = FontUtils.Roboto(18);
             lbl.Location = new Point(150, 20);
             lbl.ForeColor = Color.White;
-            lbl.Click += OnClick;
 
             this.Controls.Add(lbl);
 
@@ -65,11 +63,9 @@ namespace ClientPoint.UI {
             btnView.Location = new System.Drawing.Point(450, 70);
             btnView.Name = "btnView";
             btnView.Type = ClientPoint.UI.Controls.Type.ViewReward;
-            btnView.Click += BtnViewOnClick; 
+            btnView.Click += BtnViewOnClick;
 
             this.Controls.Add(btnView);
-
-            this.Click += OnClick;
         }
 
         private void BtnCancelOnClick(object sender, EventArgs e) {
@@ -77,10 +73,6 @@ namespace ClientPoint.UI {
         }
 
         private void BtnViewOnClick(object sender, EventArgs e) {
-            
-        }
-        
-        private void OnClick(object sender, EventArgs e) {
             ShowRewardModal();
         }
         
