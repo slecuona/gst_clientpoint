@@ -57,7 +57,7 @@ namespace ClientPoint.UI.Controls {
             this.lblCod.Name = "lblCod";
             this.lblCod.Size = new System.Drawing.Size(50, 34);
             this.lblCod.TabIndex = 0;
-            this.lblCod.Text = "+54 9";
+            this.lblCod.Text = Config.PhonePrefix1;
             this.lblCod.ForeColor = Color.White;
             // 
             // lblSlash2
@@ -67,7 +67,7 @@ namespace ClientPoint.UI.Controls {
             this.lbl15.Name = "lbl15";
             this.lbl15.Size = new System.Drawing.Size(40, 34);
             this.lbl15.TabIndex = 0;
-            this.lbl15.Text = "15";
+            this.lbl15.Text = Config.PhonePrefix2;
             this.lbl15.ForeColor = Color.White;
             // 
             // txtDay

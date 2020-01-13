@@ -75,6 +75,9 @@ namespace ClientPoint {
 
             PointsEnabled = GetBool("PointsEnabled", true);
 
+            PhonePrefix1 = GetSetting("PhonePrefix1", "+54 9");
+            PhonePrefix2 = GetSetting("PhonePrefix2", "15");
+
             LoadHostLogo();
         }
 
@@ -144,6 +147,9 @@ namespace ClientPoint {
         public static string ControlPin;
 
         public static bool PointsEnabled = true;
+
+        public static string PhonePrefix1 = "";
+        public static string PhonePrefix2 = "";
 
         /// <summary>
         /// URL Base de la API.
