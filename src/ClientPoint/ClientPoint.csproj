@@ -161,6 +161,12 @@
     <Compile Include="UI\Forms\FrmMainContainer.Designer.cs">
       <DependentUpon>FrmMainContainer.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Forms\FrmOverlay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\FrmOverlay.Designer.cs">
+      <DependentUpon>FrmOverlay.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Forms\FrmRewardModal.cs">
       <SubType>Form</SubType>
     </Compile>

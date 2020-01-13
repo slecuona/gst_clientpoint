@@ -46,6 +46,12 @@ namespace ClientPoint.UI.Forms {
                 btnPlus.Left = 330;
                 lblQuantity.Left = 218;
             }
+
+            this.Closed += OnClosed;
+        }
+
+        private void OnClosed(object sender, EventArgs e) {
+            UIManager.HideOverlay();
         }
 
         private void BtnMinusOnClick(object sender, EventArgs e) {

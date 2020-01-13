@@ -75,8 +75,10 @@ namespace ClientPoint {
                 return;
             Enabled = false;
             if(ShowMessage)
-                UIManager.SafeExecOnActiveForm(owner =>
-                    _form.ShowDialog(owner));
+                UIManager.SafeExecOnActiveForm(owner => {
+                    UIManager.Overlay.Show(owner);
+                    _form.ShowDialog(UIManager.Overlay);
+                });
             else 
                 UIManager.ShowWindow(Window.Ads);
         }

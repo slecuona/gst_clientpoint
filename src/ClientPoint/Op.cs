@@ -220,8 +220,10 @@ namespace ClientPoint {
 
         public static void ShowReward(Reward reward) {
             UIManager.RewardModal.LoadReward(reward);
-            SafeExecOnActiveForm(owner =>
-                UIManager.RewardModal.ShowDialog(owner));
+            SafeExecOnActiveForm(owner => {
+                UIManager.Overlay.Show(owner);
+                UIManager.RewardModal.ShowDialog(Overlay);
+            });
         }
 
         public static void ExchangeRewardAsync(Reward r, int quantity = 1) {

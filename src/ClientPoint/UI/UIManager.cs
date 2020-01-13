@@ -64,6 +64,7 @@ namespace ClientPoint.UI {
         public static FrmControl Control;
         public static FrmSplash Splash;
         public static FrmRewardModal RewardModal;
+        public static FrmOverlay Overlay;
 
         // Debe ser ejecutado en UI Thread
         public static void Init() {
@@ -82,6 +83,7 @@ namespace ClientPoint.UI {
             Render();
             RewardModal = new FrmRewardModal();
             Control = new FrmControl();
+            Overlay = new FrmOverlay();
         }
 
         // Muestro los controles intentando forzar el render para
@@ -265,8 +267,10 @@ namespace ClientPoint.UI {
         private static void ShowControlOnConfirm() {
             IdleTimer.Enabled = false;
             ShowView(View.MainMenu);
-            SafeExecOnActiveForm(owner =>
-                Control.ShowDialog(owner == Control ? null : owner));
+            SafeExecOnActiveForm(owner => {
+                Overlay.Show(owner == Control ? null : owner);
+                Control.ShowDialog(Overlay);
+            });
             IdleTimer.Enabled = true;
         }
 
@@ -281,6 +285,13 @@ namespace ClientPoint.UI {
                 return;
             SafeExec(()=> 
                 header.lblError.Visible = Status.HasErrors && !Config.DebugMode);
+        }
+
+        public static void HideOverlay() {
+            SafeExec(() => {
+                Overlay.Hide();
+                ActivateCurrWindow();
+            });
         }
 
         public static DocInputView DocInput => 

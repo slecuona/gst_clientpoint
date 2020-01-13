@@ -80,6 +80,11 @@ namespace ClientPoint.UI.Forms {
             idleMessageSeconds = AddRow("Segundos de espera en mensaje de inactividad");
 
             this.Shown += OnShown;
+            this.Closed += OnClosed;
+        }
+
+        private void OnClosed(object sender, EventArgs e) {
+            UIManager.HideOverlay();
         }
 
         private DataGridViewCell AddRow(string t) {

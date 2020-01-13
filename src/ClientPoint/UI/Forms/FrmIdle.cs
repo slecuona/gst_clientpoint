@@ -23,6 +23,11 @@ namespace ClientPoint.UI.Forms
             _timer.Enabled = false;
 
             this.Shown += OnShown;
+            this.Closed += OnClosed;
+        }
+
+        private void OnClosed(object sender, EventArgs e) {
+            UIManager.HideOverlay();
         }
 
         private void OnShown(object sender, EventArgs e) {
