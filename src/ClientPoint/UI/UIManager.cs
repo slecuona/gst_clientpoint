@@ -11,6 +11,8 @@ using ClientPoint.Utils;
 
 namespace ClientPoint.UI {
     public static class UIManager {
+        private static object _locker = new object();
+
         private static Dictionary<Window, FrmBase> _windows;
         private static Dictionary<Keyboard, Form> _keyboards;
         private static Dictionary<View, BaseView> _views;
@@ -77,8 +79,14 @@ namespace ClientPoint.UI {
                 { Keyboard.AlphaNum, new FrmKeyBoard()},
                 { Keyboard.Num, new FrmNumKeyBoard()},
             };
-            // Hago el render al inicio
-            // (evito el flickering)
+            Render();
+            RewardModal = new FrmRewardModal();
+            Control = new FrmControl();
+        }
+
+        // Muestro los controles intentando forzar el render para
+        // evitar el flickering
+        private static void Render() {
             foreach (var w in _windows) {
                 w.Value.Show();
                 w.Value.Hide();
@@ -91,8 +99,18 @@ namespace ClientPoint.UI {
                 w.Value.Hide();
                 w.Value.Opacity = 1;
             }
-            RewardModal = new FrmRewardModal();
-            Control = new FrmControl();
+            // Render de vistas
+            var vw = _windows[Window.Main];
+            vw.Opacity = 0;
+            vw.Show();
+            foreach (var v in _views) {
+                v.Value.Visible = true;
+            }
+            foreach (var v in _views) {
+                v.Value.Visible = false;
+            }
+            vw.Hide();
+            vw.Opacity = 1;
         }
 
         public static void AddView(View v, BaseView p) {
@@ -112,58 +130,61 @@ namespace ClientPoint.UI {
         }
 
         public static void ShowWindow(Window toShow) {
-            if (toShow == CurrWindow)
-                return;
-            CloseControlForm();
-            var prev = CurrWindow;
-            CurrWindow = toShow;
-            SafeExec(() => {
-                try {
-                    if (prev != Window.None)
-                        _windows[prev].BeforeHide();
-                    _windows[toShow].BeforeShow();
-                    _windows[toShow].Show();
-                    if (prev != Window.None) {
-                        _windows[prev].Hide();
-                        _windows[prev].AfterHide();
-                    }
-                    _windows[toShow].AfterShow();
-                    //_windows[toShow].Select();
-                }
-                catch (Exception e) {
-                    Logger.Exception(e);
-                }
-            });
-        }
-
-        public static void ShowView(View toShow) {
-            if (toShow != View.None) {
-                var w = _views[toShow].GetParentWindow();
-                ShowWindow(w);
-            }
-
-            var prev = CurrView;
-            if (prev != toShow) {
-                CurrView = toShow;
+            lock (_locker) {
+                if (toShow == CurrWindow)
+                    return;
+                CloseControlForm();
+                var prev = CurrWindow;
+                CurrWindow = toShow;
                 SafeExec(() => {
                     try {
-                        if (prev != View.None) {
-                            _views[prev].BeforeHide();
-                            _views[prev].Visible = false;
-                            _views[prev].AfterHide();
+                        if (prev != Window.None)
+                            _windows[prev].BeforeHide();
+                        _windows[toShow].BeforeShow();
+                        _windows[toShow].Show();
+                        if (prev != Window.None) {
+                            _windows[prev].Hide();
+                            _windows[prev].AfterHide();
                         }
-                        GetCurrentWindow().Refresh();
-                        if (toShow != View.None) {
-                            _views[toShow].BeforeShow();
-                            _views[toShow].Visible = true;
-                            _views[toShow].AfterShow();
-                        }
+                        _windows[toShow].AfterShow();
+                        //_windows[toShow].Select();
                     } catch (Exception e) {
                         Logger.Exception(e);
                     }
                 });
             }
-            
+        }
+
+        public static void ShowView(View toShow) {
+            lock (_locker) {
+                if (toShow != View.None) {
+                    var w = _views[toShow].GetParentWindow();
+                    ShowWindow(w);
+                }
+
+                var prev = CurrView;
+                if (prev != toShow) {
+                    CurrView = toShow;
+                    SafeExec(() => {
+                        try {
+                            if (prev != View.None) {
+                                _views[prev].BeforeHide();
+                                _views[prev].Visible = false;
+                                _views[prev].AfterHide();
+                            }
+                            GetCurrentWindow().Refresh();
+                            if (toShow != View.None) {
+                                _views[toShow].BeforeShow();
+                                _views[toShow].Visible = true;
+                                _views[toShow].AfterShow();
+                            }
+                        }
+                        catch (Exception e) {
+                            Logger.Exception(e);
+                        }
+                    });
+                }
+            }
         }
 
         public static void SetKeyboardForMail(bool val) {
