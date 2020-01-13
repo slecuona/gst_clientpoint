@@ -14,8 +14,8 @@ using Telerik.WinControls.UI;
 namespace ClientPoint.UI {
 
     public class RewardPopupPanel : RadPanel {
-        const int width = 731;
-        const int height = 126;
+        const int width = 746;
+        const int height = 140;
         private Reward _reward;
 
         private RadLabel _lblImg;
