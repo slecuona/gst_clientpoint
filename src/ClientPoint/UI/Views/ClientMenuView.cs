@@ -29,6 +29,7 @@ namespace ClientPoint.UI.Views
         }
 
         private void OnCancelRewardPopup() {
+            Op.CancelCampaignReward();
             LoadRewardPopup(null);
         }
 
@@ -50,7 +51,7 @@ namespace ClientPoint.UI.Views
             base.BeforeShow();
         }
 
-        private void LoadData() {
+        public void LoadData() {
             var cl = ClientSession.CurrClient;
 
             lblName.Text = $"{cl?.Name} {cl?.LastName}".ToCamelCase();
@@ -58,7 +59,6 @@ namespace ClientPoint.UI.Views
             lblCard.Text = cl?.IdCard;
             
             LoadRewardPopup(ClientSession.CampaignReward);
-
         }
 
         private void LoadRewardPopup(Reward r) {

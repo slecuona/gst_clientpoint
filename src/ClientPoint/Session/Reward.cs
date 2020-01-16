@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading;
-using System.Threading.Tasks;
 using ClientPoint.Api;
 using ClientPoint.IO;
 using ClientPoint.Utils;
-using Telerik.WinControls;
 using static ClientPoint.Utils.ExUtils;
 
 namespace ClientPoint.Session {
@@ -73,10 +67,15 @@ namespace ClientPoint.Session {
             var cl = ClientSession.CurrClient;
             var idx = 1;
             for (idx = 1; idx <= quantity; idx++) {
-                var res = ApiService.ChangeReward(new ChangeRewardRequest() {
+                var req = new ChangeRewardRequest() {
                     IdCard = cl.IdCard,
-                    IdReward = IdReward.ToString()
-                }, out string errMsg);
+                    IdReward = IdReward.ToString(),
+                    NroMvt = NroMvt.ToString()
+                };
+                string errMsg;
+                var res = NroMvt > 0
+                    ? ApiService.ChangeRewardCampaign(req, out errMsg)
+                    : ApiService.ChangeReward(req, out errMsg);
                 DieIf(!string.IsNullOrEmpty(errMsg), errMsg);
 
                 // El string viene "escapado"
@@ -111,14 +110,22 @@ namespace ClientPoint.Session {
                 "ValidationNo vacio.");
 
             var p = new TicketPrinter();
+            var onFinishCalled = false;
             p.OnFinish = (success, errMsg) => {
+                if (onFinishCalled)
+                    return;
+                onFinishCalled = true;
                 if (success) {
-                    var resExc = ApiService.ChangeReward(new ChangeRewardRequest() {
+                    var req = new ChangeRewardRequest() {
                         IdCard = cl.IdCard,
                         IdReward = IdReward.ToString(),
-                        ValidationNo = res.ValidationNo
-
-                    }, out string err2);
+                        ValidationNo = res.ValidationNo,
+                        NroMvt = NroMvt.ToString()
+                    };
+                    string err2;
+                    var resExc = NroMvt > 0 ?
+                        ApiService.ChangeRewardCampaign(req, out err2) :
+                        ApiService.ChangeReward(req, out err2);
                     // TODO: Ticket invalido??
                     DieIf(!string.IsNullOrEmpty(err2), err2);
                     onFinish?.Invoke(true, null);
@@ -127,7 +134,7 @@ namespace ClientPoint.Session {
                     var resCancel = ApiService.CancelTicketPromoPending(
                         res.ValidationNo, out string errCancel);
                     // TODO: que pasa si no se pudo cancelar el ticket?
-                    onFinish?.Invoke(false, "No se pudo imprimir el Ticket.");
+                    onFinish?.Invoke(false, $"No se pudo imprimir el Ticket: {errMsg}");
                 }
             };
             p.PrintAsync(res.TicketToPrinter);

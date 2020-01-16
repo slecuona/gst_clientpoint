@@ -176,6 +176,7 @@ namespace ClientPoint {
         private static void ClientLoadSync(string idCard) {
             try {
                 ClientSession.Clear();
+                DieIf(string.IsNullOrEmpty(idCard), "IdCard null.");
                 var clientData = ApiService.ClientLoad(new ClientLoadRequest() {
                     IdCard = idCard
                 }, out string errMsg);
@@ -190,7 +191,14 @@ namespace ClientPoint {
                 if (reward != null) {
                     ClientSession.CampaignReward = reward;
                 }
-                ShowView(View.ClientMenu);
+
+                if(UIManager.CurrView != View.ClientMenu)
+                    ShowView(View.ClientMenu);
+                else {
+                    // Este caso se da despues de canjear un premio de campaña
+                    // Ya estamos en esta vista, pero hay que actualizar los datos
+                    UIManager.ClientMenuView.LoadData();
+                }
             }
             catch (Exception e) {
                 Logger.Exception(e);
@@ -200,6 +208,28 @@ namespace ClientPoint {
                         "Hubo un error al recuperar los datos del cliente." +
                         Environment.NewLine +
                         "Disculpe las molestias.");
+                });
+            }
+        }
+
+        public static void CancelCampaignReward() {
+            try {
+                if(ClientSession.CampaignReward == null)
+                    return;
+
+                var nrMov = ClientSession.CampaignReward.NroMvt;
+                var success = ApiService.CancelRewardCampaign(nrMov, out string errMsg);
+                if (!success) {
+                    MsgBox.Error(errMsg);
+                    return;
+                }
+                ClientSession.CampaignReward = null;
+            }
+            catch (Exception e) {
+                Logger.Exception(e);
+                SafeExec(() => {
+                    MsgBox.Error(
+                        "Hubo un error al cancelar el premio de campaña.");
                 });
             }
         }
@@ -260,8 +290,9 @@ namespace ClientPoint {
             }
         }
 
-        private static void OnRewardExchangeFinish(bool success, string arg2) {
+        private static void OnRewardExchangeFinish(bool success, string errMsg) {
             if (!success) {
+                Logger.WriteAsync(errMsg);
                 SafeExec(() => {
                     MsgBox.Error("Error al canjear premio.");
                     ShowWindow(Window.Ads);
@@ -272,7 +303,7 @@ namespace ClientPoint {
             var cl = ClientSession.CurrClient;
             // Vuelvo a cargar el cliente y lo llevo a la pantalla principal.
             SafeExec(() => {
-                ClientLoadSync(cl.IdCard);
+                ClientLoadSync(cl?.IdCard);
             });
         }
         

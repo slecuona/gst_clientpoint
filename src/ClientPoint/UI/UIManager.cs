@@ -302,6 +302,8 @@ namespace ClientPoint.UI {
             (PinInputView)_views[View.PinInput];
         public static StatusView StatusMainView =>
             (StatusView)_views[View.StatusMain];
+        public static ClientMenuView ClientMenuView =>
+            (ClientMenuView)_views[View.ClientMenu];
     }
 
     public enum Window {

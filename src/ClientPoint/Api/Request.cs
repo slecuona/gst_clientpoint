@@ -35,7 +35,7 @@ namespace ClientPoint.Api {
     }
 
     public struct CancelRewardCampaignRequest {
-        public string NrMvt;
+        public string NroMvt;
     }
 
     public struct CreateCardRequest {

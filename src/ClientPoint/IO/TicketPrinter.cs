@@ -44,6 +44,7 @@ namespace ClientPoint.IO {
             try {
                 var success = base.TryWrite(Ticket, out string errMsg);
                 if (!success) {
+                    onFinishCalled = true;
                     OnFinish?.Invoke(false, errMsg);
                     return;
                 }
@@ -55,19 +56,22 @@ namespace ClientPoint.IO {
                     tries++;
                     Thread.Sleep(500);
                     var status = GetStatus(out s);
+                    Logger.DebugWrite($"TicketStatus: {string.Join("-",status)}");
                     if (status.Contains(TicketPrinterState.PAPER_IN_CHUTE)) {
                         continue;
-                    }
-
-                    if (tries > maxTries) {
-                        // Quiere decir que paso al menos 10 segundos sin respuesta valida.
-                        OnFinish?.Invoke(false, "No se pudo imprimir el ticket. (timeout)");
                     }
 
                     if (status.Contains(TicketPrinterState.OK) ||
                         // Si esta vacio, asumimos que dio error, pero imprimio OK.
                         status.Contains(TicketPrinterState.EMPTY)) {
                         break;
+                    }
+
+                    if (tries > maxTries) {
+                        // Quiere decir que paso al menos 10 segundos sin respuesta valida.
+                        onFinishCalled = true;
+                        OnFinish?.Invoke(false, "No se pudo imprimir el ticket. (timeout)");
+                        return;
                     }
 
                     //if (status.Contains(TicketPrinterState.SYS_ERROR)) {

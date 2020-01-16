@@ -1,5 +1,6 @@
 ﻿using System;
 using ClientPoint.Api;
+using ClientPoint.Utils;
 
 namespace ClientPoint.Session {
     public class ClientSession {
@@ -13,6 +14,8 @@ namespace ClientPoint.Session {
         public static void Clear() {
             CurrClient = null;
             AccessByCard = false;
+            CampaignReward = null;
+            Logger.DebugWrite("ClientSession Clear.");
         }
 
         public static void Load(ClientStatusResponse res, string doc) {

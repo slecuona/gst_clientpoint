@@ -11,19 +11,19 @@ namespace ClientPoint.Api {
     public static class ApiService {
         private static string SendRequest(string op, string json) {
             try {
-                Logger.DebugWrite($"[JSON REQUEST] => {json}");
+                Logger.DebugWrite($"[JSON REQUEST] [{op}] => {json}");
                 using (var client = new HttpClient()) {
                     client.BaseAddress = new Uri(Config.ApiUrl);
                     var content = new StringContent(json, Encoding.UTF8, "application/json");
                     var result = client.PostAsync(op, content).Result;
                     var res = result.Content.ReadAsStringAsync().Result;
-                    Logger.DebugWrite($"[JSON RESPONSE] => {res}");
+                    Logger.DebugWrite($"[JSON RESPONSE] [{op}] => {res}");
                     return res;
                 }
             }
             catch (Exception ex) {
                 throw new Exception(
-                    $"Error al enviar request a la API. " +
+                    $"API: Error al enviar request a la API. " +
                     $"Op => {op}. Json => {json}", ex);
             }
         }
@@ -43,7 +43,7 @@ namespace ClientPoint.Api {
                 }
                 return res;
             } catch (Exception ex) {
-                throw new Exception($"Error al preparar request de {op}.", ex);
+                throw new Exception($"API: Error al preparar request de {op}.", ex);
             }
         }
 
@@ -67,7 +67,7 @@ namespace ClientPoint.Api {
                 return res.ToList();
             }
             catch (Exception ex) {
-                throw new Exception("Error al obtener publicidades.", ex);
+                throw new Exception("API: Error al obtener publicidades.", ex);
             }
         }
 
@@ -156,7 +156,7 @@ namespace ClientPoint.Api {
                     return null;
                 return res[0];
             } catch (Exception e) {
-                throw new Exception("Error al obtener premios.", e);
+                throw new Exception("API: Error al obtener premios.", e);
             }
         }
 
@@ -164,11 +164,11 @@ namespace ClientPoint.Api {
             try {
                 var res = PrepareAndSendRequest<BaseResponse>(
                     "CancelRewardCampaign", new CancelRewardCampaignRequest() {
-                        NrMvt = nroMvt.ToString()
+                        NroMvt = nroMvt.ToString()
                     }, out errMsg);
                 return res.ResponseCode == 0;
             } catch (Exception e) {
-                throw new Exception("Error al cancelar premio de capaña.", e);
+                throw new Exception("API: Error al cancelar premio de campaña.", e);
             }
         }
 
