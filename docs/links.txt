@@ -1,10 +1,17 @@
 # Que hacer si se atasca una tarjeta:
 https://es.evolis.com/primacy-231-error-mecanico-atasco
 
+
 https://www.custom4u.it/pages/product/ricercaSoftware.php
+
 
 https://github.com/PyramidTechnologies/ThermalTalk
 
 
 https://github.com/QL-Win/QuickLook/blob/master/QuickLook.Plugin/QuickLook.Plugin.ImageViewer/AnimatedImage/APNGAnimationProvider.cs
+
+
+https://www.solvetic.com/tutoriales/article/3208-como-poner-modo-kiosco-windows-10/
+https://docs.microsoft.com/en-us/windows/configuration/kiosk-single-app
+
 
