@@ -14,7 +14,7 @@ namespace ClientPoint.UI.Views
             headerPanel.Title = "";
             _swipeReader = new SwipeReader(OnSwipe);
 
-            lblMsg.Text = "Por favor, deslice su tarjeta por el lector.";
+            lblMsg.Text = Strings.Get("titulo_deslice_tarjeta");
             lblMsg.Text = lblMsg.Text.ToUpper();
 
             btnLogin.Click += BtnLoginOnClick;

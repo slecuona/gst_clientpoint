@@ -96,7 +96,7 @@ namespace ClientPoint.UI.Views
             }
             catch (Exception e) {
                 Logger.Exception(e);
-                MsgBox.Error("Error al mostrar premios.");
+                MsgBox.Error(Strings.Get("error_premios"));
                 UIManager.ShowWindow(Window.Ads);
             }
         }
@@ -124,10 +124,7 @@ namespace ClientPoint.UI.Views
             }
             catch (Exception e) {
                 Logger.Exception(e);
-                MsgBox.Error(
-                    "Hubo un error al obtener los premios disponibles." + 
-                    Environment.NewLine + 
-                    "Disculpe las molestias.");
+                MsgBox.Error(Strings.Get("error_premios"));
             }
         }
         

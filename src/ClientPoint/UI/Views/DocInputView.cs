@@ -9,7 +9,7 @@ namespace ClientPoint.UI.Views {
             InitializeComponent();
             //fldDocument.CustomMaskType = CustomMaskType.Document;
             ConfigureCurrentControlHandle();
-            headerPanel.Title = "Por favor, ingrese su número de documento.";
+            headerPanel.Title = Strings.Get("titulo_ingrese_documento");
         }
 
         private string DocumentValue => fldDocument.Value;

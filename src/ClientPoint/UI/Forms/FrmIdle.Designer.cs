@@ -55,7 +55,7 @@ namespace ClientPoint.UI.Forms
             this.btnContinue.Size = new System.Drawing.Size(240, 89);
             this.btnContinue.TabIndex = 0;
             this.btnContinue.TabStop = false;
-            this.btnContinue.Text = "SI, CONTINUAR...";
+            this.btnContinue.Text = Strings.Get("inactivo_continuar");
             // 
             // radLabel1
             // 

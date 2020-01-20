@@ -10,7 +10,7 @@ namespace ClientPoint.UI.Views {
         public ClientCreateView() {
             InitializeComponent();
             ConfigureCurrentControlHandle();
-            headerPanel.Title = "NUEVO CLIENTE";
+            headerPanel.Title = Strings.Get("titulo_nuevo_cliente");
         }
 
         private string NameValue => fldName.Value;
@@ -29,36 +29,36 @@ namespace ClientPoint.UI.Views {
 
         protected override void PerformValidation(ref List<string> errors) {
             if (_stepNr == 1 && string.IsNullOrEmpty(NameValue))
-                errors.Add("Debe ingresar su nombre.");
+                errors.Add(Strings.Get("error_nombre"));
 
             if (_stepNr == 1 && string.IsNullOrEmpty(LastNameValue))
-                errors.Add("Debe ingresar su apellido.");
+                errors.Add(Strings.Get("error_apellido"));
 
             if (_stepNr == 1 && string.IsNullOrEmpty(DocumentValue))
-                errors.Add("Debe ingresar su número de documento.");
+                errors.Add(Strings.Get("error_documento"));
 
             if (_stepNr == 1 && SexValue == null)
-                errors.Add("Debe especificar su sexo.");
+                errors.Add("error_sexo");
 
             if(_stepNr == 1 && !fldBirthDate.IsValid())
-                errors.Add("La fecha de nacimiento ingresada no es válida.");
+                errors.Add(Strings.Get("error_fecha_nac"));
 
             if (_stepNr == 1 && fldBirthDate.IsValid() && BirthDateValue.Date > MaxBirthDate.Date)
-                errors.Add("Debe tener mas de 18 años para registrarse.");
+                errors.Add(Strings.Get("error_mayor_edad"));
 
             if (_stepNr == 2 && string.IsNullOrEmpty(EmailValue) && string.IsNullOrEmpty(CellphoneValue))
-                errors.Add("Debe ingresar una dirección de correo electrónico o un número de celular.");
+                errors.Add(Strings.Get("error_mail_celular"));
 
             if (_stepNr == 2 && 
                 (!string.IsNullOrEmpty(EmailValue) || !string.IsNullOrEmpty(Email2Value)) && 
                 EmailValue != Email2Value)
-                errors.Add("Las direcciones de correo electrónico ingresadas no son iguales.");
+                errors.Add(Strings.Get("error_mail_iguales"));
 
             if (_stepNr == 2 && (string.IsNullOrEmpty(PasswordValue) || string.IsNullOrEmpty(Password2Value)))
-                errors.Add("Debe ingresar una contraseña y su repetición.");
+                errors.Add(Strings.Get("error_pass_repeticion"));
 
             if (_stepNr == 2 && PasswordValue != Password2Value)
-                errors.Add("Las contraseñas ingresadas no son iguales.");
+                errors.Add(Strings.Get("error_pass_iguales"));
 
             //TODO: Que otras validaciones?
         }
@@ -88,12 +88,12 @@ namespace ClientPoint.UI.Views {
             var byMail = !string.IsNullOrEmpty(EmailValue);
             if (byMail) {
                 MsgBox.Email(
-                    "Cliente creado correctamente.\n" +
-                    "Se ha enviado el código de confirmación a su casilla de correo.");
+                    Strings.Get("cliente_creado") + Environment.NewLine +
+                    Strings.Get("codigo_enviado_mail"));
             } else {
                 MsgBox.Sms(
-                    "Cliente creado correctamente.\n" +
-                    "Se ha enviado el código de confirmación por SMS a su celular.");
+                    Strings.Get("cliente_creado") + Environment.NewLine +
+                    Strings.Get("codigo_enviado_sms"));
             }
 
             // Cargo la password ingresada para enviar en el request

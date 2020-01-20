@@ -18,22 +18,22 @@ namespace ClientPoint.UI.Views
             btnBack.Visible = false;
             if (st == States.PrintingCard) {
                 imgBox.Image = Properties.Resources.printing_card;
-                headerPanel.Title = "Imprimiendo tarjeta...";
+                headerPanel.Title = Strings.Get("imprimiendo_tarjeta");
                 return;
             }
             if (st == States.RemoveCard) {
                 imgBox.Image = Properties.Resources.remove_card;
-                headerPanel.Title = "Tarjeta lista! retírela por favor.";
+                headerPanel.Title = Strings.Get("tarjeta_lista");
                 return;
             }
             if (st == States.PrintingVoucher) {
                 imgBox.Image = Properties.Resources.remove_coupon;
-                headerPanel.Title = "Imprimiendo voucher...";
+                headerPanel.Title = Strings.Get("imprimiendo_voucher");
                 return;
             }
             if (st == States.PrintingTicket) {
                 imgBox.Image = Properties.Resources.remove_ticket;
-                headerPanel.Title = "Imprimiendo ticket de promoción...";
+                headerPanel.Title = Strings.Get("imprimiendo_ticket");
                 return;
             }
         }

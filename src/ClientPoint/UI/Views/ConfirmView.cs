@@ -12,8 +12,7 @@ namespace ClientPoint.UI.Views {
             ConfigureCurrentControlHandle();
             fldCode.Control.Width = 180;
             fldCode.Control.Left = 150;
-            headerPanel.Title = 
-                "           Ingrese el código de confirmación enviado por SMS o a su casilla de correo.";
+            headerPanel.Title = $"           {Strings.Get("titulo_confirmar_cliente")}";
             headerPanel.Label.Font = FontUtils.Roboto(18, FontStyle.Bold);
         }
         
@@ -21,7 +20,7 @@ namespace ClientPoint.UI.Views {
 
         protected override void PerformValidation(ref List<string> errors) {
             if (string.IsNullOrEmpty(CodeValue))
-                errors.Add("Debe ingresar el código de confirmación.");
+                errors.Add("error_codigo");
         }
 
         private ConfirmCodeRequest CreateRequest => 

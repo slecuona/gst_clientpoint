@@ -46,5 +46,109 @@
     {
         "Key": "inactivo_2",
         "Value": "HEMOS DETECTADO INACTIVIDAD..."
+    },
+    {
+        "Key": "inactivo_continuar",
+        "Value": "SI, CONTINUAR..."
+    },
+    {
+        "Key": "titulo_ingrese_documento",
+        "Value": "Por favor, ingrese su número de documento."
+    },
+    {
+        "Key": "titulo_deslice_tarjeta",
+        "Value": "Por favor, deslice su tarjeta por el lector."
+    },
+    {
+        "Key": "titulo_confirmar_cliente",
+        "Value": "Ingrese el código de confirmación enviado por SMS o a su casilla de correo."
+    },
+    {
+        "Key": "titulo_nuevo_cliente",
+        "Value": "NUEVO CLIENTE"
+    },
+    {
+        "Key": "titulo_actualizar_cliente",
+        "Value": "Al confirmar, se reenviará el código de confirmación."
+    },
+    {
+        "Key": "imprimiendo_tarjeta",
+        "Value": "Imprimiendo tarjeta..."
+    },
+    {
+        "Key": "tarjeta_lista",
+        "Value": "Tarjeta lista! retírela por favor."
+    },
+    {
+        "Key": "imprimiendo_voucher",
+        "Value": "Imprimiendo voucher..."
+    },
+    {
+        "Key": "imprimiendo_ticket",
+        "Value": "Imprimiendo ticket de promoción..."
+    },
+    {
+        "Key": "error_nombre",
+        "Value": "Debe ingresar su nombre."
+    },
+    {
+        "Key": "error_apellido",
+        "Value": "Debe ingresar su apellido."
+    },
+    {
+        "Key": "error_documento",
+        "Value": "Debe ingresar su número de documento."
+    },
+    {
+        "Key": "error_sexo",
+        "Value": "Debe especificar su sexo."
+    },
+    {
+        "Key": "error_fecha_nac",
+        "Value": "La fecha de nacimiento ingresada no es válida."
+    },
+    {
+        "Key": "error_mayor_edad",
+        "Value": "Debe tener mas de 18 años para registrarse."
+    },
+    {
+        "Key": "error_mail_celular",
+        "Value": "Debe ingresar una dirección de correo electrónico o un número de celular."
+    },
+    {
+        "Key": "error_mail_iguales",
+        "Value": "Las direcciones de correo electrónico ingresadas no son iguales."
+    },
+    {
+        "Key": "error_pass_repeticion",
+        "Value": "Debe ingresar una contraseña y su repetición."
+    },
+    {
+        "Key": "error_pass_iguales",
+        "Value": "Las contraseñas ingresadas no son iguales."
+    },
+    {
+        "Key": "error_codigo",
+        "Value": "Debe ingresar el código de confirmación."
+    },
+    {
+        "Key": "error_premios",
+        "Value": "Hubo un error al obtener los premios disponibles.\nDisculpe las molestias."
+    },
+    {
+        "Key": "cliente_creado",
+        "Value": "Cliente creado correctamente."
+    },
+    {
+        "Key": "cliente_actualizado",
+        "Value": "Datos actualizados correctamente."
+    },
+    {
+        "Key": "codigo_enviado_mail",
+        "Value": "Se ha enviado el código de confirmación a su casilla de correo."
+    },
+    {
+        "Key": "codigo_enviado_sms",
+        "Value": "Se ha enviado el código de confirmación por SMS a su celular."
     }
 ]

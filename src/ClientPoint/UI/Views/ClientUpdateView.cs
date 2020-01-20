@@ -9,8 +9,7 @@ namespace ClientPoint.UI.Views {
         public ClientUpdateView() {
             InitializeComponent();
             ConfigureCurrentControlHandle();
-            headerPanel.Title =
-                "Al confirmar, se reenviará el código de confirmación.";
+            headerPanel.Title = Strings.Get("titulo_actualizar_cliente");
         }
 
         private string EmailValue => fldEmail.Value;
@@ -19,10 +18,10 @@ namespace ClientPoint.UI.Views {
 
         protected override void PerformValidation(ref List<string> errors) {
             if (string.IsNullOrEmpty(EmailValue) && string.IsNullOrEmpty(CellphoneValue))
-                errors.Add("Debe ingresar una dirección de correo electrónico o un número de celular.");
+                errors.Add(Strings.Get("error_mail_celular"));
             if ((!string.IsNullOrEmpty(EmailValue) || !string.IsNullOrEmpty(Email2Value)) && 
                 EmailValue != Email2Value)
-                errors.Add("Las direcciones de correo electrónico ingresadas no son iguales.");
+                errors.Add(Strings.Get("error_mail_iguales"));
         }
         
         private ClientUpdateRequest CreateRequest => 
@@ -40,13 +39,13 @@ namespace ClientPoint.UI.Views {
             var byMail = !string.IsNullOrEmpty(EmailValue);
             if (byMail) {
                 MsgBox.Email(
-                    "Datos actualizados correctamente.\n" +
-                    "Se ha enviado el código de confirmación a su casilla de correo.");
+                    Strings.Get("cliente_actualizado") + Environment.NewLine +
+                    Strings.Get("codigo_enviado_mail"));
             }
             else {
                 MsgBox.Sms(
-                    "Datos actualizados correctamente.\n" +
-                    "Se ha enviado el código de confirmación por SMS a su celular.");
+                    Strings.Get("cliente_actualizado") + Environment.NewLine +
+                    Strings.Get("codigo_enviado_sms"));
             }
             //UIManager.ShowWindow(Window.Confirm);
             UIManager.ShowView(View.Confirm);
