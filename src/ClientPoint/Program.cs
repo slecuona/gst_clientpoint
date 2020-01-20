@@ -28,6 +28,9 @@ namespace ClientPoint {
                     return;
                 }
 
+                if (!Strings.Init())
+                    return;
+
                 // Arranco el splash
                 UIManager.StartSplash();
                 

@@ -126,7 +126,7 @@ namespace ClientPoint.UI.Views
             this.lblWelcome.Padding = new System.Windows.Forms.Padding(0, 80, 0, 0);
             this.lblWelcome.Size = new System.Drawing.Size(1352, 143);
             this.lblWelcome.TabIndex = 4;
-            this.lblWelcome.Text = "BIENVENIDO";
+            this.lblWelcome.Text = Strings.Get("bienvenido");
             this.lblWelcome.TextAlignment = System.Drawing.ContentAlignment.TopCenter;
             // 
             // imgHost

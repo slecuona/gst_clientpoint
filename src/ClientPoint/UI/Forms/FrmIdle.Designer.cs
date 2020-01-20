@@ -65,7 +65,7 @@ namespace ClientPoint.UI.Forms
             this.radLabel1.Name = "radLabel1";
             this.radLabel1.Size = new System.Drawing.Size(201, 41);
             this.radLabel1.TabIndex = 1;
-            this.radLabel1.Text = "¿SIGUES AHÍ?";
+            this.radLabel1.Text = Strings.Get("inactivo_1");
             // 
             // lblIcon
             // 
@@ -83,7 +83,7 @@ namespace ClientPoint.UI.Forms
             this.radLabel2.Name = "radLabel2";
             this.radLabel2.Size = new System.Drawing.Size(415, 34);
             this.radLabel2.TabIndex = 3;
-            this.radLabel2.Text = "HEMOS DETECTADO INACTIVIDAD...";
+            this.radLabel2.Text = Strings.Get("inactivo_2");
             // 
             // lblTime
             // 

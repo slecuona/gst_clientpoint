@@ -24,11 +24,13 @@ namespace ClientPoint.Espf {
             }
         }
 
-        public static object Deserialize(Type type, string json) {
+        public static object Deserialize(Type type, string json, Encoding encoding = null) {
             try {
+                if(encoding == null)
+                    encoding = Encoding.UTF8;
                 var serializer = new DataContractJsonSerializer(type);
                 object result;
-                using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(json))) {
+                using (var ms = new MemoryStream(encoding.GetBytes(json))) {
                     result = serializer.ReadObject(ms);
                 }
                 return result;

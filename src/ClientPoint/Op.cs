@@ -29,7 +29,7 @@ namespace ClientPoint {
                 }
                 else {
                     // El usuario ya existe.
-                    return "Ya existe un usuario con el numero de documento ingresado.";
+                    return Strings.Get("cliente_ya_existe");
                 }
             };
             //ShowWindow(Window.DocumentInput);
@@ -40,13 +40,13 @@ namespace ClientPoint {
         // desea confirmar o actualizar datos.
         private static string OnConfirmDocInputExistingUsr(ClientStatusResponse res) {
             if (res.NotExists) {
-                return "No existe un usuario con el numero de documento ingresado.";
+                return Strings.Get("cliente_no_existe");
             }
             else {
                 var cl = ClientSession.CurrClient;
                 if (cl.Status != ClientStatus.Pendiente &&
                     cl.Status != ClientStatus.SinTarjeta)
-                    return "El usuario ya fue confirmado.";
+                    return Strings.Get("cliente_confirmado");
                 //ShowWindow(Window.PasswordInput);
                 ShowView(View.PasswordInput);
                 return null;
@@ -58,10 +58,7 @@ namespace ClientPoint {
         private static bool IsEspfReady() {
             Status.EspfSupDeviceState();
             if (Status.EspfMayor == EspfMayorState.READY) return true;
-            MsgBox.Show(
-                $"En este momento no funciona la impresion de tarjetas." +
-                Environment.NewLine +
-                $"Disculpe las molestias.");
+            MsgBox.Show(Strings.Get("no_impresora_tarjeta"));
             return false;
         }
 
@@ -70,10 +67,7 @@ namespace ClientPoint {
             if (Status.ApiState == "OK")
                 return true;
             SafeExec(() => {
-                MsgBox.Show(
-                    $"En este momento hay problemas de conexión." +
-                    Environment.NewLine +
-                    $"Disculpe las molestias.");
+                MsgBox.Show(Strings.Get("problemas_conexion"));
             });
             return false;
         }
@@ -125,7 +119,7 @@ namespace ClientPoint {
                 pj.StartAsync();
             } catch (Exception ex) {
                 Logger.Exception(ex);
-                MsgBox.Error("Error al imprimir tarjeta.");
+                MsgBox.Error(Strings.Get("error_tarjeta"));
                 ShowWindow(Window.Ads);
             }
         }
@@ -133,7 +127,7 @@ namespace ClientPoint {
         private static void OnPrintCardFinish(bool success) {
             if (!success) {
                 SafeExec(() => {
-                    MsgBox.Error("Error al imprimir tarjeta.");
+                    MsgBox.Error(Strings.Get("error_tarjeta"));
                     ShowWindow(Window.Ads);
                 });
             }
@@ -204,10 +198,7 @@ namespace ClientPoint {
                 Logger.Exception(e);
                 ClientSession.Clear();
                 SafeExec(() => {
-                    MsgBox.Error(
-                        "Hubo un error al recuperar los datos del cliente." +
-                        Environment.NewLine +
-                        "Disculpe las molestias.");
+                    MsgBox.Error(Strings.Get("error_cliente"));
                 });
             }
         }
@@ -244,11 +235,11 @@ namespace ClientPoint {
 
         private static string OnConfirmDocInputLogin(ClientStatusResponse res) {
             if (res.NotExists) {
-                return "No existe un usuario con el numero de documento ingresado.";
+                return Strings.Get("cliente_no_existe");
             } else {
                 var cl = ClientSession.CurrClient;
                 if (cl.Status != ClientStatus.Activo)
-                    return "El usuario no se encuentra activo.";
+                    return Strings.Get("cliente_no_activo");
                 ShowView(View.PasswordInput);
                 return null;
             }
@@ -282,9 +273,7 @@ namespace ClientPoint {
             catch (Exception e) {
                 Logger.Exception(e);
                 SafeExec(() => {
-                    MsgBox.Error(
-                        $"Hubo un error al canjear premio.{Environment.NewLine}" +
-                        $"Disculpe las molestias.");
+                    MsgBox.Error(Strings.Get("error_premio"));
                     ShowWindow(Window.Ads);
                 });
             }
@@ -294,7 +283,7 @@ namespace ClientPoint {
             if (!success) {
                 Logger.WriteAsync(errMsg);
                 SafeExec(() => {
-                    MsgBox.Error("Error al canjear premio.");
+                    MsgBox.Error(Strings.Get("error_premio"));
                     ShowWindow(Window.Ads);
                 });
                 return;

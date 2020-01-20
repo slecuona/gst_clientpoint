@@ -1,0 +1,50 @@
+[
+    {
+        "Key": "bienvenido",
+        "Value": "BIENVENIDO"
+    },
+    {
+        "Key": "problemas_conexion",
+        "Value": "En este momento hay problemas de conexión.\nDisculpe las molestias."
+    },
+    {
+        "Key": "error_tarjeta",
+        "Value": "Error al imprimir tarjeta."
+    },
+    {
+        "Key": "error_cliente",
+        "Value": "Hubo un error al recuperar los datos del cliente.\nDisculpe las molestias."
+    },
+    {
+        "Key": "cliente_no_existe",
+        "Value": "No existe un cliente con el numero de documento ingresado."
+    },
+    {
+        "Key": "cliente_ya_existe",
+        "Value": "Ya existe un cliente con el numero de documento ingresado."
+    },
+    {
+        "Key": "cliente_no_activo",
+        "Value": "El cliente no se encuentra activo."
+    },
+    {
+        "Key": "error_premio",
+        "Value": "Hubo un error al canjear premio.\nDisculpe las molestias."
+    },
+    {
+        "Key": "no_impresora_tarjeta",
+        "Value": "En este momento no funciona la impresion de tarjetas.\nDisculpe las molestias."
+    },
+    {
+        "Key": "cliente_confirmado",
+        "Value": "El cliente ya fue confirmado."
+    },
+    {
+        "Key": "inactivo_1",
+        "Value": "¿SIGUES AHÍ?"
+    },
+    {
+        "Key": "inactivo_2",
+        "Value": "HEMOS DETECTADO INACTIVIDAD..."
+    }
+]
