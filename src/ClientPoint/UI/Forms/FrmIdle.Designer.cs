@@ -69,10 +69,10 @@ namespace ClientPoint.UI.Forms
             // 
             // lblIcon
             // 
-            this.lblIcon.Image = global::ClientPoint.Properties.Resources.idle;
-            this.lblIcon.Location = new System.Drawing.Point(57, 39);
+            this.lblIcon.Image = global::ClientPoint.Properties.Resources.idle_ani;
+            this.lblIcon.Location = new System.Drawing.Point(53, 30);
             this.lblIcon.Name = "lblIcon";
-            this.lblIcon.Size = new System.Drawing.Size(82, 82);
+            this.lblIcon.Size = new System.Drawing.Size(150, 150);
             this.lblIcon.TabIndex = 2;
             // 
             // radLabel2
@@ -90,7 +90,7 @@ namespace ClientPoint.UI.Forms
             this.lblTime.AutoSize = false;
             this.lblTime.Font = new System.Drawing.Font("Roboto", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTime.ForeColor = System.Drawing.Color.White;
-            this.lblTime.Location = new System.Drawing.Point(57, 127);
+            this.lblTime.Location = new System.Drawing.Point(57, 135);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(82, 34);
             this.lblTime.TabIndex = 4;
