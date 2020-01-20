@@ -102,6 +102,12 @@ namespace ClientPoint.UI.Forms {
                 radWaitingBar1.StartWaiting();
             else
                 radWaitingBar1.StopWaiting();
+
+            btnLog.Enabled = !enabled;
+            btnTicket.Enabled = !enabled;
+            btnVoucher.Enabled = !enabled;
+            btnPrintCard.Enabled = !enabled;
+            btnRefresh.Enabled = !enabled;
         }
 
         private Thread _refreshThread;
@@ -150,23 +156,7 @@ namespace ClientPoint.UI.Forms {
             
             cell.Style.BackColor = ColorError;
         }
-
-        //private Color EspfStateMayorColor(EspfMayorState s) {
-        //    if (s == EspfMayorState.READY)
-        //        return ColorOk;
-        //    if (s == EspfMayorState.WARNING)
-        //        return ColorWarning;
-        //    return ColorError;
-        //}
-
-        //private Color TicketPrinterStateColor(TicketPrinterState s) {
-        //    if (s == TicketPrinterState.OK)
-        //        return ColorOk;
-        //    if (s == TicketPrinterState.ALMOSTEMPTY)
-        //        return ColorWarning;
-        //    return ColorError;
-        //}
-
+        
         private void RefreshGrid() {
             debugMode.Value = Config.DebugMode;
             var errC = Logger.ExceptionCount;
@@ -247,9 +237,7 @@ namespace ClientPoint.UI.Forms {
         private void btnPrintCard_Click(object sender, EventArgs e) {
             lblStatus.Text = "Imprimiendo tarjeta de prueba...";
             Loading(true);
-            btnPrintCard.Enabled = false;
-            btnRefresh.Enabled = false;
-
+            
             try {
                 var pj = new PrintJob(new Client() {
                     Name = "TARJETA",
@@ -279,8 +267,6 @@ namespace ClientPoint.UI.Forms {
                 Loading(false);
                 lblStatus.Text = success ? "Impresion de tarjeta de prueba finalizada" :
                     "Error al imprimir tarjeta de prueba";
-                btnPrintCard.Enabled = true;
-                btnRefresh.Enabled = true;
             });
         }
 
