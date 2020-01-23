@@ -158,7 +158,7 @@ namespace ClientPoint {
             "http://192.168.10.12/mobile/api/ClientPoint/";
         public static string ApiUrl;
 
-        public const string TEST_CARD = "0010154658787";
+        public const string TEST_CARD = "6000110707818";
 
         public const string TEST_VOUCHER =
             " ************************************* \n        CASINO DE GST INTERNATIONAL \n           CANJE DE PREMIO \nN#TICKET:                      45\nCAJA#:                         26\nUSUARIO:              CajaCliente\nFECHA:                 21/10/2019\nHORA:                    11:22:37\nFECHA APLICACION:      21/10/2019\nPremio                 Sorpresa\nPuntos Canjeados                20\n\u001ba\u0001\u001dhZ\u001dk\u000525183\0\n\u001ba\u000125183\n  \n  \n  \n ____________________________________ \n Firma Cliente \n  \n  \n  \n ___________________________________ \n Firma Supervisor \n  \n *************************************   \n\n\n\n\n\n\n\n\u001bi";
