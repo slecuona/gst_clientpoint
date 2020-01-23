@@ -148,6 +148,9 @@ namespace ClientPoint.Api {
 
         public static Reward GetRewardsCampaign(string idCard) {
             try {
+                //if (Config.DebugMode) {
+                //    return GetRewards(idCard)[0];
+                //}
                 var json = SendRequest("GetRewardsCampaign", ToJson(new ClientLoadRequest() {
                     IdCard = idCard
                 }));
