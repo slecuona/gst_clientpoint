@@ -149,7 +149,7 @@ namespace ClientPoint {
                     IdCard = cl.IdCard
                 }, out string err);
                 DieIf(!cardCreated, err);
-                ShowWindow(Window.Ads);
+                SafeExec(()=> ShowWindow(Window.Ads));
             }
         }
         

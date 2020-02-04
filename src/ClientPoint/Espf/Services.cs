@@ -58,7 +58,7 @@ namespace ClientPoint.Espf {
 
         // Devuelve la session actual.
         // (No creo que lo usemos)
-        public static string PrintGetJobID(string id, string session) {
+        public static string PrintGetJobID(string id) {
             var req = new PrintRequest(id, PrintMethods.GetJobID,
                 new PrintParams() {
                     device = Config.EspfPrinter

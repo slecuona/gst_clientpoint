@@ -91,6 +91,8 @@ namespace ClientPoint.Espf {
                 State = PrintState.PreparingPrinting;
                 DieIf(string.IsNullOrEmpty(_client.IdCard),
                     "El cliente no tiene IdCard asignado.");
+                
+                CheckSessionInProgress();
 
                 // 1 - Begin
                 _sessionId = Services.PrintBegin("PRINT1");
@@ -127,8 +129,28 @@ namespace ClientPoint.Espf {
                         () => Services.PrintEnd("PRINT5", _sessionId),
                         "PrintEnd");
                 }
+                Logger.Commit();
                 OnFinish?.Invoke(_state == PrintState.Success);
             }
+        }
+
+        private void CheckSessionInProgress() {
+            try {
+                var prevSession = Services.PrintGetJobID("PRINT0");
+                Logger.DebugWrite($"GetJobId: {prevSession}");
+                // Hay un session en progreso, tenemos que finalizarla
+                // antes de continuar.
+                if (!string.IsNullOrEmpty(prevSession)) {
+                    ExecStepOrFail(
+                        () => Services.PrintEnd("PRINT00", prevSession),
+                        "PrintEnd");
+                }
+            }
+            catch (Exception e) {
+                // Si esto falla, es porque no hay session en progreso.
+                // Lo cual está ok.
+            }
+            
         }
 
         private void CheckStatus(object state) {

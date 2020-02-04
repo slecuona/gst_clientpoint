@@ -135,6 +135,8 @@ namespace ClientPoint.UI {
             lock (_locker) {
                 if (toShow == CurrWindow)
                     return;
+
+                Logger.DebugWrite($"ShowWindow: {toShow}");
                 CloseControlForm();
                 var prev = CurrWindow;
                 CurrWindow = toShow;
@@ -160,6 +162,7 @@ namespace ClientPoint.UI {
         public static void ShowView(View toShow) {
             lock (_locker) {
                 IdleTimer.OnBusy();
+                Logger.DebugWrite($"ShowView: {toShow}");
                 if (toShow != View.None) {
                     var w = _views[toShow].GetParentWindow();
                     ShowWindow(w);

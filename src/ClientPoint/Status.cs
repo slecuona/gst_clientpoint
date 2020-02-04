@@ -153,6 +153,7 @@ namespace ClientPoint {
                 EspfMinor = minor;
                 if(checkErrors)
                     CheckErrors();
+                Logger.Commit();
             }
         }
 
@@ -163,10 +164,14 @@ namespace ClientPoint {
                 // Ya que puede ser utilizada durante la impresion.
                 state = Services.CmdGetStatus("GST2", false);
                 return true;
-            } catch (Exception e) {
+            }
+            catch (Exception e) {
                 Logger.Exception(e);
                 state = e.Message;
                 return false;
+            }
+            finally {
+                Logger.Commit();
             }
         }
 
