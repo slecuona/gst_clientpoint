@@ -159,6 +159,7 @@ namespace ClientPoint.UI {
 
         public static void ShowView(View toShow) {
             lock (_locker) {
+                IdleTimer.OnBusy();
                 if (toShow != View.None) {
                     var w = _views[toShow].GetParentWindow();
                     ShowWindow(w);
