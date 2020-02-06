@@ -194,8 +194,7 @@ namespace ClientPoint.Api {
                 "ExchangeTicketPromoPending", req, out errMsg);
             return (ExchangeTPPResponse)res;
         }
-
-
+        
         public static bool CancelTicketPromoPending(string validationNo, out string errMsg) {
             var req = new CancelTPPRequest() {
                 ValidationNo = validationNo
@@ -203,6 +202,24 @@ namespace ClientPoint.Api {
             var res = PrepareAndSendRequest<BaseResponse>(
                 "CancelTicketPromoPending", req, out errMsg);
             return res.ResponseCode == 0;
+        }
+
+        public static bool SendMail(string sentTo, string subject, string body, out string errMsg) {
+            var req = new SendMailRequest() {
+                Mail = sentTo,
+                Subject = subject,
+                Txt = body
+            };
+            errMsg = "";
+            //var json = ToJson(req).Replace("\\u000d\\u000a", Environment.NewLine);
+            var json = ToJson(req);
+            var res = SendRequest("SendMail", json);
+            // Si la respuesta esta vacia, esta ok.
+            if (!string.IsNullOrEmpty(res)) {
+                errMsg = res;
+                return false;
+            }
+            return true;
         }
     }
 }

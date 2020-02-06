@@ -163,5 +163,14 @@ namespace Tests {
             var res = ApiService.GetRewardsCampaign(Config.TEST_CARD);
             Assert.IsTrue(res != null);
         }
+
+        [TestMethod]
+        public void SendMail() {
+            var res = ApiService.SendMail(
+                Config.AlertMailSentTo,
+                "ClientPoint Test",
+                $"Mensaje de prueba.{Environment.NewLine}Fin.", out string errMsg);
+            Assert.IsTrue(res);
+        }
     }
 }

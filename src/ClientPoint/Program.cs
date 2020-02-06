@@ -53,6 +53,8 @@ namespace ClientPoint {
                 var frm = UIManager.GetActiveForm();
                 frm?.Activate();
 
+                UIManager.RefreshErrorIcon();
+
                 // Pantalla principal / inicial (publicidades)
                 Application.Run(frm);
                 // Libero mutex

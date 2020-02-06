@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net;
+using System.Text;
 using ClientPoint.Api;
 using ClientPoint.Espf;
 using ClientPoint.IO;
@@ -45,6 +46,65 @@ namespace ClientPoint {
             Api();
             CheckTicketPrinter();
             CheckVoucherPrinter();
+            SendMailAlert();
+        }
+
+        private static StringBuilder _lastMsg;
+
+        private static void SendMailAlert() {
+            if (ApiState != "OK")
+                // No tenemos manera de mandar mail.
+                return;
+
+            if (string.IsNullOrEmpty(Config.AlertMailSentTo))
+                return;
+
+            var body = new StringBuilder();
+            if (EspfMayor != EspfMayorState.READY) {
+                //body.AppendLine("\\r \\n \r \n \\n\\n \\u000d \u000d \u000a \\u000a \u000d\u000a \\u000d\\u000a \\r \\n \r \n \\n\\n \\u000d \r \n \\u000a \r\n \\u000d\\u000a");
+                body.AppendLine($"Estado de impresora de tarjeta: ");
+                body.AppendLine($" - EspfMayorState: {EspfMayor} ");
+                body.AppendLine($" - EspfMinorState: {EspfMinor} ");
+                if (EspfMinor == "FEEDER_EMPTY")
+                    body.AppendLine(" - No hay tarjetas, no se puede imprimir. ");
+                if (EspfMinor == "INF_FEEDER_NEAR_EMPTY")
+                    body.AppendLine(" - Quedan pocas tarjetas. ");
+            }
+            if (!TicketPrinter.Contains(TicketPrinterState.OK)) {
+                body.AppendLine($"Estado de impresora de tickets: ");
+                foreach (var s in TicketPrinter) {
+                    body.AppendLine($" - {s} ");
+                }
+                if (TicketPrinter.Contains(TicketPrinterState.EMPTY))
+                    body.AppendLine($" - Sin papel. ");
+                if (TicketPrinter.Contains(TicketPrinterState.ALMOST_EMPTY))
+                    body.AppendLine($" - Queda poco papel. ");
+            }
+
+            if (!VoucherPrinter.Contains(VoucherPrinterState.OK)) {
+                body.AppendLine($"Estado de impresora de voucher: ");
+                foreach (var s in VoucherPrinter) {
+                    body.AppendLine($" - {s} ");
+                }
+                if (VoucherPrinter.Contains(VoucherPrinterState.EMPTY))
+                    body.AppendLine($" - Sin papel. ");
+                if (VoucherPrinter.Contains(VoucherPrinterState.ALMOST_EMPTY))
+                    body.AppendLine($" - Queda poco papel. ");
+            }
+
+            if (body.Length > 0) {
+                var bodyStr = body.ToString();
+                if (_lastMsg?.ToString() == bodyStr)
+                    // Evito enviar el mismo mail...
+                    return;
+                Logger.DebugWrite(
+                    $"SendMail: {Environment.NewLine}{bodyStr}");
+                _lastMsg = body;
+                ApiService.SendMail(
+                    Config.AlertMailSentTo,
+                    $"{Config.AlertMailSubject} [#1]",
+                    bodyStr, out string errMsg);
+            }
         }
 
         private static void CheckErrors() {

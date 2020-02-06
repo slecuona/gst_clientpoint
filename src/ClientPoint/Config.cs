@@ -78,6 +78,9 @@ namespace ClientPoint {
             PhonePrefix1 = GetSetting("PhonePrefix1", "+54 9");
             PhonePrefix2 = GetSetting("PhonePrefix2", "15");
 
+            AlertMailSentTo = GetSetting("AlertMailSentTo", "");
+            AlertMailSubject = GetSetting("AlertMailSubject", "ClientPoint - Alerta");
+
             LoadHostLogo();
         }
 
@@ -150,6 +153,9 @@ namespace ClientPoint {
 
         public static string PhonePrefix1 = "";
         public static string PhonePrefix2 = "";
+
+        public static string AlertMailSentTo = "";
+        public static string AlertMailSubject = "";
 
         /// <summary>
         /// URL Base de la API.

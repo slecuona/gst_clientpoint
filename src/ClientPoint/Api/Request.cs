@@ -58,4 +58,10 @@ namespace ClientPoint.Api {
     public struct CancelTPPRequest {
         public string ValidationNo;
     }
+
+    public struct SendMailRequest {
+        public string Mail;
+        public string Subject;
+        public string Txt;
+    }
 }
