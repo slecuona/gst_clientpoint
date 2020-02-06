@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using ClientPoint.Utils;
@@ -46,8 +47,8 @@ namespace ClientPoint.UI.Controls {
         }
         
         private void TxtCodOnValidated(object sender, EventArgs e) {
-            if (int.TryParse(txtCod.Text, out int day)) {
-                if (day > 0 && day <= 4000)
+            if (int.TryParse(txtCod.Text, out int cod)) {
+                if (CodArea.Valid(cod))
                     return;
             }
 
@@ -90,15 +91,17 @@ namespace ClientPoint.UI.Controls {
                 return $"{txtCod.Text}{txtNum.Text}";
             }
             set {
-                if (value == null || value == string.Empty) {
+                if (string.IsNullOrEmpty(value)) {
                     txtCod.Text = "";
                     txtNum.Text = "";
                     return;
                 }
 
-                txtCod.Text = "11";
-                txtNum.Text = value;
+                var num = CodArea.Parse(value);
+                txtCod.Text = num.Item1;
+                txtNum.Text = num.Item2;
             }
         }
+
     }
 }

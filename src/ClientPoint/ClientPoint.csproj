@@ -86,6 +86,7 @@
     <Compile Include="IO\SerialPrinter.cs" />
     <Compile Include="IO\TicketPrinter.cs" />
     <Compile Include="IO\VoucherPrinter.cs" />
+    <Compile Include="CodArea.cs" />
     <Compile Include="Keyboard\FrmNumKeyBoard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -496,6 +497,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="CodArea.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Strings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

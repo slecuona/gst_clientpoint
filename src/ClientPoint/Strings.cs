@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using ClientPoint.Espf;
 using ClientPoint.Utils;
 using Telerik.WinControls;
 using StorageDic = System.Collections.Generic.Dictionary<string, string>;
+
 namespace ClientPoint {
     public static class Strings {
         private const string FILE_NAME = "Strings.json";
@@ -25,7 +25,7 @@ namespace ClientPoint {
             catch (Exception e) {
                 Logger.Exception(e);
                 RadMessageBox.Show(
-                    "Error al leer archivo de recursos 'Strings.json'.\n" +
+                    $"Error al leer archivo de recursos '{FILE_NAME}'.\n" +
                     "Verifique que el archivo exista y sea un json válido.");
                 return false;
             }
