@@ -288,7 +288,7 @@ namespace ClientPoint.UI {
             if (header == null)
                 return;
             SafeExec(()=> 
-                header.lblError.Visible = Status.HasErrors && !Config.DebugMode);
+                header.lblError.Visible = Status.HasErrors || Status.HasWarnings);
         }
 
         public static void HideOverlay() {

@@ -42,6 +42,7 @@ namespace ClientPoint.UI.Views
         public override void BeforeShow() {
             ClientSession.Clear();
             UIManager.SetKeyboard(Keyboard.None);
+            Status.RefreshAsync();
             base.BeforeShow();
         }
 

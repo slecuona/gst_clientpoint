@@ -64,4 +64,8 @@ namespace ClientPoint.Api {
         public string Subject;
         public string Txt;
     }
+
+    public struct GetKioskRequest {
+        public string IdKiosk;
+    }
 }

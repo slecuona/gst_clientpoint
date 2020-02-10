@@ -172,5 +172,16 @@ namespace Tests {
                 $"Mensaje de prueba.{Environment.NewLine}Fin.", out string errMsg);
             Assert.IsTrue(res);
         }
+        
+        [TestMethod]
+        public void GetKiosk() {
+            var res = ApiService.GetKiosk("1");
+            Assert.IsTrue(res.Name != null);
+            Assert.IsTrue(res.ShortName != null);
+            Assert.IsTrue(res.IdKiosco == 1);
+            
+            var res2 = ApiService.GetKiosk("123");
+            Assert.IsTrue(res2.IdKiosco == 0);
+        }
     }
 }

@@ -205,13 +205,13 @@ namespace ClientPoint.Api {
         }
 
         public static bool SendMail(string sentTo, string subject, string body, out string errMsg) {
+            body = body.Replace("\r\n", "<br/>");
             var req = new SendMailRequest() {
                 Mail = sentTo,
                 Subject = subject,
                 Txt = body
             };
             errMsg = "";
-            //var json = ToJson(req).Replace("\\u000d\\u000a", Environment.NewLine);
             var json = ToJson(req);
             var res = SendRequest("SendMail", json);
             // Si la respuesta esta vacia, esta ok.
@@ -220,6 +220,14 @@ namespace ClientPoint.Api {
                 return false;
             }
             return true;
+        }
+
+        public static KioscoResponse GetKiosk(string id) {
+            var jsonRes = SendRequest("GetKiosk", ToJson(new GetKioskRequest() {
+                IdKiosk = id
+            }));
+            var res = JsonUtils.Deserialize(typeof(KioscoResponse), jsonRes);
+            return (KioscoResponse)res;
         }
     }
 }

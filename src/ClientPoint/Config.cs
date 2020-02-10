@@ -30,6 +30,8 @@ namespace ClientPoint {
         }
 
         static Config() {
+            IdKiosk = GetSetting("IdKiosk", "0");
+
             // ESPF
             EspfIp = GetSetting("EspfIp", "127.0.0.1");
             EspfPort = GetSetting("EspfPort", "18000");
@@ -98,7 +100,16 @@ namespace ClientPoint {
                 throw new Exception("Error al cargar imagen logo host.", e);
             }
         }
-        
+
+        /// <summary>
+        /// Id. del kiosko (Se valida contra la API)
+        /// </summary>
+        public static string IdKiosk;
+
+        // Se obtienen con la API
+        public static string KioskName;
+        public static string KioskShortName;
+
         /// <summary>
         /// Ip del servidor ESPF
         /// </summary>

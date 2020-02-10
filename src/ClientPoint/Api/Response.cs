@@ -33,4 +33,10 @@
         public string TicketToPrinter;
         public string ValidationNo;
     }
+
+    public class KioscoResponse {
+        public int IdKiosco;
+        public string Name;
+        public string ShortName;
+    }
 }

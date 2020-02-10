@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Threading;
 using System.Windows.Forms;
+using ClientPoint.Api;
 using ClientPoint.UI;
 using ClientPoint.Utils;
 using Telerik.WinControls;
@@ -40,6 +41,16 @@ namespace ClientPoint {
                 // Inicializa logs
                 Logger.Init();
 
+                // Validar IdKiosk
+                if (!InitKioskId()) {
+                    UIManager.SafeExecOnActiveForm(owner =>
+                        RadMessageBox.Show(owner,
+                            $"Error al validar 'IdKiosk'. " +
+                            $"Verifique su valor en el archivo de configuración."));
+                    Environment.Exit(0);
+                    return;
+                }
+
                 KillEvolisCenter();
 
                 Status.Init();
@@ -76,6 +87,24 @@ namespace ClientPoint {
         private static void KillEvolisCenter() {
             foreach (var process in Process.GetProcessesByName("PrinterManager")) {
                 process.Kill();
+            }
+        }
+
+        private static bool InitKioskId() {
+            try {
+                var res = ApiService.GetKiosk(Config.IdKiosk);
+                Config.KioskName = res.Name;
+                Config.KioskShortName = res.ShortName;
+                var valid = res.IdKiosco != 0;
+                var msg = $"IdKiosk: {Config.IdKiosk} => " +
+                          $"[{(valid ? "OK" : "NOT OK")}]";
+                Logger.Write(msg).Wait();
+                UIManager.SplashStatus(msg);
+                return valid;
+            }
+            catch (Exception e) {
+                Logger.Exception(e);
+                return false;
             }
         }
     }

@@ -10,6 +10,10 @@ using ClientPoint.Utils;
 
 namespace ClientPoint.UI.Forms {
     public partial class FrmControl : Telerik.WinControls.UI.RadForm {
+        private DataGridViewCell kioskId;
+        private DataGridViewCell kioskName;
+        private DataGridViewCell kioskShortName;
+
         private DataGridViewCell debugMode;
         private DataGridViewCell errors;
         private DataGridViewCell points;
@@ -42,9 +46,12 @@ namespace ClientPoint.UI.Forms {
         private DataGridViewCell idleSeconds;
         private DataGridViewCell idleMessageSeconds;
         
-        public FrmControl()
-        {
+        public FrmControl() {
             InitializeComponent();
+
+            kioskId = AddRow("Kiosco - Id.");
+            kioskName = AddRow("Kiosco - Nombre");
+            kioskShortName = AddRow("Kiosco - Nombre corto");
 
             debugMode = AddRow("APP - Modo debug");
 
@@ -158,6 +165,10 @@ namespace ClientPoint.UI.Forms {
         }
         
         private void RefreshGrid() {
+            kioskId.Value = Config.IdKiosk;
+            kioskName.Value = Config.KioskName;
+            kioskShortName.Value = Config.KioskShortName;
+
             debugMode.Value = Config.DebugMode;
             var errC = Logger.ExceptionCount;
             errors.Value = errC;

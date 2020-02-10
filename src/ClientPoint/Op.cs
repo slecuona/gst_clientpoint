@@ -131,6 +131,7 @@ namespace ClientPoint {
                     ShowWindow(Window.Ads);
                 });
             }
+            Status.RefreshAsync();
         }
 
         private static void OnPrintStateChanged(PrintState s) {
@@ -280,6 +281,7 @@ namespace ClientPoint {
         }
 
         private static void OnRewardExchangeFinish(bool success, string errMsg) {
+            Status.RefreshAsync();
             if (!success) {
                 Logger.WriteAsync(errMsg);
                 SafeExec(() => {

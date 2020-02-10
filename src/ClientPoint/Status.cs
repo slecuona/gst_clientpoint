@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Net;
 using System.Text;
+using System.Threading;
 using ClientPoint.Api;
 using ClientPoint.Espf;
 using ClientPoint.IO;
@@ -12,6 +13,8 @@ using Telerik.WinControls;
 namespace ClientPoint {
     // Esta clase chequea el estado los distintos servicios / dispositivos
     public static class Status {
+
+        private static object _locker = new object();
 
         public static string EspfServiceConn = "";
         // The major states provide global information on the device.
@@ -26,6 +29,7 @@ namespace ClientPoint {
 
         public static List<VoucherPrinterState> VoucherPrinter;
         public static bool HasErrors { get; set; }
+        public static bool HasWarnings { get; set; }
 
         private static void ShowError(string msg) {
             msg = $"ERROR: {msg}";
@@ -39,14 +43,22 @@ namespace ClientPoint {
             Api(true);
             CheckTicketPrinter(true);
             CheckVoucherPrinter(true);
+            SendMailAlert();
         }
 
         public static void Refresh() {
-            Espf();
-            Api();
-            CheckTicketPrinter();
-            CheckVoucherPrinter();
-            SendMailAlert();
+            lock (_locker) {
+                Espf();
+                Api();
+                CheckTicketPrinter();
+                CheckVoucherPrinter();
+                SendMailAlert();
+            }
+        }
+
+        public static void RefreshAsync() {
+            var t = new Thread(Refresh);
+            t.Start();
         }
 
         private static StringBuilder _lastMsg;
@@ -59,37 +71,60 @@ namespace ClientPoint {
             if (string.IsNullOrEmpty(Config.AlertMailSentTo))
                 return;
 
+            if (!HasErrors && !HasWarnings)
+                return;
+
+            var kioskName = $"Kiosco: ";
+            if (!string.IsNullOrEmpty(Config.KioskShortName))
+                kioskName += $"'{Config.KioskShortName}' ";
+            kioskName += $"[#{Config.IdKiosk}]";
+
             var body = new StringBuilder();
+            body.AppendLine($"<b>Reporte de estado. {kioskName}</b>");
+            body.AppendLine($"{DateTime.Now:dd/MM/yyyy HH:mm}");
+            body.AppendLine();
+
             if (EspfMayor != EspfMayorState.READY) {
-                //body.AppendLine("\\r \\n \r \n \\n\\n \\u000d \u000d \u000a \\u000a \u000d\u000a \\u000d\\u000a \\r \\n \r \n \\n\\n \\u000d \r \n \\u000a \r\n \\u000d\\u000a");
-                body.AppendLine($"Estado de impresora de tarjeta: ");
+                body.AppendLine($"<b>Estado de impresora de tarjeta:</b>");
                 body.AppendLine($" - EspfMayorState: {EspfMayor} ");
-                body.AppendLine($" - EspfMinorState: {EspfMinor} ");
+                if(!string.IsNullOrEmpty(EspfMinor))
+                    body.AppendLine($" - EspfMinorState: {EspfMinor} ");
                 if (EspfMinor == "FEEDER_EMPTY")
                     body.AppendLine(" - No hay tarjetas, no se puede imprimir. ");
                 if (EspfMinor == "INF_FEEDER_NEAR_EMPTY")
                     body.AppendLine(" - Quedan pocas tarjetas. ");
+                body.AppendLine();
             }
-            if (!TicketPrinter.Contains(TicketPrinterState.OK)) {
-                body.AppendLine($"Estado de impresora de tickets: ");
+            if (!TicketPrinter.Contains(TicketPrinterState.OK)|| TicketPrinter.Count > 1) {
+                body.AppendLine($"<b>Estado de impresora de tickets:</b>");
                 foreach (var s in TicketPrinter) {
+                    if (s == TicketPrinterState.EMPTY) {
+                        body.AppendLine($" - Sin papel. ");
+                        continue;
+                    }
+                    if (s == TicketPrinterState.ALMOST_EMPTY) {
+                        body.AppendLine($" - Queda poco papel. ");
+                        continue;
+                    }
                     body.AppendLine($" - {s} ");
                 }
-                if (TicketPrinter.Contains(TicketPrinterState.EMPTY))
-                    body.AppendLine($" - Sin papel. ");
-                if (TicketPrinter.Contains(TicketPrinterState.ALMOST_EMPTY))
-                    body.AppendLine($" - Queda poco papel. ");
+                body.AppendLine();
             }
 
-            if (!VoucherPrinter.Contains(VoucherPrinterState.OK)) {
-                body.AppendLine($"Estado de impresora de voucher: ");
+            if (!VoucherPrinter.Contains(VoucherPrinterState.OK) || VoucherPrinter.Count > 1) {
+                body.AppendLine($"<b>Estado de impresora de voucher:</b>");
                 foreach (var s in VoucherPrinter) {
+                    if (s == VoucherPrinterState.EMPTY) {
+                        body.AppendLine($" - Sin papel. ");
+                        continue;
+                    }
+                    if (s == VoucherPrinterState.ALMOST_EMPTY) {
+                        body.AppendLine($" - Queda poco papel. ");
+                        continue;
+                    }
                     body.AppendLine($" - {s} ");
                 }
-                if (VoucherPrinter.Contains(VoucherPrinterState.EMPTY))
-                    body.AppendLine($" - Sin papel. ");
-                if (VoucherPrinter.Contains(VoucherPrinterState.ALMOST_EMPTY))
-                    body.AppendLine($" - Queda poco papel. ");
+                body.AppendLine();
             }
 
             if (body.Length > 0) {
@@ -100,19 +135,24 @@ namespace ClientPoint {
                 Logger.DebugWrite(
                     $"SendMail: {Environment.NewLine}{bodyStr}");
                 _lastMsg = body;
+                
                 ApiService.SendMail(
                     Config.AlertMailSentTo,
-                    $"{Config.AlertMailSubject} [#1]",
+                    $"{Config.AlertMailSubject} - {kioskName}",
                     bodyStr, out string errMsg);
             }
         }
 
-        private static void CheckErrors() {
+        private static void CheckErrorsAndWarnings() {
             HasErrors =
                 EspfMayor != EspfMayorState.READY ||
                 (TicketPrinter != null && !TicketPrinter.Contains(TicketPrinterState.OK)) ||
                 (VoucherPrinter != null && !VoucherPrinter.Contains(VoucherPrinterState.OK)) ||
                 ApiState != "OK";
+            HasWarnings =
+                EspfMayor == EspfMayorState.WARNING ||
+                (TicketPrinter != null && TicketPrinter.Contains(TicketPrinterState.ALMOST_EMPTY)) ||
+                (VoucherPrinter != null && VoucherPrinter.Contains(VoucherPrinterState.ALMOST_EMPTY));
             UIManager.RefreshErrorIcon();
         }
 
@@ -134,7 +174,7 @@ namespace ClientPoint {
             var espfOk = EspfServiceConnStatus(out EspfServiceConn);
             
             if (init)
-                Print($"ESPF Service => {EspfServiceConn}");
+                Print($"ESPF Service => [{EspfServiceConn}]");
 
             //EspfMayor = EspfMayorState.NONE;
             //EspfMinor = "";
@@ -212,7 +252,7 @@ namespace ClientPoint {
                 EspfMayor = mayor;
                 EspfMinor = minor;
                 if(checkErrors)
-                    CheckErrors();
+                    CheckErrorsAndWarnings();
                 Logger.Commit();
             }
         }
@@ -251,8 +291,8 @@ namespace ClientPoint {
             }
             finally {
                 if (init)
-                    Print($"API Connection => {ApiState}");
-                CheckErrors();
+                    Print($"API Connection => [{ApiState}]");
+                CheckErrorsAndWarnings();
             }
         }
 
@@ -269,7 +309,7 @@ namespace ClientPoint {
                     Print($"Ticket Printer => {string.Join(" | ", TicketPrinter)}");
                     Print($"Ticket Printer Str => {TicketPrinterString}");
                 }
-                CheckErrors();
+                CheckErrorsAndWarnings();
             }
         }
 
@@ -284,7 +324,7 @@ namespace ClientPoint {
             } finally {
                 if (init)
                     Print($"Voucher Printer => {string.Join("|", VoucherPrinter.ToArray())}");
-                CheckErrors();
+                CheckErrorsAndWarnings();
             }
         }
     }
